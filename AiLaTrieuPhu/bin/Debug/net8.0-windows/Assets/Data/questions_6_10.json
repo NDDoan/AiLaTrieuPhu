@@ -1,0 +1,129 @@
+[
+    {
+        "questionText": "Ai là người sáng lập Microsoft?",
+        "options": [ "Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Larry Page" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Microsoft được đồng sáng lập bởi Bill Gates và Paul Allen (Bill Gates là người nổi tiếng hơn)."
+    },
+    {
+        "questionText": "Trong HTML, thẻ nào dùng để tạo liên kết (link)?",
+        "options": [ "<a>", "<div>", "<span>", "<link>" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Thẻ <a> được dùng để tạo liên kết trong HTML."
+    },
+    {
+        "questionText": "Đơn vị đo tần số là gì?",
+        "options": [ "Newton", "Pascal", "Hertz", "Joule" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Tần số được đo bằng hertz (Hz)."
+    },
+    {
+        "questionText": "AI là viết tắt của từ tiếng Anh nào?",
+        "options": [ "Automated Internet", "Artificial Intelligence", "Advanced Interface", "Active Input" ],
+        "correctAnswerIndex": 1,
+        "explanation": "AI là viết tắt của Artificial Intelligence (Trí tuệ nhân tạo)."
+    },
+    {
+        "questionText": "Trong cơ thể người, bộ phận nào bơm máu đi khắp cơ thể?",
+        "options": [ "Phổi", "Gan", "Tim", "Thận" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Tim bơm máu đi khắp cơ thể."
+    },
+    {
+        "questionText": "Ngôn ngữ lập trình nào được biết đến với cú pháp 'class' và 'public static void main'?",
+        "options": [ "Python", "Java", "Ruby", "JavaScript" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Java sử dụng khai báo class và phương thức public static void main để bắt đầu chương trình."
+    },
+    {
+        "questionText": "Sông dài nhất thế giới theo truyền thống là con sông nào?",
+        "options": [ "Amazon", "Nile", "Yangtze", "Mississippi" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Truyền thống cho rằng sông Nile là sông dài nhất; có tranh luận với Amazon nhưng đáp án phổ biến là Nile."
+    },
+    {
+        "questionText": "Trong toán học, π (pi) xấp xỉ bằng bao nhiêu?",
+        "options": [ "2.14", "3.14", "4.13", "1.41" ],
+        "correctAnswerIndex": 1,
+        "explanation": "π ≈ 3.14159, thường làm tròn là 3.14."
+    },
+    {
+        "questionText": "Phần mềm mã nguồn mở (open source) nghĩa là gì?",
+        "options": [ "Không được phép sử dụng", "Mã nguồn công khai và có thể sửa đổi", "Phần mềm miễn phí luôn", "Phần mềm chỉ chạy trên máy chủ" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Open source nghĩa là mã nguồn được công khai và thường cho phép sửa đổi và phân phối theo giấy phép."
+    },
+    {
+        "questionText": "Trong mô hình OSI, tầng nào đảm nhiệm truyền dữ liệu giữa các host (networking)?",
+        "options": [ "Tầng vật lý", "Tầng liên kết dữ liệu (Data Link)", "Tầng mạng (Network)", "Tầng ứng dụng" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Tầng mạng (Network) chịu trách nhiệm định tuyến và truyền gói giữa các host."
+    },
+    {
+        "questionText": "Ai là tác giả của 'Truyện Kiều'?",
+        "options": [ "Nguyễn Du", "Nguyễn Trãi", "Hồ Xuân Hương", "Phan Bội Châu" ],
+        "correctAnswerIndex": 0,
+        "explanation": "'Truyện Kiều' (Kim Vân Kiều) do Nguyễn Du sáng tác."
+    },
+    {
+        "questionText": "Trong CSS, thuộc tính nào thay đổi màu chữ?",
+        "options": [ "background-color", "font-size", "color", "border" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Thuộc tính color dùng để thiết lập màu chữ trong CSS."
+    },
+    {
+        "questionText": "Nguyên tố hóa học có ký hiệu 'O' là nguyên tố nào?",
+        "options": [ "Vàng", "Oxy", "Kali", "Natri" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Ký hiệu O là nguyên tố oxy."
+    },
+    {
+        "questionText": "Đơn vị đo công suất là gì?",
+        "options": [ "Watt", "Volt", "Ohm", "Kelvin" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Công suất được đo bằng watt (W)."
+    },
+    {
+        "questionText": "Trong lập trình, vòng lặp 'for' thường dùng để làm gì?",
+        "options": [ "Tạo hàm", "Lặp lại một khối lệnh nhiều lần", "Khai báo biến", "Xử lý ngoại lệ" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Vòng lặp for dùng để lặp lại một khối lệnh theo số lần định trước hoặc qua tập hợp."
+    },
+    {
+        "questionText": "Quốc ca Việt Nam có tên là gì?",
+        "options": [ "Tiến Quân Ca", "Đất Nước", "Hồn Lạc Việt", "Tổ Quốc Gọi Tên Mình" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Quốc ca Việt Nam là 'Tiến Quân Ca'."
+    },
+    {
+        "questionText": "Dạng mây nào thường mang mưa dông?",
+        "options": [ "Cirrus (sợi)", "Cumulus (tích)", "Stratus (lớp)", "Nimbus (mưa)" ],
+        "options": [ "Cirrus", "Cumulus", "Stratus", "Nimbus" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Mây cumulus phát triển dọc (towering cumulus / cumulonimbus) thường liên quan đến mưa dông."
+    },
+    {
+        "questionText": "Trong SQL, câu lệnh nào dùng để lấy dữ liệu từ bảng?",
+        "options": [ "DELETE", "INSERT", "SELECT", "UPDATE" ],
+        "correctAnswerIndex": 2,
+        "explanation": "SELECT dùng để truy vấn (lấy) dữ liệu từ bảng."
+    },
+    {
+        "questionText": "Đơn vị đo năng lượng thường dùng là gì?",
+        "options": [ "Watt", "Volt", "Joule", "Hertz" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Năng lượng thường đo bằng joule (J)."
+    },
+    {
+        "questionText": "Thành phố nào được gọi là 'Thành phố không ngủ' (The City That Never Sleeps)?",
+        "options": [ "Londres", "Tokyo", "New York", "Paris" ],
+        "correctAnswerIndex": 2,
+        "explanation": "New York thường được gọi là 'The City That Never Sleeps'."
+    },
+    {
+        "questionText": "Trong lập trình web, AJAX dùng để làm gì?",
+        "options": [ "Tạo giao diện 3D", "Gửi yêu cầu bất đồng bộ đến server", "Tối ưu CSS", "Quản lý cơ sở dữ liệu" ],
+        "correctAnswerIndex": 1,
+        "explanation": "AJAX (Asynchronous JavaScript and XML) dùng để gửi yêu cầu bất đồng bộ tới server mà không tải lại trang."
+    }
+]

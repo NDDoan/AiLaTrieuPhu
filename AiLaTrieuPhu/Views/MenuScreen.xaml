@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="AiLaTrieuPhu.Views.MenuScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AiLaTrieuPhu.Views"
+             mc:Ignorable="d" 
+             Background="{StaticResource PrimaryBackgroundBrush}">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <TextBlock Text="AI LÀ TRIỆU PHÚ" FontSize="48" FontWeight="Bold" Foreground="{StaticResource AccentGoldBrush}" Margin="0,0,0,50" HorizontalAlignment="Center"/>
+
+        <TextBlock Text="{Binding StatusMessage}" 
+                   FontSize="28" 
+                   Foreground="White" 
+                   Margin="0,0,0,30" 
+                   HorizontalAlignment="Center" 
+                   FontWeight="SemiBold"/>
+        
+        <Button Content="Bắt Đầu Trò Chơi Mới" 
+                Command="{Binding StartGameCommand}" 
+                Style="{StaticResource MenuButtonStyle}"/>
+
+        <Button Content="Tiếp Tục Trò Chơi" 
+                Command="{Binding ContinueGameCommand}" 
+                IsEnabled="{Binding CanContinueGame}"
+                Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,10"/>
+
+        <Button Content="Cài Đặt" 
+                Command="{Binding OpenSettingsCommand}" 
+                Style="{StaticResource MenuButtonStyle}"/>
+
+        <Button Content="Thoát" 
+                Command="{Binding ExitApplicationCommand}" 
+                Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,0"/>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,176 @@
+{
+  "CurrentQuestionIndex": 1,
+  "CurrentPrizeMoney": 1000,
+  "SafePointReached": 0,
+  "Is5050Used": false,
+  "IsCallUsed": false,
+  "IsAudienceUsed": false,
+  "IsCurrentQuestionIndexUsed": false,
+  "GameQuestions": [
+    {
+      "questionText": "C\u00E1c h\u1EE3p ch\u1EA5t h\u1EEFu c\u01A1 th\u01B0\u1EDDng ch\u1EE9a nguy\u00EAn t\u1ED1 n\u00E0o?",
+      "options": [
+        "S\u1EAFt",
+        "Nit\u01A1",
+        "Cacbon",
+        "V\u00E0ng"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Cacbon (carbon) l\u00E0 th\u00E0nh ph\u1EA7n ch\u00EDnh c\u1EE7a h\u1EE3p ch\u1EA5t h\u1EEFu c\u01A1."
+    },
+    {
+      "questionText": "M\u1EA1ng x\u00E3 h\u1ED9i n\u00E0o \u0111\u01B0\u1EE3c bi\u1EBFt \u0111\u1EBFn v\u1EDBi logo m\u00E0u xanh v\u00E0 ch\u1EEF \u0027f\u0027?",
+      "options": [
+        "Twitter",
+        "Instagram",
+        "Facebook",
+        "LinkedIn"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Facebook c\u00F3 logo ch\u1EEF \u0027f\u0027 m\u00E0u xanh."
+    },
+    {
+      "questionText": "Ng\u01B0\u1EDDi \u0111\u1EB7t ra thuy\u1EBFt t\u01B0\u01A1ng \u0111\u1ED1i t\u1ED5ng qu\u00E1t l\u00E0 ai?",
+      "options": [
+        "Isaac Newton",
+        "Albert Einstein",
+        "Galileo Galilei",
+        "Niels Bohr"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Albert Einstein ph\u00E1t tri\u1EC3n thuy\u1EBFt t\u01B0\u01A1ng \u0111\u1ED1i t\u1ED5ng qu\u00E1t."
+    },
+    {
+      "questionText": "T\u1EEB vi\u1EBFt t\u1EAFt HTML l\u00E0 g\u00EC?",
+      "options": [
+        "HyperText Markup Language",
+        "HighText Machine Language",
+        "Hyperlink and Text Markup Language",
+        "Home Tool Markup Language"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "HTML l\u00E0 HyperText Markup Language."
+    },
+    {
+      "questionText": "N\u01B0\u1EDBc s\u00F4i \u1EDF \u00E1p su\u1EA5t kh\u00ED quy\u1EC3n chu\u1EA9n (0\u00B0C = 273K) \u1EDF kho\u1EA3ng bao nhi\u00EAu \u0111\u1ED9 C?",
+      "options": [
+        "90\u00B0C",
+        "100\u00B0C",
+        "110\u00B0C",
+        "120\u00B0C"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "\u1EDE \u00E1p su\u1EA5t kh\u00ED quy\u1EC3n chu\u1EA9n, n\u01B0\u1EDBc s\u00F4i \u1EDF 100\u00B0C."
+    },
+    {
+      "questionText": "Qu\u1ED1c ca Vi\u1EC7t Nam c\u00F3 t\u00EAn l\u00E0 g\u00EC?",
+      "options": [
+        "Ti\u1EBFn Qu\u00E2n Ca",
+        "\u0110\u1EA5t N\u01B0\u1EDBc",
+        "H\u1ED3n L\u1EA1c Vi\u1EC7t",
+        "T\u1ED5 Qu\u1ED1c G\u1ECDi T\u00EAn M\u00ECnh"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Qu\u1ED1c ca Vi\u1EC7t Nam l\u00E0 \u0027Ti\u1EBFn Qu\u00E2n Ca\u0027."
+    },
+    {
+      "questionText": "\u0110\u01A1n v\u1ECB \u0111o n\u0103ng l\u01B0\u1EE3ng th\u01B0\u1EDDng d\u00F9ng l\u00E0 g\u00EC?",
+      "options": [
+        "Watt",
+        "Volt",
+        "Joule",
+        "Hertz"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "N\u0103ng l\u01B0\u1EE3ng th\u01B0\u1EDDng \u0111o b\u1EB1ng joule (J)."
+    },
+    {
+      "questionText": "\u0110\u01A1n v\u1ECB \u0111o c\u00F4ng su\u1EA5t l\u00E0 g\u00EC?",
+      "options": [
+        "Watt",
+        "Volt",
+        "Ohm",
+        "Kelvin"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "C\u00F4ng su\u1EA5t \u0111\u01B0\u1EE3c \u0111o b\u1EB1ng watt (W)."
+    },
+    {
+      "questionText": "Th\u00E0nh ph\u1ED1 n\u00E0o \u0111\u01B0\u1EE3c g\u1ECDi l\u00E0 \u0027Th\u00E0nh ph\u1ED1 kh\u00F4ng ng\u1EE7\u0027 (The City That Never Sleeps)?",
+      "options": [
+        "Londres",
+        "Tokyo",
+        "New York",
+        "Paris"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "New York th\u01B0\u1EDDng \u0111\u01B0\u1EE3c g\u1ECDi l\u00E0 \u0027The City That Never Sleeps\u0027."
+    },
+    {
+      "questionText": "Trong CSS, thu\u1ED9c t\u00EDnh n\u00E0o thay \u0111\u1ED5i m\u00E0u ch\u1EEF?",
+      "options": [
+        "background-color",
+        "font-size",
+        "color",
+        "border"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Thu\u1ED9c t\u00EDnh color d\u00F9ng \u0111\u1EC3 thi\u1EBFt l\u1EADp m\u00E0u ch\u1EEF trong CSS."
+    },
+    {
+      "questionText": "Trong l\u1EADp tr\u00ECnh Java, t\u1EEB kh\u00F3a n\u00E0o d\u00F9ng \u0111\u1EC3 khai b\u00E1o m\u1ED9t ph\u01B0\u01A1ng th\u1EE9c m\u00E0 kh\u00F4ng th\u1EC3 b\u1ECB ghi \u0111\u00E8 (overridden) b\u1EDFi l\u1EDBp con?",
+      "options": [
+        "static",
+        "final",
+        "abstract",
+        "synchronized"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "T\u1EEB kh\u00F3a final khi \u00E1p d\u1EE5ng cho ph\u01B0\u01A1ng th\u1EE9c ng\u0103n kh\u00F4ng cho l\u1EDBp con ghi \u0111\u00E8."
+    },
+    {
+      "questionText": "Trong c\u01A1 h\u1ECDc l\u01B0\u1EE3ng t\u1EED, nguy\u00EAn l\u00FD kh\u00F4ng x\u00E1c \u0111\u1ECBnh c\u1EE7a Heisenberg ph\u00E1t bi\u1EC3u r\u1EB1ng kh\u00F4ng th\u1EC3 \u0111\u1ED3ng th\u1EDDi bi\u1EBFt ch\u00EDnh x\u00E1c c\u1EB7p n\u00E0o d\u01B0\u1EDBi \u0111\u00E2y?",
+      "options": [
+        "V\u1ECB tr\u00ED v\u00E0 \u0111\u1ED9ng l\u01B0\u1EE3ng",
+        "N\u0103ng l\u01B0\u1EE3ng v\u00E0 th\u1EDDi gian",
+        "Spin v\u00E0 kh\u1ED1i l\u01B0\u1EE3ng",
+        "Lo\u1EA1i h\u1EA1t v\u00E0 \u0111i\u1EC7n t\u00EDch"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Nguy\u00EAn l\u00FD Heisenberg li\u00EAn quan tr\u1EF1c ti\u1EBFp \u0111\u1EBFn v\u1ECB tr\u00ED v\u00E0 \u0111\u1ED9ng l\u01B0\u1EE3ng kh\u00F4ng th\u1EC3 bi\u1EBFt \u0111\u1ED3ng th\u1EDDi v\u1EDBi \u0111\u1ED9 ch\u00EDnh x\u00E1c tuy\u1EC7t \u0111\u1ED1i."
+    },
+    {
+      "questionText": "Ai l\u00E0 t\u00E1c gi\u1EA3 b\u00E0i th\u01A1 Tr\u01B0\u1EDDng ca \u0027M\u1EB7t \u0111\u01B0\u1EDDng kh\u00E1t v\u1ECDng\u0027 (ho\u1EB7c t\u00E1c ph\u1EA9m c\u00F9ng t\u00EAn n\u1EBFu c\u1EA7n ki\u1EC3m tra)?",
+      "options": [
+        "Nguy\u1EC5n Duy",
+        "H\u1EEFu Th\u1EC9nh",
+        "Thanh H\u1EA3i",
+        "Phan V\u0103n Tr\u01B0\u1EDDng"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Nguy\u1EC5n Duy l\u00E0 t\u00E1c gi\u1EA3 nhi\u1EC1u b\u00E0i th\u01A1 hi\u1EC7n \u0111\u1EA1i; (l\u01B0u \u00FD: c\u00E2u h\u1ECFi n\u00E0y thu\u1ED9c v\u0103n h\u1ECDc hi\u1EC7n \u0111\u1EA1i, h\u00E3y ki\u1EC3m tra n\u1EBFu c\u1EA7n)."
+    },
+    {
+      "questionText": "Trong m\u00F4 h\u00ECnh MVC (Model-View-Controller), th\u00E0nh ph\u1EA7n n\u00E0o ch\u1ECBu tr\u00E1ch nhi\u1EC7m x\u1EED l\u00FD logic v\u00E0 c\u00E1c quy t\u1EAFc nghi\u1EC7p v\u1EE5?",
+      "options": [
+        "Model",
+        "View",
+        "Controller",
+        "Router"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Model th\u01B0\u1EDDng ch\u1EE9a d\u1EEF li\u1EC7u v\u00E0 logic nghi\u1EC7p v\u1EE5; Controller \u0111i\u1EC1u h\u01B0\u1EDBng, View tr\u00ECnh b\u00E0y."
+    },
+    {
+      "questionText": "Trong h\u1EC7 \u0111i\u1EC1u h\u00E0nh, c\u01A1 ch\u1EBF \u0027deadlock\u0027 x\u1EA3y ra khi n\u00E0o?",
+      "options": [
+        "Khi m\u1ED9t ti\u1EBFn tr\u00ECnh b\u1ECB treo t\u1EA1m th\u1EDDi",
+        "Khi hai ho\u1EB7c nhi\u1EC1u ti\u1EBFn tr\u00ECnh ch\u1EDD nhau v\u00F4 h\u1EA1n",
+        "Khi CPU qu\u00E1 t\u1EA3i",
+        "Khi b\u1ED9 nh\u1EDB b\u1ECB \u0111\u1EA7y"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Deadlock x\u1EA3y ra khi c\u00E1c ti\u1EBFn tr\u00ECnh ch\u1EDD l\u1EABn nhau v\u00E0 kh\u00F4ng ai ti\u1EBFn tri\u1EC3n \u0111\u01B0\u1EE3c."
+    }
+  ]
+}

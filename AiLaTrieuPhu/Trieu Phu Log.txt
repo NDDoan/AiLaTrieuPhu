@@ -1,0 +1,7 @@
+﻿Ngày 16-10-2025:
+	Hôm nay là ngày đầu tiên tôi viết log này để thông báo rằng hiện tại trò chơi đã build thành công 15 câu hỏi
+trong ai là triệu phú. Hiện tại trong trò chơi này có những tính năng cơ bản như sau:
+- Có thể trả lời 15 câu hỏi
+- Có thể load game để chơi tiếp sau khi bạn thoát
+
+========================== WHO WANT TO BE A MILLIONARE ==========================

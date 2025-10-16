@@ -1,0 +1,62 @@
+[
+    {
+        "questionText": "Trong cơ học lượng tử, nguyên lý không xác định của Heisenberg phát biểu rằng không thể đồng thời biết chính xác cặp nào dưới đây?",
+        "options": [ "Vị trí và động lượng", "Năng lượng và thời gian", "Spin và khối lượng", "Loại hạt và điện tích" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Nguyên lý Heisenberg liên quan trực tiếp đến vị trí và động lượng không thể biết đồng thời với độ chính xác tuyệt đối."
+    },
+    {
+        "questionText": "Ai là tác giả bài thơ Trường ca 'Mặt đường khát vọng' (hoặc tác phẩm cùng tên nếu cần kiểm tra)?",
+        "options": [ "Nguyễn Duy", "Hữu Thỉnh", "Thanh Hải", "Phan Văn Trường" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Nguyễn Duy là tác giả nhiều bài thơ hiện đại; (lưu ý: câu hỏi này thuộc văn học hiện đại, hãy kiểm tra nếu cần)."
+    },
+    {
+        "questionText": "Trong thiết kế cơ sở dữ liệu, thuộc tính nào sau đây đảm bảo tính duy nhất của mỗi bản ghi?",
+        "options": [ "Index", "Primary Key", "Foreign Key", "View" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Primary Key là khóa chính đảm bảo mỗi bản ghi là duy nhất trong bảng."
+    },
+    {
+        "questionText": "Thuật toán sắp xếp nào có độ phức tạp trung bình O(n log n) và thường dùng pivot?",
+        "options": [ "Bubble Sort", "Insertion Sort", "Quick Sort", "Selection Sort" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Quick Sort có độ phức tạp trung bình O(n log n) và dùng pivot để phân tách."
+    },
+    {
+        "questionText": "Trong toán học, định lý nào khẳng định rằng mỗi đa thức bậc n có đúng n nghiệm trong trường số phức (kể cả nghiệm trùng)?",
+        "options": [ "Định lý trung bình giá trị", "Định lý đại số cơ bản", "Định lý Pythagore", "Định lý Fermat" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Định lý đại số cơ bản (Fundamental Theorem of Algebra) phát biểu điều này."
+    },
+    {
+        "questionText": "Trong mô hình MVC (Model-View-Controller), thành phần nào chịu trách nhiệm xử lý logic và các quy tắc nghiệp vụ?",
+        "options": [ "Model", "View", "Controller", "Router" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Model thường chứa dữ liệu và logic nghiệp vụ; Controller điều hướng, View trình bày."
+    },
+    {
+        "questionText": "Trong hệ điều hành, cơ chế 'deadlock' xảy ra khi nào?",
+        "options": [ "Khi một tiến trình bị treo tạm thời", "Khi hai hoặc nhiều tiến trình chờ nhau vô hạn", "Khi CPU quá tải", "Khi bộ nhớ bị đầy" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Deadlock xảy ra khi các tiến trình chờ lẫn nhau và không ai tiến triển được."
+    },
+    {
+        "questionText": "Trong mạng nơ-ron nhân tạo (neural network), hàm kích hoạt 'ReLU' là viết tắt của gì?",
+        "options": [ "Rectified Linear Unit", "Random Linear Unit", "Regularized Linear Unit", "Relative Linear Unit" ],
+        "correctAnswerIndex": 0,
+        "explanation": "ReLU là Rectified Linear Unit — hàm max(0, x)."
+    },
+    {
+        "questionText": "Ai được xem là người đặt nền móng cho khoa học máy tính hiện đại với khái niệm 'máy tính lý thuyết' (Turing Machine)?",
+        "options": [ "Alonzo Church", "Alan Turing", "John von Neumann", "Claude Shannon" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Alan Turing đề xuất khái niệm Máy Turing, nền tảng cho lý thuyết tính toán."
+    },
+    {
+        "questionText": "Trong lập trình Java, từ khóa nào dùng để khai báo một phương thức mà không thể bị ghi đè (overridden) bởi lớp con?",
+        "options": [ "static", "final", "abstract", "synchronized" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Từ khóa final khi áp dụng cho phương thức ngăn không cho lớp con ghi đè."
+    }
+]

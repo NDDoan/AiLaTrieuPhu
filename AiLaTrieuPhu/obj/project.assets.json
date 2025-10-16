@@ -1,0 +1,563 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "Argon/0.28.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Argon.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Argon.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "CommunityToolkit.Mvvm/8.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
+      "DiffEngine/16.2.1": {
+        "type": "package",
+        "dependencies": {
+          "EmptyFiles": "8.9.1",
+          "System.Management": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/DiffEngine.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/DiffEngine.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "EmptyFiles/8.9.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/EmptyFiles.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/EmptyFiles.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/EmptyFiles.targets": {}
+        }
+      },
+      "SimpleInfoName/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/SimpleInfoName.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/SimpleInfoName.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.CodeDom/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.CodeDom.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.CodeDom.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "System.Management/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.CodeDom": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/System.Management.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Management.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net8.0/System.Management.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "Verify/30.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Argon": "0.28.0",
+          "DiffEngine": "16.2.1",
+          "SimpleInfoName": "3.1.0"
+        },
+        "compile": {
+          "lib/net8.0/Verify.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Verify.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Verify.props": {},
+          "buildTransitive/Verify.targets": {}
+        }
+      },
+      "Verify.CommunityToolkit.Mvvm/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "CommunityToolkit.Mvvm": "8.4.0",
+          "Verify": "30.1.0"
+        },
+        "compile": {
+          "lib/net8.0/Verify.CommunityToolkit.Mvvm.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Verify.CommunityToolkit.Mvvm.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Argon/0.28.0": {
+      "sha512": "78BmoFm8SK733nq4F/SjqNKkXJHdrg/MslvYfNjJX/nM/mEkltHUzPJRjBE9VI/zghsjFPQxMRPEUaqIgg98zg==",
+      "type": "package",
+      "path": "argon/0.28.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "argon.0.28.0.nupkg.sha512",
+        "argon.nuspec",
+        "icon.png",
+        "lib/net462/Argon.dll",
+        "lib/net462/Argon.xml",
+        "lib/net472/Argon.dll",
+        "lib/net472/Argon.xml",
+        "lib/net48/Argon.dll",
+        "lib/net48/Argon.xml",
+        "lib/net6.0/Argon.dll",
+        "lib/net6.0/Argon.xml",
+        "lib/net7.0/Argon.dll",
+        "lib/net7.0/Argon.xml",
+        "lib/net8.0/Argon.dll",
+        "lib/net8.0/Argon.xml",
+        "lib/net9.0/Argon.dll",
+        "lib/net9.0/Argon.xml"
+      ]
+    },
+    "CommunityToolkit.Mvvm/8.4.0": {
+      "sha512": "tqVU8yc/ADO9oiTRyTnwhFN68hCwvkliMierptWOudIAvWY1mWCh5VFh+guwHJmpMwfg0J0rY+yyd5Oy7ty9Uw==",
+      "type": "package",
+      "path": "communitytoolkit.mvvm/8.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
+        "analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "analyzers/dotnet/roslyn4.12/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
+        "analyzers/dotnet/roslyn4.12/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.CodeFixers.dll",
+        "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "build/CommunityToolkit.Mvvm.FeatureSwitches.targets",
+        "build/CommunityToolkit.Mvvm.SourceGenerators.targets",
+        "build/CommunityToolkit.Mvvm.Windows.targets",
+        "build/CommunityToolkit.Mvvm.WindowsSdk.targets",
+        "build/CommunityToolkit.Mvvm.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.FeatureSwitches.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.SourceGenerators.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.Windows.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.WindowsSdk.targets",
+        "buildTransitive/CommunityToolkit.Mvvm.targets",
+        "communitytoolkit.mvvm.8.4.0.nupkg.sha512",
+        "communitytoolkit.mvvm.nuspec",
+        "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.dll",
+        "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.pdb",
+        "lib/net8.0-windows10.0.17763/CommunityToolkit.Mvvm.xml",
+        "lib/net8.0/CommunityToolkit.Mvvm.dll",
+        "lib/net8.0/CommunityToolkit.Mvvm.pdb",
+        "lib/net8.0/CommunityToolkit.Mvvm.xml",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.dll",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.pdb",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.xml",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.dll",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.pdb",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.xml"
+      ]
+    },
+    "DiffEngine/16.2.1": {
+      "sha512": "UfMgXClqOGkPNfth210upiTY18LPCgjsfNrh0Olo5qI+QTkkCO6wHSuOwknxJdKtsWoaJ+E132Y2nzD0PiLWRw==",
+      "type": "package",
+      "path": "diffengine/16.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "diffengine.16.2.1.nupkg.sha512",
+        "diffengine.nuspec",
+        "icon.png",
+        "lib/net462/DiffEngine.dll",
+        "lib/net462/DiffEngine.xml",
+        "lib/net472/DiffEngine.dll",
+        "lib/net472/DiffEngine.xml",
+        "lib/net48/DiffEngine.dll",
+        "lib/net48/DiffEngine.xml",
+        "lib/net6.0/DiffEngine.dll",
+        "lib/net6.0/DiffEngine.xml",
+        "lib/net7.0/DiffEngine.dll",
+        "lib/net7.0/DiffEngine.xml",
+        "lib/net8.0/DiffEngine.dll",
+        "lib/net8.0/DiffEngine.xml",
+        "lib/net9.0/DiffEngine.dll",
+        "lib/net9.0/DiffEngine.xml"
+      ]
+    },
+    "EmptyFiles/8.9.1": {
+      "sha512": "GbGf+oH/xiI3C5vJ5TnoA4sx7x7LhtOvN00fxihRZJsj40XuXk2TMz/4m26PfNSJj8JMAqo3BUBirjvam+3xkA==",
+      "type": "package",
+      "path": "emptyfiles/8.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/EmptyFiles.targets",
+        "buildTransitive/EmptyFiles.targets",
+        "emptyfiles.8.9.1.nupkg.sha512",
+        "emptyfiles.nuspec",
+        "files/archive/empty.7z",
+        "files/archive/empty.7zip",
+        "files/archive/empty.bz2",
+        "files/archive/empty.bzip2",
+        "files/archive/empty.gz",
+        "files/archive/empty.gzip",
+        "files/archive/empty.tar",
+        "files/archive/empty.xz",
+        "files/archive/empty.zip",
+        "files/document/empty.docx",
+        "files/document/empty.odt",
+        "files/document/empty.pdf",
+        "files/document/empty.rtf",
+        "files/image/empty.avif",
+        "files/image/empty.bmp",
+        "files/image/empty.dds",
+        "files/image/empty.dib",
+        "files/image/empty.emf",
+        "files/image/empty.exif",
+        "files/image/empty.gif",
+        "files/image/empty.heic",
+        "files/image/empty.heif",
+        "files/image/empty.ico",
+        "files/image/empty.j2c",
+        "files/image/empty.jfif",
+        "files/image/empty.jp2",
+        "files/image/empty.jpc",
+        "files/image/empty.jpe",
+        "files/image/empty.jpeg",
+        "files/image/empty.jpg",
+        "files/image/empty.jxr",
+        "files/image/empty.pbm",
+        "files/image/empty.pcx",
+        "files/image/empty.pgm",
+        "files/image/empty.png",
+        "files/image/empty.ppm",
+        "files/image/empty.rle",
+        "files/image/empty.tga",
+        "files/image/empty.tif",
+        "files/image/empty.tiff",
+        "files/image/empty.wdp",
+        "files/image/empty.webp",
+        "files/image/empty.wmp",
+        "files/sheet/empty.ods",
+        "files/sheet/empty.xlsx",
+        "files/slide/empty.odp",
+        "files/slide/empty.pptx",
+        "icon.png",
+        "lib/net462/EmptyFiles.dll",
+        "lib/net462/EmptyFiles.xml",
+        "lib/net472/EmptyFiles.dll",
+        "lib/net472/EmptyFiles.xml",
+        "lib/net48/EmptyFiles.dll",
+        "lib/net48/EmptyFiles.xml",
+        "lib/net6.0/EmptyFiles.dll",
+        "lib/net6.0/EmptyFiles.xml",
+        "lib/net7.0/EmptyFiles.dll",
+        "lib/net7.0/EmptyFiles.xml",
+        "lib/net8.0/EmptyFiles.dll",
+        "lib/net8.0/EmptyFiles.xml",
+        "lib/net9.0/EmptyFiles.dll",
+        "lib/net9.0/EmptyFiles.xml"
+      ]
+    },
+    "SimpleInfoName/3.1.0": {
+      "sha512": "j+ENh86NhxrgDc6T1ueqIR2QOdDkSJY2dbTFyPN/JvIXifB4GHAunlMw/x7P6m7XaXEHr3s+SMZfKBlmnmkO6g==",
+      "type": "package",
+      "path": "simpleinfoname/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net462/SimpleInfoName.dll",
+        "lib/net462/SimpleInfoName.xml",
+        "lib/net472/SimpleInfoName.dll",
+        "lib/net472/SimpleInfoName.xml",
+        "lib/net5.0/SimpleInfoName.dll",
+        "lib/net5.0/SimpleInfoName.xml",
+        "lib/net6.0/SimpleInfoName.dll",
+        "lib/net6.0/SimpleInfoName.xml",
+        "lib/net7.0/SimpleInfoName.dll",
+        "lib/net7.0/SimpleInfoName.xml",
+        "lib/net8.0/SimpleInfoName.dll",
+        "lib/net8.0/SimpleInfoName.xml",
+        "lib/net9.0/SimpleInfoName.dll",
+        "lib/net9.0/SimpleInfoName.xml",
+        "lib/netstandard2.0/SimpleInfoName.dll",
+        "lib/netstandard2.0/SimpleInfoName.xml",
+        "lib/netstandard2.1/SimpleInfoName.dll",
+        "lib/netstandard2.1/SimpleInfoName.xml",
+        "simpleinfoname.3.1.0.nupkg.sha512",
+        "simpleinfoname.nuspec"
+      ]
+    },
+    "System.CodeDom/8.0.0": {
+      "sha512": "WTlRjL6KWIMr/pAaq3rYqh0TJlzpouaQ/W1eelssHgtlwHAH25jXTkUphTYx9HaIIf7XA6qs/0+YhtLEQRkJ+Q==",
+      "type": "package",
+      "path": "system.codedom/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.CodeDom.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.CodeDom.targets",
+        "lib/net462/System.CodeDom.dll",
+        "lib/net462/System.CodeDom.xml",
+        "lib/net6.0/System.CodeDom.dll",
+        "lib/net6.0/System.CodeDom.xml",
+        "lib/net7.0/System.CodeDom.dll",
+        "lib/net7.0/System.CodeDom.xml",
+        "lib/net8.0/System.CodeDom.dll",
+        "lib/net8.0/System.CodeDom.xml",
+        "lib/netstandard2.0/System.CodeDom.dll",
+        "lib/netstandard2.0/System.CodeDom.xml",
+        "system.codedom.8.0.0.nupkg.sha512",
+        "system.codedom.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Management/8.0.0": {
+      "sha512": "jrK22i5LRzxZCfGb+tGmke2VH7oE0DvcDlJ1HAKYU8cPmD8XnpUT0bYn2Gy98GEhGjtfbR/sxKTVb+dE770pfA==",
+      "type": "package",
+      "path": "system.management/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Management.targets",
+        "lib/net462/_._",
+        "lib/net6.0/System.Management.dll",
+        "lib/net6.0/System.Management.xml",
+        "lib/net7.0/System.Management.dll",
+        "lib/net7.0/System.Management.xml",
+        "lib/net8.0/System.Management.dll",
+        "lib/net8.0/System.Management.xml",
+        "lib/netstandard2.0/System.Management.dll",
+        "lib/netstandard2.0/System.Management.xml",
+        "runtimes/win/lib/net6.0/System.Management.dll",
+        "runtimes/win/lib/net6.0/System.Management.xml",
+        "runtimes/win/lib/net7.0/System.Management.dll",
+        "runtimes/win/lib/net7.0/System.Management.xml",
+        "runtimes/win/lib/net8.0/System.Management.dll",
+        "runtimes/win/lib/net8.0/System.Management.xml",
+        "system.management.8.0.0.nupkg.sha512",
+        "system.management.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Verify/30.1.0": {
+      "sha512": "SUEHSRcWPJ44IDfg7/Pc3JEFeDHgJRj6wzouIr+DsVT23jCliXt4GQOmQcz+/KjmW1mDshmTvIrUV23Dm/vHHQ==",
+      "type": "package",
+      "path": "verify/30.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_manifest/spdx_2.2/manifest.spdx.json",
+        "_manifest/spdx_2.2/manifest.spdx.json.sha256",
+        "build/Verify.props",
+        "build/Verify.targets",
+        "buildTransitive/Verify.props",
+        "buildTransitive/Verify.targets",
+        "icon.png",
+        "lib/net10.0/Verify.dll",
+        "lib/net10.0/Verify.xml",
+        "lib/net462/Verify.dll",
+        "lib/net462/Verify.xml",
+        "lib/net472/Verify.dll",
+        "lib/net472/Verify.xml",
+        "lib/net48/Verify.dll",
+        "lib/net48/Verify.xml",
+        "lib/net6.0/Verify.dll",
+        "lib/net6.0/Verify.xml",
+        "lib/net7.0/Verify.dll",
+        "lib/net7.0/Verify.xml",
+        "lib/net8.0/Verify.dll",
+        "lib/net8.0/Verify.xml",
+        "lib/net9.0/Verify.dll",
+        "lib/net9.0/Verify.xml",
+        "verify.30.1.0.nupkg.sha512",
+        "verify.nuspec"
+      ]
+    },
+    "Verify.CommunityToolkit.Mvvm/1.1.0": {
+      "sha512": "U/BeSerbqwqVsXTdZBII8pbbhEFZXfT4vqq07uLP2Dg4vJgi1a8XKhHGnRm+nVWxF+By6ond8cBok2tA2kn4rA==",
+      "type": "package",
+      "path": "verify.communitytoolkit.mvvm/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_manifest/spdx_2.2/manifest.spdx.json",
+        "_manifest/spdx_2.2/manifest.spdx.json.sha256",
+        "icon.png",
+        "lib/net8.0/Verify.CommunityToolkit.Mvvm.dll",
+        "lib/net8.0/Verify.CommunityToolkit.Mvvm.xml",
+        "verify.communitytoolkit.mvvm.1.1.0.nupkg.sha512",
+        "verify.communitytoolkit.mvvm.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "CommunityToolkit.Mvvm >= 8.4.0",
+      "Verify.CommunityToolkit.Mvvm >= 1.1.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\AiLaTrieuPhu.csproj",
+      "projectName": "AiLaTrieuPhu",
+      "projectPath": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\AiLaTrieuPhu.csproj",
+      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "CommunityToolkit.Mvvm": {
+            "target": "Package",
+            "version": "[8.4.0, )"
+          },
+          "Verify.CommunityToolkit.Mvvm": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

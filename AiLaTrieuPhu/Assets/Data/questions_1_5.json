@@ -1,0 +1,170 @@
+[
+    {
+        "questionText": "Thủ đô của Việt Nam là thành phố nào?",
+        "options": [ "Hồ Chí Minh", "Đà Nẵng", "Hà Nội", "Huế" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Hà Nội là thủ đô của Việt Nam."
+    },
+    {
+        "questionText": "Mặt Trời thuộc loại sao nào trong Dải Ngân Hà?",
+        "options": [ "Sao khổng lồ đỏ", "Sao lùn vàng (G-type)", "Sao neutron", "Sao biến quang" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Mặt Trời là một sao lùn vàng (loại quang phổ G)."
+    },
+    {
+        "questionText": "2 + 2 bằng bao nhiêu?",
+        "options": [ "3", "4", "5", "22" ],
+        "correctAnswerIndex": 1,
+        "explanation": "2 + 2 = 4."
+    },
+    {
+        "questionText": "Ngôn ngữ dùng để đánh dấu giao diện WPF là gì?",
+        "options": [ "HTML", "XML", "XAML", "JSON" ],
+        "correctAnswerIndex": 2,
+        "explanation": "WPF sử dụng XAML (Extensible Application Markup Language)."
+    },
+    {
+        "questionText": "Loài động vật nào được gọi là 'vua của rừng'?",
+        "options": [ "Hổ", "Sư tử", "Báo", "Voi" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Sư tử thường được gọi là 'vua của rừng' trong văn hóa phổ biến."
+    },
+    {
+        "questionText": "Màu hỗn hợp của ánh sáng đỏ và xanh lục cho ra màu gì?",
+        "options": [ "Vàng", "Xanh dương", "Trắng", "Tím" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Trong phối màu ánh sáng (additive), đỏ + xanh lục = vàng."
+    },
+    {
+        "questionText": "Ngôn ngữ lập trình nào phổ biến để phát triển ứng dụng web phía máy chủ?",
+        "options": [ "HTML", "CSS", "JavaScript", "PHP" ],
+        "correctAnswerIndex": 3,
+        "explanation": "PHP là một ngôn ngữ phổ biến cho phát triển web phía máy chủ."
+    },
+    {
+        "questionText": "Quốc gia nào có diện tích lớn nhất thế giới?",
+        "options": [ "Canada", "Trung Quốc", "Hoa Kỳ", "Nga" ],
+        "correctAnswerIndex": 3,
+        "explanation": "Liên bang Nga là quốc gia có diện tích lớn nhất thế giới."
+    },
+    {
+        "questionText": "Nước sôi ở áp suất khí quyển chuẩn (0°C = 273K) ở khoảng bao nhiêu độ C?",
+        "options": [ "90°C", "100°C", "110°C", "120°C" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Ở áp suất khí quyển chuẩn, nước sôi ở 100°C."
+    },
+    {
+        "questionText": "Từ viết tắt HTML là gì?",
+        "options": [ "HyperText Markup Language", "HighText Machine Language", "Hyperlink and Text Markup Language", "Home Tool Markup Language" ],
+        "correctAnswerIndex": 0,
+        "explanation": "HTML là HyperText Markup Language."
+    },
+    {
+        "questionText": "Môn thể thao nào được chơi bằng vợt và quả cầu lông?",
+        "options": [ "Bóng bàn", "Cầu lông", "Tennis", "Bóng chuyền" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Cầu lông sử dụng vợt và quả cầu lông (shuttlecock)."
+    },
+    {
+        "questionText": "Thành phần chính của vỏ Trái Đất là?",
+        "options": [ "Sắt", "Niken", "Silic và oxy", "Hydro" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Vỏ Trái Đất chủ yếu là silic và oxy (silicat)."
+    },
+    {
+        "questionText": "Hình vuông có bao nhiêu cạnh?",
+        "options": [ "3", "4", "5", "6" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Hình vuông có 4 cạnh."
+    },
+    {
+        "questionText": "Mạng xã hội nào được biết đến với logo màu xanh và chữ 'f'?",
+        "options": [ "Twitter", "Instagram", "Facebook", "LinkedIn" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Facebook có logo chữ 'f' màu xanh."
+    },
+    {
+        "questionText": "Đơn vị đo điện trở là gì?",
+        "options": [ "Volt", "Ampere", "Ohm", "Watt" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Đơn vị điện trở là ohm (ký hiệu Ω)."
+    },
+    {
+        "questionText": "Người đặt ra thuyết tương đối tổng quát là ai?",
+        "options": [ "Isaac Newton", "Albert Einstein", "Galileo Galilei", "Niels Bohr" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Albert Einstein phát triển thuyết tương đối tổng quát."
+    },
+    {
+        "questionText": "Chất rắn nóng chảy chuyển thành trạng thái nào?",
+        "options": [ "Khí", "Lỏng", "Plasma", "Bose–Einstein condensate" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Chất rắn nóng chảy thành chất lỏng."
+    },
+    {
+        "questionText": "Ngôn ngữ đánh dấu dùng để mô tả cấu trúc dữ liệu là gì?",
+        "options": [ "SQL", "JSON", "C#", "Bash" ],
+        "correctAnswerIndex": 1,
+        "explanation": "JSON thường dùng để mô tả và truyền dữ liệu theo cấu trúc."
+    },
+    {
+        "questionText": "Châu lục lớn nhất theo diện tích là châu nào?",
+        "options": [ "Châu Á", "Châu Phi", "Châu Âu", "Châu Mỹ" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Châu Á là châu lục lớn nhất theo diện tích."
+    },
+    {
+        "questionText": "Số nguyên tố nhỏ nhất là bao nhiêu?",
+        "options": [ "0", "1", "2", "3" ],
+        "correctAnswerIndex": 2,
+        "explanation": "2 là số nguyên tố nhỏ nhất (chia hết chỉ cho 1 và chính nó)."
+    },
+    {
+        "questionText": "Màu cơ bản không thuộc hệ màu CMYK là màu nào?",
+        "options": [ "Cyan", "Magenta", "Yellow", "Orange" ],
+        "correctAnswerIndex": 3,
+        "explanation": "Orange không phải là một màu cơ bản trong hệ CMYK."
+    },
+    {
+        "questionText": "Thiết bị nào lưu trữ dữ liệu chính của máy tính lâu dài?",
+        "options": [ "RAM", "CPU", "Ổ cứng (HDD/SSD)", "GPU" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Ổ cứng (HDD/SSD) lưu trữ dữ liệu lâu dài, không mất khi tắt máy."
+    },
+    {
+        "questionText": "Ai là tác giả của tiểu thuyết 'Chí Phèo'?",
+        "options": [ "Nam Cao", "Tô Hoài", "Nguyễn Du", "Vũ Trọng Phụng" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Tác phẩm 'Chí Phèo' được viết bởi Nam Cao."
+    },
+    {
+        "questionText": "Các hợp chất hữu cơ thường chứa nguyên tố nào?",
+        "options": [ "Sắt", "Nitơ", "Cacbon", "Vàng" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Cacbon (carbon) là thành phần chính của hợp chất hữu cơ."
+    },
+    {
+        "questionText": "Kí hiệu hoá học của nước là gì?",
+        "options": [ "O2", "H2", "H2O", "CO2" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Nước có công thức H2O."
+    },
+    {
+        "questionText": "Số cạnh của một hình tam giác là bao nhiêu?",
+        "options": [ "2", "3", "4", "5" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Tam giác có 3 cạnh."
+    },
+    {
+        "questionText": "Phím tắt thông dụng để sao chép (copy) trên hầu hết hệ điều hành là gì?",
+        "options": [ "Ctrl + V", "Ctrl + C", "Ctrl + X", "Ctrl + Z" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Ctrl + C là phím tắt sao chép."
+    },
+    {
+        "questionText": "Nguyên liệu chính để làm bánh mì truyền thống là gì?",
+        "options": [ "Gạo", "Bột mì", "Ngô", "Khoai tây" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Bột mì là nguyên liệu chính để làm bánh mì."
+    }
+]
