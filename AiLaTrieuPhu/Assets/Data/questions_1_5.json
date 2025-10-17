@@ -328,5 +328,173 @@
         "options": [ "A Midsummer Night's Dream", "Romeo and Juliet", "As You Like It", "The Comedy of Errors" ],
         "correctAnswerIndex": 1,
         "explanation": "'Romeo and Juliet' là một bi kịch của Shakespeare."
+    },
+    {
+        "questionText": "Nhạc cụ nào thường được gọi là 'vua của các nhạc cụ' trong dàn nhạc cổ điển?",
+        "options": [ "Đàn violin", "Đàn piano", "Đàn cello", "Kèn trumpet" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Đàn piano thường được ví là 'vua của các nhạc cụ' do phạm vi âm rộng và vai trò đa năng."
+    },
+    {
+        "questionText": "Họa sĩ nào vẽ bức tranh 'Mona Lisa'?",
+        "options": [ "Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet" ],
+        "correctAnswerIndex": 2,
+        "explanation": "'Mona Lisa' là tác phẩm nổi tiếng của Leonardo da Vinci."
+    },
+    {
+        "questionText": "Bộ phim hoạt hình nào được Studio Ghibli thành lập bởi Hayao Miyazaki nổi tiếng với cô bé Sophie và phù thủy?",
+        "options": [ "Spirited Away", "Howl's Moving Castle", "My Neighbor Totoro", "Princess Mononoke" ],
+        "correctAnswerIndex": 1,
+        "explanation": "'Howl's Moving Castle' có nhân vật Sophie và phù thủy, do Miyazaki đạo diễn cho Studio Ghibli."
+    },
+    {
+        "questionText": "Tokusatsu là thể loại giải trí phổ biến ở nước nào?",
+        "options": [ "Mỹ", "Nhật Bản", "Hàn Quốc", "Pháp" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Tokusatsu (phim 'hiệu ứng đặc biệt sống-action') có nguồn gốc và phổ biến ở Nhật Bản."
+    },
+    {
+        "questionText": "Phong cách hội họa 'Impressionism' (ấn tượng chủ nghĩa) chú trọng điều gì?",
+        "options": [ "Mô tả chi tiết thực tế", "Cảm nhận ánh sáng và màu sắc nhất thời", "Trừu tượng hoàn toàn", "Chủ nghĩa siêu thực" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Ấn tượng chủ nghĩa nhấn mạnh cảm nhận ánh sáng, màu sắc và ấn tượng tức thời."
+    },
+    {
+        "questionText": "Trong âm nhạc, nhịp '4/4' còn gọi là gì?",
+        "options": [ "Common time", "Waltz time", "Cut time", "Triple meter" ],
+        "correctAnswerIndex": 0,
+        "explanation": "4/4 thường gọi là 'common time' (nhịp phổ biến)."
+    },
+    {
+        "questionText": "Bộ phim nào được biết đến như một biểu tượng của điện ảnh võ thuật Hong Kong (đạo diễn Thành Long/Thâm Tinh)?",
+        "options": [ "Fist of Fury", "Police Story", "Crouching Tiger, Hidden Dragon", "Hero" ],
+        "correctAnswerIndex": 1,
+        "explanation": "'Police Story' là một trong các phim võ thuật hài hành động nổi tiếng của Thành Long."
+    },
+    {
+        "questionText": "Loại bút vẽ dùng trong hội họa truyền thống Nhật Bản thường gọi là gì?",
+        "options": [ "Brush (bút lông)", "Fountain pen", "Ballpoint pen", "Marker" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Hội họa truyền thống Nhật Bản (sumi-e, calligraphy) dùng bút lông/brush."
+    },
+    {
+        "questionText": "Ai là nhạc sĩ viết 'Für Elise'?",
+        "options": [ "Mozart", "Beethoven", "Bach", "Chopin" ],
+        "correctAnswerIndex": 1,
+        "explanation": "'Für Elise' là tác phẩm nổi tiếng của Ludwig van Beethoven."
+    },
+    {
+        "questionText": "Thuật ngữ 'cinematography' chỉ điều gì trong điện ảnh?",
+        "options": [ "Kịch bản phim", "Nhiếp ảnh và hình ảnh điện ảnh", "Diễn xuất", "Âm nhạc phim" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Cinematography là nghệ thuật ghi hình và tạo dựng hình ảnh cho phim."
+    },
+    {
+        "questionText": "Nhạc pop là viết tắt của từ nào?",
+        "options": [ "Popular music", "Political music", "Portuguese music", "Poetic music" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Pop là viết tắt của 'popular music' (nhạc phổ thông)."
+    },
+    {
+        "questionText": "Loại tranh nào dùng sơn dầu làm chất liệu chính?",
+        "options": [ "Fresco", "Tempera", "Sơn dầu (oil painting)", "Mosaic" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Sơn dầu (oil painting) dùng pigment hòa trong dầu để vẽ."
+    },
+    {
+        "questionText": "Nhân vật Kamen Rider xuất hiện lần đầu trong loại chương trình nào?",
+        "options": [ "Anime", "Manga", "Tokusatsu live-action", "Phim hoạt hình phương Tây" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Kamen Rider là loạt tokusatsu live-action của Nhật Bản."
+    },
+    {
+        "questionText": "Ai được gọi là 'ông hoàng rock and roll'?",
+        "options": [ "Elvis Presley", "Michael Jackson", "Freddie Mercury", "Mick Jagger" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Elvis Presley thường được gọi là 'King of Rock and Roll'."
+    },
+    {
+        "questionText": "Phong cách vẽ dùng đường nét mảnh, chi tiết, thường thấy trong truyện tranh Nhật Bản gọi là gì (tiếng Nhật)?",
+        "options": [ "Manga", "Sumi-e", "Ukiyo-e", "Nihonga" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Manga là truyện tranh/đồ họa Nhật Bản, với nhiều phong cách đường nét khác nhau."
+    },
+    {
+        "questionText": "Trong làm phim hoạt hình truyền thống, 'cel' là gì?",
+        "options": [ "Một loại âm nhạc", "Tấm film/chiếc tấm trong suốt để vẽ khung hình", "Thuật ngữ diễn xuất", "Một hãng phim" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Cel là tấm nhựa trong suốt nơi vẽ nhân vật từng khung trước khi chồng lên nền."
+    },
+    {
+        "questionText": "Ai là đạo diễn nổi tiếng của bộ phim 'Seven Samurai'?",
+        "options": [ "Akira Kurosawa", "Hayao Miyazaki", "Satoshi Kon", "Takashi Miike" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Akira Kurosawa là đạo diễn huyền thoại của 'Seven Samurai'."
+    },
+    {
+        "questionText": "Nhạc cụ truyền thống Nhật Bản có dây kéo gọi là gì (đàn ba dây)?",
+        "options": [ "Koto", "Shamisen", "Shakuhachi", "Taiko" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Shamisen là nhạc cụ dây gảy 3 dây truyền thống Nhật Bản."
+    },
+    {
+        "questionText": "Thuật ngữ 'soundtrack' thường chỉ gì trong điện ảnh?",
+        "options": [ "Kịch bản phim", "Danh sách nhạc và âm thanh trong phim", "Hậu kỳ màu sắc", "Danh sách diễn viên" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Soundtrack là phần âm nhạc/âm thanh gắn với bộ phim."
+    },
+    {
+        "questionText": "Một bức tranh màu nước (watercolor) thường dùng chất liệu nào làm dung môi?",
+        "options": [ "Dầu", "Acrylic", "Nước", "Sáp" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Watercolor dùng nước làm dung môi hòa pigment."
+    },
+    {
+        "questionText": "Studio nào đứng sau nhiều bộ phim hoạt hình nổi tiếng như 'Spirited Away' và 'Princess Mononoke'?",
+        "options": [ "Toei Animation", "Madhouse", "Studio Ghibli", "Bones" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Studio Ghibli là hãng sản xuất các phim như 'Spirited Away' và 'Princess Mononoke'."
+    },
+    {
+        "questionText": "Thuật ngữ 'OST' trong phim/anime thường viết tắt của gì?",
+        "options": [ "Original Screen Theme", "Official Song Track", "Original Soundtrack", "Open Scene Title" ],
+        "correctAnswerIndex": 2,
+        "explanation": "OST là viết tắt của Original Soundtrack (nhạc gốc của phim)."
+    },
+    {
+        "questionText": "Ai là hoạ sĩ nổi tiếng với tranh 'Starry Night' (Đêm đầy sao)?",
+        "options": [ "Pablo Picasso", "Claude Monet", "Vincent van Gogh", "Edvard Munch" ],
+        "correctAnswerIndex": 2,
+        "explanation": "'Starry Night' là tác phẩm của Vincent van Gogh."
+    },
+    {
+        "questionText": "Trong thế giới tokusatsu, 'Super Sentai' là tiền thân của loạt phim nào ở Mỹ?",
+        "options": [ "Power Rangers", "Transformers", "G.I. Joe", "Teenage Mutant Ninja Turtles" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Loạt Super Sentai của Nhật được chuyển thể thành Power Rangers ở Mỹ."
+    },
+    {
+        "questionText": "Kỹ thuật âm thanh 'diegetic sound' là gì?",
+        "options": [ "Âm thanh chỉ người xem nghe ngoài phim", "Âm thanh phát sinh từ thế giới phim mà nhân vật cũng nghe được", "Âm thanh quảng cáo", "Âm thanh hậu trường" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Diegetic sound là âm thanh thuộc thế giới câu chuyện, nhân vật có thể nghe được."
+    },
+    {
+        "questionText": "Phong cách nghệ thuật 'Pop Art' nổi bật bởi họa sĩ nào sau đây?",
+        "options": [ "Andy Warhol", "Jackson Pollock", "Salvador Dalí", "Gustav Klimt" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Andy Warhol là nhân vật tiêu biểu của phong trào Pop Art."
+    },
+    {
+        "questionText": "Thuật ngữ 'OVA' trong anime là viết tắt của?",
+        "options": [ "Original Video Animation", "Official Visual Artwork", "Original Visual Art", "Open Version Anime" ],
+        "correctAnswerIndex": 0,
+        "explanation": "OVA = Original Video Animation, thường là tập đặc biệt phát hành trực tiếp trên video."
+    },
+    {
+        "questionText": "Nhạc cụ gõ lớn truyền thống Nhật Bản gọi là gì?",
+        "options": [ "Shamisen", "Koto", "Taiko", "Biwa" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Taiko là trống lớn truyền thống Nhật Bản."
     }
 ]

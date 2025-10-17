@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\trieu phu log.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\trieu phu log.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\services\\savegameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\services\\savegameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,14 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Trieu Phu Log.txt",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Trieu Phu Log.txt",
-              "RelativeDocumentMoniker": "AiLaTrieuPhu\\Trieu Phu Log.txt",
-              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Trieu Phu Log.txt",
-              "RelativeToolTip": "AiLaTrieuPhu\\Trieu Phu Log.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-10-17T00:07:48.885Z",
+              "Title": "SaveGameService.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Services\\SaveGameService.cs",
+              "RelativeDocumentMoniker": "AiLaTrieuPhu\\Services\\SaveGameService.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Services\\SaveGameService.cs",
+              "RelativeToolTip": "AiLaTrieuPhu\\Services\\SaveGameService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAwA0AAAB9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T11:47:31.064Z",
               "EditorCaption": ""
             }
           ]

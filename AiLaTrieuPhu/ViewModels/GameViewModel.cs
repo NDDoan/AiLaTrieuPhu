@@ -41,10 +41,69 @@ namespace AiLaTrieuPhu.ViewModels
         [ObservableProperty]
         private ObservableCollection<PrizeLevel> _prizeLadderDisplay = new ObservableCollection<PrizeLevel>();
 
-        // Thuộc tính kiểm soát hiển thị nút Tổ Tư Vấn (Xuất hiện từ câu 6, index 5)
-        public bool IsConsultancyVisible => CurrentGameStatus?.CurrentQuestionIndex >= 5;
-
         public bool Is5050Enabled => !CurrentGameStatus.Is5050Used && IsAnswerPhase;
+
+        // Danh sách các chuyên gia
+        public List<CallExpert> Experts { get; } = new List<CallExpert>
+        {
+            new CallExpert { Name = "PGS. Văn", Specialty = "Văn học", CorrectnessRate = 90 },
+            new CallExpert { Name = "GS. Sử", Specialty = "Lịch sử", CorrectnessRate = 85 },
+            new CallExpert { Name = "Bạn Thân A", Specialty = "Đa lĩnh vực", CorrectnessRate = 70 },
+            new CallExpert { Name = "Thí Sinh X", Specialty = "Khán giả", CorrectnessRate = 65 }
+        };
+
+        // Thuộc tính để bật/tắt nút Gọi điện
+        public bool IsCallingEnabled => !CurrentGameStatus.IsCallingUsed && IsAnswerPhase;
+
+        // Thuộc tính để hiển thị/ẩn cửa sổ pop-up chọn chuyên gia
+        [ObservableProperty]
+        private bool _isExpertSelectionVisible = false;
+
+        // Thuộc tính để lưu chuyên gia người chơi đã chọn
+        [ObservableProperty]
+        private CallExpert _selectedExpert;
+
+        // Kích hoạt cửa sổ chọn chuyên gia
+        [RelayCommand(CanExecute = nameof(IsCallingEnabled))]
+        private void UseCall()
+        {
+            if (CurrentGameStatus.IsCallingUsed) return;
+
+            // Mở cửa sổ chọn chuyên gia (giả sử có 1 UserControl/Window tương ứng)
+            IsExpertSelectionVisible = true;
+        }
+
+        // Thuộc tính để hiển thị/ẩn cửa sổ pop-up kết quả tư vấn
+        [ObservableProperty]
+        private bool _isExpertAnswerVisible = false;
+
+        // Thuộc tính để lưu kết quả và hiển thị pop-up
+        [ObservableProperty]
+        private AudienceResult _currentAudienceResult;
+
+        [ObservableProperty]
+        private bool _isAudienceResultVisible = false;
+
+        // Thuộc tính để bật/tắt nút Hỏi khán giả
+        public bool IsAudienceEnabled => !CurrentGameStatus.IsKhanGiaUsed && IsAnswerPhase;
+
+        // 3 thành viên tổ tư vấn
+        public ObservableCollection<Consultant> Consultants { get; } = new ObservableCollection<Consultant>
+        {
+            new Consultant { Name = "Khán giả ngẫu nghiên 1", CorrectnessRate = 60 },
+            new Consultant { Name = "Khán giả ngẫu nghiên 2", CorrectnessRate = 70 },
+            new Consultant { Name = "Khán giả ngẫu nghiên 3", CorrectnessRate = 80 }
+        };
+
+        // Thuộc tính để hiển thị/ẩn cửa sổ pop-up kết quả Tổ Tư Vấn
+        [ObservableProperty]
+        private bool _isConsultantResultVisible = false;
+
+        // Thuộc tính kiểm soát hiển thị nút Tổ Tư Vấn (Xuất hiện từ câu 6, index 5)
+        public bool IsConsultancyVisible => CurrentGameStatus.CurrentQuestionIndex >= 5;
+
+        // Thuộc tính để bật/tắt nút Tổ Tư Vấn
+        public bool IsToTuVanEnabled => !CurrentGameStatus.IsToTuVanUsed && IsAnswerPhase;
 
         public GameViewModel(MainViewModel mainNavigator, GameStatus status, SaveGameService saveService)
         {
@@ -275,6 +334,7 @@ namespace AiLaTrieuPhu.ViewModels
                     CurrentQuestion.IsOptionHidden[index] = true;
 
                     // Thay nội dung đáp án thành rỗng để UI ẩn đi hoặc hiển thị " "
+                    // Bản sửa lỗi tới sửa lại sau
                     CurrentQuestion.Options[index] = " ";
                 }
             }
@@ -284,6 +344,249 @@ namespace AiLaTrieuPhu.ViewModels
 
             // Bắn lại lệnh CanExecute để vô hiệu hóa nút 50:50 (Do OnPropertyChanged(CurrentGameStatus) đã làm điều này, dòng này là dư nhưng không gây hại)
             Use5050Command.NotifyCanExecuteChanged();
+        }
+
+        // Được gọi sau khi người chơi chọn xong chuyên gia
+        [RelayCommand]
+        private async void SelectExpertAndGetAnswer(CallExpert expert)
+        {
+            if (expert == null || CurrentGameStatus.IsCallingUsed) return;
+
+            SelectedExpert = expert;
+            IsExpertSelectionVisible = false; // Đóng cửa sổ pop-up
+
+            // 1. Đánh dấu quyền trợ giúp đã dùng
+            CurrentGameStatus.IsCallingUsed = true;
+            OnPropertyChanged(nameof(CurrentGameStatus));
+            UseCallCommand.NotifyCanExecuteChanged();
+
+            // 2. TÍNH TOÁN CÂU TRẢ LỜI CỦA CHUYÊN GIA
+            var random = new Random();
+            int chance = random.Next(1, 101); // 1 đến 100
+            int correctIndex = CurrentQuestion.CorrectAnswerIndex;
+            int expertIndex;
+
+            if (chance <= expert.CorrectnessRate)
+            {
+                // Chuyên gia trả lời ĐÚNG
+                expertIndex = correctIndex;
+            }
+            else
+            {
+                // Chuyên gia trả lời SAI (chọn ngẫu nhiên 1 đáp án SAI)
+                var incorrectIndices = CurrentQuestion.Options
+                    .Select((option, index) => index)
+                    .Where(index => index != correctIndex)
+                    .ToList();
+
+                // Lọc bỏ các đáp án đã bị 50:50 ẩn đi (nếu có)
+                var availableIncorrectIndices = incorrectIndices
+                    .Where(i => !CurrentQuestion.IsOptionHidden[i])
+                    .ToList();
+
+                // Nếu không còn đáp án sai nào khả dụng, trả lời đúng
+                if (!availableIncorrectIndices.Any())
+                {
+                    expertIndex = correctIndex;
+                }
+                else
+                {
+                    expertIndex = availableIncorrectIndices[random.Next(availableIncorrectIndices.Count)];
+                }
+            }
+
+            // 3. Gán kết quả cho ExpertAnswer
+            // Chuyển Index (0, 1, 2, 3) thành chữ cái đáp án (A, B, C, D)
+            string answerLetter = ((char)('A' + expertIndex)).ToString();
+            expert.ExpertAnswer = $"Tôi chọn đáp án {answerLetter}. Theo chuyên môn, tôi chắc chắn {expert.CorrectnessRate}% là đúng.";
+
+            // 4. Hiển thị kết quả tư vấn
+            await Task.Delay(2000);
+            IsExpertAnswerVisible = true;
+        }
+
+        [RelayCommand]
+        private void CloseExpertAnswer()
+        {
+            IsExpertAnswerVisible = false;
+            GameStatusMessage = "Bạn đã có lời khuyên. Hãy đưa ra quyết định cuối cùng.";
+        }
+
+        [RelayCommand(CanExecute = nameof(IsAudienceEnabled))]
+        private void UseAudience()
+        {
+            if (CurrentQuestion == null || CurrentGameStatus.IsKhanGiaUsed) return;
+
+            CurrentGameStatus.IsKhanGiaUsed = true;
+            OnPropertyChanged(nameof(CurrentGameStatus));
+            UseAudienceCommand.NotifyCanExecuteChanged();
+
+            // 1. Khởi tạo kết quả và tính toán
+            CurrentAudienceResult = CalculateAudienceVotes(CurrentQuestion.CorrectAnswerIndex, CurrentQuestion.IsOptionHidden);
+
+            // 2. Hiển thị Pop-up
+            IsAudienceResultVisible = true;
+
+            GameStatusMessage = "Khán giả đã bỏ phiếu. Mời bạn xem kết quả.";
+        }
+
+
+        // HÀM TÍNH TOÁN PHIẾU BẦU (Core Logic)
+        private AudienceResult CalculateAudienceVotes(int correctIndex, System.Collections.ObjectModel.ObservableCollection<bool> hiddenOptions)
+        {
+            var random = new Random();
+            int totalVotes = 100; // Tổng số phiếu là 100
+            int questionLevel = CurrentGameStatus.CurrentQuestionIndex;
+            var result = new AudienceResult();
+
+            // 1. Xây dựng tham số độ khó
+            // Tỷ lệ ủng hộ đúng cơ bản (giảm khi câu hỏi khó hơn)
+            int baseCorrectRate = 90 - (questionLevel * 3); // Ví dụ: Câu 1: 87%; Câu 15: 45%
+            baseCorrectRate = Math.Max(baseCorrectRate, 40); // Đảm bảo không thấp hơn 40% (trừ khi có 50:50)
+
+            // 2. Xử lý 50:50 (Nếu đã dùng 50:50, phiếu chỉ phân tán trên 2 đáp án)
+            var availableIndices = new List<int>();
+            for (int i = 0; i < 4; i++)
+            {
+                if (!hiddenOptions[i]) availableIndices.Add(i);
+            }
+
+            // Nếu 50:50 đã được dùng, tăng độ chính xác còn lại
+            if (availableIndices.Count == 2)
+            {
+                baseCorrectRate = Math.Min(baseCorrectRate + 20, 95); // Tăng khả năng đúng lên 95%
+            }
+
+            // 3. Phân bổ phiếu cho đáp án đúng
+            int correctVotes = 0;
+            if (availableIndices.Contains(correctIndex))
+            {
+                // Sử dụng một số ngẫu nhiên để tạo tính bất ngờ (± 5% base rate)
+                int minVotes = Math.Max(baseCorrectRate - 5, 10); // Đảm bảo ít nhất 10%
+                int maxVotes = Math.Min(baseCorrectRate + 5, 100);
+                correctVotes = random.Next(minVotes, maxVotes + 1);
+                correctVotes = Math.Min(correctVotes, totalVotes - (availableIndices.Count - 1)); // Giới hạn tổng số phiếu
+                totalVotes -= correctVotes;
+            }
+
+            // 4. Phân bổ phiếu còn lại cho các đáp án sai (và các đáp án ẩn nếu 50:50 chưa dùng)
+            var remainingIndices = availableIndices.Where(i => i != correctIndex).ToList();
+            var votes = new int[4];
+            votes[correctIndex] = correctVotes;
+
+            // Phân bổ phần còn lại (totalVotes) cho các đáp án sai
+            if (remainingIndices.Any())
+            {
+                int remainingVotes = totalVotes;
+
+                // Phân bổ ngẫu nhiên phần còn lại, tránh quá chênh lệch
+                for (int i = 0; i < remainingIndices.Count - 1; i++)
+                {
+                    int maxDistribute = remainingVotes / (remainingIndices.Count - i);
+                    int currentVotes = random.Next(1, maxDistribute + 1);
+                    votes[remainingIndices[i]] = currentVotes;
+                    remainingVotes -= currentVotes;
+                }
+                // Gán phần còn lại cho đáp án sai cuối cùng
+                votes[remainingIndices.Last()] = remainingVotes;
+            }
+
+            // 5. Xây dựng kết quả
+            for (int i = 0; i < 4; i++)
+            {
+                result.Results.Add(new AudienceOption
+                {
+                    OptionLetter = ((char)('A' + i)).ToString(),
+                    Percentage = votes[i] // Vì totalVotes là 100, votes[i] cũng là %
+                });
+            }
+
+            return result;
+        }
+
+        // Command đóng Pop-up kết quả Khán giả
+        [RelayCommand]
+        private void CloseAudienceResult()
+        {
+            IsAudienceResultVisible = false;
+            GameStatusMessage = "Bạn đã có ý kiến từ khán giả. Hãy đưa ra quyết định cuối cùng.";
+        }
+
+        [RelayCommand(CanExecute = nameof(IsToTuVanEnabled))]
+        private void UseConsultancy()
+        {
+            if (CurrentQuestion == null || CurrentGameStatus.IsToTuVanUsed) return;
+
+            // 1. Đánh dấu quyền trợ giúp đã dùng
+            CurrentGameStatus.IsToTuVanUsed = true;
+            OnPropertyChanged(nameof(CurrentGameStatus));
+            UseConsultancyCommand.NotifyCanExecuteChanged();
+
+            // 2. Tính toán ý kiến cho từng Tư vấn viên
+            foreach (var consultant in Consultants)
+            {
+                CalculateConsultantAnswer(consultant);
+            }
+
+            // 3. Hiển thị Pop-up
+            IsConsultantResultVisible = true;
+
+            GameStatusMessage = "Tổ tư vấn đã đưa ra ý kiến của mình.";
+        }
+
+
+        // HÀM TÍNH TOÁN Ý KIẾN RIÊNG LẺ
+        private void CalculateConsultantAnswer(Consultant consultant)
+        {
+            var random = new Random();
+            int correctIndex = CurrentQuestion.CorrectAnswerIndex;
+            int consultantIndex;
+
+            // Tỷ lệ chuyên gia trả lời ĐÚNG
+            int chance = random.Next(1, 101);
+
+            if (chance <= consultant.CorrectnessRate)
+            {
+                // Chuyên gia trả lời ĐÚNG
+                consultantIndex = correctIndex;
+            }
+            else
+            {
+                // Chuyên gia trả lời SAI (chọn ngẫu nhiên 1 đáp án SAI)
+                var incorrectIndices = CurrentQuestion.Options
+                    .Select((option, index) => index)
+                    .Where(index => index != correctIndex)
+                    .ToList();
+
+                // Lọc bỏ các đáp án đã bị 50:50 ẩn đi (nếu có)
+                var availableIncorrectIndices = incorrectIndices
+                    .Where(i => !CurrentQuestion.IsOptionHidden[i])
+                    .ToList();
+
+                // Nếu không còn đáp án sai khả dụng, trả lời đúng
+                if (!availableIncorrectIndices.Any())
+                {
+                    consultantIndex = correctIndex;
+                }
+                else
+                {
+                    consultantIndex = availableIncorrectIndices[random.Next(availableIncorrectIndices.Count)];
+                }
+            }
+
+            // Gán kết quả
+            string answerLetter = ((char)('A' + consultantIndex)).ToString();
+            consultant.ConsultantAnswer = $"Tôi chọn đáp án {answerLetter}.";
+            consultant.HasAnswered = true;
+        }
+
+
+        // Command đóng Pop-up kết quả Tổ Tư Vấn
+        [RelayCommand]
+        private void CloseConsultantResult()
+        {
+            IsConsultantResultVisible = false;
+            GameStatusMessage = "Bạn đã có ý kiến từ tổ tư vấn. Hãy đưa ra quyết định cuối cùng.";
         }
     }
 }

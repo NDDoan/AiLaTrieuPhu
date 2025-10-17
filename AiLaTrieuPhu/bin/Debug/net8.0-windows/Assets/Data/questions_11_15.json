@@ -118,5 +118,65 @@
         "options": [ "0, 1, 1, 2, 3, 5...", "1, 2, 3, 5, 8...", "2, 3, 5, 8...", "1, 1, 2, 3, 5..." ],
         "correctAnswerIndex": 0,
         "explanation": "Một cách phổ biến bắt đầu dãy Fibonacci là 0,1,1,2,3,5,... (một biến thể khác bắt đầu 1,1,...)."
+    },
+    {
+        "questionText": "Kỹ thuật hoạt hình 'rotoscoping' là gì?",
+        "options": [ "Vẽ trực tiếp trên máy tính bằng vector", "Chiếu khung hình thực vào tấm cel để vẽ theo, tạo chuyển động thực tế", "Kỹ thuật dựng mô hình 3D", "Phối màu tự động bằng AI" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Rotoscoping là vẽ chồng lên khung hình quay thực để tạo chuyển động mượt và chính xác."
+    },
+    {
+        "questionText": "Trong lý thuyết điện ảnh, 'auteur theory' cho rằng điều gì về đạo diễn?",
+        "options": [ "Đạo diễn chỉ làm công việc kỹ thuật", "Đạo diễn là tác giả chính có dấu ấn cá nhân xuyên suốt các tác phẩm", "Đạo diễn không quan trọng bằng diễn viên", "Đạo diễn chỉ quản lý lịch quay" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Auteur theory xem đạo diễn như tác giả sáng tạo với phong cách cá nhân rõ nét."
+    },
+    {
+        "questionText": "Ai là người khai sinh phong trào Surrealism (Siêu thực) trong hội họa (lãnh đạo trào lưu văn học/hội họa đầu)?",
+        "options": [ "Salvador Dalí và André Breton", "Claude Monet và Pierre-Auguste Renoir", "Pablo Picasso và Georges Braque", "Jackson Pollock và Willem de Kooning" ],
+        "correctAnswerIndex": 0,
+        "explanation": "André Breton là thủ lĩnh phong trào siêu thực; Salvador Dalí là họa sĩ tiêu biểu."
+    },
+    {
+        "questionText": "Trong phân tích âm nhạc, 'modal interchange' (hoán đổi chủ âm) chỉ việc gì?",
+        "options": [ "Chuyển đổi nhịp 4/4 sang 3/4", "Mượn hợp âm từ mode khác (ví dụ từ parallel minor/major) để làm giàu tiến trình hòa âm", "Thay đổi tempo", "Điều chỉnh âm lượng" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Modal interchange là kỹ thuật mượn hợp âm từ mode song song để tạo màu sắc hòa âm khác."
+    },
+    {
+        "questionText": "Trong lịch sử tokusatsu, nhà sản xuất Toei Company nổi tiếng với loạt nào sau đây?",
+        "options": [ "Kamen Rider và Super Sentai", "Ultraman", "Godzilla", "Power Rangers" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Toei sản xuất nhiều series Kamen Rider và Super Sentai."
+    },
+    {
+        "questionText": "Thuật ngữ 'mise-en-scène' trong điện ảnh mô tả điều gì?",
+        "options": [ "Âm thanh và nhạc nền", "Tổng thể sắp đặt hình ảnh: bối cảnh, ánh sáng, diễn xuất, trang phục trong khung hình", "Kỹ thuật dựng phim", "Danh sách diễn viên" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Mise-en-scène là tổng hòa mọi yếu tố trực quan trong một cảnh phim."
+    },
+    {
+        "questionText": "Ai là họa sĩ biểu tượng của trường phái Fauvism (dã thú) với cách dùng màu mạnh và rực rỡ?",
+        "options": [ "Henri Matisse", "Paul Cézanne", "Gustav Klimt", "Edvard Munch" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Henri Matisse là nhân vật tiêu biểu của Fauvism với màu sắc rực rỡ."
+    },
+    {
+        "questionText": "Trong sản xuất âm nhạc, 'sidechain compression' thường dùng để làm gì?",
+        "options": [ "Tăng độ vọng (reverb)", "Tạo hiệu ứng nhường chỗ (ducking) giữa hai tín hiệu, thường để giọng hát/nkick nổi bật", "Thay đổi tông nhạc", "Tạo tiếng vang stereo" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Sidechain compression cho phép một tín hiệu (ví dụ kick) làm giảm âm lượng của tín hiệu khác (ví dụ bass) nhằm tạo không gian âm thanh."
+    },
+    {
+        "questionText": "Trong lịch sử điện ảnh Nhật Bản, phim 'Godzilla' (1954) do hãng nào sản xuất?",
+        "options": [ "Toho", "Shochiku", "Toei", "Nikkatsu" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Godzilla (Gojira) do Toho sản xuất và là biểu tượng phim kaiju của Nhật Bản."
+    },
+    {
+        "questionText": "Kỹ thuật 'assemblage' trong mỹ thuật hiện đại là gì?",
+        "options": [ "Vẽ bằng màu nước", "Tạo tác phẩm bằng cách ghép nối các vật thể sẵn có thành một tổng thể mới", "In khắc gỗ", "Tranh sơn dầu truyền thống" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Assemblage là ghép các vật thể (found objects) để tạo tác phẩm nghệ thuật mới."
     }
 ]

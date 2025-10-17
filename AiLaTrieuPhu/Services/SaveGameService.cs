@@ -11,7 +11,7 @@ namespace AiLaTrieuPhu.Services
 {
     public class SaveGameService
     {
-        private const string SaveFilePath = "Assets/Saves/save.json";
+        private static readonly string SaveFilePath = Path.Combine(AppContext.BaseDirectory, "Assets", "Saves", "save.json");
 
         public async Task SaveGameAsync(GameStatus status)
         {

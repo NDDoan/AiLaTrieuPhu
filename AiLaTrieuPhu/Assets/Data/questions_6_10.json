@@ -98,7 +98,6 @@
     {
         "questionText": "Dạng mây nào thường mang mưa dông?",
         "options": [ "Cirrus (sợi)", "Cumulus (tích)", "Stratus (lớp)", "Nimbus (mưa)" ],
-        "options": [ "Cirrus", "Cumulus", "Stratus", "Nimbus" ],
         "correctAnswerIndex": 1,
         "explanation": "Mây cumulus phát triển dọc (towering cumulus / cumulonimbus) thường liên quan đến mưa dông."
     },
@@ -185,6 +184,66 @@
         "options": [ "Vladimir Lenin", "Joseph Stalin", "Leon Trotsky", "Nicholas II" ],
         "correctAnswerIndex": 0,
         "explanation": "Lenin là lãnh đạo chủ chốt của cuộc cách mạng Bolshevik tháng 10/1917."
+    },
+    {
+        "questionText": "Trong đại số, phương trình bậc hai ax^2 + bx + c = 0 có bao nhiêu nghiệm thực phụ thuộc vào gì?",
+        "options": [ "Hệ số a", "Delta = b^2 - 4ac", "Giá trị của c", "Giá trị của x" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Số nghiệm thực phụ thuộc vào biệt thức Δ = b^2 - 4ac."
+    },
+    {
+        "questionText": "Tác giả Nam Cao nổi bật với phong cách văn học nào?",
+        "options": [ "Lãng mạn", "Hiện thực phê phán", "Sử thi", "Lãng mạn hóa" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Nam Cao viết theo lối hiện thực phê phán, tập trung vào hiện thực xã hội."
+    },
+    {
+        "questionText": "Sông nào được gọi là 'sông mẹ' của Bắc Trung Bộ Việt Nam (chảy qua nhiều tỉnh)?",
+        "options": [ "Sông Hồng", "Sông Lam", "Sông Đồng Nai", "Sông Cửu Long" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Sông Lam chảy qua Nghệ An, Hà Tĩnh và được coi là sông lớn khu vực Bắc Trung Bộ."
+    },
+    {
+        "questionText": "Chủ quyền quốc gia thường được hiểu là gì?",
+        "options": [ "Quyền lực tối cao của nhà nước trên lãnh thổ", "Quyền lực của công ty tư nhân", "Quyền lực của các NGO", "Độc quyền thương mại" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Chủ quyền: quyền lực tối cao và độc lập của nhà nước trên lãnh thổ."
+    },
+    {
+        "questionText": "Trong văn học, 'tự sự' chủ yếu định nghĩa loại hình nào?",
+        "options": [ "Thơ trữ tình", "Truyện kể/tiểu thuyết", "Kịch nói", "Phê bình" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Tự sự là hình thức văn học kể chuyện như truyện, tiểu thuyết."
+    },
+    {
+        "questionText": "Số chính phương nào sau đây lớn hơn 100 nhưng nhỏ hơn 200?",
+        "options": [ "121", "99", "225", "80" ],
+        "correctAnswerIndex": 0,
+        "explanation": "121 = 11^2 nằm giữa 100 và 200."
+    },
+    {
+        "questionText": "Năm 1911 ở Trung Quốc diễn ra sự kiện lịch sử quan trọng nào?",
+        "options": [ "Cách mạng Tân Hợi lật đổ quân chủ", "Cách mạng Văn hóa", "Khởi nghĩa Thiên An Môn", "Hòa bình Nam Kinh" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Cách mạng Tân Hợi (1911) lật đổ triều đình Mãn Thanh, lập nước Trung Hoa Dân Quốc."
+    },
+    {
+        "questionText": "Ai là nhà hoạt động xã hội nổi tiếng với phong trào chống phân biệt chủng tộc tại Mỹ và đã lãnh đạo nhiều chiến dịch bất bạo động?",
+        "options": [ "Martin Luther King Jr.", "Malcolm X", "Frederick Douglass", "Rosa Parks" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Martin Luther King Jr. là lãnh đạo phong trào quyền dân sự bằng phương pháp bất bạo động."
+    },
+    {
+        "questionText": "Trong văn học cổ điển Việt Nam, 'Lục Vân Tiên' là tác phẩm thể loại gì?",
+        "options": [ "Truyện thơ Nôm", "Kịch bản", "Tiểu thuyết chương hồi", "Tản văn" ],
+        "correctAnswerIndex": 0,
+        "explanation": "'Lục Vân Tiên' là truyện thơ Nôm của Nguyễn Đình Chiểu."
+    },
+    {
+        "questionText": "Chỉ số GDP thường dùng để đo lường điều gì của một quốc gia?",
+        "options": [ "Quy mô dân số", "Sức khỏe dân số", "Tổng sản phẩm trong nước (sản lượng kinh tế)", "Tài nguyên thiên nhiên" ],
+        "correctAnswerIndex": 2,
+        "explanation": "GDP đo tổng giá trị hàng hóa và dịch vụ sản xuất trong nước trong một kỳ."
     },
     {
         "questionText": "Trong đại số, phương trình bậc hai ax^2 + bx + c = 0 có bao nhiêu nghiệm thực phụ thuộc vào gì?",

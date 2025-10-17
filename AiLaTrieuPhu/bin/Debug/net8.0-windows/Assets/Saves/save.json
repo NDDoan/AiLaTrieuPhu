@@ -1,45 +1,45 @@
 {
-  "CurrentQuestionIndex": 0,
-  "CurrentPrizeMoney": 0,
+  "CurrentQuestionIndex": 1,
+  "CurrentPrizeMoney": 1000,
   "SafePointReached": 0,
-  "Is5050Used": true,
+  "Is5050Used": false,
   "IsCallingUsed": false,
   "IsKhanGiaUsed": false,
   "IsToTuVanUsed": false,
   "IsCurrentQuestionIndexUsed": false,
   "GameQuestions": [
     {
-      "questionText": "T\u00E1c ph\u1EA9m \u0027N\u1ED7i bu\u1ED3n chi\u1EBFn tranh\u0027 l\u00E0 c\u1EE7a ai?",
+      "questionText": "Ng\u00F4n ng\u1EEF \u0111\u00E1nh d\u1EA5u d\u00F9ng \u0111\u1EC3 m\u00F4 t\u1EA3 c\u1EA5u tr\u00FAc d\u1EEF li\u1EC7u l\u00E0 g\u00EC?",
       "options": [
-        "B\u1EA3o Ninh",
-        " ",
-        " ",
-        "D\u01B0\u01A1ng Thu H\u01B0\u01A1ng"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "\u0027N\u1ED7i bu\u1ED3n chi\u1EBFn tranh\u0027 (t\u00EAn g\u1ED1c: Th\u1ECB tr\u1EA5n kh\u00F4ng c\u00F2n t\u00F4i) c\u1EE7a B\u1EA3o Ninh."
-    },
-    {
-      "questionText": "T\u00E1c ph\u1EA9m n\u00E0o sau \u0111\u00E2y c\u1EE7a Shakespeare l\u00E0 m\u1ED9t bi k\u1ECBch?",
-      "options": [
-        "A Midsummer Night\u0027s Dream",
-        "Romeo and Juliet",
-        "As You Like It",
-        "The Comedy of Errors"
+        "SQL",
+        "JSON",
+        "C#",
+        "Bash"
       ],
       "correctAnswerIndex": 1,
-      "explanation": "\u0027Romeo and Juliet\u0027 l\u00E0 m\u1ED9t bi k\u1ECBch c\u1EE7a Shakespeare."
+      "explanation": "JSON th\u01B0\u1EDDng d\u00F9ng \u0111\u1EC3 m\u00F4 t\u1EA3 v\u00E0 truy\u1EC1n d\u1EEF li\u1EC7u theo c\u1EA5u tr\u00FAc."
     },
     {
-      "questionText": "S\u1ED1 c\u1EA1nh c\u1EE7a m\u1ED9t h\u00ECnh tam gi\u00E1c l\u00E0 bao nhi\u00EAu?",
+      "questionText": "Nh\u1EA1c c\u1EE5 n\u00E0o th\u01B0\u1EDDng \u0111\u01B0\u1EE3c g\u1ECDi l\u00E0 \u0027vua c\u1EE7a c\u00E1c nh\u1EA1c c\u1EE5\u0027 trong d\u00E0n nh\u1EA1c c\u1ED5 \u0111i\u1EC3n?",
       "options": [
-        "2",
-        "3",
-        "4",
-        "5"
+        "\u0110\u00E0n violin",
+        "\u0110\u00E0n piano",
+        "\u0110\u00E0n cello",
+        "K\u00E8n trumpet"
       ],
       "correctAnswerIndex": 1,
-      "explanation": "Tam gi\u00E1c c\u00F3 3 c\u1EA1nh."
+      "explanation": "\u0110\u00E0n piano th\u01B0\u1EDDng \u0111\u01B0\u1EE3c v\u00ED l\u00E0 \u0027vua c\u1EE7a c\u00E1c nh\u1EA1c c\u1EE5\u0027 do ph\u1EA1m vi \u00E2m r\u1ED9ng v\u00E0 vai tr\u00F2 \u0111a n\u0103ng."
+    },
+    {
+      "questionText": "Studio n\u00E0o \u0111\u1EE9ng sau nhi\u1EC1u b\u1ED9 phim ho\u1EA1t h\u00ECnh n\u1ED5i ti\u1EBFng nh\u01B0 \u0027Spirited Away\u0027 v\u00E0 \u0027Princess Mononoke\u0027?",
+      "options": [
+        "Toei Animation",
+        "Madhouse",
+        "Studio Ghibli",
+        "Bones"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Studio Ghibli l\u00E0 h\u00E3ng s\u1EA3n xu\u1EA5t c\u00E1c phim nh\u01B0 \u0027Spirited Away\u0027 v\u00E0 \u0027Princess Mononoke\u0027."
     },
     {
       "questionText": "Ph\u00EDm t\u1EAFt th\u00F4ng d\u1EE5ng \u0111\u1EC3 sao ch\u00E9p (copy) tr\u00EAn h\u1EA7u h\u1EBFt h\u1EC7 \u0111i\u1EC1u h\u00E0nh l\u00E0 g\u00EC?",
@@ -53,26 +53,15 @@
       "explanation": "Ctrl \u002B C l\u00E0 ph\u00EDm t\u1EAFt sao ch\u00E9p."
     },
     {
-      "questionText": "H\u00ECnh vu\u00F4ng c\u00F3 bao nhi\u00EAu c\u1EA1nh?",
+      "questionText": "Th\u1EE7 \u0111\u00F4 c\u1EE7a Vi\u1EC7t Nam l\u00E0 th\u00E0nh ph\u1ED1 n\u00E0o?",
       "options": [
-        "3",
-        "4",
-        "5",
-        "6"
+        "H\u1ED3 Ch\u00ED Minh",
+        "\u0110\u00E0 N\u1EB5ng",
+        "H\u00E0 N\u1ED9i",
+        "Hu\u1EBF"
       ],
-      "correctAnswerIndex": 1,
-      "explanation": "H\u00ECnh vu\u00F4ng c\u00F3 4 c\u1EA1nh."
-    },
-    {
-      "questionText": "Trong l\u1EADp tr\u00ECnh web, AJAX d\u00F9ng \u0111\u1EC3 l\u00E0m g\u00EC?",
-      "options": [
-        "T\u1EA1o giao di\u1EC7n 3D",
-        "G\u1EEDi y\u00EAu c\u1EA7u b\u1EA5t \u0111\u1ED3ng b\u1ED9 \u0111\u1EBFn server",
-        "T\u1ED1i \u01B0u CSS",
-        "Qu\u1EA3n l\u00FD c\u01A1 s\u1EDF d\u1EEF li\u1EC7u"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "AJAX (Asynchronous JavaScript and XML) d\u00F9ng \u0111\u1EC3 g\u1EEDi y\u00EAu c\u1EA7u b\u1EA5t \u0111\u1ED3ng b\u1ED9 t\u1EDBi server m\u00E0 kh\u00F4ng t\u1EA3i l\u1EA1i trang."
+      "correctAnswerIndex": 2,
+      "explanation": "H\u00E0 N\u1ED9i l\u00E0 th\u1EE7 \u0111\u00F4 c\u1EE7a Vi\u1EC7t Nam."
     },
     {
       "questionText": "\u0110\u01A1n v\u1ECB \u0111o n\u0103ng l\u01B0\u1EE3ng th\u01B0\u1EDDng d\u00F9ng l\u00E0 g\u00EC?",
@@ -86,15 +75,15 @@
       "explanation": "N\u0103ng l\u01B0\u1EE3ng th\u01B0\u1EDDng \u0111o b\u1EB1ng joule (J)."
     },
     {
-      "questionText": "Trong \u0111\u1ECBa l\u00FD, \u0027\u0111\u01B0\u1EDDng ch\u00ED tuy\u1EBFn B\u1EAFc\u0027 c\u00F3 v\u0129 \u0111\u1ED9 x\u1EA5p x\u1EC9 l\u00E0 bao nhi\u00EAu?",
+      "questionText": "Trong to\u00E1n h\u1ECDc, \u03C0 (pi) x\u1EA5p x\u1EC9 b\u1EB1ng bao nhi\u00EAu?",
       "options": [
-        "0\u00B0",
-        "23.5\u00B0N",
-        "45\u00B0N",
-        "66.5\u00B0N"
+        "2.14",
+        "3.14",
+        "4.13",
+        "1.41"
       ],
       "correctAnswerIndex": 1,
-      "explanation": "\u0110\u01B0\u1EDDng ch\u00ED tuy\u1EBFn B\u1EAFc (Tropic of Cancer) kho\u1EA3ng 23.5\u00B0 v\u0129 B\u1EAFc."
+      "explanation": "\u03C0 \u2248 3.14159, th\u01B0\u1EDDng l\u00E0m tr\u00F2n l\u00E0 3.14."
     },
     {
       "questionText": "S\u00F4ng d\u00E0i nh\u1EA5t th\u1EBF gi\u1EDBi theo truy\u1EC1n th\u1ED1ng l\u00E0 con s\u00F4ng n\u00E0o?",
@@ -108,70 +97,81 @@
       "explanation": "Truy\u1EC1n th\u1ED1ng cho r\u1EB1ng s\u00F4ng Nile l\u00E0 s\u00F4ng d\u00E0i nh\u1EA5t; c\u00F3 tranh lu\u1EADn v\u1EDBi Amazon nh\u01B0ng \u0111\u00E1p \u00E1n ph\u1ED5 bi\u1EBFn l\u00E0 Nile."
     },
     {
-      "questionText": "Trong c\u01A1 th\u1EC3 ng\u01B0\u1EDDi, b\u1ED9 ph\u1EADn n\u00E0o b\u01A1m m\u00E1u \u0111i kh\u1EAFp c\u01A1 th\u1EC3?",
+      "questionText": "\u0110\u01A1n v\u1ECB \u0111o t\u1EA7n s\u1ED1 l\u00E0 g\u00EC?",
       "options": [
-        "Ph\u1ED5i",
-        "Gan",
-        "Tim",
-        "Th\u1EADn"
+        "Newton",
+        "Pascal",
+        "Hertz",
+        "Joule"
       ],
       "correctAnswerIndex": 2,
-      "explanation": "Tim b\u01A1m m\u00E1u \u0111i kh\u1EAFp c\u01A1 th\u1EC3."
+      "explanation": "T\u1EA7n s\u1ED1 \u0111\u01B0\u1EE3c \u0111o b\u1EB1ng hertz (Hz)."
     },
     {
-      "questionText": "Trong thi\u1EBFt k\u1EBF c\u01A1 s\u1EDF d\u1EEF li\u1EC7u, thu\u1ED9c t\u00EDnh n\u00E0o sau \u0111\u00E2y \u0111\u1EA3m b\u1EA3o t\u00EDnh duy nh\u1EA5t c\u1EE7a m\u1ED7i b\u1EA3n ghi?",
+      "questionText": "Trong m\u00F4 h\u00ECnh OSI, t\u1EA7ng n\u00E0o \u0111\u1EA3m nhi\u1EC7m truy\u1EC1n d\u1EEF li\u1EC7u gi\u1EEFa c\u00E1c host (networking)?",
       "options": [
-        "Index",
-        "Primary Key",
-        "Foreign Key",
-        "View"
+        "T\u1EA7ng v\u1EADt l\u00FD",
+        "T\u1EA7ng li\u00EAn k\u1EBFt d\u1EEF li\u1EC7u (Data Link)",
+        "T\u1EA7ng m\u1EA1ng (Network)",
+        "T\u1EA7ng \u1EE9ng d\u1EE5ng"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "T\u1EA7ng m\u1EA1ng (Network) ch\u1ECBu tr\u00E1ch nhi\u1EC7m \u0111\u1ECBnh tuy\u1EBFn v\u00E0 truy\u1EC1n g\u00F3i gi\u1EEFa c\u00E1c host."
+    },
+    {
+      "questionText": "Thu\u1EADt ng\u1EEF \u0027x\u00E3 h\u1ED9i c\u00F4ng d\u00E2n\u0027 (\u0027civil society\u0027) kh\u00E1c v\u1EDBi \u0027ch\u00EDnh quy\u1EC1n\u0027 v\u00EC l\u00FD do n\u00E0o ch\u1EE7 y\u1EBFu?",
+      "options": [
+        "Ch\u00EDnh quy\u1EC1n l\u00E0 s\u00FAc v\u1EADt",
+        "X\u00E3 h\u1ED9i c\u00F4ng d\u00E2n bao g\u1ED3m c\u00E1c t\u1ED5 ch\u1EE9c t\u1EF1 nguy\u1EC7n \u0111\u1ED9c l\u1EADp v\u1EDBi nh\u00E0 n\u01B0\u1EDBc",
+        "Ch\u00EDnh quy\u1EC1n c\u00F3 nhi\u1EC7m v\u1EE5 t\u1EEB thi\u1EC7n",
+        "X\u00E3 h\u1ED9i c\u00F4ng d\u00E2n do qu\u00E2n \u0111\u1ED9i \u0111i\u1EC1u h\u00E0nh"
       ],
       "correctAnswerIndex": 1,
-      "explanation": "Primary Key l\u00E0 kh\u00F3a ch\u00EDnh \u0111\u1EA3m b\u1EA3o m\u1ED7i b\u1EA3n ghi l\u00E0 duy nh\u1EA5t trong b\u1EA3ng."
+      "explanation": "X\u00E3 h\u1ED9i c\u00F4ng d\u00E2n g\u1ED3m c\u00E1c t\u1ED5 ch\u1EE9c, hi\u1EC7p h\u1ED9i, nh\u00F3m ho\u1EA1t \u0111\u1ED9ng \u0111\u1ED9c l\u1EADp v\u1EDBi nh\u00E0 n\u01B0\u1EDBc."
     },
     {
-      "questionText": "Trong to\u00E1n h\u1ECDc, \u0111\u1ECBnh l\u00FD n\u00E0o kh\u1EB3ng \u0111\u1ECBnh r\u1EB1ng m\u1ED7i \u0111a th\u1EE9c b\u1EADc n c\u00F3 \u0111\u00FAng n nghi\u1EC7m trong tr\u01B0\u1EDDng s\u1ED1 ph\u1EE9c (k\u1EC3 c\u1EA3 nghi\u1EC7m tr\u00F9ng)?",
+      "questionText": "Trong s\u1EA3n xu\u1EA5t \u00E2m nh\u1EA1c, \u0027sidechain compression\u0027 th\u01B0\u1EDDng d\u00F9ng \u0111\u1EC3 l\u00E0m g\u00EC?",
       "options": [
-        "\u0110\u1ECBnh l\u00FD trung b\u00ECnh gi\u00E1 tr\u1ECB",
-        "\u0110\u1ECBnh l\u00FD \u0111\u1EA1i s\u1ED1 c\u01A1 b\u1EA3n",
-        "\u0110\u1ECBnh l\u00FD Pythagore",
-        "\u0110\u1ECBnh l\u00FD Fermat"
+        "T\u0103ng \u0111\u1ED9 v\u1ECDng (reverb)",
+        "T\u1EA1o hi\u1EC7u \u1EE9ng nh\u01B0\u1EDDng ch\u1ED7 (ducking) gi\u1EEFa hai t\u00EDn hi\u1EC7u, th\u01B0\u1EDDng \u0111\u1EC3 gi\u1ECDng h\u00E1t/nkick n\u1ED5i b\u1EADt",
+        "Thay \u0111\u1ED5i t\u00F4ng nh\u1EA1c",
+        "T\u1EA1o ti\u1EBFng vang stereo"
       ],
       "correctAnswerIndex": 1,
-      "explanation": "\u0110\u1ECBnh l\u00FD \u0111\u1EA1i s\u1ED1 c\u01A1 b\u1EA3n (Fundamental Theorem of Algebra) ph\u00E1t bi\u1EC3u \u0111i\u1EC1u n\u00E0y."
+      "explanation": "Sidechain compression cho ph\u00E9p m\u1ED9t t\u00EDn hi\u1EC7u (v\u00ED d\u1EE5 kick) l\u00E0m gi\u1EA3m \u00E2m l\u01B0\u1EE3ng c\u1EE7a t\u00EDn hi\u1EC7u kh\u00E1c (v\u00ED d\u1EE5 bass) nh\u1EB1m t\u1EA1o kh\u00F4ng gian \u00E2m thanh."
     },
     {
-      "questionText": "Trong to\u00E1n h\u1ECDc, \u0027s\u1ED1 Fibonacci\u0027 b\u1EAFt \u0111\u1EA7u b\u1EB1ng d\u00E3y n\u00E0o ph\u1ED5 bi\u1EBFn nh\u1EA5t?",
+      "questionText": "K\u1EF9 thu\u1EADt \u0027assemblage\u0027 trong m\u1EF9 thu\u1EADt hi\u1EC7n \u0111\u1EA1i l\u00E0 g\u00EC?",
       "options": [
-        "0, 1, 1, 2, 3, 5...",
-        "1, 2, 3, 5, 8...",
-        "2, 3, 5, 8...",
-        "1, 1, 2, 3, 5..."
+        "V\u1EBD b\u1EB1ng m\u00E0u n\u01B0\u1EDBc",
+        "T\u1EA1o t\u00E1c ph\u1EA9m b\u1EB1ng c\u00E1ch gh\u00E9p n\u1ED1i c\u00E1c v\u1EADt th\u1EC3 s\u1EB5n c\u00F3 th\u00E0nh m\u1ED9t t\u1ED5ng th\u1EC3 m\u1EDBi",
+        "In kh\u1EAFc g\u1ED7",
+        "Tranh s\u01A1n d\u1EA7u truy\u1EC1n th\u1ED1ng"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Assemblage l\u00E0 gh\u00E9p c\u00E1c v\u1EADt th\u1EC3 (found objects) \u0111\u1EC3 t\u1EA1o t\u00E1c ph\u1EA9m ngh\u1EC7 thu\u1EADt m\u1EDBi."
+    },
+    {
+      "questionText": "Trong h\u1EC7 \u0111i\u1EC1u h\u00E0nh, c\u01A1 ch\u1EBF \u0027deadlock\u0027 x\u1EA3y ra khi n\u00E0o?",
+      "options": [
+        "Khi m\u1ED9t ti\u1EBFn tr\u00ECnh b\u1ECB treo t\u1EA1m th\u1EDDi",
+        "Khi hai ho\u1EB7c nhi\u1EC1u ti\u1EBFn tr\u00ECnh ch\u1EDD nhau v\u00F4 h\u1EA1n",
+        "Khi CPU qu\u00E1 t\u1EA3i",
+        "Khi b\u1ED9 nh\u1EDB b\u1ECB \u0111\u1EA7y"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Deadlock x\u1EA3y ra khi c\u00E1c ti\u1EBFn tr\u00ECnh ch\u1EDD l\u1EABn nhau v\u00E0 kh\u00F4ng ai ti\u1EBFn tri\u1EC3n \u0111\u01B0\u1EE3c."
+    },
+    {
+      "questionText": "Trong l\u00FD thuy\u1EBFt s\u1ED1, \u0110\u1ECBnh l\u00FD Wilson ph\u00E1t bi\u1EC3u g\u00EC (t\u00F3m t\u1EAFt)?",
+      "options": [
+        "p l\u00E0 s\u1ED1 nguy\u00EAn t\u1ED1 khi v\u00E0 ch\u1EC9 khi (p-1)! \u2261 -1 (mod p)",
+        "M\u1ECDi s\u1ED1 chia h\u1EBFt cho 2",
+        "M\u1ED7i s\u1ED1 c\u00F3 \u01B0\u1EDBc s\u1ED1",
+        "T\u1ED5ng hai s\u1ED1 nguy\u00EAn t\u1ED1 l\u00E0 s\u1ED1 ch\u1EB5n"
       ],
       "correctAnswerIndex": 0,
-      "explanation": "M\u1ED9t c\u00E1ch ph\u1ED5 bi\u1EBFn b\u1EAFt \u0111\u1EA7u d\u00E3y Fibonacci l\u00E0 0,1,1,2,3,5,... (m\u1ED9t bi\u1EBFn th\u1EC3 kh\u00E1c b\u1EAFt \u0111\u1EA7u 1,1,...)."
-    },
-    {
-      "questionText": "Trong ph\u00E2n t\u00EDch v\u0103n h\u1ECDc, \u0027ti\u1EC1n gi\u1EA3 t\u01B0\u1EDFng\u0027 (metafiction) th\u01B0\u1EDDng ch\u1EC9:",
-      "options": [
-        "T\u00E1c ph\u1EA9m ch\u1EC9 d\u00F9ng ng\u00F4n ng\u1EEF h\u00ECnh \u1EA3nh",
-        "T\u00E1c ph\u1EA9m t\u1EF1 \u00FD th\u1EE9c v\u1EC1 t\u00EDnh h\u01B0 c\u1EA5u c\u1EE7a m\u00ECnh",
-        "T\u00E1c ph\u1EA9m l\u1ECBch s\u1EED ch\u00E2n th\u1EF1c",
-        "T\u00E1c ph\u1EA9m thi\u1EBFu c\u1EA5u tr\u00FAc"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Metafiction l\u00E0 th\u1EC3 lo\u1EA1i t\u1EF1 ph\u1EA3n chi\u1EBFu v\u1EC1 t\u00EDnh h\u01B0 c\u1EA5u, ph\u00E1 v\u1EE1 ranh gi\u1EDBi k\u1EC3 chuy\u1EC7n."
-    },
-    {
-      "questionText": "Trong to\u00E1n cao c\u1EA5p, \u0027ph\u00E9p bi\u1EBFn \u0111\u1ED5i Fourier\u0027 ch\u1EE7 y\u1EBFu d\u00F9ng \u0111\u1EC3 l\u00E0m g\u00EC?",
-      "options": [
-        "Gi\u1EA3i ph\u01B0\u01A1ng tr\u00ECnh \u0111\u1EA1i s\u1ED1 b\u1EADc hai",
-        "Chuy\u1EC3n h\u00E0m t\u1EEB mi\u1EC1n th\u1EDDi gian sang mi\u1EC1n t\u1EA7n s\u1ED1",
-        "T\u00EDnh t\u00EDch ph\u00E2n \u0111\u01A1n",
-        "T\u1ED1i \u01B0u h\u00F3a"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Bi\u1EBFn \u0111\u1ED5i Fourier chuy\u1EC3n t\u00EDn hi\u1EC7u t\u1EEB mi\u1EC1n th\u1EDDi gian sang mi\u1EC1n t\u1EA7n s\u1ED1 \u0111\u1EC3 ph\u00E2n t\u00EDch th\u00E0nh ph\u1EA7n h\u00E0i."
+      "explanation": "\u0110\u1ECBnh l\u00FD Wilson: p l\u00E0 nguy\u00EAn t\u1ED1 \u21D4 (p-1)! \u2261 -1 (mod p)."
     }
   ]
 }

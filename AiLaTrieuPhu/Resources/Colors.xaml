@@ -17,4 +17,10 @@
     <SolidColorBrush x:Key="ErrorRedBrush" Color="{StaticResource ErrorRedColor}"/>
 
     <SolidColorBrush x:Key="QuestionBackgroundBrush" Color="{StaticResource AccentGoldColor}"/>
+
+    <Color x:Key="SecondaryBackgroundColor">#151624</Color>
+    <SolidColorBrush x:Key="SecondaryBackgroundBrush" Color="{StaticResource SecondaryBackgroundColor}"/>
+
+    <Color x:Key="PrimaryTextColor">#F0F0F0</Color>
+    <SolidColorBrush x:Key="PrimaryTextBrush" Color="{StaticResource PrimaryTextColor}"/>
 </ResourceDictionary>

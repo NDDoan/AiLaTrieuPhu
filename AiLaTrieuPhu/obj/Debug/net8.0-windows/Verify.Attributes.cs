@@ -13,7 +13,7 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyMetadata("Verify.TargetFrameworks", "")]
 [assembly: System.Reflection.AssemblyMetadata("Verify.ProjectDirectory", "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\")]
-[assembly: System.Reflection.AssemblyMetadata("Verify.ProjectName", "AiLaTrieuPhu_mwc1hsrt_wpftmp")]
+[assembly: System.Reflection.AssemblyMetadata("Verify.ProjectName", "AiLaTrieuPhu_uqr4lxlq_wpftmp")]
 [assembly: System.Reflection.AssemblyMetadata("Verify.SolutionDirectory", "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\")]
 [assembly: System.Reflection.AssemblyMetadata("Verify.SolutionName", "WhoIsMillionareGame")]
 
