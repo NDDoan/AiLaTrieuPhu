@@ -16,52 +16,133 @@
         <util:BoolToDiamondConverter x:Key="BoolToDiamondConverter"/>
         <util:BoolToHighlightColorConverter x:Key="BoolToHighlightColorConverter"/>
         <util:BoolToBoldConverter x:Key="BoolToBoldConverter"/>
+        <util:IndexToVisibilityConverter x:Key="IndexToVisibilityConverter"/>
+
+        <Style x:Key="LifelineImageStyle" TargetType="Image">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Stretch" Value="Uniform"/>
+        </Style>
+
+        <Style x:Key="LifelineButtonStyle" TargetType="Button" BasedOn="{StaticResource MenuButtonStyle}">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
     </UserControl.Resources>
 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Margin="10">
+        <Grid Grid.Column="0" Margin="20,10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
                 <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-
-            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Border BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" Width="180" Height="180">
-                    <TextBlock Text="Hình của bạn" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Border>
-            </StackPanel>
-
-            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Border BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" Width="180" Height="180">
-                    <TextBlock Text="Hình của Lại Văn Sâm" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Border>
-            </StackPanel>
-
-            <Border Grid.Row="2" BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" CornerRadius="15" Margin="0,20,0,0" Padding="10">
-                <TextBlock Text="Phụ đề hội thoại" Foreground="White" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-            </Border>
-        </Grid>
-
-        <Grid Grid.Column="1" Margin="20,10">
-            <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch">
-                <TextBlock Text="{Binding GameStatusMessage}" 
-                           Foreground="White" FontSize="20" FontWeight="SemiBold" 
-                           VerticalAlignment="Center" Margin="0,0,30,0"/>
-                <Button Content="Thoát game" Command="{Binding SaveAndExitCommand}" Style="{StaticResource MenuButtonStyle}" Width="150" Height="40" HorizontalAlignment="Right"/>
-            </StackPanel>
+            <Grid Grid.Row="0" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Border BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" Width="180" Height="180" CornerRadius="10">
+                        <Image Source="/Assets/Image/Nguoi_choi.png" Stretch="UniformToFill"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,15">
+                        <Button Content="Thoát game" Command="{Binding SaveAndExitCommand}" Style="{StaticResource MenuButtonStyle}" Width="120" Height="40"/>
+                        <Button Content="TỪ BỎ" Command="{Binding QuitGameCommand}" Style="{StaticResource MenuButtonStyle}" Background="{StaticResource ErrorRedBrush}" Width="100" Margin="10,0" Height="40"/>
+                    </StackPanel>
+
+                    <Border BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" CornerRadius="15" Padding="10" Margin="0,80,0,10">
+                        <TextBlock Text="{Binding GameStatusMessage}" 
+                                   Foreground="White" TextWrapping="Wrap" 
+                                   HorizontalAlignment="Center" TextAlignment="Center"
+                                   FontWeight="SemiBold" FontSize="18"/>
+                    </Border>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                        <Button Command="{Binding Use5050Command}" IsEnabled="{Binding Is5050Enabled}" Style="{StaticResource LifelineButtonStyle}">
+                            <Image>
+                                <Image.Style>
+                                    <Style TargetType="Image" BasedOn="{StaticResource LifelineImageStyle}">
+                                        <Setter Property="Source" Value="/Assets/Image/5050.png"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding CurrentGameStatus.Is5050Used}" Value="True">
+                                                <Setter Property="Source" Value="/Assets/Image/5050used.png"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                        </Button>
+
+                        <Button Command="{Binding UseCallCommand}" IsEnabled="{Binding IsCallingEnabled}" Style="{StaticResource LifelineButtonStyle}">
+                            <Image>
+                                <Image.Style>
+                                    <Style TargetType="Image" BasedOn="{StaticResource LifelineImageStyle}">
+                                        <Setter Property="Source" Value="/Assets/Image/Calling.png"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding CurrentGameStatus.IsCallingUsed}" Value="True">
+                                                <Setter Property="Source" Value="/Assets/Image/Callingused.png"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                        </Button>
+
+                        <Button Command="{Binding UseAudienceCommand}" IsEnabled="{Binding IsAudienceEnabled}" Style="{StaticResource LifelineButtonStyle}">
+                            <Image>
+                                <Image.Style>
+                                    <Style TargetType="Image" BasedOn="{StaticResource LifelineImageStyle}">
+                                        <Setter Property="Source" Value="/Assets/Image/KhanGia.png"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding CurrentGameStatus.IsKhanGiaUsed}" Value="True">
+                                                <Setter Property="Source" Value="/Assets/Image/KhanGiaused.png"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                        </Button>
+
+                        <Button Command="{Binding UseConsultancyCommand}" IsEnabled="{Binding IsConsultancyEnabled}" Style="{StaticResource LifelineButtonStyle}"
+                                Visibility="{Binding IsConsultancyVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <Image>
+                                <Image.Style>
+                                    <Style TargetType="Image" BasedOn="{StaticResource LifelineImageStyle}">
+                                        <Setter Property="Source" Value="/Assets/Image/ToTuVan.png"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding CurrentGameStatus.IsToTuVanUsed}" Value="True">
+                                                <Setter Property="Source" Value="/Assets/Image/ToTuVanused.png"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Border BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" Width="180" Height="180" CornerRadius="10">
+                        <Image Source="/Assets/Image/Lai_Van_Sam.png" Stretch="UniformToFill"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
 
             <Border Grid.Row="1" BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="2" CornerRadius="15" Margin="0,20" Padding="20">
                 <TextBlock Text="{Binding CurrentQuestion.QuestionText}" 
@@ -70,21 +151,7 @@
             </Border>
 
             <Grid Grid.Row="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
-                    <Button Content="50:50" Margin="10,0" Style="{StaticResource MenuButtonStyle}" Width="100" Height="40"/>
-                    <Button Content="Gọi" Margin="10,0" Style="{StaticResource MenuButtonStyle}" Width="100" Height="40"/>
-                    <Button Content="Khán giả" Margin="10,0" Style="{StaticResource MenuButtonStyle}" Width="100" Height="40"/>
-
-                    <Button Content="Tư vấn" Margin="10,0" Style="{StaticResource MenuButtonStyle}" Width="100" Height="40"
-                            Visibility="{Binding IsConsultancyVisible, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                </StackPanel>
-
-                <ItemsControl Grid.Row="1" ItemsSource="{Binding CurrentQuestion.Options}">
+                <ItemsControl ItemsSource="{Binding CurrentQuestion.Options}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <Grid>
@@ -113,11 +180,21 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Button Content="{Binding}" 
-                                    Style="{StaticResource AnswerButtonStyle}"
-                                    HorizontalAlignment="Stretch"
-                                    
-                                    Command="{Binding DataContext.AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                    IsEnabled="{Binding DataContext.IsAnswerPhase, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                                Style="{StaticResource AnswerButtonStyle}"
+                                HorizontalAlignment="Stretch"
+                
+                                Command="{Binding DataContext.AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                IsEnabled="{Binding DataContext.IsAnswerPhase, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+
+                                <Button.Visibility>
+                                    <MultiBinding Converter="{StaticResource IndexToVisibilityConverter}">
+
+                                        <Binding Path="DataContext.CurrentQuestion.IsOptionHidden" 
+                                            RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+
+                                        <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPresenter}}"/>
+                                    </MultiBinding>
+                                </Button.Visibility>
 
                                 <Button.CommandParameter>
                                     <MultiBinding Converter="{StaticResource IndexConverter}">
@@ -132,7 +209,7 @@
             </Grid>
         </Grid>
 
-        <Border Grid.Column="2" Margin="10" BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" CornerRadius="10">
+        <Border Grid.Column="1" Margin="10" BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" CornerRadius="10">
             <ListBox ItemsSource="{Binding PrizeLadderDisplay}" 
                      Background="Transparent" BorderThickness="0" 
                      HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
@@ -174,7 +251,7 @@
                             <TextBlock Grid.Column="2" Text="{Binding PrizeAmount, StringFormat={}{0:N0} VNĐ}" 
                                         HorizontalAlignment="Right"/>
                         </Grid>
-                    </DataTemplate> 
+                    </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </Border>

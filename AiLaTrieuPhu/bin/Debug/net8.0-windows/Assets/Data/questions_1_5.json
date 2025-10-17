@@ -166,5 +166,167 @@
         "options": [ "Gạo", "Bột mì", "Ngô", "Khoai tây" ],
         "correctAnswerIndex": 1,
         "explanation": "Bột mì là nguyên liệu chính để làm bánh mì."
+    },
+    {
+        "questionText": "Ai là tác giả của tác phẩm 'Tắt đèn'?",
+        "options": [ "Nguyễn Công Hoan", "Ngô Tất Tố", "Nam Cao", "Vũ Trọng Phụng" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Ngô Tất Tố là tác giả của 'Tắt đèn'."
+    },
+    {
+        "questionText": "Số nguyên tố duy nhất chẵn là số nào?",
+        "options": [ "1", "2", "3", "5" ],
+        "correctAnswerIndex": 1,
+        "explanation": "2 là số nguyên tố duy nhất và là số chẵn."
+    },
+    {
+        "questionText": "Quốc gia có diện tích lớn thứ hai trên thế giới là nước nào?",
+        "options": [ "Canada", "Trung Quốc", "Hoa Kỳ", "Brazil" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Canada đứng thứ hai về diện tích sau Nga."
+    },
+    {
+        "questionText": "Phong trào Đông Dương Cộng sản Đảng có vai trò trong sự kiện nào ở Việt Nam?",
+        "options": [ "Khởi nghĩa Yên Bái", "Cách mạng Tháng Tám", "Phong trào Cần Vương", "Phong trào Đông Dương" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Các phong trào cộng sản đóng góp quan trọng vào Cách mạng Tháng Tám."
+    },
+    {
+        "questionText": "Tác giả 'Số đỏ' là ai?",
+        "options": [ "Nguyễn Tuân", "Vũ Trọng Phụng", "Nam Cao", "Tô Hoài" ],
+        "correctAnswerIndex": 1,
+        "explanation": "'Số đỏ' là tác phẩm nổi tiếng của Vũ Trọng Phụng."
+    },
+    {
+        "questionText": "Chu vi của hình tròn tính bằng công thức nào (r là bán kính)?",
+        "options": [ "2πr", "πr^2", "πd^2", "rπ" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Chu vi hình tròn = 2 × π × r."
+    },
+    {
+        "questionText": "Quốc kỳ của Nhật Bản có biểu tượng gì ở trung tâm?",
+        "options": [ "Ngôi sao", "Mặt trời đỏ", "Lá phong", "Con rồng" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Cờ Nhật có hình mặt trời đỏ ở giữa, gọi là Hinomaru."
+    },
+    {
+        "questionText": "Trong lịch sử Việt Nam, triều đại nhà Lý nổi tiếng ở thế kỷ nào?",
+        "options": [ "Thế kỷ X-XI", "Thế kỷ XI-XIII", "Thế kỷ XIV-XV", "Thế kỷ XVI-XVII" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Nhà Lý trị vì chủ yếu thế kỷ XI đến XIII."
+    },
+    {
+        "questionText": "Tác phẩm 'Vợ nhặt' do nhà văn nào viết?",
+        "options": [ "Nguyễn Minh Châu", "Ngô Tất Tố", "Kim Lân", "Thanh Tịnh" ],
+        "correctAnswerIndex": 2,
+        "explanation": "'Vợ nhặt' là truyện ngắn của Kim Lân."
+    },
+    {
+        "questionText": "Trong toán học cơ bản, 5 nhân 6 bằng bao nhiêu?",
+        "options": [ "30", "25", "11", "56" ],
+        "correctAnswerIndex": 0,
+        "explanation": "5 × 6 = 30."
+    },
+    {
+        "questionText": "Sông Mekong chảy qua bao nhiêu quốc gia trước khi đổ ra biển?",
+        "options": [ "3", "4", "5", "6" ],
+        "correctAnswerIndex": 3,
+        "explanation": "Mekong chảy qua Trung Quốc, Myanmar, Lào, Thái Lan, Campuchia và Việt Nam (6 quốc gia), nhưng thường tính đoạn chính 5 quốc gia trước khi vào Việt Nam; đáp án phổ biến ở nhiều câu đố là 6, chọn 6 để bao gồm tất cả."
+    },
+    {
+        "questionText": "Ai là nhân vật lịch sử lãnh đạo khởi nghĩa Hai Bà Trưng?",
+        "options": [ "Trưng Trắc và Trưng Nhị", "Ngô Quyền", "Lý Nam Đế", "Bà Triệu" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Hai Bà Trưng gồm Trưng Trắc và Trưng Nhị."
+    },
+    {
+        "questionText": "Tác phẩm 'Đoạn Trường Tân Thanh' còn được biết dưới tên nào?",
+        "options": [ "Truyện Kiều", "Chinh Phụ Ngâm", "Hoàng Lê nhất thống chí", "Lục Vân Tiên" ],
+        "correctAnswerIndex": 0,
+        "explanation": "'Đoạn Trường Tân Thanh' là tên khác của Truyện Kiều (bản dịch Nôm của Nguyễn Du)."
+    },
+    {
+        "questionText": "Trong xã hội học, khái niệm 'gia đình hạt nhân' thường chỉ:",
+        "options": [ "Nhiều thế hệ sống cùng", "Vợ, chồng và con", "Một người sống độc thân", "Cộng đồng làng xã" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Gia đình hạt nhân = bố mẹ và con cái (vợ, chồng, con)."
+    },
+    {
+        "questionText": "Trong hệ đo lường quốc tế, đơn vị đo chiều dài là gì?",
+        "options": [ "Kilogram", "Metre", "Second", "Ampere" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Mét (metre) là đơn vị cơ bản đo chiều dài trong SI."
+    },
+    {
+        "questionText": "Thủ đô lịch sử của nước Pháp là thành phố nào?",
+        "options": [ "Lyon", "Marseille", "Paris", "Bordeaux" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Paris là thủ đô của Pháp."
+    },
+    {
+        "questionText": "Ai viết tập thơ 'Nhật ký trong tù'?",
+        "options": [ "Hồ Xuân Hương", "Hồ Chí Minh", "Xuân Diệu", "Hàn Mặc Tử" ],
+        "correctAnswerIndex": 1,
+        "explanation": "'Nhật ký trong tù' là tuyển thơ của Chủ tịch Hồ Chí Minh."
+    },
+    {
+        "questionText": "Trong lịch sử thế giới, cuộc cách mạng công nghiệp lần thứ nhất bắt đầu ở quốc gia nào?",
+        "options": [ "Pháp", "Hoa Kỳ", "Anh", "Đức" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Cách mạng công nghiệp lần thứ nhất khởi nguồn tại Anh."
+    },
+    {
+        "questionText": "Một tam giác vuông có một góc 90°, tổng hai góc còn lại bằng bao nhiêu độ?",
+        "options": [ "45°", "90°", "60°", "180°" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Tổng ba góc tam giác là 180°; nếu một góc 90° thì hai góc còn lại tổng 90°."
+    },
+    {
+        "questionText": "Quốc hội là cơ quan quyền lực nhà nước ở Việt Nam theo hiến pháp. Vậy nhiệm vụ chính là gì?",
+        "options": [ "Thi hành án hình sự", "Lập pháp và giám sát", "Tư pháp", "Quản lý doanh nghiệp nhà nước" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Quốc hội có chức năng lập pháp và giám sát việc thực thi pháp luật."
+    },
+    {
+        "questionText": "Tác phẩm 'Nỗi buồn chiến tranh' là của ai?",
+        "options": [ "Bảo Ninh", "Nguyễn Huy Thiệp", "Lê Lựu", "Dương Thu Hương" ],
+        "correctAnswerIndex": 0,
+        "explanation": "'Nỗi buồn chiến tranh' (tên gốc: Thị trấn không còn tôi) của Bảo Ninh."
+    },
+    {
+        "questionText": "Quần đảo nào sau đây thuộc về Indonesia?",
+        "options": [ "Quần đảo Canary", "Quần đảo Svalbard", "Quần đảo Sunda", "Quần đảo Faroe" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Sunda (Sunda Islands) nằm trong quần đảo Indonesia."
+    },
+    {
+        "questionText": "Trong toán học, 'ước chung lớn nhất' của 8 và 12 là bao nhiêu?",
+        "options": [ "2", "4", "6", "8" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Ước chung lớn nhất của 8 và 12 là 4."
+    },
+    {
+        "questionText": "Sự kiện lịch sử nào đánh dấu kết thúc triều đại nhà Trần?",
+        "options": [ "Khởi nghĩa Lam Sơn", "Sụp đổ do Nội chiến", "Lật đổ bởi Hồ Quý Ly", "Nhà Trần tồn tại lâu dài" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Nhà Trần suy yếu và bị thay thế khi Hồ Quý Ly thiết lập quyền lực."
+    },
+    {
+        "questionText": "Thành phố nào là thủ phủ của tỉnh Thừa Thiên Huế?",
+        "options": [ "Đà Nẵng", "Huế", "Quảng Trị", "Nha Trang" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Huế là tỉnh lỵ của Thừa Thiên Huế."
+    },
+    {
+        "questionText": "Trong xã hội học, 'xã hội dân sự' thường ám chỉ:",
+        "options": [ "Tổ chức chính phủ", "Các tổ chức phi nhà nước và hoạt động cộng đồng", "Doanh nghiệp nhà nước", "Quân đội" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Xã hội dân sự gồm các tổ chức, hiệp hội, cộng đồng độc lập với nhà nước."
+    },
+    {
+        "questionText": "Tác phẩm nào sau đây của Shakespeare là một bi kịch?",
+        "options": [ "A Midsummer Night's Dream", "Romeo and Juliet", "As You Like It", "The Comedy of Errors" ],
+        "correctAnswerIndex": 1,
+        "explanation": "'Romeo and Juliet' là một bi kịch của Shakespeare."
     }
 ]

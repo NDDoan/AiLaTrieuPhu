@@ -9,12 +9,60 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Image\5050.png" />
+    <None Remove="Assets\Image\5050used.png" />
+    <None Remove="Assets\Image\Calling.png" />
+    <None Remove="Assets\Image\Callingused.png" />
+    <None Remove="Assets\Image\KhanGia.png" />
+    <None Remove="Assets\Image\KhanGiaused.png" />
+    <None Remove="Assets\Image\Lai_Van_Sam.png" />
+    <None Remove="Assets\Image\Nguoi_choi.png" />
+    <None Remove="Assets\Image\ToTuVan.png" />
+    <None Remove="Assets\Image\ToTuVanused.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Image\5050.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\5050used.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\Calling.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\KhanGia.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\KhanGiaused.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\Lai_Van_Sam.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\Nguoi_choi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Image\Callingused.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\ToTuVan.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\ToTuVanused.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="Verify.CommunityToolkit.Mvvm" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\Image\" />
     <Folder Include="Assets\Saves\" />
   </ItemGroup>
 
@@ -26,12 +74,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Data\questions_6_10.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Image\Lai_Van_Sam.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Image\Nguoi_choi.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

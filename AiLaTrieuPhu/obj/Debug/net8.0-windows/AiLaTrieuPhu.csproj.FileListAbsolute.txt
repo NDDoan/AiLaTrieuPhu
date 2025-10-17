@@ -92,3 +92,12 @@ C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-w
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Data\questions_6_10.json
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\Lai_Van_Sam.png
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\Nguoi_choi.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\obj\Debug\net8.0-windows\AiLaTrieuPhu_Content.g.cs
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\5050.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\5050used.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\Calling.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\KhanGia.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\KhanGiaused.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\Callingused.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ToTuVan.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ToTuVanused.png

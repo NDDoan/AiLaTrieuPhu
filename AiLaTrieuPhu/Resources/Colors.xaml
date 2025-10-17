@@ -14,5 +14,7 @@
     <SolidColorBrush x:Key="SuccessGreenBrush" Color="{StaticResource SuccessGreenColor}"/>
     
     <Color x:Key="ErrorRedColor">#FFC00000</Color>
-    
+    <SolidColorBrush x:Key="ErrorRedBrush" Color="{StaticResource ErrorRedColor}"/>
+
+    <SolidColorBrush x:Key="QuestionBackgroundBrush" Color="{StaticResource AccentGoldColor}"/>
 </ResourceDictionary>

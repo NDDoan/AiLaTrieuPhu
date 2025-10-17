@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace AiLaTrieuPhu.Models
 {
-    public class Question
+    public partial class Question : ObservableObject
     {
         [JsonPropertyName("questionText")]
         public string QuestionText { get; set; }
@@ -21,8 +23,12 @@ namespace AiLaTrieuPhu.Models
         [JsonPropertyName("explanation")]
         public string Explanation { get; set; }
 
-        // Thuộc tính để hỗ trợ logic 50/50 trong game
+        [ObservableProperty]
+        [property: JsonIgnore]
+        private ObservableCollection<bool> isOptionHidden = new ObservableCollection<bool> { false, false, false, false };
+
+        // Thuộc tính tiện ích để lấy đáp án đúng
         [JsonIgnore]
-        public List<bool> IsOptionHidden { get; set; } = new List<bool> { false, false, false, false };
+        public string CorrectAnswer => Options.Count > CorrectAnswerIndex ? Options[CorrectAnswerIndex] : null;
     }
 }

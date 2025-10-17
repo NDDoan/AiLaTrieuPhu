@@ -58,5 +58,65 @@
         "options": [ "static", "final", "abstract", "synchronized" ],
         "correctAnswerIndex": 1,
         "explanation": "Từ khóa final khi áp dụng cho phương thức ngăn không cho lớp con ghi đè."
+    },
+    {
+        "questionText": "Tác phẩm 'Chiếc thuyền ngoài xa' của Nguyễn Minh Châu phản ánh chủ đề văn học nào nổi bật?",
+        "options": [ "Tính tốt xấu của con người và con mắt nghệ sĩ", "Lãng mạn tình yêu", "Miêu tả phong cảnh thiên nhiên", "Phê phán xã hội phong kiến" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Tác phẩm nhấn mạnh cách nhìn nghệ sĩ trước hiện thực: vẻ đẹp nghệ thuật và bi kịch đời thường."
+    },
+    {
+        "questionText": "Trong toán cao cấp, 'phép biến đổi Fourier' chủ yếu dùng để làm gì?",
+        "options": [ "Giải phương trình đại số bậc hai", "Chuyển hàm từ miền thời gian sang miền tần số", "Tính tích phân đơn", "Tối ưu hóa" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Biến đổi Fourier chuyển tín hiệu từ miền thời gian sang miền tần số để phân tích thành phần hài."
+    },
+    {
+        "questionText": "Hiệp ước Versailles (1919) ảnh hưởng lớn đến quốc gia nào sau Thế chiến I?",
+        "options": [ "Đức", "Nga", "Hoa Kỳ", "Nhật Bản" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Hiệp ước Versailles áp đặt điều khoản nặng nề lên Đức sau Thế chiến I."
+    },
+    {
+        "questionText": "Trong lý thuyết số, Định lý Wilson phát biểu gì (tóm tắt)?",
+        "options": [ "p là số nguyên tố khi và chỉ khi (p-1)! ≡ -1 (mod p)", "Mọi số chia hết cho 2", "Mỗi số có ước số", "Tổng hai số nguyên tố là số chẵn" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Định lý Wilson: p là nguyên tố ⇔ (p-1)! ≡ -1 (mod p)."
+    },
+    {
+        "questionText": "Người soạn thảo bản 'Tuyên ngôn Độc lập' của nước Việt Nam Dân chủ Cộng hòa (1945) chính là ai?",
+        "options": [ "Phạm Văn Đồng", "Hồ Chí Minh", "Võ Nguyên Giáp", "Trường Chinh" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Chủ tịch Hồ Chí Minh là người đọc và soạn thảo tuyên ngôn khai sinh nước VNDCCH."
+    },
+    {
+        "questionText": "Trong phân tích văn học, 'tiền giả tưởng' (metafiction) thường chỉ:",
+        "options": [ "Tác phẩm chỉ dùng ngôn ngữ hình ảnh", "Tác phẩm tự ý thức về tính hư cấu của mình", "Tác phẩm lịch sử chân thực", "Tác phẩm thiếu cấu trúc" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Metafiction là thể loại tự phản chiếu về tính hư cấu, phá vỡ ranh giới kể chuyện."
+    },
+    {
+        "questionText": "Trong đại số tuyến tính, một ma trận vuông A có định thức (determinant) bằng 0 có nghĩa gì?",
+        "options": [ "A có nghịch đảo", "A không khả nghịch (không có nghịch đảo)", "A là ma trận đơn vị", "A có tất cả phần tử bằng 0" ],
+        "correctAnswerIndex": 1,
+        "explanation": "det(A)=0 ⇔ A không khả nghịch (singular)."
+    },
+    {
+        "questionText": "Phong trào Duy Tân ở Việt Nam đầu thế kỷ 20 khởi xướng bởi ai?",
+        "options": [ "Phan Bội Châu và Phan Chu Trinh", "Hồ Chí Minh", "Nguyễn Ái Quốc", "Lê Duẩn" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Phan Bội Châu và Phan Chu Trinh là những nhân vật tiêu biểu cho phong trào Duy Tân và cải cách."
+    },
+    {
+        "questionText": "Thuật ngữ 'xã hội công dân' ('civil society') khác với 'chính quyền' vì lý do nào chủ yếu?",
+        "options": [ "Chính quyền là súc vật", "Xã hội công dân bao gồm các tổ chức tự nguyện độc lập với nhà nước", "Chính quyền có nhiệm vụ từ thiện", "Xã hội công dân do quân đội điều hành" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Xã hội công dân gồm các tổ chức, hiệp hội, nhóm hoạt động độc lập với nhà nước."
+    },
+    {
+        "questionText": "Trong toán học, 'số Fibonacci' bắt đầu bằng dãy nào phổ biến nhất?",
+        "options": [ "0, 1, 1, 2, 3, 5...", "1, 2, 3, 5, 8...", "2, 3, 5, 8...", "1, 1, 2, 3, 5..." ],
+        "correctAnswerIndex": 0,
+        "explanation": "Một cách phổ biến bắt đầu dãy Fibonacci là 0,1,1,2,3,5,... (một biến thể khác bắt đầu 1,1,...)."
     }
 ]

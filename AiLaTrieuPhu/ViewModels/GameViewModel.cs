@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using AiLaTrieuPhu.Models;
 using AiLaTrieuPhu.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -42,6 +43,8 @@ namespace AiLaTrieuPhu.ViewModels
 
         // Thuộc tính kiểm soát hiển thị nút Tổ Tư Vấn (Xuất hiện từ câu 6, index 5)
         public bool IsConsultancyVisible => CurrentGameStatus?.CurrentQuestionIndex >= 5;
+
+        public bool Is5050Enabled => !CurrentGameStatus.Is5050Used && IsAnswerPhase;
 
         public GameViewModel(MainViewModel mainNavigator, GameStatus status, SaveGameService saveService)
         {
@@ -163,19 +166,32 @@ namespace AiLaTrieuPhu.ViewModels
             }
         }
 
-        private async void GameOver(bool isWinner)
+        private async void GameOver(bool isWinner, bool isVoluntaryQuit = false)
         {
             IsAnswerPhase = false;
-
             await Task.Delay(5000);
 
-            long finalPrize = isWinner ? StaticPrizeLadder[15] : CalculateFinalPrize();
+            long finalPrize = 0;
+            if (isWinner)
+            {
+                finalPrize = StaticPrizeLadder[15];
+            }
+            else if (isVoluntaryQuit)
+            {
+                // Nếu tự bỏ, ra về với tiền thưởng đã đạt được (CurrentPrizeMoney)
+                // Lưu ý: CurrentPrizeMoney đã được cập nhật sau mỗi câu trả lời đúng
+                finalPrize = CurrentGameStatus.CurrentPrizeMoney;
+            }
+            else
+            {
+                // Nếu thua (trả lời sai), ra về với tiền ở mốc an toàn cuối cùng
+                finalPrize = CalculateFinalPrize();
+            }
 
             _mainNavigator.StatusMessage = $"Trò chơi kết thúc! Số tiền bạn mang về là: {finalPrize:N0} VNĐ.";
 
-            // Xóa file save (cần dùng Service để làm việc này)
-            // if (_saveService.HasSaveFile()) File.Delete("Assets/Saves/save.json"); 
-
+            // Xóa file save và điều hướng
+            // ...
             _mainNavigator.NavigateToMenu();
         }
 
@@ -204,6 +220,70 @@ namespace AiLaTrieuPhu.ViewModels
         private long GetPrizeForQuestionNumber(int questionNumber)
         {
             return StaticPrizeLadder.GetValueOrDefault(questionNumber, 0);
+        }
+
+        [RelayCommand]
+        private void QuitGame()
+        {
+            // Xác nhận trước khi TỪ BỎ (nên có MessageBox)
+            var result = MessageBox.Show(
+                "Bạn có chắc muốn dừng cuộc chơi và ra về với số tiền hiện tại?",
+                "Xác nhận TỪ BỎ",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                // Tính toán số tiền cuối cùng (tiền ở mốc an toàn cuối cùng đã đạt)
+                GameOver(false, true); // False: không phải thắng 15 câu, True: người chơi tự nguyện dừng
+            }
+        }
+
+        [RelayCommand(CanExecute = nameof(Is5050Enabled))]
+        private void Use5050()
+        {
+            // 1. Kiểm tra trạng thái và cập nhật cờ đã dùng
+            if (CurrentQuestion == null || CurrentGameStatus.Is5050Used) return;
+
+            CurrentGameStatus.Is5050Used = true;
+
+            // Is5050Enabled trở thành FALSE, vô hiệu hóa nút.
+            OnPropertyChanged(nameof(CurrentGameStatus));
+
+            // Bỏ dòng báo lỗi: Is5050Enabled = false; 
+
+            // 2. Tìm 2 đáp án sai để loại bỏ (Logic giữ nguyên)
+            var incorrectIndices = new List<int>();
+            for (int i = 0; i < CurrentQuestion.Options.Count; i++)
+            {
+                if (i != CurrentQuestion.CorrectAnswerIndex)
+                {
+                    incorrectIndices.Add(i);
+                }
+            }
+
+            // 3. Chọn ngẫu nhiên 2 index sai để ẩn
+            var random = new Random();
+            var indicesToHide = incorrectIndices.OrderBy(x => random.Next()).Take(2).ToList();
+
+            // 4. Cập nhật thuộc tính IsOptionHidden trong Question
+            foreach (var index in indicesToHide)
+            {
+                if (index >= 0 && index < CurrentQuestion.IsOptionHidden.Count)
+                {
+                    // Thiết lập trạng thái ẩn
+                    CurrentQuestion.IsOptionHidden[index] = true;
+
+                    // Thay nội dung đáp án thành rỗng để UI ẩn đi hoặc hiển thị " "
+                    CurrentQuestion.Options[index] = " ";
+                }
+            }
+
+            // 5. Thông báo thay đổi
+            OnPropertyChanged(nameof(CurrentQuestion));
+
+            // Bắn lại lệnh CanExecute để vô hiệu hóa nút 50:50 (Do OnPropertyChanged(CurrentGameStatus) đã làm điều này, dòng này là dư nhưng không gây hại)
+            Use5050Command.NotifyCanExecuteChanged();
         }
     }
 }

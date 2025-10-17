@@ -14,8 +14,9 @@ namespace AiLaTrieuPhu.Models
 
         // Trạng thái quyền trợ giúp
         public bool Is5050Used { get; set; } = false;
-        public bool IsCallUsed { get; set; } = false;
-        public bool IsAudienceUsed { get; set; } = false;
+        public bool IsCallingUsed { get; set; } = false;
+        public bool IsKhanGiaUsed { get; set; } = false;
+        public bool IsToTuVanUsed { get; set; } = false;
         public bool IsCurrentQuestionIndexUsed { get; set; } = false;
 
         // Toàn bộ 15 câu hỏi của phiên chơi này (rất quan trọng cho việc Save/Load)

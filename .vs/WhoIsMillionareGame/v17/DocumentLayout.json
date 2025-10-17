@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\trieu phu log.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\trieu phu log.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +27,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Trieu Phu Log.txt",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Trieu Phu Log.txt",
+              "RelativeDocumentMoniker": "AiLaTrieuPhu\\Trieu Phu Log.txt",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Trieu Phu Log.txt",
+              "RelativeToolTip": "AiLaTrieuPhu\\Trieu Phu Log.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-10-17T00:07:48.885Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\resources\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\resources\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\views\\gamescreen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\views\\gamescreen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
@@ -18,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,26 +30,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GameScreen.xaml",
               "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Views\\GameScreen.xaml",
               "RelativeDocumentMoniker": "AiLaTrieuPhu\\Views\\GameScreen.xaml",
-              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Views\\GameScreen.xaml*",
-              "RelativeToolTip": "AiLaTrieuPhu\\Views\\GameScreen.xaml*",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Views\\GameScreen.xaml",
+              "RelativeToolTip": "AiLaTrieuPhu\\Views\\GameScreen.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-16T02:28:36.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Colors.xaml",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Resources\\Colors.xaml",
-              "RelativeDocumentMoniker": "AiLaTrieuPhu\\Resources\\Colors.xaml",
-              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Resources\\Colors.xaml",
-              "RelativeToolTip": "AiLaTrieuPhu\\Resources\\Colors.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-16T02:27:54.501Z",
+              "WhenOpened": "2025-10-17T00:00:48.354Z",
               "EditorCaption": ""
             }
           ]
