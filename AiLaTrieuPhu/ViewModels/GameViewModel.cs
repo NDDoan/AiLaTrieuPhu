@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using AiLaTrieuPhu.Models;
 using AiLaTrieuPhu.Services;
+using AiLaTrieuPhu.Utilities;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace AiLaTrieuPhu.ViewModels
 {
@@ -105,6 +107,9 @@ namespace AiLaTrieuPhu.ViewModels
         // Thuộc tính để bật/tắt nút Tổ Tư Vấn
         public bool IsToTuVanEnabled => !CurrentGameStatus.IsToTuVanUsed && IsAnswerPhase;
 
+        [ObservableProperty]
+        private bool _isContinueGameAvailable = false;
+
         public GameViewModel(MainViewModel mainNavigator, GameStatus status, SaveGameService saveService)
         {
             _mainNavigator = mainNavigator;
@@ -181,7 +186,7 @@ namespace AiLaTrieuPhu.ViewModels
             {
                 // Thua cuộc
                 GameStatusMessage = $"Rất tiếc! Đáp án {IntToChar(selectedAnswerIndex)} là sai. Đáp án đúng là {IntToChar(CurrentQuestion.CorrectAnswerIndex)}.";
-                GameOver(false);
+                await GameOver(false);
             }
         }
 
@@ -221,11 +226,11 @@ namespace AiLaTrieuPhu.ViewModels
             else
             {
                 // Hoàn thành hết 15 câu
-                GameOver(true);
+                await GameOver(true);
             }
         }
 
-        private async void GameOver(bool isWinner, bool isVoluntaryQuit = false)
+        private async Task GameOver(bool isWinner, bool isVoluntaryQuit = false)
         {
             IsAnswerPhase = false;
             await Task.Delay(5000);
@@ -234,24 +239,36 @@ namespace AiLaTrieuPhu.ViewModels
             if (isWinner)
             {
                 finalPrize = StaticPrizeLadder[15];
+                CurrentGameStatus.CompletionStatus = GameCompletionStatus.QuitAndKeptMoney; // Hoặc một trạng thái Win riêng
+                GameStatusMessage = $"Bạn là Triệu Phú! Chúc mừng với {finalPrize:N0} VNĐ!";
             }
             else if (isVoluntaryQuit)
             {
                 // Nếu tự bỏ, ra về với tiền thưởng đã đạt được (CurrentPrizeMoney)
                 // Lưu ý: CurrentPrizeMoney đã được cập nhật sau mỗi câu trả lời đúng
                 finalPrize = CurrentGameStatus.CurrentPrizeMoney;
+                CurrentGameStatus.CompletionStatus = GameCompletionStatus.QuitAndKeptMoney;
+                GameStatusMessage = $"Chúc mừng! Bạn ra về với {finalPrize:N0} VNĐ!";
             }
             else
             {
                 // Nếu thua (trả lời sai), ra về với tiền ở mốc an toàn cuối cùng
                 finalPrize = CalculateFinalPrize();
+                CurrentGameStatus.CompletionStatus = GameCompletionStatus.Lost;
+                GameStatusMessage = $"Thật tiếc! Bạn phải dừng cuộc chơi. Tiền thưởng của bạn là {finalPrize:N0} VNĐ.";
             }
 
-            _mainNavigator.StatusMessage = $"Trò chơi kết thúc! Số tiền bạn mang về là: {finalPrize:N0} VNĐ.";
+            // Lưu trạng thái cuối cùng vào file save (bao gồm CompletionStatus)
+            await _saveService.SaveGameAsync(CurrentGameStatus);
 
-            // Xóa file save và điều hướng
-            // ...
+            _mainNavigator.StatusMessage = GameStatusMessage;
             _mainNavigator.NavigateToMenu();
+
+            if (CurrentGameStatus.CompletionStatus != GameCompletionStatus.InProgress)
+            {
+                // Sau khi game kết thúc (Quit/Lost) và file save bị xóa/cập nhật, gửi message
+                WeakReferenceMessenger.Default.Send(new GameStatusChangedMessage(false)); // False: không còn save file để tiếp tục
+            }
         }
 
         // =========================================================================
@@ -282,7 +299,7 @@ namespace AiLaTrieuPhu.ViewModels
         }
 
         [RelayCommand]
-        private void QuitGame()
+        public async Task QuitGame()
         {
             // Xác nhận trước khi TỪ BỎ (nên có MessageBox)
             var result = MessageBox.Show(
@@ -294,7 +311,7 @@ namespace AiLaTrieuPhu.ViewModels
             if (result == MessageBoxResult.Yes)
             {
                 // Tính toán số tiền cuối cùng (tiền ở mốc an toàn cuối cùng đã đạt)
-                GameOver(false, true); // False: không phải thắng 15 câu, True: người chơi tự nguyện dừng
+                await GameOver(false, true); // False: không phải thắng 15 câu, True: người chơi tự nguyện dừng
             }
         }
 
@@ -587,6 +604,13 @@ namespace AiLaTrieuPhu.ViewModels
         {
             IsConsultantResultVisible = false;
             GameStatusMessage = "Bạn đã có ý kiến từ tổ tư vấn. Hãy đưa ra quyết định cuối cùng.";
+        }
+
+        public async Task CheckSaveGameStatus()
+        {
+            var savedGame = await _saveService.LoadGameAsync();
+            // Nếu LoadGameAsync trả về null (vì không có file hoặc đã kết thúc)
+            IsContinueGameAvailable = savedGame != null;
         }
     }
 }

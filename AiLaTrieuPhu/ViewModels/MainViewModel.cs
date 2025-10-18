@@ -29,7 +29,7 @@ namespace AiLaTrieuPhu.ViewModels
         public void NavigateToMenu()
         {
             bool canContinue = _saveService.HasSaveFile();
-            CurrentViewModel = new MenuViewModel(this, canContinue);
+            CurrentViewModel = new MenuViewModel(this, _saveService);
 
             // Đặt lại thông báo mặc định nếu không có thông báo từ game over
             if (string.IsNullOrEmpty(StatusMessage) || StatusMessage.StartsWith("Câu hỏi số"))

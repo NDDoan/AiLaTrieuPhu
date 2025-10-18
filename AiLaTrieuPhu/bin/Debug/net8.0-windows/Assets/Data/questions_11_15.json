@@ -178,5 +178,110 @@
         "options": [ "Vẽ bằng màu nước", "Tạo tác phẩm bằng cách ghép nối các vật thể sẵn có thành một tổng thể mới", "In khắc gỗ", "Tranh sơn dầu truyền thống" ],
         "correctAnswerIndex": 1,
         "explanation": "Assemblage là ghép các vật thể (found objects) để tạo tác phẩm nghệ thuật mới."
+    },
+    {
+        "questionText": "Trong sinh học tiến hóa, khái niệm 'coevolution' (đồng tiến hóa) chỉ điều gì?",
+        "options": [
+            "Hai loài tiến hóa độc lập hoàn toàn",
+            "Hai hoặc nhiều loài ảnh hưởng chọn lọc lên nhau và tiến hóa song song",
+            "Loài tiến hóa rồi quay lại trạng thái cũ",
+            "Sự tiến hóa trong phòng thí nghiệm"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "Coevolution là quá trình hai hay nhiều loài ảnh hưởng chọn lọc lên nhau (ví dụ cây hoa và côn trùng thụ phấn)."
+    },
+    {
+        "questionText": "Trong anime 'Neon Genesis Evangelion', EVA unit thường được điều khiển bởi ai?",
+        "options": [ "Người máy tự động", "Trẻ em được chọn (pilots)", "Sinh vật ngoài hành tinh", "Máy tính trung tâm" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Các EVA do piloted bởi trẻ em đã chọn (Shinji, Rei, Asuka...) trong 'Evangelion'."
+    },
+    {
+        "questionText": "Trong sinh học tế bào, con đường 'Wnt signaling' quan trọng cho chức năng gì?",
+        "options": [
+            "Thoát hơi nước",
+            "Phát triển mô và quy định hình thái (cell fate)",
+            "Tạo ATP",
+            "Tổng hợp protein ngoại bào"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "Wnt là con đường tín hiệu thiết yếu trong phát triển phôi và phân hóa tế bào."
+    },
+    {
+        "questionText": "Trong nghiên cứu môi trường, phương pháp 'mark-recapture' dùng để làm gì?",
+        "options": [
+            "Tính mật độ mưa",
+            "Ước tính kích thước quần thể động vật hoang dã",
+            "Đo pH đất",
+            "Xác định loại thực vật"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "Mark-recapture dùng để ước tính kích thước quần thể bằng cách bắt, đánh dấu, thả và bắt lại."
+    },
+    {
+        "questionText": "Trong ngành phim/điện ảnh, thuật ngữ 'diegetic musical number' chỉ tình huống nào?",
+        "options": [
+            "Nhạc nền không thuộc câu chuyện",
+            "Nhân vật trong phim hát/biểu diễn và âm nhạc là một phần của thế giới phim",
+            "Nhạc quảng cáo",
+            "Âm thanh hậu trường"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "Diegetic musical number là khi âm nhạc phát trong thế giới câu chuyện (nhân vật nghe và tham gia)."
+    },
+    {
+        "questionText": "Trong di truyền người, 'epistasis' là hiện tượng gì?",
+        "options": [
+            "Một gen có nhiều hiệu ứng khác nhau",
+            "Tương tác giữa hai hay nhiều gen làm che khuất biểu hiện của nhau",
+            "Sự đột biến di truyền do tia X",
+            "Sự sao chép ADN lỗi"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "Epistasis là tương tác giữa gen, một gen có thể làm át biểu hiện của gen khác."
+    },
+    {
+        "questionText": "Trong anime 'Monster Hunter Stories' (ví dụ), thuật ngữ 'Rathalos' thường chỉ loại gì?",
+        "options": [
+            "Một kỹ thuật chiến đấu",
+            "Một loài quái vật (rồng) trong loạt Monster Hunter",
+            "Một phép thuật",
+            "Một vùng đất"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "Rathalos là loài quái vật dạng rồng/bọ lớn trong game/anime Monster Hunter."
+    },
+    {
+        "questionText": "Trong sinh thái học, 'edge effect' (hiệu ứng mép) mô tả điều gì?",
+        "options": [
+            "Khi hai môi trường gặp nhau, vùng mép có đặc tính sinh học khác và thường đa dạng sinh học cao hơn",
+            "Hiệu ứng trên mép lá cây",
+            "Mối quan hệ giữa loài ăn thịt và con mồi",
+            "Sự xâm lấn của loài ngoại lai duy nhất"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Edge effect: vùng tiếp giáp giữa hai kiểu môi trường thường có đặc điểm và đa dạng sinh học khác biệt."
+    },
+    {
+        "questionText": "Trong lĩnh vực hình ảnh chuyển động, 'squash and stretch' là nguyên lý gì?",
+        "options": [
+            "Một loại kỹ thuật màu sắc",
+            "Nguyên lý hoạt hình để tạo cảm giác khối lượng và chuyển động linh hoạt",
+            "Thuật ngữ dựng âm thanh",
+            "Kỹ thuật quay phim dưới nước"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "'Squash and stretch' là nguyên lý cơ bản trong hoạt hình làm tăng cảm giác trọng lượng và tính mềm dẻo."
+    },
+    {
+        "questionText": "Trong sinh vật học phân tử, CRISPR-Cas9 được biết đến là gì?",
+        "options": [
+            "Một loại hạt giống",
+            "Công cụ chỉnh sửa gen dựa trên cơ chế kháng khuẩn của vi khuẩn",
+            "Một loại virus cúm",
+            "Một phương pháp nuôi cấy tế bào"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "CRISPR-Cas9 là hệ thống chỉnh sửa gen mạnh, bắt nguồn từ cơ chế miễn dịch của vi khuẩn."
     }
 ]

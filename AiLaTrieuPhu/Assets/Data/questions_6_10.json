@@ -304,5 +304,154 @@
         "options": [ "Quy mô dân số", "Sức khỏe dân số", "Tổng sản phẩm trong nước (sản lượng kinh tế)", "Tài nguyên thiên nhiên" ],
         "correctAnswerIndex": 2,
         "explanation": "GDP đo tổng giá trị hàng hóa và dịch vụ sản xuất trong nước trong một kỳ."
+    },
+    {
+        "questionText": "Trong di truyền học, 'genotype' khác 'phenotype' như thế nào?",
+        "options": [
+            "Genotype là biểu hiện bề ngoài, phenotype là bộ gen",
+            "Genotype là bộ gen, phenotype là biểu hiện bề ngoài do gen và môi trường",
+            "Hai từ đồng nghĩa",
+            "Genotype là protein, phenotype là lipid"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "Genotype là tổ hợp gen; phenotype là biểu hiện (hình thái, sinh lý) chịu ảnh hưởng của gen và môi trường."
+    },
+    {
+        "questionText": "Trong anime 'Attack on Titan', tường bao quanh loài người tên gì (Wall) lớn nhất ở ngoài cùng?",
+        "options": [ "Wall Maria", "Wall Rose", "Wall Sina", "Wall Gawain" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Wall Maria là bức tường ngoài cùng trong 'Attack on Titan'."
+    },
+    {
+        "questionText": "Trong khoa học, pH = 7 biểu thị môi trường như thế nào?",
+        "options": [ "Môi trường axit mạnh", "Môi trường trung tính", "Môi trường kiềm mạnh", "Môi trường chưa xác định" ],
+        "correctAnswerIndex": 1,
+        "explanation": "pH 7 là trung tính (nước tinh khiết ở 25°C)."
+    },
+    {
+        "questionText": "Trong sinh thái, khái niệm 'niche' (nghề sinh thái) chỉ điều gì?",
+        "options": [
+            "Chỗ ở vật lý duy nhất của một loài",
+            "Vai trò, vị trí chức năng của loài trong hệ sinh thái",
+            "Tên khoa học của loài",
+            "Một hệ thống khí hậu"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "Niche mô tả vai trò sinh thái và cách một loài sử dụng nguồn tài nguyên."
+    },
+    {
+        "questionText": "Tác phẩm manga 'Monster' của Naoki Urasawa thuộc thể loại nào?",
+        "options": [ "Hành động hài", "Tâm lý tội phạm/kinh dị", "Harem", "Thể thao" ],
+        "correctAnswerIndex": 1,
+        "explanation": "'Monster' là manga tâm lý tội phạm, căng thẳng với yếu tố trinh thám."
+    },
+    {
+        "questionText": "Quá trình nào sau đây làm cho lớp ozone ở tầng bình lưu suy giảm (liên quan đến hóa học khí quyển)?",
+        "options": [
+            "Phóng xạ tự nhiên",
+            "Phát thải CFCs (chlorofluorocarbons)",
+            "Mưa axit",
+            "Tăng CO2"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "CFCs giải phóng chlorine phá hủy phân tử ozone ở tầng bình lưu."
+    },
+    {
+        "questionText": "Trong anime 'Hunter x Hunter', Nen là gì?",
+        "options": [ "Một loại vũ khí", "Hệ thống năng lực/khí nội tại cho phép người dùng điều khiển năng lượng sống", "Tên địa danh", "Một loài quái vật" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Nen là hệ thống năng lực trong 'Hunter x Hunter' cho phép thao tác aura/khí."
+    },
+    {
+        "questionText": "Trong sinh học thực vật, hormone nào liên quan đến ra hoa và chống rụng lá?",
+        "options": [ "Auxin", "Gibberellin", "Ethylene", "Cytokinin" ],
+        "correctAnswerIndex": 3,
+        "explanation": "Cytokinin liên quan đến phân chia tế bào, kéo dài tuổi thọ mô, ảnh hưởng đến hoa và rụng lá; lưu ý các hormone khác cũng tham gia."
+    },
+    {
+        "questionText": "Trong khoa học vũ trụ, Hệ Mặt Trời có bao nhiêu hành tinh được công nhận chính thức (kể theo phân loại hiện hành)?",
+        "options": [ "8", "9", "10", "7" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Hiện nay hệ Mặt Trời có 8 hành tinh (Mercury → Neptune); Pluto được phân loại là 'hành tinh lùn'."
+    },
+    {
+        "questionText": "Trong comic Marvel, 'X-Men' là những người có gì đặc biệt?",
+        "options": [ "Là robot", "Có đột biến mang siêu năng lực", "Là siêu phản diện duy nhất", "Không có năng lực" ],
+        "correctAnswerIndex": 1,
+        "explanation": "X-Men là nhóm người có đột biến (mutants) mang năng lực siêu nhiên."
+    },
+    {
+        "questionText": "Quá trình 'transpiration' ở thực vật chủ yếu ảnh hưởng đến điều gì?",
+        "options": [
+            "Sản xuất hạt giống",
+            "Mất nước qua lá, kéo nước từ rễ lên",
+            "Quang hợp trực tiếp",
+            "Thụ tinh"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "Transpiration là thoát hơi nước qua khí khổng, giúp dẫn nước và khoáng từ rễ."
+    },
+    {
+        "questionText": "Trong khoa học, định luật Newton thứ hai phát biểu mối quan hệ giữa lực, khối lượng và gia tốc như thế nào?",
+        "options": [ "F = m / a", "F = m × a", "F = a / m", "F = m + a" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Newton thứ hai: lực (F) bằng khối lượng (m) nhân gia tốc (a)."
+    },
+    {
+        "questionText": "Trong anime 'Sailor Moon', nhân vật Usagi Tsukino (Sailor Moon) có đặc điểm gì dễ nhận biết?",
+        "options": [
+            "Tóc búi hai bên và đuôi tóc dài (odango)",
+            "Thân hình robot",
+            "Không có sức mạnh",
+            "Là thần chết"
+        ],
+        "correctAnswerIndex": 0,
+        "explanation": "Usagi có kiểu tóc búi hai bên với đuôi tóc dài là đặc trưng nhận diện."
+    },
+    {
+        "questionText": "Trong sinh lý học, huyết áp tâm thu (systolic) là gì?",
+        "options": [
+            "Áp lực khi tim nghỉ",
+            "Áp lực khi tim co bóp (tâm thu)",
+            "Áp lực trong phổi",
+            "Lượng máu tim bơm mỗi phút"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "Huyết áp tâm thu đo áp lực trong động mạch khi tim co bóp."
+    },
+    {
+        "questionText": "Trong ngành sinh học biển, hệ sinh thái rạn san hô (coral reef) rất nhạy cảm với điều gì?",
+        "options": [ "Ô nhiễm tiếng ồn", "Tăng nhiệt độ nước và axít hóa biển", "Thiếu oxy ở tầng bình lưu", "Sự biến đổi địa tâm" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Rạn san hô nhạy cảm với tăng nhiệt và axít hóa; hiện tượng bleaching do nhiệt."
+    },
+    {
+        "questionText": "Trong manga 'Berserk', tác giả Kentaro Miura nổi tiếng với yếu tố gì trong tác phẩm?",
+        "options": [ "Phong cách hài hước", "Tranh minh họa siêu chi tiết và tông tối", "Phong cách slice-of-life", "Tập trung về nhạc cổ điển" ],
+        "correctAnswerIndex": 1,
+        "explanation": "'Berserk' nổi tiếng bởi minh họa chi tiết và nội dung u tối, bạo lực."
+    },
+    {
+        "questionText": "Trong di truyền học người, nhiễm sắc thể giới tính ở nữ thường là gì?",
+        "options": [ "XY", "XX", "YY", "XZ" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Nữ thường có cặp nhiễm sắc thể giới tính XX; nam XY."
+    },
+    {
+        "questionText": "Chương trình truyền hình 'Planet Earth' là thể loại gì?",
+        "options": [ "Chương trình thực tế thi nấu ăn", "Phim tài liệu thiên nhiên", "Phim hài", "Chương trình âm nhạc" ],
+        "correctAnswerIndex": 1,
+        "explanation": "'Planet Earth' là series phim tài liệu thiên nhiên nổi tiếng của BBC."
+    },
+    {
+        "questionText": "Trong sinh học phân tử, enzyme 'DNA polymerase' có chức năng chính gì?",
+        "options": [
+            "Phá vỡ DNA",
+            "Tổng hợp chuỗi DNA mới dựa trên khuôn mẫu",
+            "Vận chuyển protein",
+            "Tiêu hóa lipid"
+        ],
+        "correctAnswerIndex": 1,
+        "explanation": "DNA polymerase tổng hợp DNA mới khi sao chép."
     }
 ]

@@ -496,5 +496,173 @@
         "options": [ "Shamisen", "Koto", "Taiko", "Biwa" ],
         "correctAnswerIndex": 2,
         "explanation": "Taiko là trống lớn truyền thống Nhật Bản."
+    },
+    {
+        "questionText": "Thực vật thực hiện quá trình quang hợp ở phần nào chính của lá?",
+        "options": [ "Gân lá", "Thịt lá (mesophyll)", "Gai lá", "Rễ lá" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Tế bào mesophyll chứa nhiều lục lạp thực hiện quang hợp."
+    },
+    {
+        "questionText": "Loài động vật nào được gọi là 'loài chim biết bắt mồi ban đêm' có khả năng săn bắt bằng tiếng kêu siêu âm?",
+        "options": [ "Diều hâu", "Cú (owl)", "Sếu", "Chim sáo" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Cú săn mồi về đêm, có thính giác rất nhạy giúp định vị con mồi."
+    },
+    {
+        "questionText": "Trong anime 'Naruto', tộc nào nổi tiếng với kỹ thuật Sharingan?",
+        "options": [ "Uzumaki", "Uchiha", "Hyuga", "Senju" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Uchiha sở hữu nhãn thuật Sharingan trong 'Naruto'."
+    },
+    {
+        "questionText": "Trong cơ thể người, tế bào nào chuyên trách vận chuyển oxy bằng hemoglobin?",
+        "options": [ "Tế bào bạch cầu", "Hồng cầu", "Tế bào thần kinh", "Tế bào cơ" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Hồng cầu chứa hemoglobin để vận chuyển oxy."
+    },
+    {
+        "questionText": "Loại rễ nào giúp cây bám chặt mặt đất và thường có ở cây lâu năm (ví dụ cây đại thụ)?",
+        "options": [ "Rễ chùm", "Rễ cọc", "Rễ khí sinh", "Rễ dây" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Rễ cọc (taproot) phát triển sâu và giúp cây bám vững."
+    },
+    {
+        "questionText": "Chương trình hoạt hình nào nổi tiếng với chú chuột Mickey?",
+        "options": [ "Looney Tunes", "Tom and Jerry", "Disney's Mickey Mouse", "Adventure Time" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Mickey Mouse là biểu tượng của Disney."
+    },
+    {
+        "questionText": "Trong khoa học, đơn vị đo nhiệt độ Kelvin dựa trên điểm nào?",
+        "options": [ "Điểm sôi nước", "Điểm đóng băng nước", "Không tuyệt đối (0 K)", "Nhiệt độ phòng" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Kelvin đặt 0 K là không tuyệt đối; thang Kelvin dùng trong khoa học."
+    },
+    {
+        "questionText": "Trong manga/anime 'One Piece', người mang mũ rơm là ai?",
+        "options": [ "Roronoa Zoro", "Monkey D. Luffy", "Sanji", "Nami" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Monkey D. Luffy thường đội chiếc mũ rơm biểu tượng."
+    },
+    {
+        "questionText": "Loài thực vật nào thường là cây lá kim, chịu lạnh tốt và có hình nón (cone) để sinh sản?",
+        "options": [ "Angiosperm", "Gymnosperm (ví dụ thông)", "Phong lan", "Dương xỉ" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Gymnosperm như cây thông có hạt nằm trong chín nón."
+    },
+    {
+        "questionText": "Trong cơ thể người, cơ quan nào chính sản xuất insulin?",
+        "options": [ "Gan", "Tụy (pancreas)", "Thận", "Dạ dày" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Tụy chứa các tế bào beta sản xuất insulin."
+    },
+    {
+        "questionText": "Trong Comic Mỹ, biệt đội 'Teen Titans' thường liên quan đến nhân vật nào dưới đây?",
+        "options": [ "Batman", "Robin (và đồng đội trẻ)", "Superman", "Wolverine" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Teen Titans là nhóm siêu anh hùng trẻ, Robin thường là thành viên chủ chốt."
+    },
+    {
+        "questionText": "Chất di truyền chính trong hầu hết tế bào sinh vật đa bào là gì?",
+        "options": [ "RNA", "DNA", "Protein", "Lipid" ],
+        "correctAnswerIndex": 1,
+        "explanation": "DNA mang thông tin di truyền lâu dài ở hầu hết sinh vật."
+    },
+    {
+        "questionText": "Trong anime 'My Hero Academia', thuật ngữ 'Quirk' chỉ gì?",
+        "options": [ "Tên thành phố", "Siêu năng lực bẩm sinh", "Loại vũ khí", "Món ăn đặc sản" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Quirk là siêu năng lực bẩm sinh của nhân vật trong 'My Hero Academia'."
+    },
+    {
+        "questionText": "Loài nào dưới đây là động vật có vú sống ở nước và có khả năng nhai lại?",
+        "options": [ "Cá heo", "Hải mã", "Hươu", "Cá sấu" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Hải mã là động vật có vú biển, ăn thực vật; không nhai lại như hươu, nhưng trong nhóm đây là chọn hợp lý hơn so với các lựa chọn khác. (Lưu ý: nếu cần chính xác tuyệt đối về 'nhai lại', nên dùng ví dụ như hươu trên cạn.)"
+    },
+    {
+        "questionText": "Trong phim hoạt hình 'Avatar: The Last Airbender', nhân vật chính có tên là gì?",
+        "options": [ "Aang", "Zuko", "Sokka", "Katara" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Aang là nhân vật chính, người giữ vai trò Avatar trong loạt phim."
+    },
+    {
+        "questionText": "Trong sinh học, thuật ngữ 'scarification' thường ám chỉ thao tác gì trên hạt giống?",
+        "options": [ "Ngâm nước", "Gieo trực tiếp", "Gây trầy vỏ để kích thích nảy mầm", "Sấy khô hoàn toàn" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Scarification là làm tổn thương vỏ hạt để giúp nước thấm và kích thích nảy mầm."
+    },
+    {
+        "questionText": "Trong khoa học tự nhiên, ánh sáng trắng phân tích thành các màu khi đi qua gì?",
+        "options": [ "Gương phẳng", "Lăng kính (prism)", "Kính lúp", "Tấm kim loại" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Lăng kính tán sắc ánh sáng trắng thành quang phổ màu."
+    },
+    {
+        "questionText": "Trong manga 'Death Note', quy tắc chính của quyển sổ tử là gì (một quy tắc cơ bản)?",
+        "options": [ "Ghi tên người và hình dung khuôn mặt sẽ làm người đó chết", "Ghi tên ở bất cứ đâu sẽ khiến người đó bị bệnh", "Ghi tên sẽ khiến người đó mất trí nhớ", "Ghi tên người chỉ có hiệu lực ở Nhật Bản" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Trong 'Death Note', nếu viết tên người và tưởng tượng khuôn mặt, người đó sẽ chết theo cách thông thường trừ khi quy ước thêm chi tiết."
+    },
+    {
+        "questionText": "Loài cây nào được biết đến là cây biểu tượng của Nhật Bản và thường nở hoa vào mùa xuân?",
+        "options": [ "Hoa anh đào (Sakura)", "Hoa hướng dương", "Hoa hồng", "Hoa lan" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Hoa anh đào (sakura) là biểu tượng mùa xuân và văn hóa Nhật Bản."
+    },
+    {
+        "questionText": "Trong truyền hình, thuật ngữ 'pilot' chỉ tập nào?",
+        "options": [ "Tập cuối cùng", "Tập thử nghiệm/giới thiệu để quyết định sản xuất loạt phim", "Tập dài nhất", "Tập để phát hành ở rạp" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Pilot là tập giới thiệu, dùng để đánh giá và quyết định sản xuất loạt phim."
+    },
+    {
+        "questionText": "Trong sinh học, loài vi khuẩn nào thường được sử dụng làm mô hình trong phòng thí nghiệm (vi khuẩn Gram âm)?",
+        "options": [ "Escherichia coli (E. coli)", "Staphylococcus aureus", "Bacillus subtilis", "Saccharomyces cerevisiae" ],
+        "correctAnswerIndex": 0,
+        "explanation": "E. coli là vi khuẩn mẫu thường dùng trong nghiên cứu phân tử."
+    },
+    {
+        "questionText": "Trong anime 'Dragon Ball', tên viên ngọc tìm thấy đều có bao nhiêu sao?",
+        "options": [ "3", "5", "1 đến 7", "10" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Viên ngọc rồng có từ 1 đến 7 sao (Dragon Balls gồm 7 viên)."
+    },
+    {
+        "questionText": "Loại tế bào nào tạo nên vỏ bọc myelin quanh sợi trục thần kinh ở hệ thần kinh trung ương (CNS)?",
+        "options": [ "Tế bào Schwann", "Tế bào sao (astrocyte)", "Tế bào Oligodendrocyte", "Tế bào biểu mô" ],
+        "correctAnswerIndex": 2,
+        "explanation": "Oligodendrocytes tạo myelin ở CNS; tế bào Schwann ở PNS."
+    },
+    {
+        "questionText": "Trong lĩnh vực động vật học, quá trình biến thái hoàn chỉnh của côn trùng gồm các giai đoạn nào?",
+        "options": [ "Trứng → Ấu trùng → Pupa → Trưởng thành", "Trứng → Nai → Ấu trùng → Trưởng thành", "Trứng → Con non → Con già", "Trứng → Larva → Adult (bỏ pupa)" ],
+        "correctAnswerIndex": 0,
+        "explanation": "Biến thái hoàn chỉnh: trứng → ấu trùng (larva) → pupa → trưởng thành."
+    },
+    {
+        "questionText": "Trong thế giới truyện tranh Marvel, biệt đội 'The Avengers' thường có thành viên nào sau đây?",
+        "options": [ "Batman", "Iron Man", "Lex Luthor", "Sonic the Hedgehog" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Iron Man là một thành viên nổi bật của The Avengers (Marvel)."
+    },
+    {
+        "questionText": "Trong sinh học thực vật, stomata chủ yếu dùng để điều chỉnh điều gì?",
+        "options": [ "Quang hợp", "Trao đổi khí và thoát hơi nước", "Hấp thụ nước từ đất", "Dự trữ tinh bột" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Stomata là lỗ trên lá điều chỉnh trao đổi khí (CO2/O2) và thoát hơi nước."
+    },
+    {
+        "questionText": "Trong anime 'Fullmetal Alchemist', nguyên tắc 'tỷ lệ trao đổi tương đương' (Equivalent Exchange) nói gì tóm tắt?",
+        "options": [ "Trao đổi tự do giữa các quốc gia", "Muốn đạt được thứ gì đó phải trả giá bằng thứ có giá trị tương đương", "Luật vật lý về năng lượng", "Nguyên tắc làm phim hoạt hình" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Trong 'Fullmetal Alchemist', alchemy theo nguyên tắc nếu muốn tạo ra thứ gì phải đổi bằng thứ có giá trị tương đương."
+    },
+    {
+        "questionText": "Cây nào thuộc họ Poaceae (họ lúa)?",
+        "options": [ "Cây dừa", "Lúa (Oryza sativa)", "Hoa hồng", "Cây oải hương" ],
+        "correctAnswerIndex": 1,
+        "explanation": "Lúa thuộc họ Poaceae (cỏ, grasses)."
     }
 ]

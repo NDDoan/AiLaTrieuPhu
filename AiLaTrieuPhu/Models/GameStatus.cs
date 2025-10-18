@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AiLaTrieuPhu.Utilities;
 
 namespace AiLaTrieuPhu.Models
 {
@@ -21,5 +22,8 @@ namespace AiLaTrieuPhu.Models
 
         // Toàn bộ 15 câu hỏi của phiên chơi này (rất quan trọng cho việc Save/Load)
         public List<Question> GameQuestions { get; set; } = new List<Question>();
+
+        // Trạng thái kết thúc của ván chơi
+        public GameCompletionStatus CompletionStatus { get; set; } = GameCompletionStatus.InProgress;
     }
 }

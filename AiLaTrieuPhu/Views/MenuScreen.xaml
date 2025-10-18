@@ -22,8 +22,7 @@
                 Style="{StaticResource MenuButtonStyle}"/>
 
         <Button Content="Tiếp Tục Trò Chơi" 
-                Command="{Binding ContinueGameCommand}" 
-                IsEnabled="{Binding CanContinueGame}"
+                Command="{Binding ContinueGameCommand}"
                 Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,10"/>
 
         <Button Content="Cài Đặt" 
