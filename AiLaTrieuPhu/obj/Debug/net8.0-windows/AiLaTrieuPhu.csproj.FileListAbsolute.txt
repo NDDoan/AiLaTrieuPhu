@@ -101,3 +101,5 @@ C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-w
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\Callingused.png
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ToTuVan.png
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ToTuVanused.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\obj\Debug\net8.0-windows\Views\SettingsControl.g.cs
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\obj\Debug\net8.0-windows\Views\SettingsControl.baml

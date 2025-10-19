@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="AiLaTrieuPhu.Views.SettingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AiLaTrieuPhu.Views"
+             mc:Ignorable="d" 
+                     d:DesignHeight="720" d:DesignWidth="1280">
+
+    <Grid Background="#1A1A1A">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="CÀI ĐẶT TRÒ CHƠI" 
+               FontSize="40" 
+               FontWeight="Bold"
+               Foreground="#FFD700" 
+               HorizontalAlignment="Center" Margin="0,0,0,30"/>
+
+        <StackPanel Grid.Row="1" Width="600" VerticalAlignment="Center">
+
+            <TextBlock Text="ÂM THANH" Foreground="#FFD700" FontSize="24" FontWeight="SemiBold" Margin="0,15,0,10"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Nhạc Nền (Music)" Width="200" Foreground="White" FontSize="18"/>
+                <Slider Value="{Binding CurrentSettings.MusicVolume}" Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True" Width="300" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding CurrentSettings.MusicVolume, StringFormat={}{0:P0}}" Foreground="White" Width="50" TextAlignment="Right" Margin="10,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Hiệu Ứng (SFX)" Width="200" Foreground="White" FontSize="18"/>
+                <Slider Value="{Binding CurrentSettings.SfxVolume}" Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True" Width="300" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding CurrentSettings.SfxVolume, StringFormat={}{0:P0}}" Foreground="White" Width="50" TextAlignment="Right" Margin="10,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Lồng Tiếng (Voice)" Width="200" Foreground="White" FontSize="18"/>
+                <Slider Value="{Binding CurrentSettings.VoiceVolume}" Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True" Width="300" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding CurrentSettings.VoiceVolume, StringFormat={}{0:P0}}" Foreground="White" Width="50" TextAlignment="Right" Margin="10,0,0,0"/>
+            </StackPanel>
+
+            <TextBlock Text="HIỂN THỊ" Foreground="#FFD700" FontSize="24" FontWeight="SemiBold" Margin="0,30,0,10"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Độ Phân Giải" Width="200" Foreground="White" FontSize="18" VerticalAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding AvailableResolutions}" 
+                      SelectedItem="{Binding CurrentSettings.SelectedResolution}"
+                      Width="300" 
+                      FontSize="16"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Chế Độ Màn Hình" Width="200" Foreground="White" FontSize="18" VerticalAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding DisplayModes}" 
+                      SelectedItem="{Binding CurrentSettings.CurrentDisplayMode}"
+                      Width="300" 
+                      FontSize="16"/>
+            </StackPanel>
+
+            <Button Content="Áp Dụng Thay Đổi Hiển Thị" Command="{Binding ApplyDisplayChangesCommand}" 
+                Style="{StaticResource MenuButtonStyle}" 
+                Margin="0,20,0,0" Width="300" HorizontalAlignment="Left"/>
+
+        </StackPanel>
+
+        <Button Grid.Row="2" Content="QUAY LẠI" 
+            Command="{Binding BackToMenuCommand}" 
+            Style="{StaticResource MenuButtonStyle}" 
+            Width="250" Height="50" 
+            Margin="0,50,0,0"/>
+
+    </Grid>
+</UserControl>

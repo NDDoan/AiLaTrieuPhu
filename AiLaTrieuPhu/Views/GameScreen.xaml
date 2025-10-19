@@ -30,6 +30,15 @@
             <Setter Property="Margin" Value="5,0"/>
             <Setter Property="Padding" Value="5"/>
         </Style>
+
+        <Style x:Key="AnswerTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
     </UserControl.Resources>
 
     <Grid Margin="10">
@@ -180,13 +189,22 @@
 
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Button Content="{Binding}" 
+                            <Button 
                                 Style="{StaticResource AnswerButtonStyle}"
                                 HorizontalAlignment="Stretch"
                 
                                 Command="{Binding DataContext.AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                                 IsEnabled="{Binding DataContext.IsAnswerPhase, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
 
+                                <StackPanel Margin="5">
+                                    <TextBlock Text="{Binding}" 
+                                        TextWrapping="Wrap" 
+                                        TextAlignment="Center" 
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Style="{StaticResource AnswerTextStyle}"/>
+                                </StackPanel>
+                                
                                 <Button.Visibility>
                                     <MultiBinding Converter="{StaticResource IndexToVisibilityConverter}">
 

@@ -68,11 +68,7 @@ namespace AiLaTrieuPhu.ViewModels
         private async Task StartGame() => await _mainNavigator.StartNewGameAsync();
 
         [RelayCommand]
-        private void OpenSettings()
-        {
-            // Logic tạm thời: Navigate tới một màn hình Cài đặt (ViewModel mới)
-            // Ví dụ: _mainNavigator.NavigateToSettings(); 
-        }
+        private void OpenSettings() => _mainNavigator.NavigateToSettings();
 
         [RelayCommand]
         private void ExitApplication() => Application.Current.Shutdown();
