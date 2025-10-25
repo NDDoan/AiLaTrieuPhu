@@ -1,0 +1,251 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+
+namespace AiLaTrieuPhu.Views
+{
+    /// <summary>
+    /// Interaction logic for MenuScreen.xaml
+    /// </summary>
+    public partial class MenuScreen : UserControl
+    {
+        private const double MaxStaggerSeconds = 4.5; // maximum random initial delay
+
+        public MenuScreen()
+        {
+            InitializeComponent();
+            this.Loaded += MenuScreen_Loaded;
+        }
+
+        private void MenuScreen_Loaded(object? sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Find the storyboard resource
+                if (!(this.Resources["FloatingImageAnimation"] is Storyboard baseStoryboard))
+                    return;
+
+                if (NostalgiaItems == null)
+                    return;
+
+                var rand = new Random();
+
+                // Iterate through the item containers and start a cloned storyboard for each Image with a random BeginTime
+                int itemsCount = NostalgiaItems.Items.Count;
+                double canvasW = FloatingCanvas.ActualWidth;
+                double canvasH = FloatingCanvas.ActualHeight;
+
+                // If canvas size not measured yet, use parent window size as fallback
+                if (canvasW == 0 || canvasH == 0)
+                {
+                    if (Window.GetWindow(this) is Window win)
+                    {
+                        canvasW = win.ActualWidth;
+                        canvasH = win.ActualHeight;
+                    }
+                }
+
+                for (int i = 0; i < itemsCount; i++)
+                {
+                    var container = (ContentPresenter)NostalgiaItems.ItemContainerGenerator.ContainerFromIndex(i);
+                    if (container == null)
+                        continue;
+
+                    // Find Image inside container
+                    var image = FindVisualChild<Image>(container);
+                    if (image == null)
+                        continue;
+
+                    // Ensure container has initial Left/Top set by converter; read them
+                    double left = Canvas.GetLeft(container);
+                    double top = Canvas.GetTop(container);
+
+                    // Move initial container position outside bounds based on index to create inward animation
+                    // We'll offset them further outwards (to left/top or right/bottom) depending on index
+                    double offsetX = (i % 2 == 0) ? -200 - rand.NextDouble() * 300 : 200 + rand.NextDouble() * 300;
+                    double offsetY = (i % 3 == 0) ? -150 - rand.NextDouble() * 200 : 150 + rand.NextDouble() * 200;
+
+                    Canvas.SetLeft(container, left + offsetX);
+                    Canvas.SetTop(container, top + offsetY);
+
+                    // Attach mouse handlers for drag
+                    image.MouseLeftButtonDown += Image_MouseLeftButtonDown;
+                    image.MouseLeftButtonUp += Image_MouseLeftButtonUp;
+                    image.MouseMove += Image_MouseMove;
+
+                    // Clone floating storyboard and set BeginTime
+                    var sb = baseStoryboard.Clone();
+                    sb.BeginTime = TimeSpan.FromSeconds(rand.NextDouble() * MaxStaggerSeconds);
+
+                    // Before starting floating animation, create a brief animation to move the container into its original spot
+                    var bringIn = new Storyboard();
+                    var animX = new DoubleAnimation
+                    {
+                        From = Canvas.GetLeft(container),
+                        To = left,
+                        Duration = TimeSpan.FromSeconds(1.2 + rand.NextDouble()),
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut },
+                        BeginTime = TimeSpan.FromSeconds(rand.NextDouble() * 0.6)
+                    };
+                    Storyboard.SetTarget(animX, container);
+                    Storyboard.SetTargetProperty(animX, new PropertyPath("(Canvas.Left)"));
+
+                    var animY = new DoubleAnimation
+                    {
+                        From = Canvas.GetTop(container),
+                        To = top,
+                        Duration = TimeSpan.FromSeconds(1.2 + rand.NextDouble()),
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut },
+                        BeginTime = TimeSpan.FromSeconds(rand.NextDouble() * 0.6)
+                    };
+                    Storyboard.SetTarget(animY, container);
+                    Storyboard.SetTargetProperty(animY, new PropertyPath("(Canvas.Top)"));
+
+                    bringIn.Children.Add(animX);
+                    bringIn.Children.Add(animY);
+
+                    bringIn.Completed += (s, ev) =>
+                    {
+                        // After the container has been brought in, begin the floating animation on the Image's RenderTransform (floating Translate)
+                        sb.Begin(image, true);
+                    };
+
+                    bringIn.Begin();// start bring-in animation
+                }
+            }
+            catch
+            {
+                // swallow exceptions to avoid crashing designer/runtime in case of unexpected structure
+            }
+        }
+
+        private bool _isDragging = false;
+        private Point _dragStartPoint;
+        private ContentPresenter? _draggingContainer;
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is UIElement element)
+            {
+                element.CaptureMouse();
+                _isDragging = true;
+                _dragStartPoint = e.GetPosition(FloatingCanvas);
+
+                // Determine container
+                _draggingContainer = FindAncestor<ContentPresenter>(element);
+
+                // Stop animations on this image while dragging by clearing them from floating Translate (child 0)
+                if (element is FrameworkElement fe && fe.RenderTransform is TransformGroup tg && tg.Children.Count >= 2)
+                {
+                    try
+                    {
+                        if (tg.Children[0] is TranslateTransform tt)
+                        {
+                            tt.BeginAnimation(TranslateTransform.XProperty, null);
+                            tt.BeginAnimation(TranslateTransform.YProperty, null);
+                        }
+
+                        // Also stop opacity
+                        fe.BeginAnimation(UIElement.OpacityProperty, null);
+                    }
+                    catch { }
+                }
+
+                e.Handled = true;
+            }
+        }
+
+        private void Image_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!_isDragging || _draggingContainer == null)
+                return;
+
+            var pos = e.GetPosition(FloatingCanvas);
+            var dx = pos.X - _dragStartPoint.X;
+            var dy = pos.Y - _dragStartPoint.Y;
+
+            // Smooth movement using animation to target position for natural feel
+            double left = Canvas.GetLeft(_draggingContainer);
+            double top = Canvas.GetTop(_draggingContainer);
+
+            double targetLeft = left + dx;
+            double targetTop = top + dy;
+
+            // Clamp inside canvas
+            var maxLeft = Math.Max(0, FloatingCanvas.ActualWidth - _draggingContainer.ActualWidth);
+            var maxTop = Math.Max(0, FloatingCanvas.ActualHeight - _draggingContainer.ActualHeight);
+            targetLeft = Math.Max(0, Math.Min(targetLeft, maxLeft));
+            targetTop = Math.Max(0, Math.Min(targetTop, maxTop));
+
+            // Animate to new position for smoothness
+            var leftAnim = new DoubleAnimation(targetLeft, TimeSpan.FromMilliseconds(80)) { EasingFunction = new QuadraticEase() };
+            var topAnim = new DoubleAnimation(targetTop, TimeSpan.FromMilliseconds(80)) { EasingFunction = new QuadraticEase() };
+            leftAnim.FillBehavior = FillBehavior.Stop;
+            topAnim.FillBehavior = FillBehavior.Stop;
+
+            leftAnim.Completed += (s, ev) => Canvas.SetLeft(_draggingContainer, targetLeft);
+            topAnim.Completed += (s, ev) => Canvas.SetTop(_draggingContainer, targetTop);
+
+            _dragStartPoint = pos;
+
+            _draggingContainer.BeginAnimation(Canvas.LeftProperty, leftAnim);
+            _draggingContainer.BeginAnimation(Canvas.TopProperty, topAnim);
+        }
+
+        private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is UIElement element)
+            {
+                element.ReleaseMouseCapture();
+                _isDragging = false;
+
+                // Optionally resume floating animation for this image
+                var image = element as FrameworkElement;
+                if (image != null && this.Resources["FloatingImageAnimation"] is Storyboard baseSB)
+                {
+                    // restart floating animation with slight random delay
+                    var rand = new Random();
+                    var sb = baseSB.Clone();
+                    sb.BeginTime = TimeSpan.FromSeconds(rand.NextDouble() * 0.6);
+                    sb.Begin(image, true);
+                }
+
+                _draggingContainer = null;
+                e.Handled = true;
+            }
+        }
+
+        private static T? FindVisualChild<T>(DependencyObject parent) where T : DependencyObject
+        {
+            if (parent == null)
+                return default;
+
+            int count = System.Windows.Media.VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < count; i++)
+            {
+                var child = System.Windows.Media.VisualTreeHelper.GetChild(parent, i);
+                if (child is T typed)
+                    return typed;
+
+                var found = FindVisualChild<T>(child);
+                if (found != null)
+                    return found;
+            }
+            return default;
+        }
+
+        private static T? FindAncestor<T>(DependencyObject? current) where T : DependencyObject
+        {
+            while (current != null)
+            {
+                if (current is T target)
+                    return target;
+                current = System.Windows.Media.VisualTreeHelper.GetParent(current);
+            }
+            return default;
+        }
+    }
+}

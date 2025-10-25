@@ -3,34 +3,108 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:AiLaTrieuPhu.Views"
+             xmlns:converters="clr-namespace:AiLaTrieuPhu.Utilities"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              Background="{StaticResource PrimaryBackgroundBrush}">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+    <UserControl.Resources>
+        <converters:IndexToRandomPosConverter x:Key="IndexToRandomPosConverter"/>
+        <converters:CenterConverter x:Key="CenterConverter"/>
 
-        <TextBlock Text="AI LÀ TRIỆU PHÚ" FontSize="48" FontWeight="Bold" Foreground="{StaticResource AccentGoldBrush}" Margin="0,0,0,50" HorizontalAlignment="Center"/>
+        <x:Array x:Key="NostalgiaImages" Type="System:String">
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_1.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_2.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_3.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_4.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_5.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_6.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_7.png</System:String>
+        </x:Array>
 
-        <TextBlock Text="{Binding StatusMessage}" 
-                   FontSize="28" 
-                   Foreground="White" 
-                   Margin="0,0,0,30" 
-                   HorizontalAlignment="Center" 
-                   FontWeight="SemiBold"/>
-        
-        <Button Content="Bắt Đầu Trò Chơi Mới" 
-                Command="{Binding StartGameCommand}" 
-                Style="{StaticResource MenuButtonStyle}"/>
+        <!-- small oscillation used after inward drift -->
+        <Storyboard x:Key="FloatingOscillation" RepeatBehavior="Forever">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="-12" To="12" Duration="0:0:6" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" From="-8" To="8" Duration="0:0:5" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(ScaleTransform.ScaleX)" From="0.98" To="1.02" Duration="0:0:8" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(ScaleTransform.ScaleY)" From="0.98" To="1.02" Duration="0:0:8" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(RotateTransform.Angle)" From="-4" To="4" Duration="0:0:10" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.5" To="0.85" Duration="0:0:7" AutoReverse="True"/>
+        </Storyboard>
 
-        <Button Content="Tiếp Tục Trò Chơi" 
-                Command="{Binding ContinueGameCommand}"
-                Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,10"/>
+        <Storyboard x:Key="LogoPulseAnimation" RepeatBehavior="Forever">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" From="0.99" To="1.01" Duration="0:0:5" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" From="0.99" To="1.01" Duration="0:0:5" AutoReverse="True"/>
+        </Storyboard>
+    </UserControl.Resources>
 
-        <Button Content="Cài Đặt" 
-                Command="{Binding OpenSettingsCommand}" 
-                Style="{StaticResource MenuButtonStyle}"/>
+    <Grid>
+        <!-- Background canvas for nostalgia images -->
+        <Canvas x:Name="FloatingCanvas" ClipToBounds="True" />
 
-        <Button Content="Thoát" 
-                Command="{Binding ExitApplicationCommand}" 
-                Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,0"/>
-    </StackPanel>
+        <!-- ItemsControl placed programmatically into FloatingCanvas so templates can be controlled in code-behind -->
+        <ItemsControl x:Name="NostalgiaItems" ItemsSource="{StaticResource NostalgiaImages}" AlternationCount="7">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas IsItemsHost="True"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding}" Width="140" Height="Auto" Stretch="Uniform"
+                           RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+                        <!-- TransformGroup: [0]=floatingTranslate (used for entrance + small osc),
+                                      [1]=dragTranslate (not used here, container moved by Canvas),
+                                      [2]=scale, [3]=rotate -->
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <TranslateTransform/>
+                                <TranslateTransform/>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                <RotateTransform Angle="0"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                        <Image.Effect>
+                            <DropShadowEffect Color="#80000000" BlurRadius="8" ShadowDepth="3"/>
+                        </Image.Effect>
+                    </Image>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding RelativeSource={RelativeSource Self}, Path=(ItemsControl.AlternationIndex), Converter={StaticResource IndexToRandomPosConverter}}"/>
+                    <Setter Property="Canvas.Top" Value="{Binding RelativeSource={RelativeSource Self}, Path=(ItemsControl.AlternationIndex), Converter={StaticResource IndexToRandomPosConverter}, ConverterParameter=1}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+
+        <!-- Overlay UI -->
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="True">
+            <Border CornerRadius="12" Padding="20" Width="520">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image x:Name="MenuLogo" Source="/AiLaTrieuPhu;component/Assets/Image/ALTP_LOGO.png" Width="200" Height="200"
+                           RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <ScaleTransform/>
+                        </Image.RenderTransform>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard Storyboard="{StaticResource LogoPulseAnimation}"/>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+
+                    <TextBlock Text="{Binding StatusMessage}" FontSize="20" Foreground="White" Margin="0,12,0,16" HorizontalAlignment="Center" TextAlignment="Center"/>
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <Button Content="Bắt Đầu Trò Chơi Mới" Command="{Binding StartGameCommand}" Style="{StaticResource MenuButtonStyle}" Margin="0,6,0,0"/>
+                        <Button Content="Tiếp Tục Trò Chơi" Command="{Binding ContinueGameCommand}" Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,0"/>
+                        <Button Content="Cài Đặt" Command="{Binding OpenSettingsCommand}" Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,0"/>
+                        <Button Content="Thoát" Command="{Binding ExitApplicationCommand}" Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
 </UserControl>

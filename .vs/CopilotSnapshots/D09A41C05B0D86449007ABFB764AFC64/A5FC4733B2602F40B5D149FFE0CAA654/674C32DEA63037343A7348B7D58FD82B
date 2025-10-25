@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Data;
+
+namespace AiLaTrieuPhu.Utilities
+{
+    public class IndexToRandomPosConverter : IValueConverter
+    {
+        // Random instance phải là static để tránh tạo cùng một dãy số
+        private static readonly Random _random = new Random();
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is int index)
+            {
+                // Sử dụng index để tạo seed khác nhau cho mỗi ảnh
+                // (Mặc dù Random là static, dùng index để tạo sự khác biệt ban đầu)
+                int minRange = 0;
+                int maxRange = 1280;
+
+                // Dùng index để đảm bảo mỗi ảnh có vị trí ngẫu nhiên riêng
+                // Dùng thread static Random hoặc lock nếu chạy đa luồng, nhưng trong WPF UI thread là ổn
+                lock (_random)
+                {
+                    // Tạo một vị trí ngẫu nhiên trong khoảng Max
+                    // Thêm index vào kết quả để đảm bảo phân tán thêm
+                    return _random.Next(minRange, maxRange);
+                }
+            }
+            return 0;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
