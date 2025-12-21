@@ -1,309 +1,615 @@
 [
     {
         "questionText": "Ai là người sáng lập Microsoft?",
-        "options": [ "Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Larry Page" ],
+        "options": [
+            "Steve Jobs",
+            "Bill Gates",
+            "Mark Zuckerberg",
+            "Larry Page"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Microsoft được đồng sáng lập bởi Bill Gates và Paul Allen (Bill Gates là người nổi tiếng hơn)."
+        "explanation": "Microsoft được đồng sáng lập bởi Bill Gates và Paul Allen (Bill Gates là người nổi tiếng hơn).",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Trong HTML, thẻ nào dùng để tạo liên kết (link)?",
-        "options": [ "<a>", "<div>", "<span>", "<link>" ],
+        "options": [
+            "<a>",
+            "<div>",
+            "<span>",
+            "<link>"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Thẻ <a> được dùng để tạo liên kết trong HTML."
+        "explanation": "Thẻ <a> được dùng để tạo liên kết trong HTML.",
+        "category": "ComputerScience"
     },
     {
         "questionText": "Đơn vị đo tần số là gì?",
-        "options": [ "Newton", "Pascal", "Hertz", "Joule" ],
+        "options": [
+            "Newton",
+            "Pascal",
+            "Hertz",
+            "Joule"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Tần số được đo bằng hertz (Hz)."
+        "explanation": "Tần số được đo bằng hertz (Hz).",
+        "category": "Physics"
     },
     {
         "questionText": "AI là viết tắt của từ tiếng Anh nào?",
-        "options": [ "Automated Internet", "Artificial Intelligence", "Advanced Interface", "Active Input" ],
+        "options": [
+            "Automated Internet",
+            "Artificial Intelligence",
+            "Advanced Interface",
+            "Active Input"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "AI là viết tắt của Artificial Intelligence (Trí tuệ nhân tạo)."
+        "explanation": "AI là viết tắt của Artificial Intelligence (Trí tuệ nhân tạo).",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Trong cơ thể người, bộ phận nào bơm máu đi khắp cơ thể?",
-        "options": [ "Phổi", "Gan", "Tim", "Thận" ],
+        "options": [
+            "Phổi",
+            "Gan",
+            "Tim",
+            "Thận"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Tim bơm máu đi khắp cơ thể."
+        "explanation": "Tim bơm máu đi khắp cơ thể.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Ngôn ngữ lập trình nào được biết đến với cú pháp 'class' và 'public static void main'?",
-        "options": [ "Python", "Java", "Ruby", "JavaScript" ],
+        "options": [
+            "Python",
+            "Java",
+            "Ruby",
+            "JavaScript"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Java sử dụng khai báo class và phương thức public static void main để bắt đầu chương trình."
+        "explanation": "Java sử dụng khai báo class và phương thức public static void main để bắt đầu chương trình.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Sông dài nhất thế giới theo truyền thống là con sông nào?",
-        "options": [ "Amazon", "Nile", "Yangtze", "Mississippi" ],
+        "options": [
+            "Amazon",
+            "Nile",
+            "Yangtze",
+            "Mississippi"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Truyền thống cho rằng sông Nile là sông dài nhất; có tranh luận với Amazon nhưng đáp án phổ biến là Nile."
+        "explanation": "Truyền thống cho rằng sông Nile là sông dài nhất; có tranh luận với Amazon nhưng đáp án phổ biến là Nile.",
+        "category": "Geography"
     },
     {
         "questionText": "Trong toán học, π (pi) xấp xỉ bằng bao nhiêu?",
-        "options": [ "2.14", "3.14", "4.13", "1.41" ],
+        "options": [
+            "2.14",
+            "3.14",
+            "4.13",
+            "1.41"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "π ≈ 3.14159, thường làm tròn là 3.14."
+        "explanation": "π ≈ 3.14159, thường làm tròn là 3.14.",
+        "category": "Math"
     },
     {
         "questionText": "Phần mềm mã nguồn mở (open source) nghĩa là gì?",
-        "options": [ "Không được phép sử dụng", "Mã nguồn công khai và có thể sửa đổi", "Phần mềm miễn phí luôn", "Phần mềm chỉ chạy trên máy chủ" ],
+        "options": [
+            "Không được phép sử dụng",
+            "Mã nguồn công khai và có thể sửa đổi",
+            "Phần mềm miễn phí luôn",
+            "Phần mềm chỉ chạy trên máy chủ"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Open source nghĩa là mã nguồn được công khai và thường cho phép sửa đổi và phân phối theo giấy phép."
+        "explanation": "Open source nghĩa là mã nguồn được công khai và thường cho phép sửa đổi và phân phối theo giấy phép.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Trong mô hình OSI, tầng nào đảm nhiệm truyền dữ liệu giữa các host (networking)?",
-        "options": [ "Tầng vật lý", "Tầng liên kết dữ liệu (Data Link)", "Tầng mạng (Network)", "Tầng ứng dụng" ],
+        "options": [
+            "Tầng vật lý",
+            "Tầng liên kết dữ liệu (Data Link)",
+            "Tầng mạng (Network)",
+            "Tầng ứng dụng"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Tầng mạng (Network) chịu trách nhiệm định tuyến và truyền gói giữa các host."
+        "explanation": "Tầng mạng (Network) chịu trách nhiệm định tuyến và truyền gói giữa các host.",
+        "category": "ComputerScience"
     },
     {
         "questionText": "Ai là tác giả của 'Truyện Kiều'?",
-        "options": [ "Nguyễn Du", "Nguyễn Trãi", "Hồ Xuân Hương", "Phan Bội Châu" ],
+        "options": [
+            "Nguyễn Du",
+            "Nguyễn Trãi",
+            "Hồ Xuân Hương",
+            "Phan Bội Châu"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "'Truyện Kiều' (Kim Vân Kiều) do Nguyễn Du sáng tác."
+        "explanation": "'Truyện Kiều' (Kim Vân Kiều) do Nguyễn Du sáng tác.",
+        "category": "Literature"
     },
     {
         "questionText": "Trong CSS, thuộc tính nào thay đổi màu chữ?",
-        "options": [ "background-color", "font-size", "color", "border" ],
+        "options": [
+            "background-color",
+            "font-size",
+            "color",
+            "border"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Thuộc tính color dùng để thiết lập màu chữ trong CSS."
+        "explanation": "Thuộc tính color dùng để thiết lập màu chữ trong CSS.",
+        "category": "ComputerScience"
     },
     {
         "questionText": "Nguyên tố hóa học có ký hiệu 'O' là nguyên tố nào?",
-        "options": [ "Vàng", "Oxy", "Kali", "Natri" ],
+        "options": [
+            "Vàng",
+            "Oxy",
+            "Kali",
+            "Natri"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Ký hiệu O là nguyên tố oxy."
+        "explanation": "Ký hiệu O là nguyên tố oxy.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Đơn vị đo công suất là gì?",
-        "options": [ "Watt", "Volt", "Ohm", "Kelvin" ],
+        "options": [
+            "Watt",
+            "Volt",
+            "Ohm",
+            "Kelvin"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Công suất được đo bằng watt (W)."
+        "explanation": "Công suất được đo bằng watt (W).",
+        "category": "Physics"
     },
     {
         "questionText": "Trong lập trình, vòng lặp 'for' thường dùng để làm gì?",
-        "options": [ "Tạo hàm", "Lặp lại một khối lệnh nhiều lần", "Khai báo biến", "Xử lý ngoại lệ" ],
+        "options": [
+            "Tạo hàm",
+            "Lặp lại một khối lệnh nhiều lần",
+            "Khai báo biến",
+            "Xử lý ngoại lệ"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Vòng lặp for dùng để lặp lại một khối lệnh theo số lần định trước hoặc qua tập hợp."
+        "explanation": "Vòng lặp for dùng để lặp lại một khối lệnh theo số lần định trước hoặc qua tập hợp.",
+        "category": "ComputerScience"
     },
     {
         "questionText": "Quốc ca Việt Nam có tên là gì?",
-        "options": [ "Tiến Quân Ca", "Đất Nước", "Hồn Lạc Việt", "Tổ Quốc Gọi Tên Mình" ],
+        "options": [
+            "Tiến Quân Ca",
+            "Đất Nước",
+            "Hồn Lạc Việt",
+            "Tổ Quốc Gọi Tên Mình"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Quốc ca Việt Nam là 'Tiến Quân Ca'."
+        "explanation": "Quốc ca Việt Nam là 'Tiến Quân Ca'.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Dạng mây nào thường mang mưa dông?",
-        "options": [ "Cirrus (sợi)", "Cumulus (tích)", "Stratus (lớp)", "Nimbus (mưa)" ],
+        "options": [
+            "Cirrus (sợi)",
+            "Cumulus (tích)",
+            "Stratus (lớp)",
+            "Nimbus (mưa)"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Mây cumulus phát triển dọc (towering cumulus / cumulonimbus) thường liên quan đến mưa dông."
+        "explanation": "Mây cumulus phát triển dọc (towering cumulus / cumulonimbus) thường liên quan đến mưa dông.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Trong SQL, câu lệnh nào dùng để lấy dữ liệu từ bảng?",
-        "options": [ "DELETE", "INSERT", "SELECT", "UPDATE" ],
+        "options": [
+            "DELETE",
+            "INSERT",
+            "SELECT",
+            "UPDATE"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "SELECT dùng để truy vấn (lấy) dữ liệu từ bảng."
+        "explanation": "SELECT dùng để truy vấn (lấy) dữ liệu từ bảng.",
+        "category": "ComputerScience"
     },
     {
         "questionText": "Đơn vị đo năng lượng thường dùng là gì?",
-        "options": [ "Watt", "Volt", "Joule", "Hertz" ],
+        "options": [
+            "Watt",
+            "Volt",
+            "Joule",
+            "Hertz"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Năng lượng thường đo bằng joule (J)."
+        "explanation": "Năng lượng thường đo bằng joule (J).",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Thành phố nào được gọi là 'Thành phố không ngủ' (The City That Never Sleeps)?",
-        "options": [ "Londres", "Tokyo", "New York", "Paris" ],
+        "options": [
+            "Londres",
+            "Tokyo",
+            "New York",
+            "Paris"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "New York thường được gọi là 'The City That Never Sleeps'."
+        "explanation": "New York thường được gọi là 'The City That Never Sleeps'.",
+        "category": "Geography"
     },
     {
         "questionText": "Trong lập trình web, AJAX dùng để làm gì?",
-        "options": [ "Tạo giao diện 3D", "Gửi yêu cầu bất đồng bộ đến server", "Tối ưu CSS", "Quản lý cơ sở dữ liệu" ],
+        "options": [
+            "Tạo giao diện 3D",
+            "Gửi yêu cầu bất đồng bộ đến server",
+            "Tối ưu CSS",
+            "Quản lý cơ sở dữ liệu"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "AJAX (Asynchronous JavaScript and XML) dùng để gửi yêu cầu bất đồng bộ tới server mà không tải lại trang."
+        "explanation": "AJAX (Asynchronous JavaScript and XML) dùng để gửi yêu cầu bất đồng bộ tới server mà không tải lại trang.",
+        "category": "ComputerScience"
     },
     {
         "questionText": "Ai là tác giả 'Số cũ' (tác phẩm, hoặc truyện ngắn nổi bật trong văn học Việt Nam)?",
-        "options": [ "Nguyễn Minh Châu", "Nam Cao", "Thạch Lam", "Nguyễn Tuân" ],
+        "options": [
+            "Nguyễn Minh Châu",
+            "Nam Cao",
+            "Thạch Lam",
+            "Nguyễn Tuân"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Thạch Lam nổi tiếng với các truyện ngắn phản ánh đời sống đô thị, ví dụ 'Số đỏ' là Vũ Trọng Phụng; 'Số cũ' ở nhiều nguồn gợi nhớ đến phong cách Thạch Lam."
+        "explanation": "Thạch Lam nổi tiếng với các truyện ngắn phản ánh đời sống đô thị, ví dụ 'Số đỏ' là Vũ Trọng Phụng; 'Số cũ' ở nhiều nguồn gợi nhớ đến phong cách Thạch Lam.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Đại diện nào dưới đây là một định lý cơ bản về số học: 'Mỗi số nguyên nguyên dương có thể phân tích thành tích các số nguyên tố' là định lý gì?",
-        "options": [ "Định lý cơ bản đại số", "Định lý cơ bản số học", "Định lý Fermat", "Định lý Wilson" ],
+        "options": [
+            "Định lý cơ bản đại số",
+            "Định lý cơ bản số học",
+            "Định lý Fermat",
+            "Định lý Wilson"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Định lý cơ bản của số học: mọi số nguyên >1 có phân tích tố duy nhất thành tích các số nguyên tố."
+        "explanation": "Định lý cơ bản của số học: mọi số nguyên >1 có phân tích tố duy nhất thành tích các số nguyên tố.",
+        "category": "Math"
     },
     {
         "questionText": "Sự kiện lịch sử 'Chiến thắng Điện Biên Phủ' xảy ra vào năm nào?",
-        "options": [ "1945", "1954", "1968", "1975" ],
+        "options": [
+            "1945",
+            "1954",
+            "1968",
+            "1975"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Chiến thắng Điện Biên Phủ năm 1954 kết thúc mốc quan trọng trong kháng chiến chống Pháp."
+        "explanation": "Chiến thắng Điện Biên Phủ năm 1954 kết thúc mốc quan trọng trong kháng chiến chống Pháp.",
+        "category": "History"
     },
     {
         "questionText": "Trong văn học Việt Nam, nhà thơ 'Xuân Diệu' nổi tiếng với phong cách gì?",
-        "options": [ "Trữ tình lãng mạn", "Châm biếm xã hội", "Bi kịch lịch sử", "Văn học sử thi" ],
+        "options": [
+            "Trữ tình lãng mạn",
+            "Châm biếm xã hội",
+            "Bi kịch lịch sử",
+            "Văn học sử thi"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Xuân Diệu nổi tiếng với thơ trữ tình, ca ngợi tình yêu và sự sống."
+        "explanation": "Xuân Diệu nổi tiếng với thơ trữ tình, ca ngợi tình yêu và sự sống.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Đất nước nào có dân số lớn nhất thế giới (tính đến đầu thập niên 2020s)?",
-        "options": [ "Trung Quốc", "Ấn Độ", "Hoa Kỳ", "Indonesia" ],
+        "options": [
+            "Trung Quốc",
+            "Ấn Độ",
+            "Hoa Kỳ",
+            "Indonesia"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Ấn Độ đã vượt Trung Quốc về dân số trong những năm 2020."
+        "explanation": "Ấn Độ đã vượt Trung Quốc về dân số trong những năm 2020.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Trong toán học, 'định nghĩa của hàm số liên tục' tại điểm a là gì (tóm tắt)?",
-        "options": [ "Giá trị hàm không xác định tại a", "Giá trị giới hạn tại a bằng giá trị hàm tại a", "Hàm có đạo hàm tại a", "Hàm có giá trị âm tại a" ],
+        "options": [
+            "Giá trị hàm không xác định tại a",
+            "Giá trị giới hạn tại a bằng giá trị hàm tại a",
+            "Hàm có đạo hàm tại a",
+            "Hàm có giá trị âm tại a"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Hàm liên tục tại a khi giới hạn khi x→a bằng f(a)."
+        "explanation": "Hàm liên tục tại a khi giới hạn khi x→a bằng f(a).",
+        "category": "Math"
     },
     {
         "questionText": "Chính phủ là gì trong hệ thống chính trị hiện đại?",
-        "options": [ "Tập hợp các cơ quan lập pháp", "Cơ quan thực thi quyền hành pháp", "Hệ thống tư pháp độc lập", "Các tổ chức xã hội" ],
+        "options": [
+            "Tập hợp các cơ quan lập pháp",
+            "Cơ quan thực thi quyền hành pháp",
+            "Hệ thống tư pháp độc lập",
+            "Các tổ chức xã hội"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Chính phủ thực hiện quyền hành pháp, điều hành nhà nước."
+        "explanation": "Chính phủ thực hiện quyền hành pháp, điều hành nhà nước.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Tác phẩm 'Lão Hạc' của Nam Cao phản ánh chủ đề gì chính?",
-        "options": [ "Tình yêu lãng mạn", "Nỗi cô đơn và bi kịch nông dân", "Kỳ quan công nghiệp", "Trào phúng triều đình" ],
+        "options": [
+            "Tình yêu lãng mạn",
+            "Nỗi cô đơn và bi kịch nông dân",
+            "Kỳ quan công nghiệp",
+            "Trào phúng triều đình"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "'Lão Hạc' thể hiện bi kịch người nông dân trong hoàn cảnh khó khăn."
+        "explanation": "'Lão Hạc' thể hiện bi kịch người nông dân trong hoàn cảnh khó khăn.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Trong địa lý, 'đường chí tuyến Bắc' có vĩ độ xấp xỉ là bao nhiêu?",
-        "options": [ "0°", "23.5°N", "45°N", "66.5°N" ],
+        "options": [
+            "0°",
+            "23.5°N",
+            "45°N",
+            "66.5°N"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Đường chí tuyến Bắc (Tropic of Cancer) khoảng 23.5° vĩ Bắc."
+        "explanation": "Đường chí tuyến Bắc (Tropic of Cancer) khoảng 23.5° vĩ Bắc.",
+        "category": "Geography"
     },
     {
         "questionText": "Ai là thủ lĩnh nổi bật của phong trào Cách mạng Tháng Mười Nga (1917)?",
-        "options": [ "Vladimir Lenin", "Joseph Stalin", "Leon Trotsky", "Nicholas II" ],
+        "options": [
+            "Vladimir Lenin",
+            "Joseph Stalin",
+            "Leon Trotsky",
+            "Nicholas II"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Lenin là lãnh đạo chủ chốt của cuộc cách mạng Bolshevik tháng 10/1917."
+        "explanation": "Lenin là lãnh đạo chủ chốt của cuộc cách mạng Bolshevik tháng 10/1917.",
+        "category": "History"
     },
     {
         "questionText": "Trong đại số, phương trình bậc hai ax^2 + bx + c = 0 có bao nhiêu nghiệm thực phụ thuộc vào gì?",
-        "options": [ "Hệ số a", "Delta = b^2 - 4ac", "Giá trị của c", "Giá trị của x" ],
+        "options": [
+            "Hệ số a",
+            "Delta = b^2 - 4ac",
+            "Giá trị của c",
+            "Giá trị của x"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Số nghiệm thực phụ thuộc vào biệt thức Δ = b^2 - 4ac."
+        "explanation": "Số nghiệm thực phụ thuộc vào biệt thức Δ = b^2 - 4ac.",
+        "category": "Math"
     },
     {
         "questionText": "Tác giả Nam Cao nổi bật với phong cách văn học nào?",
-        "options": [ "Lãng mạn", "Hiện thực phê phán", "Sử thi", "Lãng mạn hóa" ],
+        "options": [
+            "Lãng mạn",
+            "Hiện thực phê phán",
+            "Sử thi",
+            "Lãng mạn hóa"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Nam Cao viết theo lối hiện thực phê phán, tập trung vào hiện thực xã hội."
+        "explanation": "Nam Cao viết theo lối hiện thực phê phán, tập trung vào hiện thực xã hội.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Sông nào được gọi là 'sông mẹ' của Bắc Trung Bộ Việt Nam (chảy qua nhiều tỉnh)?",
-        "options": [ "Sông Hồng", "Sông Lam", "Sông Đồng Nai", "Sông Cửu Long" ],
+        "options": [
+            "Sông Hồng",
+            "Sông Lam",
+            "Sông Đồng Nai",
+            "Sông Cửu Long"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Sông Lam chảy qua Nghệ An, Hà Tĩnh và được coi là sông lớn khu vực Bắc Trung Bộ."
+        "explanation": "Sông Lam chảy qua Nghệ An, Hà Tĩnh và được coi là sông lớn khu vực Bắc Trung Bộ.",
+        "category": "Geography"
     },
     {
         "questionText": "Chủ quyền quốc gia thường được hiểu là gì?",
-        "options": [ "Quyền lực tối cao của nhà nước trên lãnh thổ", "Quyền lực của công ty tư nhân", "Quyền lực của các NGO", "Độc quyền thương mại" ],
+        "options": [
+            "Quyền lực tối cao của nhà nước trên lãnh thổ",
+            "Quyền lực của công ty tư nhân",
+            "Quyền lực của các NGO",
+            "Độc quyền thương mại"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Chủ quyền: quyền lực tối cao và độc lập của nhà nước trên lãnh thổ."
+        "explanation": "Chủ quyền: quyền lực tối cao và độc lập của nhà nước trên lãnh thổ.",
+        "category": "Geography"
     },
     {
         "questionText": "Trong văn học, 'tự sự' chủ yếu định nghĩa loại hình nào?",
-        "options": [ "Thơ trữ tình", "Truyện kể/tiểu thuyết", "Kịch nói", "Phê bình" ],
+        "options": [
+            "Thơ trữ tình",
+            "Truyện kể/tiểu thuyết",
+            "Kịch nói",
+            "Phê bình"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Tự sự là hình thức văn học kể chuyện như truyện, tiểu thuyết."
+        "explanation": "Tự sự là hình thức văn học kể chuyện như truyện, tiểu thuyết.",
+        "category": "Literature"
     },
     {
         "questionText": "Số chính phương nào sau đây lớn hơn 100 nhưng nhỏ hơn 200?",
-        "options": [ "121", "99", "225", "80" ],
+        "options": [
+            "121",
+            "99",
+            "225",
+            "80"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "121 = 11^2 nằm giữa 100 và 200."
+        "explanation": "121 = 11^2 nằm giữa 100 và 200.",
+        "category": "Math"
     },
     {
         "questionText": "Năm 1911 ở Trung Quốc diễn ra sự kiện lịch sử quan trọng nào?",
-        "options": [ "Cách mạng Tân Hợi lật đổ quân chủ", "Cách mạng Văn hóa", "Khởi nghĩa Thiên An Môn", "Hòa bình Nam Kinh" ],
+        "options": [
+            "Cách mạng Tân Hợi lật đổ quân chủ",
+            "Cách mạng Văn hóa",
+            "Khởi nghĩa Thiên An Môn",
+            "Hòa bình Nam Kinh"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Cách mạng Tân Hợi (1911) lật đổ triều đình Mãn Thanh, lập nước Trung Hoa Dân Quốc."
+        "explanation": "Cách mạng Tân Hợi (1911) lật đổ triều đình Mãn Thanh, lập nước Trung Hoa Dân Quốc.",
+        "category": "History"
     },
     {
         "questionText": "Ai là nhà hoạt động xã hội nổi tiếng với phong trào chống phân biệt chủng tộc tại Mỹ và đã lãnh đạo nhiều chiến dịch bất bạo động?",
-        "options": [ "Martin Luther King Jr.", "Malcolm X", "Frederick Douglass", "Rosa Parks" ],
+        "options": [
+            "Martin Luther King Jr.",
+            "Malcolm X",
+            "Frederick Douglass",
+            "Rosa Parks"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Martin Luther King Jr. là lãnh đạo phong trào quyền dân sự bằng phương pháp bất bạo động."
+        "explanation": "Martin Luther King Jr. là lãnh đạo phong trào quyền dân sự bằng phương pháp bất bạo động.",
+        "category": "History"
     },
     {
         "questionText": "Trong văn học cổ điển Việt Nam, 'Lục Vân Tiên' là tác phẩm thể loại gì?",
-        "options": [ "Truyện thơ Nôm", "Kịch bản", "Tiểu thuyết chương hồi", "Tản văn" ],
+        "options": [
+            "Truyện thơ Nôm",
+            "Kịch bản",
+            "Tiểu thuyết chương hồi",
+            "Tản văn"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "'Lục Vân Tiên' là truyện thơ Nôm của Nguyễn Đình Chiểu."
+        "explanation": "'Lục Vân Tiên' là truyện thơ Nôm của Nguyễn Đình Chiểu.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Chỉ số GDP thường dùng để đo lường điều gì của một quốc gia?",
-        "options": [ "Quy mô dân số", "Sức khỏe dân số", "Tổng sản phẩm trong nước (sản lượng kinh tế)", "Tài nguyên thiên nhiên" ],
+        "options": [
+            "Quy mô dân số",
+            "Sức khỏe dân số",
+            "Tổng sản phẩm trong nước (sản lượng kinh tế)",
+            "Tài nguyên thiên nhiên"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "GDP đo tổng giá trị hàng hóa và dịch vụ sản xuất trong nước trong một kỳ."
+        "explanation": "GDP đo tổng giá trị hàng hóa và dịch vụ sản xuất trong nước trong một kỳ.",
+        "category": "Geography"
     },
     {
         "questionText": "Trong đại số, phương trình bậc hai ax^2 + bx + c = 0 có bao nhiêu nghiệm thực phụ thuộc vào gì?",
-        "options": [ "Hệ số a", "Delta = b^2 - 4ac", "Giá trị của c", "Giá trị của x" ],
+        "options": [
+            "Hệ số a",
+            "Delta = b^2 - 4ac",
+            "Giá trị của c",
+            "Giá trị của x"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Số nghiệm thực phụ thuộc vào biệt thức Δ = b^2 - 4ac."
+        "explanation": "Số nghiệm thực phụ thuộc vào biệt thức Δ = b^2 - 4ac.",
+        "category": "Math"
     },
     {
         "questionText": "Tác giả Nam Cao nổi bật với phong cách văn học nào?",
-        "options": [ "Lãng mạn", "Hiện thực phê phán", "Sử thi", "Lãng mạn hóa" ],
+        "options": [
+            "Lãng mạn",
+            "Hiện thực phê phán",
+            "Sử thi",
+            "Lãng mạn hóa"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Nam Cao viết theo lối hiện thực phê phán, tập trung vào hiện thực xã hội."
+        "explanation": "Nam Cao viết theo lối hiện thực phê phán, tập trung vào hiện thực xã hội.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Sông nào được gọi là 'sông mẹ' của Bắc Trung Bộ Việt Nam (chảy qua nhiều tỉnh)?",
-        "options": [ "Sông Hồng", "Sông Lam", "Sông Đồng Nai", "Sông Cửu Long" ],
+        "options": [
+            "Sông Hồng",
+            "Sông Lam",
+            "Sông Đồng Nai",
+            "Sông Cửu Long"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Sông Lam chảy qua Nghệ An, Hà Tĩnh và được coi là sông lớn khu vực Bắc Trung Bộ."
+        "explanation": "Sông Lam chảy qua Nghệ An, Hà Tĩnh và được coi là sông lớn khu vực Bắc Trung Bộ.",
+        "category": "Geography"
     },
     {
         "questionText": "Chủ quyền quốc gia thường được hiểu là gì?",
-        "options": [ "Quyền lực tối cao của nhà nước trên lãnh thổ", "Quyền lực của công ty tư nhân", "Quyền lực của các NGO", "Độc quyền thương mại" ],
+        "options": [
+            "Quyền lực tối cao của nhà nước trên lãnh thổ",
+            "Quyền lực của công ty tư nhân",
+            "Quyền lực của các NGO",
+            "Độc quyền thương mại"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Chủ quyền: quyền lực tối cao và độc lập của nhà nước trên lãnh thổ."
+        "explanation": "Chủ quyền: quyền lực tối cao và độc lập của nhà nước trên lãnh thổ.",
+        "category": "Geography"
     },
     {
         "questionText": "Trong văn học, 'tự sự' chủ yếu định nghĩa loại hình nào?",
-        "options": [ "Thơ trữ tình", "Truyện kể/tiểu thuyết", "Kịch nói", "Phê bình" ],
+        "options": [
+            "Thơ trữ tình",
+            "Truyện kể/tiểu thuyết",
+            "Kịch nói",
+            "Phê bình"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Tự sự là hình thức văn học kể chuyện như truyện, tiểu thuyết."
+        "explanation": "Tự sự là hình thức văn học kể chuyện như truyện, tiểu thuyết.",
+        "category": "Literature"
     },
     {
         "questionText": "Số chính phương nào sau đây lớn hơn 100 nhưng nhỏ hơn 200?",
-        "options": [ "121", "99", "225", "80" ],
+        "options": [
+            "121",
+            "99",
+            "225",
+            "80"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "121 = 11^2 nằm giữa 100 và 200."
+        "explanation": "121 = 11^2 nằm giữa 100 và 200.",
+        "category": "Math"
     },
     {
         "questionText": "Năm 1911 ở Trung Quốc diễn ra sự kiện lịch sử quan trọng nào?",
-        "options": [ "Cách mạng Tân Hợi lật đổ quân chủ", "Cách mạng Văn hóa", "Khởi nghĩa Thiên An Môn", "Hòa bình Nam Kinh" ],
+        "options": [
+            "Cách mạng Tân Hợi lật đổ quân chủ",
+            "Cách mạng Văn hóa",
+            "Khởi nghĩa Thiên An Môn",
+            "Hòa bình Nam Kinh"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Cách mạng Tân Hợi (1911) lật đổ triều đình Mãn Thanh, lập nước Trung Hoa Dân Quốc."
+        "explanation": "Cách mạng Tân Hợi (1911) lật đổ triều đình Mãn Thanh, lập nước Trung Hoa Dân Quốc.",
+        "category": "History"
     },
     {
         "questionText": "Ai là nhà hoạt động xã hội nổi tiếng với phong trào chống phân biệt chủng tộc tại Mỹ và đã lãnh đạo nhiều chiến dịch bất bạo động?",
-        "options": [ "Martin Luther King Jr.", "Malcolm X", "Frederick Douglass", "Rosa Parks" ],
+        "options": [
+            "Martin Luther King Jr.",
+            "Malcolm X",
+            "Frederick Douglass",
+            "Rosa Parks"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Martin Luther King Jr. là lãnh đạo phong trào quyền dân sự bằng phương pháp bất bạo động."
+        "explanation": "Martin Luther King Jr. là lãnh đạo phong trào quyền dân sự bằng phương pháp bất bạo động.",
+        "category": "History"
     },
     {
         "questionText": "Trong văn học cổ điển Việt Nam, 'Lục Vân Tiên' là tác phẩm thể loại gì?",
-        "options": [ "Truyện thơ Nôm", "Kịch bản", "Tiểu thuyết chương hồi", "Tản văn" ],
+        "options": [
+            "Truyện thơ Nôm",
+            "Kịch bản",
+            "Tiểu thuyết chương hồi",
+            "Tản văn"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "'Lục Vân Tiên' là truyện thơ Nôm của Nguyễn Đình Chiểu."
+        "explanation": "'Lục Vân Tiên' là truyện thơ Nôm của Nguyễn Đình Chiểu.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Chỉ số GDP thường dùng để đo lường điều gì của một quốc gia?",
-        "options": [ "Quy mô dân số", "Sức khỏe dân số", "Tổng sản phẩm trong nước (sản lượng kinh tế)", "Tài nguyên thiên nhiên" ],
+        "options": [
+            "Quy mô dân số",
+            "Sức khỏe dân số",
+            "Tổng sản phẩm trong nước (sản lượng kinh tế)",
+            "Tài nguyên thiên nhiên"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "GDP đo tổng giá trị hàng hóa và dịch vụ sản xuất trong nước trong một kỳ."
+        "explanation": "GDP đo tổng giá trị hàng hóa và dịch vụ sản xuất trong nước trong một kỳ.",
+        "category": "Geography"
     },
     {
         "questionText": "Trong di truyền học, 'genotype' khác 'phenotype' như thế nào?",
@@ -314,19 +620,32 @@
             "Genotype là protein, phenotype là lipid"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "Genotype là tổ hợp gen; phenotype là biểu hiện (hình thái, sinh lý) chịu ảnh hưởng của gen và môi trường."
+        "explanation": "Genotype là tổ hợp gen; phenotype là biểu hiện (hình thái, sinh lý) chịu ảnh hưởng của gen và môi trường.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Trong anime 'Attack on Titan', tường bao quanh loài người tên gì (Wall) lớn nhất ở ngoài cùng?",
-        "options": [ "Wall Maria", "Wall Rose", "Wall Sina", "Wall Gawain" ],
+        "options": [
+            "Wall Maria",
+            "Wall Rose",
+            "Wall Sina",
+            "Wall Gawain"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Wall Maria là bức tường ngoài cùng trong 'Attack on Titan'."
+        "explanation": "Wall Maria là bức tường ngoài cùng trong 'Attack on Titan'.",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Trong khoa học, pH = 7 biểu thị môi trường như thế nào?",
-        "options": [ "Môi trường axit mạnh", "Môi trường trung tính", "Môi trường kiềm mạnh", "Môi trường chưa xác định" ],
+        "options": [
+            "Môi trường axit mạnh",
+            "Môi trường trung tính",
+            "Môi trường kiềm mạnh",
+            "Môi trường chưa xác định"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "pH 7 là trung tính (nước tinh khiết ở 25°C)."
+        "explanation": "pH 7 là trung tính (nước tinh khiết ở 25°C).",
+        "category": "Chemistry"
     },
     {
         "questionText": "Trong sinh thái, khái niệm 'niche' (nghề sinh thái) chỉ điều gì?",
@@ -337,13 +656,20 @@
             "Một hệ thống khí hậu"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "Niche mô tả vai trò sinh thái và cách một loài sử dụng nguồn tài nguyên."
+        "explanation": "Niche mô tả vai trò sinh thái và cách một loài sử dụng nguồn tài nguyên.",
+        "category": "Biology"
     },
     {
         "questionText": "Tác phẩm manga 'Monster' của Naoki Urasawa thuộc thể loại nào?",
-        "options": [ "Hành động hài", "Tâm lý tội phạm/kinh dị", "Harem", "Thể thao" ],
+        "options": [
+            "Hành động hài",
+            "Tâm lý tội phạm/kinh dị",
+            "Harem",
+            "Thể thao"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "'Monster' là manga tâm lý tội phạm, căng thẳng với yếu tố trinh thám."
+        "explanation": "'Monster' là manga tâm lý tội phạm, căng thẳng với yếu tố trinh thám.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Quá trình nào sau đây làm cho lớp ozone ở tầng bình lưu suy giảm (liên quan đến hóa học khí quyển)?",
@@ -354,31 +680,56 @@
             "Tăng CO2"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "CFCs giải phóng chlorine phá hủy phân tử ozone ở tầng bình lưu."
+        "explanation": "CFCs giải phóng chlorine phá hủy phân tử ozone ở tầng bình lưu.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Trong anime 'Hunter x Hunter', Nen là gì?",
-        "options": [ "Một loại vũ khí", "Hệ thống năng lực/khí nội tại cho phép người dùng điều khiển năng lượng sống", "Tên địa danh", "Một loài quái vật" ],
+        "options": [
+            "Một loại vũ khí",
+            "Hệ thống năng lực/khí nội tại cho phép người dùng điều khiển năng lượng sống",
+            "Tên địa danh",
+            "Một loài quái vật"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Nen là hệ thống năng lực trong 'Hunter x Hunter' cho phép thao tác aura/khí."
+        "explanation": "Nen là hệ thống năng lực trong 'Hunter x Hunter' cho phép thao tác aura/khí.",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Trong sinh học thực vật, hormone nào liên quan đến ra hoa và chống rụng lá?",
-        "options": [ "Auxin", "Gibberellin", "Ethylene", "Cytokinin" ],
+        "options": [
+            "Auxin",
+            "Gibberellin",
+            "Ethylene",
+            "Cytokinin"
+        ],
         "correctAnswerIndex": 3,
-        "explanation": "Cytokinin liên quan đến phân chia tế bào, kéo dài tuổi thọ mô, ảnh hưởng đến hoa và rụng lá; lưu ý các hormone khác cũng tham gia."
+        "explanation": "Cytokinin liên quan đến phân chia tế bào, kéo dài tuổi thọ mô, ảnh hưởng đến hoa và rụng lá; lưu ý các hormone khác cũng tham gia.",
+        "category": "Biology"
     },
     {
         "questionText": "Trong khoa học vũ trụ, Hệ Mặt Trời có bao nhiêu hành tinh được công nhận chính thức (kể theo phân loại hiện hành)?",
-        "options": [ "8", "9", "10", "7" ],
+        "options": [
+            "8",
+            "9",
+            "10",
+            "7"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Hiện nay hệ Mặt Trời có 8 hành tinh (Mercury → Neptune); Pluto được phân loại là 'hành tinh lùn'."
+        "explanation": "Hiện nay hệ Mặt Trời có 8 hành tinh (Mercury → Neptune); Pluto được phân loại là 'hành tinh lùn'.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Trong comic Marvel, 'X-Men' là những người có gì đặc biệt?",
-        "options": [ "Là robot", "Có đột biến mang siêu năng lực", "Là siêu phản diện duy nhất", "Không có năng lực" ],
+        "options": [
+            "Là robot",
+            "Có đột biến mang siêu năng lực",
+            "Là siêu phản diện duy nhất",
+            "Không có năng lực"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "X-Men là nhóm người có đột biến (mutants) mang năng lực siêu nhiên."
+        "explanation": "X-Men là nhóm người có đột biến (mutants) mang năng lực siêu nhiên.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Quá trình 'transpiration' ở thực vật chủ yếu ảnh hưởng đến điều gì?",
@@ -389,13 +740,20 @@
             "Thụ tinh"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "Transpiration là thoát hơi nước qua khí khổng, giúp dẫn nước và khoáng từ rễ."
+        "explanation": "Transpiration là thoát hơi nước qua khí khổng, giúp dẫn nước và khoáng từ rễ.",
+        "category": "Biology"
     },
     {
         "questionText": "Trong khoa học, định luật Newton thứ hai phát biểu mối quan hệ giữa lực, khối lượng và gia tốc như thế nào?",
-        "options": [ "F = m / a", "F = m × a", "F = a / m", "F = m + a" ],
+        "options": [
+            "F = m / a",
+            "F = m × a",
+            "F = a / m",
+            "F = m + a"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Newton thứ hai: lực (F) bằng khối lượng (m) nhân gia tốc (a)."
+        "explanation": "Newton thứ hai: lực (F) bằng khối lượng (m) nhân gia tốc (a).",
+        "category": "Physics"
     },
     {
         "questionText": "Trong anime 'Sailor Moon', nhân vật Usagi Tsukino (Sailor Moon) có đặc điểm gì dễ nhận biết?",
@@ -406,7 +764,8 @@
             "Là thần chết"
         ],
         "correctAnswerIndex": 0,
-        "explanation": "Usagi có kiểu tóc búi hai bên với đuôi tóc dài là đặc trưng nhận diện."
+        "explanation": "Usagi có kiểu tóc búi hai bên với đuôi tóc dài là đặc trưng nhận diện.",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Trong sinh lý học, huyết áp tâm thu (systolic) là gì?",
@@ -417,31 +776,56 @@
             "Lượng máu tim bơm mỗi phút"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "Huyết áp tâm thu đo áp lực trong động mạch khi tim co bóp."
+        "explanation": "Huyết áp tâm thu đo áp lực trong động mạch khi tim co bóp.",
+        "category": "Biology"
     },
     {
         "questionText": "Trong ngành sinh học biển, hệ sinh thái rạn san hô (coral reef) rất nhạy cảm với điều gì?",
-        "options": [ "Ô nhiễm tiếng ồn", "Tăng nhiệt độ nước và axít hóa biển", "Thiếu oxy ở tầng bình lưu", "Sự biến đổi địa tâm" ],
+        "options": [
+            "Ô nhiễm tiếng ồn",
+            "Tăng nhiệt độ nước và axít hóa biển",
+            "Thiếu oxy ở tầng bình lưu",
+            "Sự biến đổi địa tâm"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Rạn san hô nhạy cảm với tăng nhiệt và axít hóa; hiện tượng bleaching do nhiệt."
+        "explanation": "Rạn san hô nhạy cảm với tăng nhiệt và axít hóa; hiện tượng bleaching do nhiệt.",
+        "category": "Biology"
     },
     {
         "questionText": "Trong manga 'Berserk', tác giả Kentaro Miura nổi tiếng với yếu tố gì trong tác phẩm?",
-        "options": [ "Phong cách hài hước", "Tranh minh họa siêu chi tiết và tông tối", "Phong cách slice-of-life", "Tập trung về nhạc cổ điển" ],
+        "options": [
+            "Phong cách hài hước",
+            "Tranh minh họa siêu chi tiết và tông tối",
+            "Phong cách slice-of-life",
+            "Tập trung về nhạc cổ điển"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "'Berserk' nổi tiếng bởi minh họa chi tiết và nội dung u tối, bạo lực."
+        "explanation": "'Berserk' nổi tiếng bởi minh họa chi tiết và nội dung u tối, bạo lực.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Trong di truyền học người, nhiễm sắc thể giới tính ở nữ thường là gì?",
-        "options": [ "XY", "XX", "YY", "XZ" ],
+        "options": [
+            "XY",
+            "XX",
+            "YY",
+            "XZ"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Nữ thường có cặp nhiễm sắc thể giới tính XX; nam XY."
+        "explanation": "Nữ thường có cặp nhiễm sắc thể giới tính XX; nam XY.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Chương trình truyền hình 'Planet Earth' là thể loại gì?",
-        "options": [ "Chương trình thực tế thi nấu ăn", "Phim tài liệu thiên nhiên", "Phim hài", "Chương trình âm nhạc" ],
+        "options": [
+            "Chương trình thực tế thi nấu ăn",
+            "Phim tài liệu thiên nhiên",
+            "Phim hài",
+            "Chương trình âm nhạc"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "'Planet Earth' là series phim tài liệu thiên nhiên nổi tiếng của BBC."
+        "explanation": "'Planet Earth' là series phim tài liệu thiên nhiên nổi tiếng của BBC.",
+        "category": "Film"
     },
     {
         "questionText": "Trong sinh học phân tử, enzyme 'DNA polymerase' có chức năng chính gì?",
@@ -452,6 +836,7 @@
             "Tiêu hóa lipid"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "DNA polymerase tổng hợp DNA mới khi sao chép."
+        "explanation": "DNA polymerase tổng hợp DNA mới khi sao chép.",
+        "category": "Chemistry"
     }
 ]

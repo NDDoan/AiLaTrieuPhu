@@ -111,3 +111,8 @@ C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-w
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_5.png
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_6.png
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_7.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_10.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_11.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_12.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_8.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_9.png

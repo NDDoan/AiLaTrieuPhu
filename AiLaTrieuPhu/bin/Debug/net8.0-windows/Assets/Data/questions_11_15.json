@@ -3,181 +3,211 @@
         "questionText": "Trong cơ học lượng tử, nguyên lý không xác định của Heisenberg phát biểu rằng không thể đồng thời biết chính xác cặp nào dưới đây?",
         "options": [ "Vị trí và động lượng", "Năng lượng và thời gian", "Spin và khối lượng", "Loại hạt và điện tích" ],
         "correctAnswerIndex": 0,
-        "explanation": "Nguyên lý Heisenberg liên quan trực tiếp đến vị trí và động lượng không thể biết đồng thời với độ chính xác tuyệt đối."
+        "explanation": "Nguyên lý Heisenberg liên quan trực tiếp đến vị trí và động lượng không thể biết đồng thời với độ chính xác tuyệt đối.",
+	"category": "Physics"
     },
     {
         "questionText": "Ai là tác giả bài thơ Trường ca 'Mặt đường khát vọng' (hoặc tác phẩm cùng tên nếu cần kiểm tra)?",
         "options": [ "Nguyễn Duy", "Hữu Thỉnh", "Thanh Hải", "Phan Văn Trường" ],
         "correctAnswerIndex": 0,
-        "explanation": "Nguyễn Duy là tác giả nhiều bài thơ hiện đại; (lưu ý: câu hỏi này thuộc văn học hiện đại, hãy kiểm tra nếu cần)."
+        "explanation": "Nguyễn Duy là tác giả nhiều bài thơ hiện đại; (lưu ý: câu hỏi này thuộc văn học hiện đại, hãy kiểm tra nếu cần).",
+	"category": "Literature"
     },
     {
         "questionText": "Trong thiết kế cơ sở dữ liệu, thuộc tính nào sau đây đảm bảo tính duy nhất của mỗi bản ghi?",
         "options": [ "Index", "Primary Key", "Foreign Key", "View" ],
         "correctAnswerIndex": 1,
-        "explanation": "Primary Key là khóa chính đảm bảo mỗi bản ghi là duy nhất trong bảng."
+        "explanation": "Primary Key là khóa chính đảm bảo mỗi bản ghi là duy nhất trong bảng.",
+	"category": "ComputerScience"
     },
     {
         "questionText": "Thuật toán sắp xếp nào có độ phức tạp trung bình O(n log n) và thường dùng pivot?",
         "options": [ "Bubble Sort", "Insertion Sort", "Quick Sort", "Selection Sort" ],
         "correctAnswerIndex": 2,
-        "explanation": "Quick Sort có độ phức tạp trung bình O(n log n) và dùng pivot để phân tách."
+        "explanation": "Quick Sort có độ phức tạp trung bình O(n log n) và dùng pivot để phân tách.",
+	"category": "ComputerScience"
     },
     {
         "questionText": "Trong toán học, định lý nào khẳng định rằng mỗi đa thức bậc n có đúng n nghiệm trong trường số phức (kể cả nghiệm trùng)?",
         "options": [ "Định lý trung bình giá trị", "Định lý đại số cơ bản", "Định lý Pythagore", "Định lý Fermat" ],
         "correctAnswerIndex": 1,
-        "explanation": "Định lý đại số cơ bản (Fundamental Theorem of Algebra) phát biểu điều này."
+        "explanation": "Định lý đại số cơ bản (Fundamental Theorem of Algebra) phát biểu điều này.",
+	"category": "Math"
     },
     {
         "questionText": "Trong mô hình MVC (Model-View-Controller), thành phần nào chịu trách nhiệm xử lý logic và các quy tắc nghiệp vụ?",
         "options": [ "Model", "View", "Controller", "Router" ],
         "correctAnswerIndex": 0,
-        "explanation": "Model thường chứa dữ liệu và logic nghiệp vụ; Controller điều hướng, View trình bày."
+        "explanation": "Model thường chứa dữ liệu và logic nghiệp vụ; Controller điều hướng, View trình bày.",
+	"category": "ComputerScience"
     },
     {
         "questionText": "Trong hệ điều hành, cơ chế 'deadlock' xảy ra khi nào?",
         "options": [ "Khi một tiến trình bị treo tạm thời", "Khi hai hoặc nhiều tiến trình chờ nhau vô hạn", "Khi CPU quá tải", "Khi bộ nhớ bị đầy" ],
         "correctAnswerIndex": 1,
-        "explanation": "Deadlock xảy ra khi các tiến trình chờ lẫn nhau và không ai tiến triển được."
+        "explanation": "Deadlock xảy ra khi các tiến trình chờ lẫn nhau và không ai tiến triển được.",
+	"category": "ComputerScience"
     },
     {
         "questionText": "Trong mạng nơ-ron nhân tạo (neural network), hàm kích hoạt 'ReLU' là viết tắt của gì?",
         "options": [ "Rectified Linear Unit", "Random Linear Unit", "Regularized Linear Unit", "Relative Linear Unit" ],
         "correctAnswerIndex": 0,
-        "explanation": "ReLU là Rectified Linear Unit — hàm max(0, x)."
+        "explanation": "ReLU là Rectified Linear Unit — hàm max(0, x).",
+	"category": "ComputerScience"
     },
     {
         "questionText": "Ai được xem là người đặt nền móng cho khoa học máy tính hiện đại với khái niệm 'máy tính lý thuyết' (Turing Machine)?",
         "options": [ "Alonzo Church", "Alan Turing", "John von Neumann", "Claude Shannon" ],
         "correctAnswerIndex": 1,
-        "explanation": "Alan Turing đề xuất khái niệm Máy Turing, nền tảng cho lý thuyết tính toán."
+        "explanation": "Alan Turing đề xuất khái niệm Máy Turing, nền tảng cho lý thuyết tính toán.",
+	"category": "ComputerScience"
     },
     {
         "questionText": "Trong lập trình Java, từ khóa nào dùng để khai báo một phương thức mà không thể bị ghi đè (overridden) bởi lớp con?",
         "options": [ "static", "final", "abstract", "synchronized" ],
         "correctAnswerIndex": 1,
-        "explanation": "Từ khóa final khi áp dụng cho phương thức ngăn không cho lớp con ghi đè."
+        "explanation": "Từ khóa final khi áp dụng cho phương thức ngăn không cho lớp con ghi đè.",
+	"category": "ComputerScience"
     },
     {
         "questionText": "Tác phẩm 'Chiếc thuyền ngoài xa' của Nguyễn Minh Châu phản ánh chủ đề văn học nào nổi bật?",
         "options": [ "Tính tốt xấu của con người và con mắt nghệ sĩ", "Lãng mạn tình yêu", "Miêu tả phong cảnh thiên nhiên", "Phê phán xã hội phong kiến" ],
         "correctAnswerIndex": 0,
-        "explanation": "Tác phẩm nhấn mạnh cách nhìn nghệ sĩ trước hiện thực: vẻ đẹp nghệ thuật và bi kịch đời thường."
+        "explanation": "Tác phẩm nhấn mạnh cách nhìn nghệ sĩ trước hiện thực: vẻ đẹp nghệ thuật và bi kịch đời thường.",
+	"category": "Literature"
     },
     {
         "questionText": "Trong toán cao cấp, 'phép biến đổi Fourier' chủ yếu dùng để làm gì?",
         "options": [ "Giải phương trình đại số bậc hai", "Chuyển hàm từ miền thời gian sang miền tần số", "Tính tích phân đơn", "Tối ưu hóa" ],
         "correctAnswerIndex": 1,
-        "explanation": "Biến đổi Fourier chuyển tín hiệu từ miền thời gian sang miền tần số để phân tích thành phần hài."
+        "explanation": "Biến đổi Fourier chuyển tín hiệu từ miền thời gian sang miền tần số để phân tích thành phần hài.",
+	"category": "Physics"
     },
     {
         "questionText": "Hiệp ước Versailles (1919) ảnh hưởng lớn đến quốc gia nào sau Thế chiến I?",
         "options": [ "Đức", "Nga", "Hoa Kỳ", "Nhật Bản" ],
         "correctAnswerIndex": 0,
-        "explanation": "Hiệp ước Versailles áp đặt điều khoản nặng nề lên Đức sau Thế chiến I."
+        "explanation": "Hiệp ước Versailles áp đặt điều khoản nặng nề lên Đức sau Thế chiến I.",
+	"category": "History"
     },
     {
         "questionText": "Trong lý thuyết số, Định lý Wilson phát biểu gì (tóm tắt)?",
         "options": [ "p là số nguyên tố khi và chỉ khi (p-1)! ≡ -1 (mod p)", "Mọi số chia hết cho 2", "Mỗi số có ước số", "Tổng hai số nguyên tố là số chẵn" ],
         "correctAnswerIndex": 0,
-        "explanation": "Định lý Wilson: p là nguyên tố ⇔ (p-1)! ≡ -1 (mod p)."
+        "explanation": "Định lý Wilson: p là nguyên tố ⇔ (p-1)! ≡ -1 (mod p).",
+	"category": "Math"
     },
     {
         "questionText": "Người soạn thảo bản 'Tuyên ngôn Độc lập' của nước Việt Nam Dân chủ Cộng hòa (1945) chính là ai?",
         "options": [ "Phạm Văn Đồng", "Hồ Chí Minh", "Võ Nguyên Giáp", "Trường Chinh" ],
         "correctAnswerIndex": 1,
-        "explanation": "Chủ tịch Hồ Chí Minh là người đọc và soạn thảo tuyên ngôn khai sinh nước VNDCCH."
+        "explanation": "Chủ tịch Hồ Chí Minh là người đọc và soạn thảo tuyên ngôn khai sinh nước VNDCCH.",
+	"category": "History"
     },
     {
         "questionText": "Trong phân tích văn học, 'tiền giả tưởng' (metafiction) thường chỉ:",
         "options": [ "Tác phẩm chỉ dùng ngôn ngữ hình ảnh", "Tác phẩm tự ý thức về tính hư cấu của mình", "Tác phẩm lịch sử chân thực", "Tác phẩm thiếu cấu trúc" ],
         "correctAnswerIndex": 1,
-        "explanation": "Metafiction là thể loại tự phản chiếu về tính hư cấu, phá vỡ ranh giới kể chuyện."
+        "explanation": "Metafiction là thể loại tự phản chiếu về tính hư cấu, phá vỡ ranh giới kể chuyện.",
+	"category": "Literature"
     },
     {
         "questionText": "Trong đại số tuyến tính, một ma trận vuông A có định thức (determinant) bằng 0 có nghĩa gì?",
         "options": [ "A có nghịch đảo", "A không khả nghịch (không có nghịch đảo)", "A là ma trận đơn vị", "A có tất cả phần tử bằng 0" ],
         "correctAnswerIndex": 1,
-        "explanation": "det(A)=0 ⇔ A không khả nghịch (singular)."
+        "explanation": "det(A)=0 ⇔ A không khả nghịch (singular).",
+	"category": "Math"
     },
     {
         "questionText": "Phong trào Duy Tân ở Việt Nam đầu thế kỷ 20 khởi xướng bởi ai?",
         "options": [ "Phan Bội Châu và Phan Chu Trinh", "Hồ Chí Minh", "Nguyễn Ái Quốc", "Lê Duẩn" ],
         "correctAnswerIndex": 0,
-        "explanation": "Phan Bội Châu và Phan Chu Trinh là những nhân vật tiêu biểu cho phong trào Duy Tân và cải cách."
+        "explanation": "Phan Bội Châu và Phan Chu Trinh là những nhân vật tiêu biểu cho phong trào Duy Tân và cải cách.",
+	"category": "History"
     },
     {
         "questionText": "Thuật ngữ 'xã hội công dân' ('civil society') khác với 'chính quyền' vì lý do nào chủ yếu?",
         "options": [ "Chính quyền là súc vật", "Xã hội công dân bao gồm các tổ chức tự nguyện độc lập với nhà nước", "Chính quyền có nhiệm vụ từ thiện", "Xã hội công dân do quân đội điều hành" ],
         "correctAnswerIndex": 1,
-        "explanation": "Xã hội công dân gồm các tổ chức, hiệp hội, nhóm hoạt động độc lập với nhà nước."
+        "explanation": "Xã hội công dân gồm các tổ chức, hiệp hội, nhóm hoạt động độc lập với nhà nước.",
+	"category": "Civics"
     },
     {
         "questionText": "Trong toán học, 'số Fibonacci' bắt đầu bằng dãy nào phổ biến nhất?",
         "options": [ "0, 1, 1, 2, 3, 5...", "1, 2, 3, 5, 8...", "2, 3, 5, 8...", "1, 1, 2, 3, 5..." ],
         "correctAnswerIndex": 0,
-        "explanation": "Một cách phổ biến bắt đầu dãy Fibonacci là 0,1,1,2,3,5,... (một biến thể khác bắt đầu 1,1,...)."
+        "explanation": "Một cách phổ biến bắt đầu dãy Fibonacci là 0,1,1,2,3,5,... (một biến thể khác bắt đầu 1,1,...).",
+	"category": "Math"
     },
     {
         "questionText": "Kỹ thuật hoạt hình 'rotoscoping' là gì?",
         "options": [ "Vẽ trực tiếp trên máy tính bằng vector", "Chiếu khung hình thực vào tấm cel để vẽ theo, tạo chuyển động thực tế", "Kỹ thuật dựng mô hình 3D", "Phối màu tự động bằng AI" ],
         "correctAnswerIndex": 1,
-        "explanation": "Rotoscoping là vẽ chồng lên khung hình quay thực để tạo chuyển động mượt và chính xác."
+        "explanation": "Rotoscoping là vẽ chồng lên khung hình quay thực để tạo chuyển động mượt và chính xác.",
+	"category": "Art"
     },
     {
         "questionText": "Trong lý thuyết điện ảnh, 'auteur theory' cho rằng điều gì về đạo diễn?",
         "options": [ "Đạo diễn chỉ làm công việc kỹ thuật", "Đạo diễn là tác giả chính có dấu ấn cá nhân xuyên suốt các tác phẩm", "Đạo diễn không quan trọng bằng diễn viên", "Đạo diễn chỉ quản lý lịch quay" ],
         "correctAnswerIndex": 1,
-        "explanation": "Auteur theory xem đạo diễn như tác giả sáng tạo với phong cách cá nhân rõ nét."
+        "explanation": "Auteur theory xem đạo diễn như tác giả sáng tạo với phong cách cá nhân rõ nét.",
+	"category": "Film"
     },
     {
         "questionText": "Ai là người khai sinh phong trào Surrealism (Siêu thực) trong hội họa (lãnh đạo trào lưu văn học/hội họa đầu)?",
         "options": [ "Salvador Dalí và André Breton", "Claude Monet và Pierre-Auguste Renoir", "Pablo Picasso và Georges Braque", "Jackson Pollock và Willem de Kooning" ],
         "correctAnswerIndex": 0,
-        "explanation": "André Breton là thủ lĩnh phong trào siêu thực; Salvador Dalí là họa sĩ tiêu biểu."
+        "explanation": "André Breton là thủ lĩnh phong trào siêu thực; Salvador Dalí là họa sĩ tiêu biểu.",
+	"category": "Art"
     },
     {
         "questionText": "Trong phân tích âm nhạc, 'modal interchange' (hoán đổi chủ âm) chỉ việc gì?",
         "options": [ "Chuyển đổi nhịp 4/4 sang 3/4", "Mượn hợp âm từ mode khác (ví dụ từ parallel minor/major) để làm giàu tiến trình hòa âm", "Thay đổi tempo", "Điều chỉnh âm lượng" ],
         "correctAnswerIndex": 1,
-        "explanation": "Modal interchange là kỹ thuật mượn hợp âm từ mode song song để tạo màu sắc hòa âm khác."
+        "explanation": "Modal interchange là kỹ thuật mượn hợp âm từ mode song song để tạo màu sắc hòa âm khác.",
+	"category": "Music"
     },
     {
         "questionText": "Trong lịch sử tokusatsu, nhà sản xuất Toei Company nổi tiếng với loạt nào sau đây?",
         "options": [ "Kamen Rider và Super Sentai", "Ultraman", "Godzilla", "Power Rangers" ],
         "correctAnswerIndex": 0,
-        "explanation": "Toei sản xuất nhiều series Kamen Rider và Super Sentai."
+        "explanation": "Toei sản xuất nhiều series Kamen Rider và Super Sentai.",
+	"category": "AnimeManga"
     },
     {
         "questionText": "Thuật ngữ 'mise-en-scène' trong điện ảnh mô tả điều gì?",
         "options": [ "Âm thanh và nhạc nền", "Tổng thể sắp đặt hình ảnh: bối cảnh, ánh sáng, diễn xuất, trang phục trong khung hình", "Kỹ thuật dựng phim", "Danh sách diễn viên" ],
         "correctAnswerIndex": 1,
-        "explanation": "Mise-en-scène là tổng hòa mọi yếu tố trực quan trong một cảnh phim."
+        "explanation": "Mise-en-scène là tổng hòa mọi yếu tố trực quan trong một cảnh phim.",
+	"category": "Film"
     },
     {
         "questionText": "Ai là họa sĩ biểu tượng của trường phái Fauvism (dã thú) với cách dùng màu mạnh và rực rỡ?",
         "options": [ "Henri Matisse", "Paul Cézanne", "Gustav Klimt", "Edvard Munch" ],
         "correctAnswerIndex": 0,
-        "explanation": "Henri Matisse là nhân vật tiêu biểu của Fauvism với màu sắc rực rỡ."
+        "explanation": "Henri Matisse là nhân vật tiêu biểu của Fauvism với màu sắc rực rỡ.",
+	"category": "Art"
     },
     {
         "questionText": "Trong sản xuất âm nhạc, 'sidechain compression' thường dùng để làm gì?",
         "options": [ "Tăng độ vọng (reverb)", "Tạo hiệu ứng nhường chỗ (ducking) giữa hai tín hiệu, thường để giọng hát/nkick nổi bật", "Thay đổi tông nhạc", "Tạo tiếng vang stereo" ],
         "correctAnswerIndex": 1,
-        "explanation": "Sidechain compression cho phép một tín hiệu (ví dụ kick) làm giảm âm lượng của tín hiệu khác (ví dụ bass) nhằm tạo không gian âm thanh."
+        "explanation": "Sidechain compression cho phép một tín hiệu (ví dụ kick) làm giảm âm lượng của tín hiệu khác (ví dụ bass) nhằm tạo không gian âm thanh.",
+	"category": "Music"
     },
     {
         "questionText": "Trong lịch sử điện ảnh Nhật Bản, phim 'Godzilla' (1954) do hãng nào sản xuất?",
         "options": [ "Toho", "Shochiku", "Toei", "Nikkatsu" ],
         "correctAnswerIndex": 0,
-        "explanation": "Godzilla (Gojira) do Toho sản xuất và là biểu tượng phim kaiju của Nhật Bản."
+        "explanation": "Godzilla (Gojira) do Toho sản xuất và là biểu tượng phim kaiju của Nhật Bản.",
+	"category": "Film"
     },
     {
         "questionText": "Kỹ thuật 'assemblage' trong mỹ thuật hiện đại là gì?",
         "options": [ "Vẽ bằng màu nước", "Tạo tác phẩm bằng cách ghép nối các vật thể sẵn có thành một tổng thể mới", "In khắc gỗ", "Tranh sơn dầu truyền thống" ],
         "correctAnswerIndex": 1,
-        "explanation": "Assemblage là ghép các vật thể (found objects) để tạo tác phẩm nghệ thuật mới."
+        "explanation": "Assemblage là ghép các vật thể (found objects) để tạo tác phẩm nghệ thuật mới.",
+	"category": "Art"
     },
     {
         "questionText": "Trong sinh học tiến hóa, khái niệm 'coevolution' (đồng tiến hóa) chỉ điều gì?",
@@ -188,13 +218,15 @@
             "Sự tiến hóa trong phòng thí nghiệm"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "Coevolution là quá trình hai hay nhiều loài ảnh hưởng chọn lọc lên nhau (ví dụ cây hoa và côn trùng thụ phấn)."
+        "explanation": "Coevolution là quá trình hai hay nhiều loài ảnh hưởng chọn lọc lên nhau (ví dụ cây hoa và côn trùng thụ phấn).",
+	"category": "Biology"
     },
     {
         "questionText": "Trong anime 'Neon Genesis Evangelion', EVA unit thường được điều khiển bởi ai?",
         "options": [ "Người máy tự động", "Trẻ em được chọn (pilots)", "Sinh vật ngoài hành tinh", "Máy tính trung tâm" ],
         "correctAnswerIndex": 1,
-        "explanation": "Các EVA do piloted bởi trẻ em đã chọn (Shinji, Rei, Asuka...) trong 'Evangelion'."
+        "explanation": "Các EVA do piloted bởi trẻ em đã chọn (Shinji, Rei, Asuka...) trong 'Evangelion'.",
+	"category": "AnimeManga"
     },
     {
         "questionText": "Trong sinh học tế bào, con đường 'Wnt signaling' quan trọng cho chức năng gì?",
@@ -205,7 +237,8 @@
             "Tổng hợp protein ngoại bào"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "Wnt là con đường tín hiệu thiết yếu trong phát triển phôi và phân hóa tế bào."
+        "explanation": "Wnt là con đường tín hiệu thiết yếu trong phát triển phôi và phân hóa tế bào.",
+	"category": "Biology"
     },
     {
         "questionText": "Trong nghiên cứu môi trường, phương pháp 'mark-recapture' dùng để làm gì?",
@@ -216,7 +249,8 @@
             "Xác định loại thực vật"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "Mark-recapture dùng để ước tính kích thước quần thể bằng cách bắt, đánh dấu, thả và bắt lại."
+        "explanation": "Mark-recapture dùng để ước tính kích thước quần thể bằng cách bắt, đánh dấu, thả và bắt lại.",
+	"category": "Biology"
     },
     {
         "questionText": "Trong ngành phim/điện ảnh, thuật ngữ 'diegetic musical number' chỉ tình huống nào?",
@@ -227,7 +261,8 @@
             "Âm thanh hậu trường"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "Diegetic musical number là khi âm nhạc phát trong thế giới câu chuyện (nhân vật nghe và tham gia)."
+        "explanation": "Diegetic musical number là khi âm nhạc phát trong thế giới câu chuyện (nhân vật nghe và tham gia).",
+	"category": "Film"
     },
     {
         "questionText": "Trong di truyền người, 'epistasis' là hiện tượng gì?",
@@ -238,7 +273,8 @@
             "Sự sao chép ADN lỗi"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "Epistasis là tương tác giữa gen, một gen có thể làm át biểu hiện của gen khác."
+        "explanation": "Epistasis là tương tác giữa gen, một gen có thể làm át biểu hiện của gen khác.",
+	"category": "Biology"
     },
     {
         "questionText": "Trong anime 'Monster Hunter Stories' (ví dụ), thuật ngữ 'Rathalos' thường chỉ loại gì?",
@@ -249,7 +285,8 @@
             "Một vùng đất"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "Rathalos là loài quái vật dạng rồng/bọ lớn trong game/anime Monster Hunter."
+        "explanation": "Rathalos là loài quái vật dạng rồng/bọ lớn trong game/anime Monster Hunter.",
+	"category": "AnimeManga"
     },
     {
         "questionText": "Trong sinh thái học, 'edge effect' (hiệu ứng mép) mô tả điều gì?",
@@ -260,7 +297,8 @@
             "Sự xâm lấn của loài ngoại lai duy nhất"
         ],
         "correctAnswerIndex": 0,
-        "explanation": "Edge effect: vùng tiếp giáp giữa hai kiểu môi trường thường có đặc điểm và đa dạng sinh học khác biệt."
+        "explanation": "Edge effect: vùng tiếp giáp giữa hai kiểu môi trường thường có đặc điểm và đa dạng sinh học khác biệt.",
+	"category": "Biology"
     },
     {
         "questionText": "Trong lĩnh vực hình ảnh chuyển động, 'squash and stretch' là nguyên lý gì?",
@@ -271,7 +309,8 @@
             "Kỹ thuật quay phim dưới nước"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "'Squash and stretch' là nguyên lý cơ bản trong hoạt hình làm tăng cảm giác trọng lượng và tính mềm dẻo."
+        "explanation": "'Squash and stretch' là nguyên lý cơ bản trong hoạt hình làm tăng cảm giác trọng lượng và tính mềm dẻo.",
+	"category": "Art"
     },
     {
         "questionText": "Trong sinh vật học phân tử, CRISPR-Cas9 được biết đến là gì?",
@@ -282,6 +321,7 @@
             "Một phương pháp nuôi cấy tế bào"
         ],
         "correctAnswerIndex": 1,
-        "explanation": "CRISPR-Cas9 là hệ thống chỉnh sửa gen mạnh, bắt nguồn từ cơ chế miễn dịch của vi khuẩn."
+        "explanation": "CRISPR-Cas9 là hệ thống chỉnh sửa gen mạnh, bắt nguồn từ cơ chế miễn dịch của vi khuẩn.",
+	"category": "Biology"
     }
 ]

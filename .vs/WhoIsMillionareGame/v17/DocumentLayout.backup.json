@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\views\\menuscreen.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\views\\menuscreen.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\views\\menuscreen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\views\\menuscreen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\models\\callexpert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\models\\callexpert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -29,32 +33,46 @@
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MenuScreen.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Views\\MenuScreen.xaml.cs",
-              "RelativeDocumentMoniker": "AiLaTrieuPhu\\Views\\MenuScreen.xaml.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Views\\MenuScreen.xaml.cs",
-              "RelativeToolTip": "AiLaTrieuPhu\\Views\\MenuScreen.xaml.cs",
-              "ViewState": "AgIAADkBAAAAAAAAAAAQwEMBAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T03:49:39.729Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\ViewModels\\GameViewModel.cs",
+              "RelativeDocumentMoniker": "AiLaTrieuPhu\\ViewModels\\GameViewModel.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\ViewModels\\GameViewModel.cs*",
+              "RelativeToolTip": "AiLaTrieuPhu\\ViewModels\\GameViewModel.cs*",
+              "ViewState": "AgIAAIgBAAAAAAAAAAAqwJcBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:37:41.418Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MenuScreen.xaml",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Views\\MenuScreen.xaml",
-              "RelativeDocumentMoniker": "AiLaTrieuPhu\\Views\\MenuScreen.xaml",
-              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Views\\MenuScreen.xaml",
-              "RelativeToolTip": "AiLaTrieuPhu\\Views\\MenuScreen.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-25T02:00:47.361Z",
+              "Title": "Question.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Models\\Question.cs",
+              "RelativeDocumentMoniker": "AiLaTrieuPhu\\Models\\Question.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Models\\Question.cs",
+              "RelativeToolTip": "AiLaTrieuPhu\\Models\\Question.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA2wBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:37:05.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CallExpert.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Models\\CallExpert.cs",
+              "RelativeDocumentMoniker": "AiLaTrieuPhu\\Models\\CallExpert.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Models\\CallExpert.cs",
+              "RelativeToolTip": "AiLaTrieuPhu\\Models\\CallExpert.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAUwBEAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:36:52.021Z",
               "EditorCaption": ""
             }
           ]

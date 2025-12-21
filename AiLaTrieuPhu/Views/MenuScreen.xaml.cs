@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,13 +13,21 @@ namespace AiLaTrieuPhu.Views
 {
     public partial class MenuScreen : UserControl
     {
-        // configuration
+        // configuration (tweak these to change feel)
         private readonly Random _rand = new();
-        private const double MinEntranceDuration = 2.4; // seconds
-        private const double MaxEntranceDuration = 4.2; // seconds
-        private const double MaxEntranceStagger = 1.0;  // seconds
-        private const double ThrowVelocityThreshold = 900.0; // pixels/second to trigger throw
-        private const double ThrowMultiplier = 0.8; // how far to send thrown item relative to velocity
+        private const double MinEntranceDuration = 2.0;    // seconds (faster entrance)
+        private const double MaxEntranceDuration = 4.0;    // seconds (slower entrance)
+        private const double MaxEntranceStagger = 1.0;     // seconds
+        private const double ThrowVelocityThreshold = 900; // px/s to trigger throw
+        private const double ThrowMultiplier = 0.9;        // how far to send thrown item relative to velocity
+
+        // Entrance distance factors (distance = diagonal * factor)
+        private const double EntranceDistanceFactorMin = 0.6;
+        private const double EntranceDistanceFactorMax = 1.3;
+        private const double EntrancePerIndexSpread = 0.04; // small extra factor per index
+
+        // rotation / throw tuning
+        private const double RotationSensitivity = 0.38; // lower = less sensitive
 
         // runtime state
         private readonly Dictionary<Image, Storyboard> _oscillations = new();
@@ -35,15 +44,8 @@ namespace AiLaTrieuPhu.Views
 
         private void MenuScreen_Loaded(object? sender, RoutedEventArgs e)
         {
-            // Ensure ItemsControl generated containers
             NostalgiaItems.ApplyTemplate();
-            var generator = NostalgiaItems.ItemContainerGenerator;
-
-            // Wait until containers are ready
-            NostalgiaItems.Dispatcher.InvokeAsync(() =>
-            {
-                InitializeNostalgiaItems();
-            }, System.Windows.Threading.DispatcherPriority.Loaded);
+            NostalgiaItems.Dispatcher.InvokeAsync(() => InitializeNostalgiaItems(), System.Windows.Threading.DispatcherPriority.Loaded);
         }
 
         private void InitializeNostalgiaItems()
@@ -61,7 +63,9 @@ namespace AiLaTrieuPhu.Views
                 }
             }
 
+            var diagonal = Math.Sqrt(canvasW * canvasW + canvasH * canvasH);
             var count = NostalgiaItems?.Items.Count ?? 0;
+
             for (int i = 0; i < count; i++)
             {
                 var container = (ContentPresenter?)NostalgiaItems?.ItemContainerGenerator.ContainerFromIndex(i);
@@ -77,19 +81,42 @@ namespace AiLaTrieuPhu.Views
                 image.MouseRightButtonDown += Image_MouseRightButtonDown;
                 image.MouseRightButtonUp += Image_MouseRightButtonUp;
 
-                // ensure transforms (and make sure they're writable / not frozen)
+                // ensure transforms
                 var tg = EnsureWritableTransformGroup(image);
                 if (tg.Children.Count < 4) continue;
                 var floatingTranslate = tg.Children[0] as TranslateTransform;
-                var rotate = tg.Children[3] as RotateTransform;
 
-                // read base container position
-                double baseLeft = Canvas.GetLeft(container);
-                double baseTop = Canvas.GetTop(container);
+                // ---- New: compute a randomized destination for each container so final positions differ ----
+                double itemW = container.ActualWidth > 0 ? container.ActualWidth : (image.Width > 0 ? image.Width : 140);
+                double itemH = container.ActualHeight > 0 ? container.ActualHeight : (image.Height > 0 ? image.Height : 140);
 
-                // compute off-screen start (choose a distant offset so it's outside current view)
-                double startX = (baseLeft < canvasW * 0.5) ? -(canvasW * (0.4 + _rand.NextDouble())) : (canvasW * (0.4 + _rand.NextDouble()));
-                double startY = (baseTop < canvasH * 0.5) ? -(canvasH * (0.25 + _rand.NextDouble())) : (canvasH * (0.25 + _rand.NextDouble()));
+                // Keep a margin so images don't end up clipped
+                const double margin = 20.0;
+                double maxLeftPossible = Math.Max(0, canvasW - itemW - margin);
+                double maxTopPossible = Math.Max(0, canvasH - itemH - margin);
+
+                // Use a random position distributed across canvas; add small index-based offset to avoid overlaps
+                double baseLeft = margin + (_rand.NextDouble() * maxLeftPossible) + (i * 6.0 % Math.Max(1, maxLeftPossible));
+                double baseTop = margin + (_rand.NextDouble() * maxTopPossible) + (i * 11.0 % Math.Max(1, maxTopPossible));
+
+                // Clamp to bounds just in case
+                baseLeft = Math.Max(margin, Math.Min(baseLeft, canvasW - itemW - margin));
+                baseTop = Math.Max(margin, Math.Min(baseTop, canvasH - itemH - margin));
+
+                // assign the randomized destination to container
+                Canvas.SetLeft(container, baseLeft);
+                Canvas.SetTop(container, baseTop);
+                // ---- End new destination logic ----
+
+                // compute per-item entrance distance (varies by random + index)
+                var factor = EntranceDistanceFactorMin + _rand.NextDouble() * (EntranceDistanceFactorMax - EntranceDistanceFactorMin)
+                             + (i * EntrancePerIndexSpread);
+                var distance = diagonal * factor;
+
+                // pick a random angle so each image comes from a different direction
+                var angle = _rand.NextDouble() * Math.PI * 2.0;
+                var startX = Math.Cos(angle) * distance;
+                var startY = Math.Sin(angle) * distance;
 
                 // set initial floating translate so the image visually is outside
                 if (floatingTranslate != null)
@@ -102,8 +129,18 @@ namespace AiLaTrieuPhu.Views
                 var dur = TimeSpan.FromSeconds(MinEntranceDuration + _rand.NextDouble() * (MaxEntranceDuration - MinEntranceDuration));
                 var delay = TimeSpan.FromSeconds(_rand.NextDouble() * MaxEntranceStagger);
 
-                var animX = new DoubleAnimation(startX, 0, dur) { BeginTime = delay, EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }, FillBehavior = FillBehavior.Stop };
-                var animY = new DoubleAnimation(startY, 0, TimeSpan.FromSeconds(dur.TotalSeconds * (0.9 + _rand.NextDouble() * 0.3))) { BeginTime = delay, EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }, FillBehavior = FillBehavior.Stop };
+                var animX = new DoubleAnimation(startX, 0, dur)
+                {
+                    BeginTime = delay,
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut },
+                    FillBehavior = FillBehavior.Stop
+                };
+                var animY = new DoubleAnimation(startY, 0, TimeSpan.FromSeconds(dur.TotalSeconds * (0.9 + _rand.NextDouble() * 0.3)))
+                {
+                    BeginTime = delay,
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut },
+                    FillBehavior = FillBehavior.Stop
+                };
 
                 Storyboard.SetTarget(animX, image);
                 Storyboard.SetTargetProperty(animX, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"));
@@ -138,7 +175,6 @@ namespace AiLaTrieuPhu.Views
         }
 
         // —— Drag / throw / rotate logic —— //
-
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (sender is not Image image) return;
@@ -148,13 +184,11 @@ namespace AiLaTrieuPhu.Views
 
             _draggingContainer = FindAncestor<ContentPresenter>(image);
 
-            // stop oscillation for this image
             if (_oscillations.TryGetValue(image, out var sb))
             {
                 try { sb.Stop(image); } catch { }
             }
 
-            // clear move history and add initial point
             _moveHistory[image] = new List<(Point, long)> { (_lastDragPoint, Stopwatch.GetTimestampMs()) };
 
             e.Handled = true;
@@ -164,14 +198,18 @@ namespace AiLaTrieuPhu.Views
         {
             if (sender is not Image image) return;
 
-            // rotation with right button: handled separately
-            if (e.RightButton == MouseButtonState.Pressed) return;
+            // rotation with right button: handled separately in rotation handler
+            if (e.RightButton == MouseButtonState.Pressed)
+            {
+                HandleRotationIfNeeded(image, e);
+                return;
+            }
 
             if (!_isDragging || _draggingContainer == null || FloatingCanvas == null) return;
 
             var pos = e.GetPosition(FloatingCanvas);
 
-            // immediate move for responsiveness (no heavy animations)
+            // immediate move for responsiveness
             double left = Canvas.GetLeft(_draggingContainer);
             double top = Canvas.GetTop(_draggingContainer);
 
@@ -181,7 +219,6 @@ namespace AiLaTrieuPhu.Views
             double newLeft = left + dx;
             double newTop = top + dy;
 
-            // clamp
             var maxLeft = Math.Max(0, FloatingCanvas.ActualWidth - (_draggingContainer.ActualWidth > 0 ? _draggingContainer.ActualWidth : 140));
             var maxTop = Math.Max(0, FloatingCanvas.ActualHeight - (_draggingContainer.ActualHeight > 0 ? _draggingContainer.ActualHeight : 140));
             newLeft = Math.Max(0, Math.Min(newLeft, maxLeft));
@@ -190,10 +227,8 @@ namespace AiLaTrieuPhu.Views
             Canvas.SetLeft(_draggingContainer, newLeft);
             Canvas.SetTop(_draggingContainer, newTop);
 
-            // append history for velocity calculation
             var hist = _moveHistory.GetValueOrDefault(image);
             hist?.Add((pos, Stopwatch.GetTimestampMs()));
-            // keep last ~6 records
             if (hist != null && hist.Count > 6) hist.RemoveAt(0);
 
             _lastDragPoint = pos;
@@ -204,7 +239,6 @@ namespace AiLaTrieuPhu.Views
             if (sender is not Image image) return;
             if (!_isDragging) return;
 
-            // compute velocity from move history
             var hist = _moveHistory.GetValueOrDefault(image);
             (Point pos0, long t0) = (default, 0);
             (Point pos1, long t1) = (default, 0);
@@ -213,6 +247,7 @@ namespace AiLaTrieuPhu.Views
                 pos0 = hist.First().pos; t0 = hist.First().timeMs;
                 pos1 = hist.Last().pos; t1 = hist.Last().timeMs;
             }
+
             double velocity = 0;
             Vector v = new();
             if (t1 > t0)
@@ -222,14 +257,12 @@ namespace AiLaTrieuPhu.Views
                 velocity = v.Length / dt;
             }
 
-            // if throw threshold passed, animate container to fly out
             if (velocity >= ThrowVelocityThreshold && _draggingContainer != null)
             {
                 PerformThrow(image, _draggingContainer, v, velocity);
             }
             else
             {
-                // resume oscillation
                 ResumeOscillation(image);
             }
 
@@ -241,7 +274,6 @@ namespace AiLaTrieuPhu.Views
 
         private void PerformThrow(Image image, ContentPresenter container, Vector direction, double speed)
         {
-            // normalize dir
             if (direction.Length == 0)
             {
                 ResumeOscillation(image);
@@ -249,22 +281,17 @@ namespace AiLaTrieuPhu.Views
             }
             direction.Normalize();
 
-            // compute target off-screen point
-            double distance = speed * ThrowMultiplier; // px
+            double distance = speed * ThrowMultiplier;
             double targetX = Canvas.GetLeft(container) + direction.X * distance;
             double targetY = Canvas.GetTop(container) + direction.Y * distance;
 
-            // ensure target moves off screen: extend until outside bounds
             var boundsW = FloatingCanvas.ActualWidth;
             var boundsH = FloatingCanvas.ActualHeight;
-            // simple extension to guarantee off-screen
             if (targetX >= 0 && targetX <= boundsW) targetX += direction.X * (boundsW * 1.2);
             if (targetY >= 0 && targetY <= boundsH) targetY += direction.Y * (boundsH * 1.2);
 
-            // duration proportional to speed
             var dur = TimeSpan.FromSeconds(Math.Min(1.8, 0.6 + (speed / 2000.0)));
 
-            // animate Canvas.Left/Top
             var animX = new DoubleAnimation(Canvas.GetLeft(container), targetX, dur) { EasingFunction = new ExponentialEase { EasingMode = EasingMode.EaseOut } };
             var animY = new DoubleAnimation(Canvas.GetTop(container), targetY, dur) { EasingFunction = new ExponentialEase { EasingMode = EasingMode.EaseOut } };
 
@@ -273,21 +300,11 @@ namespace AiLaTrieuPhu.Views
 
             animX.Completed += (_, _) =>
             {
-                // put it fully off-screen
                 Canvas.SetLeft(container, targetX);
                 Canvas.SetTop(container, targetY);
-
-                // after throwing out, reinitialize this item to re-enter after short delay
-                System.Threading.Tasks.Task.Delay(800 + _rand.Next(600)).ContinueWith(_ =>
-                {
-                    Dispatcher.Invoke(() =>
-                    {
-                        ResetAndReenter(container, image);
-                    });
-                });
+                _ = ReenterAfterDelayAsync(container, image, _rand);
             };
 
-            // ensure rotate transform is writable before animating
             var tgForSpin = EnsureWritableTransformGroup(image);
             if (tgForSpin.Children.Count >= 4 && tgForSpin.Children[3] is RotateTransform rt)
             {
@@ -296,12 +313,21 @@ namespace AiLaTrieuPhu.Views
                 rt.BeginAnimation(RotateTransform.AngleProperty, spin);
             }
 
-            // start animations
             container.BeginAnimation(Canvas.LeftProperty, animX);
             container.BeginAnimation(Canvas.TopProperty, animY);
         }
 
-        // reset container back to a fresh off-screen starting point and re-run inward animation
+        private async Task ReenterAfterDelayAsync(ContentPresenter container, Image image, Random rand)
+        {
+            try
+            {
+                await Task.Delay(800 + rand.Next(600)).ConfigureAwait(false);
+                if (Dispatcher.HasShutdownStarted || Dispatcher.HasShutdownFinished) return;
+                await Dispatcher.InvokeAsync(() => ResetAndReenter(container, image));
+            }
+            catch { }
+        }
+
         private void ResetAndReenter(ContentPresenter container, Image image)
         {
             var tg = EnsureWritableTransformGroup(image);
@@ -313,18 +339,19 @@ namespace AiLaTrieuPhu.Views
             double baseLeft = _rand.NextDouble() * Math.Max(1, canvasW - 160);
             double baseTop = _rand.NextDouble() * Math.Max(1, canvasH - 160);
 
-            // place container off-screen at new base position
             Canvas.SetLeft(container, baseLeft);
             Canvas.SetTop(container, baseTop);
 
-            // compute start offsets
-            double startX = (_rand.Next(0, 2) == 0) ? -(canvasW * (0.4 + _rand.NextDouble())) : (canvasW * (0.4 + _rand.NextDouble()));
-            double startY = (_rand.Next(0, 2) == 0) ? -(canvasH * (0.25 + _rand.NextDouble())) : (canvasH * (0.25 + _rand.NextDouble()));
+            var diagonal = Math.Sqrt(canvasW * canvasW + canvasH * canvasH);
+            var factor = EntranceDistanceFactorMin + _rand.NextDouble() * (EntranceDistanceFactorMax - EntranceDistanceFactorMin);
+            var distance = diagonal * factor;
+            var angle = _rand.NextDouble() * Math.PI * 2.0;
+            var startX = Math.Cos(angle) * distance;
+            var startY = Math.Sin(angle) * distance;
 
             floatingTranslate.X = startX;
             floatingTranslate.Y = startY;
 
-            // inward animation
             var dur = TimeSpan.FromSeconds(MinEntranceDuration + _rand.NextDouble() * (MaxEntranceDuration - MinEntranceDuration));
             var animX = new DoubleAnimation(startX, 0, dur) { EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut } };
             var animY = new DoubleAnimation(startY, 0, TimeSpan.FromSeconds(dur.TotalSeconds * (0.9 + _rand.NextDouble() * 0.3))) { EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut } };
@@ -342,8 +369,6 @@ namespace AiLaTrieuPhu.Views
             {
                 floatingTranslate.X = 0;
                 floatingTranslate.Y = 0;
-
-                // resume oscillation
                 ResumeOscillation(image);
             };
 
@@ -376,7 +401,6 @@ namespace AiLaTrieuPhu.Views
             _isRotating = true;
             _rotateStartPoint = e.GetPosition(img);
 
-            // ensure writable transform so subsequent modifications won't fail
             var tg = EnsureWritableTransformGroup(img);
             if (tg.Children.Count >= 4 && tg.Children[3] is RotateTransform rt)
             {
@@ -393,26 +417,18 @@ namespace AiLaTrieuPhu.Views
             e.Handled = true;
         }
 
-        // handle rotation inside MouseMove (if right-button pressed)
         private void HandleRotationIfNeeded(Image img, MouseEventArgs e)
         {
             if (!_isRotating) return;
             var cur = e.GetPosition(img);
             double dx = cur.X - _rotateStartPoint.X;
-            // horizontal movement -> angle change
-            double angleDelta = dx * 0.4; // tweak sensitivity
+            double angleDelta = dx * RotationSensitivity;
 
             var tg = EnsureWritableTransformGroup(img);
             if (tg.Children.Count >= 4 && tg.Children[3] is RotateTransform rt)
             {
                 rt.Angle = _rotateStartAngle + angleDelta;
             }
-        }
-
-        // we need to call rotation handler from MouseMove (augment existing)
-        private void Image_MouseMove_RotationAdapter(object? sender, MouseEventArgs e)
-        {
-            if (sender is Image img) HandleRotationIfNeeded(img, e);
         }
 
         // small helper to get timestamp ms
@@ -434,7 +450,6 @@ namespace AiLaTrieuPhu.Views
                     tg = clone;
                 }
 
-                // clone any frozen children
                 for (int i = 0; i < tg.Children.Count; i++)
                 {
                     var child = tg.Children[i];

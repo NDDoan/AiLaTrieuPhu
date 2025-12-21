@@ -48,10 +48,41 @@ namespace AiLaTrieuPhu.ViewModels
         // Danh sách các chuyên gia
         public List<CallExpert> Experts { get; } = new List<CallExpert>
         {
-            new CallExpert { Name = "PGS. Văn", Specialty = "Văn học", CorrectnessRate = 90 },
-            new CallExpert { Name = "GS. Sử", Specialty = "Lịch sử", CorrectnessRate = 85 },
-            new CallExpert { Name = "Bạn Thân A", Specialty = "Đa lĩnh vực", CorrectnessRate = 70 },
-            new CallExpert { Name = "Thí Sinh X", Specialty = "Khán giả", CorrectnessRate = 65 }
+            new CallExpert {
+                Name = "Giáo sư Văn",
+                Strengths = new List<string> { "Literature", "Culture", "Civics" },
+                PersonaStyle = "Dựa trên điển tích và ý nghĩa văn học, mình tin là..."
+            },
+            new CallExpert {
+                Name = "Giáo sư Toán",
+                Strengths = new List<string> { "Math", "Physics", "Chemistry", "Biology" },
+                PersonaStyle = "Theo tính toán logic và các định luật tự nhiên, đáp án phải là..."
+            },
+            new CallExpert {
+                Name = "Wibu Chúa",
+                Strengths = new List<string> { "AnimeManga", "Film", "Art", "Music" },
+                PersonaStyle = "Cái này mình xem rồi, không lệch đi đâu được, là..."
+            },
+            new CallExpert {
+                Name = "Fan MU",
+                Strengths = new List<string> { "Sports", "Culture", "Music" },
+                PersonaStyle = "Gáy lên nào! Glory Glory Man United! Chắc chắn là..."
+            },
+            new CallExpert {
+                Name = "Hai Phớ",
+                Strengths = new List<string> { "Civics", "Culture", "Geography", "History" },
+                PersonaStyle = "Bằng các biện pháp nghiệp vụ, tôi xác nhận đáp án là..."
+            },
+            new CallExpert {
+                Name = "Hắc cơ Lỏ",
+                Strengths = new List<string> { "ComputerScience", "Technology" },
+                PersonaStyle = "Vừa check database xong, con hàng này là..."
+            },
+            new CallExpert {
+                Name = "??????",
+                Strengths = new List<string> { "Geography", "ComputerScience", "Technology", "Civics" },
+                PersonaStyle = "Đừng hỏi tôi ở đâu, chỉ biết đáp án là..."
+            }
         };
 
         // Thuộc tính để bật/tắt nút Gọi điện
@@ -363,45 +394,50 @@ namespace AiLaTrieuPhu.ViewModels
             Use5050Command.NotifyCanExecuteChanged();
         }
 
-        // Được gọi sau khi người chơi chọn xong chuyên gia
         [RelayCommand]
         private async void SelectExpertAndGetAnswer(CallExpert expert)
         {
             if (expert == null || CurrentGameStatus.IsCallingUsed) return;
 
             SelectedExpert = expert;
-            IsExpertSelectionVisible = false; // Đóng cửa sổ pop-up
+            IsExpertSelectionVisible = false; // Đóng danh bạ
 
             // 1. Đánh dấu quyền trợ giúp đã dùng
             CurrentGameStatus.IsCallingUsed = true;
             OnPropertyChanged(nameof(CurrentGameStatus));
-            UseCallCommand.NotifyCanExecuteChanged();
+            UseCallCommand.NotifyCanExecuteChanged(); // Cập nhật trạng thái nút bấm trợ giúp
 
-            // 2. TÍNH TOÁN CÂU TRẢ LỜI CỦA CHUYÊN GIA
+            // 2. TÍNH TOÁN TỈ LỆ THÀNH CÔNG ĐỘNG
+            // Giả sử CurrentQuestion có thuộc tính Level (1-15) và Category (string)
+            int currentLevel = CurrentQuestion.Level;
+            string currentCategory = CurrentQuestion.Category;
+
+            // Gọi hàm tính toán xác suất mà chúng ta đã xây dựng trong Model CallExpert
+            double successRate = expert.CalculateSuccessRate(currentLevel, currentCategory);
+
             var random = new Random();
-            int chance = random.Next(1, 101); // 1 đến 100
+            int roll = random.Next(1, 101);
             int correctIndex = CurrentQuestion.CorrectAnswerIndex;
             int expertIndex;
 
-            if (chance <= expert.CorrectnessRate)
+            if (roll <= successRate)
             {
                 // Chuyên gia trả lời ĐÚNG
                 expertIndex = correctIndex;
             }
             else
             {
-                // Chuyên gia trả lời SAI (chọn ngẫu nhiên 1 đáp án SAI)
+                // Chuyên gia trả lời SAI
                 var incorrectIndices = CurrentQuestion.Options
                     .Select((option, index) => index)
                     .Where(index => index != correctIndex)
                     .ToList();
 
-                // Lọc bỏ các đáp án đã bị 50:50 ẩn đi (nếu có)
+                // Lọc bỏ các đáp án đã bị 50:50 ẩn đi
                 var availableIncorrectIndices = incorrectIndices
                     .Where(i => !CurrentQuestion.IsOptionHidden[i])
                     .ToList();
 
-                // Nếu không còn đáp án sai nào khả dụng, trả lời đúng
                 if (!availableIncorrectIndices.Any())
                 {
                     expertIndex = correctIndex;
@@ -412,14 +448,24 @@ namespace AiLaTrieuPhu.ViewModels
                 }
             }
 
-            // 3. Gán kết quả cho ExpertAnswer
-            // Chuyển Index (0, 1, 2, 3) thành chữ cái đáp án (A, B, C, D)
+            // 3. TẠO CÂU TRẢ LỜI CÁ TÍNH (Persona)
             string answerLetter = ((char)('A' + expertIndex)).ToString();
-            expert.ExpertAnswer = $"Tôi chọn đáp án {answerLetter}. Theo chuyên môn, tôi chắc chắn {expert.CorrectnessRate}% là đúng.";
 
-            // 4. Hiển thị kết quả tư vấn
-            await Task.Delay(2000);
-            IsExpertAnswerVisible = true;
+            // Nếu đúng chuyên môn, nói tự tin hơn, hoặc là không?
+            bool isStrength = expert.Strengths.Contains(currentCategory);
+            if (isStrength)
+            {
+                expert.ExpertAnswer = $"{expert.PersonaStyle} chắc chắn là đáp án {answerLetter}! Đây là sở trường của tôi mà.";
+            }
+            else
+            {
+                expert.ExpertAnswer = $"Câu này không phải chuyên môn của tôi lắm... nhưng theo phán đoán thì có lẽ là {answerLetter}.";
+            }
+
+            // 4. HIỆU ỨNG CHỜ (Simulate "Calling...")
+            // có thể thêm hiệu ứng âm thanh "Tút tút" ở đây
+            await Task.Delay(2500);
+            IsExpertAnswerVisible = true; // Hiển thị khung chat lời thoại của chuyên gia
         }
 
         [RelayCommand]

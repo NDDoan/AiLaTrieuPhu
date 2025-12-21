@@ -23,6 +23,12 @@ namespace AiLaTrieuPhu.Models
         [JsonPropertyName("explanation")]
         public string Explanation { get; set; }
 
+        [JsonPropertyName("category")]
+        public string Category { get; set; }
+
+        [JsonPropertyName("level")]
+        public int Level { get; set; }
+
         [ObservableProperty]
         [property: JsonIgnore]
         private ObservableCollection<bool> isOptionHidden = new ObservableCollection<bool> { false, false, false, false };

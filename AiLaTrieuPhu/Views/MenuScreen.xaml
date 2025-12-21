@@ -19,6 +19,11 @@
             <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_5.png</System:String>
             <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_6.png</System:String>
             <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_7.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_8.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_9.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_10.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_11.png</System:String>
+            <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_12.png</System:String>
         </x:Array>
 
         <!-- small oscillation used after inward drift -->
@@ -80,8 +85,8 @@
         </ItemsControl>
 
         <!-- Overlay UI -->
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="True">
-            <Border CornerRadius="12" Padding="20" Width="520">
+        <Grid x:Name="OverlayGrid" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="True">
+            <Border CornerRadius="12" Padding="20">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image x:Name="MenuLogo" Source="/AiLaTrieuPhu;component/Assets/Image/ALTP_LOGO.png" Width="200" Height="200"
                            RenderTransformOrigin="0.5,0.5">

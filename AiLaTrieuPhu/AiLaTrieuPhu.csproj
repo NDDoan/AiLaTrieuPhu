@@ -13,12 +13,17 @@
     <None Remove="Assets\Image\5050used.png" />
     <None Remove="Assets\Image\ALTP_LOGO.png" />
     <None Remove="Assets\Image\ALTP_Nostalgia_1.png" />
+    <None Remove="Assets\Image\ALTP_Nostalgia_10.png" />
+    <None Remove="Assets\Image\ALTP_Nostalgia_11.png" />
+    <None Remove="Assets\Image\ALTP_Nostalgia_12.png" />
     <None Remove="Assets\Image\ALTP_Nostalgia_2.png" />
     <None Remove="Assets\Image\ALTP_Nostalgia_3.png" />
     <None Remove="Assets\Image\ALTP_Nostalgia_4.png" />
     <None Remove="Assets\Image\ALTP_Nostalgia_5.png" />
     <None Remove="Assets\Image\ALTP_Nostalgia_6.png" />
     <None Remove="Assets\Image\ALTP_Nostalgia_7.png" />
+    <None Remove="Assets\Image\ALTP_Nostalgia_8.png" />
+    <None Remove="Assets\Image\ALTP_Nostalgia_9.png" />
     <None Remove="Assets\Image\Calling.png" />
     <None Remove="Assets\Image\Callingused.png" />
     <None Remove="Assets\Image\KhanGia.png" />
@@ -42,6 +47,15 @@
     <Content Include="Assets\Image\ALTP_Nostalgia_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Image\ALTP_Nostalgia_10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\ALTP_Nostalgia_11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\ALTP_Nostalgia_12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Image\ALTP_Nostalgia_2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -58,6 +72,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Image\ALTP_Nostalgia_7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\ALTP_Nostalgia_8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\ALTP_Nostalgia_9.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Image\Calling.png">

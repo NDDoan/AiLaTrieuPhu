@@ -1,668 +1,1334 @@
 [
     {
         "questionText": "Thủ đô của Việt Nam là thành phố nào?",
-        "options": [ "Hồ Chí Minh", "Đà Nẵng", "Hà Nội", "Huế" ],
+        "options": [
+            "Hồ Chí Minh",
+            "Đà Nẵng",
+            "Hà Nội",
+            "Huế"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Hà Nội là thủ đô của Việt Nam."
+        "explanation": "Hà Nội là thủ đô của Việt Nam.",
+        "category": "Geography"
     },
     {
         "questionText": "Mặt Trời thuộc loại sao nào trong Dải Ngân Hà?",
-        "options": [ "Sao khổng lồ đỏ", "Sao lùn vàng (G-type)", "Sao neutron", "Sao biến quang" ],
+        "options": [
+            "Sao khổng lồ đỏ",
+            "Sao lùn vàng (G-type)",
+            "Sao neutron",
+            "Sao biến quang"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Mặt Trời là một sao lùn vàng (loại quang phổ G)."
+        "explanation": "Mặt Trời là một sao lùn vàng (loại quang phổ G).",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "2 + 2 bằng bao nhiêu?",
-        "options": [ "3", "4", "5", "22" ],
+        "options": [
+            "3",
+            "4",
+            "5",
+            "22"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "2 + 2 = 4."
+        "explanation": "2 + 2 = 4.",
+        "category": "Math"
     },
     {
         "questionText": "Ngôn ngữ dùng để đánh dấu giao diện WPF là gì?",
-        "options": [ "HTML", "XML", "XAML", "JSON" ],
+        "options": [
+            "HTML",
+            "XML",
+            "XAML",
+            "JSON"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "WPF sử dụng XAML (Extensible Application Markup Language)."
+        "explanation": "WPF sử dụng XAML (Extensible Application Markup Language).",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Loài động vật nào được gọi là 'vua của rừng'?",
-        "options": [ "Hổ", "Sư tử", "Báo", "Voi" ],
+        "options": [
+            "Hổ",
+            "Sư tử",
+            "Báo",
+            "Voi"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Sư tử thường được gọi là 'vua của rừng' trong văn hóa phổ biến."
+        "explanation": "Sư tử thường được gọi là 'vua của rừng' trong văn hóa phổ biến.",
+        "category": "Biology"
     },
     {
         "questionText": "Màu hỗn hợp của ánh sáng đỏ và xanh lục cho ra màu gì?",
-        "options": [ "Vàng", "Xanh dương", "Trắng", "Tím" ],
+        "options": [
+            "Vàng",
+            "Xanh dương",
+            "Trắng",
+            "Tím"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Trong phối màu ánh sáng (additive), đỏ + xanh lục = vàng."
+        "explanation": "Trong phối màu ánh sáng (additive), đỏ + xanh lục = vàng.",
+        "category": "Physics"
     },
     {
         "questionText": "Ngôn ngữ lập trình nào phổ biến để phát triển ứng dụng web phía máy chủ?",
-        "options": [ "HTML", "CSS", "JavaScript", "PHP" ],
+        "options": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "PHP"
+        ],
         "correctAnswerIndex": 3,
-        "explanation": "PHP là một ngôn ngữ phổ biến cho phát triển web phía máy chủ."
+        "explanation": "PHP là một ngôn ngữ phổ biến cho phát triển web phía máy chủ.",
+        "category": "ComputerScience"
     },
     {
         "questionText": "Quốc gia nào có diện tích lớn nhất thế giới?",
-        "options": [ "Canada", "Trung Quốc", "Hoa Kỳ", "Nga" ],
+        "options": [
+            "Canada",
+            "Trung Quốc",
+            "Hoa Kỳ",
+            "Nga"
+        ],
         "correctAnswerIndex": 3,
-        "explanation": "Liên bang Nga là quốc gia có diện tích lớn nhất thế giới."
+        "explanation": "Liên bang Nga là quốc gia có diện tích lớn nhất thế giới.",
+        "category": "Geography"
     },
     {
         "questionText": "Nước sôi ở áp suất khí quyển chuẩn (0°C = 273K) ở khoảng bao nhiêu độ C?",
-        "options": [ "90°C", "100°C", "110°C", "120°C" ],
+        "options": [
+            "90°C",
+            "100°C",
+            "110°C",
+            "120°C"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Ở áp suất khí quyển chuẩn, nước sôi ở 100°C."
+        "explanation": "Ở áp suất khí quyển chuẩn, nước sôi ở 100°C.",
+        "category": "Math"
     },
     {
         "questionText": "Từ viết tắt HTML là gì?",
-        "options": [ "HyperText Markup Language", "HighText Machine Language", "Hyperlink and Text Markup Language", "Home Tool Markup Language" ],
+        "options": [
+            "HyperText Markup Language",
+            "HighText Machine Language",
+            "Hyperlink and Text Markup Language",
+            "Home Tool Markup Language"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "HTML là HyperText Markup Language."
+        "explanation": "HTML là HyperText Markup Language.",
+        "category": "ComputerScience"
     },
     {
         "questionText": "Môn thể thao nào được chơi bằng vợt và quả cầu lông?",
-        "options": [ "Bóng bàn", "Cầu lông", "Tennis", "Bóng chuyền" ],
+        "options": [
+            "Bóng bàn",
+            "Cầu lông",
+            "Tennis",
+            "Bóng chuyền"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Cầu lông sử dụng vợt và quả cầu lông (shuttlecock)."
+        "explanation": "Cầu lông sử dụng vợt và quả cầu lông (shuttlecock).",
+        "category": "Sports"
     },
     {
         "questionText": "Thành phần chính của vỏ Trái Đất là?",
-        "options": [ "Sắt", "Niken", "Silic và oxy", "Hydro" ],
+        "options": [
+            "Sắt",
+            "Niken",
+            "Silic và oxy",
+            "Hydro"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Vỏ Trái Đất chủ yếu là silic và oxy (silicat)."
+        "explanation": "Vỏ Trái Đất chủ yếu là silic và oxy (silicat).",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Hình vuông có bao nhiêu cạnh?",
-        "options": [ "3", "4", "5", "6" ],
+        "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Hình vuông có 4 cạnh."
+        "explanation": "Hình vuông có 4 cạnh.",
+        "category": "Math"
     },
     {
         "questionText": "Mạng xã hội nào được biết đến với logo màu xanh và chữ 'f'?",
-        "options": [ "Twitter", "Instagram", "Facebook", "LinkedIn" ],
+        "options": [
+            "Twitter",
+            "Instagram",
+            "Facebook",
+            "LinkedIn"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Facebook có logo chữ 'f' màu xanh."
+        "explanation": "Facebook có logo chữ 'f' màu xanh.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Đơn vị đo điện trở là gì?",
-        "options": [ "Volt", "Ampere", "Ohm", "Watt" ],
+        "options": [
+            "Volt",
+            "Ampere",
+            "Ohm",
+            "Watt"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Đơn vị điện trở là ohm (ký hiệu Ω)."
+        "explanation": "Đơn vị điện trở là ohm (ký hiệu Ω).",
+        "category": "Physics"
     },
     {
         "questionText": "Người đặt ra thuyết tương đối tổng quát là ai?",
-        "options": [ "Isaac Newton", "Albert Einstein", "Galileo Galilei", "Niels Bohr" ],
+        "options": [
+            "Isaac Newton",
+            "Albert Einstein",
+            "Galileo Galilei",
+            "Niels Bohr"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Albert Einstein phát triển thuyết tương đối tổng quát."
+        "explanation": "Albert Einstein phát triển thuyết tương đối tổng quát.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Chất rắn nóng chảy chuyển thành trạng thái nào?",
-        "options": [ "Khí", "Lỏng", "Plasma", "Bose–Einstein condensate" ],
+        "options": [
+            "Khí",
+            "Lỏng",
+            "Plasma",
+            "Bose–Einstein condensate"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Chất rắn nóng chảy thành chất lỏng."
+        "explanation": "Chất rắn nóng chảy thành chất lỏng.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Ngôn ngữ đánh dấu dùng để mô tả cấu trúc dữ liệu là gì?",
-        "options": [ "SQL", "JSON", "C#", "Bash" ],
+        "options": [
+            "SQL",
+            "JSON",
+            "C#",
+            "Bash"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "JSON thường dùng để mô tả và truyền dữ liệu theo cấu trúc."
+        "explanation": "JSON thường dùng để mô tả và truyền dữ liệu theo cấu trúc.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Châu lục lớn nhất theo diện tích là châu nào?",
-        "options": [ "Châu Á", "Châu Phi", "Châu Âu", "Châu Mỹ" ],
+        "options": [
+            "Châu Á",
+            "Châu Phi",
+            "Châu Âu",
+            "Châu Mỹ"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Châu Á là châu lục lớn nhất theo diện tích."
+        "explanation": "Châu Á là châu lục lớn nhất theo diện tích.",
+        "category": "Geography"
     },
     {
         "questionText": "Số nguyên tố nhỏ nhất là bao nhiêu?",
-        "options": [ "0", "1", "2", "3" ],
+        "options": [
+            "0",
+            "1",
+            "2",
+            "3"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "2 là số nguyên tố nhỏ nhất (chia hết chỉ cho 1 và chính nó)."
+        "explanation": "2 là số nguyên tố nhỏ nhất (chia hết chỉ cho 1 và chính nó).",
+        "category": "Chemistry"
     },
     {
         "questionText": "Màu cơ bản không thuộc hệ màu CMYK là màu nào?",
-        "options": [ "Cyan", "Magenta", "Yellow", "Orange" ],
+        "options": [
+            "Cyan",
+            "Magenta",
+            "Yellow",
+            "Orange"
+        ],
         "correctAnswerIndex": 3,
-        "explanation": "Orange không phải là một màu cơ bản trong hệ CMYK."
+        "explanation": "Orange không phải là một màu cơ bản trong hệ CMYK.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Thiết bị nào lưu trữ dữ liệu chính của máy tính lâu dài?",
-        "options": [ "RAM", "CPU", "Ổ cứng (HDD/SSD)", "GPU" ],
+        "options": [
+            "RAM",
+            "CPU",
+            "Ổ cứng (HDD/SSD)",
+            "GPU"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Ổ cứng (HDD/SSD) lưu trữ dữ liệu lâu dài, không mất khi tắt máy."
+        "explanation": "Ổ cứng (HDD/SSD) lưu trữ dữ liệu lâu dài, không mất khi tắt máy.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Ai là tác giả của tiểu thuyết 'Chí Phèo'?",
-        "options": [ "Nam Cao", "Tô Hoài", "Nguyễn Du", "Vũ Trọng Phụng" ],
+        "options": [
+            "Nam Cao",
+            "Tô Hoài",
+            "Nguyễn Du",
+            "Vũ Trọng Phụng"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Tác phẩm 'Chí Phèo' được viết bởi Nam Cao."
+        "explanation": "Tác phẩm 'Chí Phèo' được viết bởi Nam Cao.",
+        "category": "Literature"
     },
     {
         "questionText": "Các hợp chất hữu cơ thường chứa nguyên tố nào?",
-        "options": [ "Sắt", "Nitơ", "Cacbon", "Vàng" ],
+        "options": [
+            "Sắt",
+            "Nitơ",
+            "Cacbon",
+            "Vàng"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Cacbon (carbon) là thành phần chính của hợp chất hữu cơ."
+        "explanation": "Cacbon (carbon) là thành phần chính của hợp chất hữu cơ.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Kí hiệu hoá học của nước là gì?",
-        "options": [ "O2", "H2", "H2O", "CO2" ],
+        "options": [
+            "O2",
+            "H2",
+            "H2O",
+            "CO2"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Nước có công thức H2O."
+        "explanation": "Nước có công thức H2O.",
+        "category": "Math"
     },
     {
         "questionText": "Số cạnh của một hình tam giác là bao nhiêu?",
-        "options": [ "2", "3", "4", "5" ],
+        "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Tam giác có 3 cạnh."
+        "explanation": "Tam giác có 3 cạnh.",
+        "category": "Math"
     },
     {
         "questionText": "Phím tắt thông dụng để sao chép (copy) trên hầu hết hệ điều hành là gì?",
-        "options": [ "Ctrl + V", "Ctrl + C", "Ctrl + X", "Ctrl + Z" ],
+        "options": [
+            "Ctrl + V",
+            "Ctrl + C",
+            "Ctrl + X",
+            "Ctrl + Z"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Ctrl + C là phím tắt sao chép."
+        "explanation": "Ctrl + C là phím tắt sao chép.",
+        "category": "ComputerScience"
     },
     {
         "questionText": "Nguyên liệu chính để làm bánh mì truyền thống là gì?",
-        "options": [ "Gạo", "Bột mì", "Ngô", "Khoai tây" ],
+        "options": [
+            "Gạo",
+            "Bột mì",
+            "Ngô",
+            "Khoai tây"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Bột mì là nguyên liệu chính để làm bánh mì."
+        "explanation": "Bột mì là nguyên liệu chính để làm bánh mì.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Ai là tác giả của tác phẩm 'Tắt đèn'?",
-        "options": [ "Nguyễn Công Hoan", "Ngô Tất Tố", "Nam Cao", "Vũ Trọng Phụng" ],
+        "options": [
+            "Nguyễn Công Hoan",
+            "Ngô Tất Tố",
+            "Nam Cao",
+            "Vũ Trọng Phụng"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Ngô Tất Tố là tác giả của 'Tắt đèn'."
+        "explanation": "Ngô Tất Tố là tác giả của 'Tắt đèn'.",
+        "category": "Literature"
     },
     {
         "questionText": "Số nguyên tố duy nhất chẵn là số nào?",
-        "options": [ "1", "2", "3", "5" ],
+        "options": [
+            "1",
+            "2",
+            "3",
+            "5"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "2 là số nguyên tố duy nhất và là số chẵn."
+        "explanation": "2 là số nguyên tố duy nhất và là số chẵn.",
+        "category": "Chemistry"
     },
     {
         "questionText": "Quốc gia có diện tích lớn thứ hai trên thế giới là nước nào?",
-        "options": [ "Canada", "Trung Quốc", "Hoa Kỳ", "Brazil" ],
+        "options": [
+            "Canada",
+            "Trung Quốc",
+            "Hoa Kỳ",
+            "Brazil"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Canada đứng thứ hai về diện tích sau Nga."
+        "explanation": "Canada đứng thứ hai về diện tích sau Nga.",
+        "category": "Geography"
     },
     {
         "questionText": "Phong trào Đông Dương Cộng sản Đảng có vai trò trong sự kiện nào ở Việt Nam?",
-        "options": [ "Khởi nghĩa Yên Bái", "Cách mạng Tháng Tám", "Phong trào Cần Vương", "Phong trào Đông Dương" ],
+        "options": [
+            "Khởi nghĩa Yên Bái",
+            "Cách mạng Tháng Tám",
+            "Phong trào Cần Vương",
+            "Phong trào Đông Dương"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Các phong trào cộng sản đóng góp quan trọng vào Cách mạng Tháng Tám."
+        "explanation": "Các phong trào cộng sản đóng góp quan trọng vào Cách mạng Tháng Tám.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Tác giả 'Số đỏ' là ai?",
-        "options": [ "Nguyễn Tuân", "Vũ Trọng Phụng", "Nam Cao", "Tô Hoài" ],
+        "options": [
+            "Nguyễn Tuân",
+            "Vũ Trọng Phụng",
+            "Nam Cao",
+            "Tô Hoài"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "'Số đỏ' là tác phẩm nổi tiếng của Vũ Trọng Phụng."
+        "explanation": "'Số đỏ' là tác phẩm nổi tiếng của Vũ Trọng Phụng.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Chu vi của hình tròn tính bằng công thức nào (r là bán kính)?",
-        "options": [ "2πr", "πr^2", "πd^2", "rπ" ],
+        "options": [
+            "2πr",
+            "πr^2",
+            "πd^2",
+            "rπ"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Chu vi hình tròn = 2 × π × r."
+        "explanation": "Chu vi hình tròn = 2 × π × r.",
+        "category": "Math"
     },
     {
         "questionText": "Quốc kỳ của Nhật Bản có biểu tượng gì ở trung tâm?",
-        "options": [ "Ngôi sao", "Mặt trời đỏ", "Lá phong", "Con rồng" ],
+        "options": [
+            "Ngôi sao",
+            "Mặt trời đỏ",
+            "Lá phong",
+            "Con rồng"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Cờ Nhật có hình mặt trời đỏ ở giữa, gọi là Hinomaru."
+        "explanation": "Cờ Nhật có hình mặt trời đỏ ở giữa, gọi là Hinomaru.",
+        "category": "Geography"
     },
     {
         "questionText": "Trong lịch sử Việt Nam, triều đại nhà Lý nổi tiếng ở thế kỷ nào?",
-        "options": [ "Thế kỷ X-XI", "Thế kỷ XI-XIII", "Thế kỷ XIV-XV", "Thế kỷ XVI-XVII" ],
+        "options": [
+            "Thế kỷ X-XI",
+            "Thế kỷ XI-XIII",
+            "Thế kỷ XIV-XV",
+            "Thế kỷ XVI-XVII"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Nhà Lý trị vì chủ yếu thế kỷ XI đến XIII."
+        "explanation": "Nhà Lý trị vì chủ yếu thế kỷ XI đến XIII.",
+        "category": "History"
     },
     {
         "questionText": "Tác phẩm 'Vợ nhặt' do nhà văn nào viết?",
-        "options": [ "Nguyễn Minh Châu", "Ngô Tất Tố", "Kim Lân", "Thanh Tịnh" ],
+        "options": [
+            "Nguyễn Minh Châu",
+            "Ngô Tất Tố",
+            "Kim Lân",
+            "Thanh Tịnh"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "'Vợ nhặt' là truyện ngắn của Kim Lân."
+        "explanation": "'Vợ nhặt' là truyện ngắn của Kim Lân.",
+        "category": "Literature"
     },
     {
         "questionText": "Trong toán học cơ bản, 5 nhân 6 bằng bao nhiêu?",
-        "options": [ "30", "25", "11", "56" ],
+        "options": [
+            "30",
+            "25",
+            "11",
+            "56"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "5 × 6 = 30."
+        "explanation": "5 × 6 = 30.",
+        "category": "Math"
     },
     {
         "questionText": "Sông Mekong chảy qua bao nhiêu quốc gia trước khi đổ ra biển?",
-        "options": [ "3", "4", "5", "6" ],
+        "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
         "correctAnswerIndex": 3,
-        "explanation": "Mekong chảy qua Trung Quốc, Myanmar, Lào, Thái Lan, Campuchia và Việt Nam (6 quốc gia), nhưng thường tính đoạn chính 5 quốc gia trước khi vào Việt Nam; đáp án phổ biến ở nhiều câu đố là 6, chọn 6 để bao gồm tất cả."
+        "explanation": "Mekong chảy qua Trung Quốc, Myanmar, Lào, Thái Lan, Campuchia và Việt Nam (6 quốc gia), nhưng thường tính đoạn chính 5 quốc gia trước khi vào Việt Nam; đáp án phổ biến ở nhiều câu đố là 6, chọn 6 để bao gồm tất cả.",
+        "category": "Geography"
     },
     {
         "questionText": "Ai là nhân vật lịch sử lãnh đạo khởi nghĩa Hai Bà Trưng?",
-        "options": [ "Trưng Trắc và Trưng Nhị", "Ngô Quyền", "Lý Nam Đế", "Bà Triệu" ],
+        "options": [
+            "Trưng Trắc và Trưng Nhị",
+            "Ngô Quyền",
+            "Lý Nam Đế",
+            "Bà Triệu"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Hai Bà Trưng gồm Trưng Trắc và Trưng Nhị."
+        "explanation": "Hai Bà Trưng gồm Trưng Trắc và Trưng Nhị.",
+        "category": "History"
     },
     {
         "questionText": "Tác phẩm 'Đoạn Trường Tân Thanh' còn được biết dưới tên nào?",
-        "options": [ "Truyện Kiều", "Chinh Phụ Ngâm", "Hoàng Lê nhất thống chí", "Lục Vân Tiên" ],
+        "options": [
+            "Truyện Kiều",
+            "Chinh Phụ Ngâm",
+            "Hoàng Lê nhất thống chí",
+            "Lục Vân Tiên"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "'Đoạn Trường Tân Thanh' là tên khác của Truyện Kiều (bản dịch Nôm của Nguyễn Du)."
+        "explanation": "'Đoạn Trường Tân Thanh' là tên khác của Truyện Kiều (bản dịch Nôm của Nguyễn Du).",
+        "category": "Literature"
     },
     {
         "questionText": "Trong xã hội học, khái niệm 'gia đình hạt nhân' thường chỉ:",
-        "options": [ "Nhiều thế hệ sống cùng", "Vợ, chồng và con", "Một người sống độc thân", "Cộng đồng làng xã" ],
+        "options": [
+            "Nhiều thế hệ sống cùng",
+            "Vợ, chồng và con",
+            "Một người sống độc thân",
+            "Cộng đồng làng xã"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Gia đình hạt nhân = bố mẹ và con cái (vợ, chồng, con)."
+        "explanation": "Gia đình hạt nhân = bố mẹ và con cái (vợ, chồng, con).",
+        "category": "Math"
     },
     {
         "questionText": "Trong hệ đo lường quốc tế, đơn vị đo chiều dài là gì?",
-        "options": [ "Kilogram", "Metre", "Second", "Ampere" ],
+        "options": [
+            "Kilogram",
+            "Metre",
+            "Second",
+            "Ampere"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Mét (metre) là đơn vị cơ bản đo chiều dài trong SI."
+        "explanation": "Mét (metre) là đơn vị cơ bản đo chiều dài trong SI.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Thủ đô lịch sử của nước Pháp là thành phố nào?",
-        "options": [ "Lyon", "Marseille", "Paris", "Bordeaux" ],
+        "options": [
+            "Lyon",
+            "Marseille",
+            "Paris",
+            "Bordeaux"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Paris là thủ đô của Pháp."
+        "explanation": "Paris là thủ đô của Pháp.",
+        "category": "Geography"
     },
     {
         "questionText": "Ai viết tập thơ 'Nhật ký trong tù'?",
-        "options": [ "Hồ Xuân Hương", "Hồ Chí Minh", "Xuân Diệu", "Hàn Mặc Tử" ],
+        "options": [
+            "Hồ Xuân Hương",
+            "Hồ Chí Minh",
+            "Xuân Diệu",
+            "Hàn Mặc Tử"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "'Nhật ký trong tù' là tuyển thơ của Chủ tịch Hồ Chí Minh."
+        "explanation": "'Nhật ký trong tù' là tuyển thơ của Chủ tịch Hồ Chí Minh.",
+        "category": "Literature"
     },
     {
         "questionText": "Trong lịch sử thế giới, cuộc cách mạng công nghiệp lần thứ nhất bắt đầu ở quốc gia nào?",
-        "options": [ "Pháp", "Hoa Kỳ", "Anh", "Đức" ],
+        "options": [
+            "Pháp",
+            "Hoa Kỳ",
+            "Anh",
+            "Đức"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Cách mạng công nghiệp lần thứ nhất khởi nguồn tại Anh."
+        "explanation": "Cách mạng công nghiệp lần thứ nhất khởi nguồn tại Anh.",
+        "category": "Geography"
     },
     {
         "questionText": "Một tam giác vuông có một góc 90°, tổng hai góc còn lại bằng bao nhiêu độ?",
-        "options": [ "45°", "90°", "60°", "180°" ],
+        "options": [
+            "45°",
+            "90°",
+            "60°",
+            "180°"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Tổng ba góc tam giác là 180°; nếu một góc 90° thì hai góc còn lại tổng 90°."
+        "explanation": "Tổng ba góc tam giác là 180°; nếu một góc 90° thì hai góc còn lại tổng 90°.",
+        "category": "Math"
     },
     {
         "questionText": "Quốc hội là cơ quan quyền lực nhà nước ở Việt Nam theo hiến pháp. Vậy nhiệm vụ chính là gì?",
-        "options": [ "Thi hành án hình sự", "Lập pháp và giám sát", "Tư pháp", "Quản lý doanh nghiệp nhà nước" ],
+        "options": [
+            "Thi hành án hình sự",
+            "Lập pháp và giám sát",
+            "Tư pháp",
+            "Quản lý doanh nghiệp nhà nước"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Quốc hội có chức năng lập pháp và giám sát việc thực thi pháp luật."
+        "explanation": "Quốc hội có chức năng lập pháp và giám sát việc thực thi pháp luật.",
+        "category": "Math"
     },
     {
         "questionText": "Tác phẩm 'Nỗi buồn chiến tranh' là của ai?",
-        "options": [ "Bảo Ninh", "Nguyễn Huy Thiệp", "Lê Lựu", "Dương Thu Hương" ],
+        "options": [
+            "Bảo Ninh",
+            "Nguyễn Huy Thiệp",
+            "Lê Lựu",
+            "Dương Thu Hương"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "'Nỗi buồn chiến tranh' (tên gốc: Thị trấn không còn tôi) của Bảo Ninh."
+        "explanation": "'Nỗi buồn chiến tranh' (tên gốc: Thị trấn không còn tôi) của Bảo Ninh.",
+        "category": "Literature"
     },
     {
         "questionText": "Quần đảo nào sau đây thuộc về Indonesia?",
-        "options": [ "Quần đảo Canary", "Quần đảo Svalbard", "Quần đảo Sunda", "Quần đảo Faroe" ],
+        "options": [
+            "Quần đảo Canary",
+            "Quần đảo Svalbard",
+            "Quần đảo Sunda",
+            "Quần đảo Faroe"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Sunda (Sunda Islands) nằm trong quần đảo Indonesia."
+        "explanation": "Sunda (Sunda Islands) nằm trong quần đảo Indonesia.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Trong toán học, 'ước chung lớn nhất' của 8 và 12 là bao nhiêu?",
-        "options": [ "2", "4", "6", "8" ],
+        "options": [
+            "2",
+            "4",
+            "6",
+            "8"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Ước chung lớn nhất của 8 và 12 là 4."
+        "explanation": "Ước chung lớn nhất của 8 và 12 là 4.",
+        "category": "Math"
     },
     {
         "questionText": "Sự kiện lịch sử nào đánh dấu kết thúc triều đại nhà Trần?",
-        "options": [ "Khởi nghĩa Lam Sơn", "Sụp đổ do Nội chiến", "Lật đổ bởi Hồ Quý Ly", "Nhà Trần tồn tại lâu dài" ],
+        "options": [
+            "Khởi nghĩa Lam Sơn",
+            "Sụp đổ do Nội chiến",
+            "Lật đổ bởi Hồ Quý Ly",
+            "Nhà Trần tồn tại lâu dài"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Nhà Trần suy yếu và bị thay thế khi Hồ Quý Ly thiết lập quyền lực."
+        "explanation": "Nhà Trần suy yếu và bị thay thế khi Hồ Quý Ly thiết lập quyền lực.",
+        "category": "History"
     },
     {
         "questionText": "Thành phố nào là thủ phủ của tỉnh Thừa Thiên Huế?",
-        "options": [ "Đà Nẵng", "Huế", "Quảng Trị", "Nha Trang" ],
+        "options": [
+            "Đà Nẵng",
+            "Huế",
+            "Quảng Trị",
+            "Nha Trang"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Huế là tỉnh lỵ của Thừa Thiên Huế."
+        "explanation": "Huế là tỉnh lỵ của Thừa Thiên Huế.",
+        "category": "Geography"
     },
     {
         "questionText": "Trong xã hội học, 'xã hội dân sự' thường ám chỉ:",
-        "options": [ "Tổ chức chính phủ", "Các tổ chức phi nhà nước và hoạt động cộng đồng", "Doanh nghiệp nhà nước", "Quân đội" ],
+        "options": [
+            "Tổ chức chính phủ",
+            "Các tổ chức phi nhà nước và hoạt động cộng đồng",
+            "Doanh nghiệp nhà nước",
+            "Quân đội"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Xã hội dân sự gồm các tổ chức, hiệp hội, cộng đồng độc lập với nhà nước."
+        "explanation": "Xã hội dân sự gồm các tổ chức, hiệp hội, cộng đồng độc lập với nhà nước.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Tác phẩm nào sau đây của Shakespeare là một bi kịch?",
-        "options": [ "A Midsummer Night's Dream", "Romeo and Juliet", "As You Like It", "The Comedy of Errors" ],
+        "options": [
+            "A Midsummer Night's Dream",
+            "Romeo and Juliet",
+            "As You Like It",
+            "The Comedy of Errors"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "'Romeo and Juliet' là một bi kịch của Shakespeare."
+        "explanation": "'Romeo and Juliet' là một bi kịch của Shakespeare.",
+        "category": "Literature"
     },
     {
         "questionText": "Nhạc cụ nào thường được gọi là 'vua của các nhạc cụ' trong dàn nhạc cổ điển?",
-        "options": [ "Đàn violin", "Đàn piano", "Đàn cello", "Kèn trumpet" ],
+        "options": [
+            "Đàn violin",
+            "Đàn piano",
+            "Đàn cello",
+            "Kèn trumpet"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Đàn piano thường được ví là 'vua của các nhạc cụ' do phạm vi âm rộng và vai trò đa năng."
+        "explanation": "Đàn piano thường được ví là 'vua của các nhạc cụ' do phạm vi âm rộng và vai trò đa năng.",
+        "category": "Music"
     },
     {
         "questionText": "Họa sĩ nào vẽ bức tranh 'Mona Lisa'?",
-        "options": [ "Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet" ],
+        "options": [
+            "Vincent van Gogh",
+            "Pablo Picasso",
+            "Leonardo da Vinci",
+            "Claude Monet"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "'Mona Lisa' là tác phẩm nổi tiếng của Leonardo da Vinci."
+        "explanation": "'Mona Lisa' là tác phẩm nổi tiếng của Leonardo da Vinci.",
+        "category": "Art"
     },
     {
         "questionText": "Bộ phim hoạt hình nào được Studio Ghibli thành lập bởi Hayao Miyazaki nổi tiếng với cô bé Sophie và phù thủy?",
-        "options": [ "Spirited Away", "Howl's Moving Castle", "My Neighbor Totoro", "Princess Mononoke" ],
+        "options": [
+            "Spirited Away",
+            "Howl's Moving Castle",
+            "My Neighbor Totoro",
+            "Princess Mononoke"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "'Howl's Moving Castle' có nhân vật Sophie và phù thủy, do Miyazaki đạo diễn cho Studio Ghibli."
+        "explanation": "'Howl's Moving Castle' có nhân vật Sophie và phù thủy, do Miyazaki đạo diễn cho Studio Ghibli.",
+        "category": "Math"
     },
     {
         "questionText": "Tokusatsu là thể loại giải trí phổ biến ở nước nào?",
-        "options": [ "Mỹ", "Nhật Bản", "Hàn Quốc", "Pháp" ],
+        "options": [
+            "Mỹ",
+            "Nhật Bản",
+            "Hàn Quốc",
+            "Pháp"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Tokusatsu (phim 'hiệu ứng đặc biệt sống-action') có nguồn gốc và phổ biến ở Nhật Bản."
+        "explanation": "Tokusatsu (phim 'hiệu ứng đặc biệt sống-action') có nguồn gốc và phổ biến ở Nhật Bản.",
+        "category": "Math"
     },
     {
         "questionText": "Phong cách hội họa 'Impressionism' (ấn tượng chủ nghĩa) chú trọng điều gì?",
-        "options": [ "Mô tả chi tiết thực tế", "Cảm nhận ánh sáng và màu sắc nhất thời", "Trừu tượng hoàn toàn", "Chủ nghĩa siêu thực" ],
+        "options": [
+            "Mô tả chi tiết thực tế",
+            "Cảm nhận ánh sáng và màu sắc nhất thời",
+            "Trừu tượng hoàn toàn",
+            "Chủ nghĩa siêu thực"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Ấn tượng chủ nghĩa nhấn mạnh cảm nhận ánh sáng, màu sắc và ấn tượng tức thời."
+        "explanation": "Ấn tượng chủ nghĩa nhấn mạnh cảm nhận ánh sáng, màu sắc và ấn tượng tức thời.",
+        "category": "Art"
     },
     {
         "questionText": "Trong âm nhạc, nhịp '4/4' còn gọi là gì?",
-        "options": [ "Common time", "Waltz time", "Cut time", "Triple meter" ],
+        "options": [
+            "Common time",
+            "Waltz time",
+            "Cut time",
+            "Triple meter"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "4/4 thường gọi là 'common time' (nhịp phổ biến)."
+        "explanation": "4/4 thường gọi là 'common time' (nhịp phổ biến).",
+        "category": "Music"
     },
     {
         "questionText": "Bộ phim nào được biết đến như một biểu tượng của điện ảnh võ thuật Hong Kong (đạo diễn Thành Long/Thâm Tinh)?",
-        "options": [ "Fist of Fury", "Police Story", "Crouching Tiger, Hidden Dragon", "Hero" ],
+        "options": [
+            "Fist of Fury",
+            "Police Story",
+            "Crouching Tiger, Hidden Dragon",
+            "Hero"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "'Police Story' là một trong các phim võ thuật hài hành động nổi tiếng của Thành Long."
+        "explanation": "'Police Story' là một trong các phim võ thuật hài hành động nổi tiếng của Thành Long.",
+        "category": "Physics"
     },
     {
         "questionText": "Loại bút vẽ dùng trong hội họa truyền thống Nhật Bản thường gọi là gì?",
-        "options": [ "Brush (bút lông)", "Fountain pen", "Ballpoint pen", "Marker" ],
+        "options": [
+            "Brush (bút lông)",
+            "Fountain pen",
+            "Ballpoint pen",
+            "Marker"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Hội họa truyền thống Nhật Bản (sumi-e, calligraphy) dùng bút lông/brush."
+        "explanation": "Hội họa truyền thống Nhật Bản (sumi-e, calligraphy) dùng bút lông/brush.",
+        "category": "Art"
     },
     {
         "questionText": "Ai là nhạc sĩ viết 'Für Elise'?",
-        "options": [ "Mozart", "Beethoven", "Bach", "Chopin" ],
+        "options": [
+            "Mozart",
+            "Beethoven",
+            "Bach",
+            "Chopin"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "'Für Elise' là tác phẩm nổi tiếng của Ludwig van Beethoven."
+        "explanation": "'Für Elise' là tác phẩm nổi tiếng của Ludwig van Beethoven.",
+        "category": "Music"
     },
     {
         "questionText": "Thuật ngữ 'cinematography' chỉ điều gì trong điện ảnh?",
-        "options": [ "Kịch bản phim", "Nhiếp ảnh và hình ảnh điện ảnh", "Diễn xuất", "Âm nhạc phim" ],
+        "options": [
+            "Kịch bản phim",
+            "Nhiếp ảnh và hình ảnh điện ảnh",
+            "Diễn xuất",
+            "Âm nhạc phim"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Cinematography là nghệ thuật ghi hình và tạo dựng hình ảnh cho phim."
+        "explanation": "Cinematography là nghệ thuật ghi hình và tạo dựng hình ảnh cho phim.",
+        "category": "Physics"
     },
     {
         "questionText": "Nhạc pop là viết tắt của từ nào?",
-        "options": [ "Popular music", "Political music", "Portuguese music", "Poetic music" ],
+        "options": [
+            "Popular music",
+            "Political music",
+            "Portuguese music",
+            "Poetic music"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Pop là viết tắt của 'popular music' (nhạc phổ thông)."
+        "explanation": "Pop là viết tắt của 'popular music' (nhạc phổ thông).",
+        "category": "Music"
     },
     {
         "questionText": "Loại tranh nào dùng sơn dầu làm chất liệu chính?",
-        "options": [ "Fresco", "Tempera", "Sơn dầu (oil painting)", "Mosaic" ],
+        "options": [
+            "Fresco",
+            "Tempera",
+            "Sơn dầu (oil painting)",
+            "Mosaic"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Sơn dầu (oil painting) dùng pigment hòa trong dầu để vẽ."
+        "explanation": "Sơn dầu (oil painting) dùng pigment hòa trong dầu để vẽ.",
+        "category": "Art"
     },
     {
         "questionText": "Nhân vật Kamen Rider xuất hiện lần đầu trong loại chương trình nào?",
-        "options": [ "Anime", "Manga", "Tokusatsu live-action", "Phim hoạt hình phương Tây" ],
+        "options": [
+            "Anime",
+            "Manga",
+            "Tokusatsu live-action",
+            "Phim hoạt hình phương Tây"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Kamen Rider là loạt tokusatsu live-action của Nhật Bản."
+        "explanation": "Kamen Rider là loạt tokusatsu live-action của Nhật Bản.",
+        "category": "Math"
     },
     {
         "questionText": "Ai được gọi là 'ông hoàng rock and roll'?",
-        "options": [ "Elvis Presley", "Michael Jackson", "Freddie Mercury", "Mick Jagger" ],
+        "options": [
+            "Elvis Presley",
+            "Michael Jackson",
+            "Freddie Mercury",
+            "Mick Jagger"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Elvis Presley thường được gọi là 'King of Rock and Roll'."
+        "explanation": "Elvis Presley thường được gọi là 'King of Rock and Roll'.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Phong cách vẽ dùng đường nét mảnh, chi tiết, thường thấy trong truyện tranh Nhật Bản gọi là gì (tiếng Nhật)?",
-        "options": [ "Manga", "Sumi-e", "Ukiyo-e", "Nihonga" ],
+        "options": [
+            "Manga",
+            "Sumi-e",
+            "Ukiyo-e",
+            "Nihonga"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Manga là truyện tranh/đồ họa Nhật Bản, với nhiều phong cách đường nét khác nhau."
+        "explanation": "Manga là truyện tranh/đồ họa Nhật Bản, với nhiều phong cách đường nét khác nhau.",
+        "category": "Art"
     },
     {
         "questionText": "Trong làm phim hoạt hình truyền thống, 'cel' là gì?",
-        "options": [ "Một loại âm nhạc", "Tấm film/chiếc tấm trong suốt để vẽ khung hình", "Thuật ngữ diễn xuất", "Một hãng phim" ],
+        "options": [
+            "Một loại âm nhạc",
+            "Tấm film/chiếc tấm trong suốt để vẽ khung hình",
+            "Thuật ngữ diễn xuất",
+            "Một hãng phim"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Cel là tấm nhựa trong suốt nơi vẽ nhân vật từng khung trước khi chồng lên nền."
+        "explanation": "Cel là tấm nhựa trong suốt nơi vẽ nhân vật từng khung trước khi chồng lên nền.",
+        "category": "Math"
     },
     {
         "questionText": "Ai là đạo diễn nổi tiếng của bộ phim 'Seven Samurai'?",
-        "options": [ "Akira Kurosawa", "Hayao Miyazaki", "Satoshi Kon", "Takashi Miike" ],
+        "options": [
+            "Akira Kurosawa",
+            "Hayao Miyazaki",
+            "Satoshi Kon",
+            "Takashi Miike"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Akira Kurosawa là đạo diễn huyền thoại của 'Seven Samurai'."
+        "explanation": "Akira Kurosawa là đạo diễn huyền thoại của 'Seven Samurai'.",
+        "category": "Film"
     },
     {
         "questionText": "Nhạc cụ truyền thống Nhật Bản có dây kéo gọi là gì (đàn ba dây)?",
-        "options": [ "Koto", "Shamisen", "Shakuhachi", "Taiko" ],
+        "options": [
+            "Koto",
+            "Shamisen",
+            "Shakuhachi",
+            "Taiko"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Shamisen là nhạc cụ dây gảy 3 dây truyền thống Nhật Bản."
+        "explanation": "Shamisen là nhạc cụ dây gảy 3 dây truyền thống Nhật Bản.",
+        "category": "Music"
     },
     {
         "questionText": "Thuật ngữ 'soundtrack' thường chỉ gì trong điện ảnh?",
-        "options": [ "Kịch bản phim", "Danh sách nhạc và âm thanh trong phim", "Hậu kỳ màu sắc", "Danh sách diễn viên" ],
+        "options": [
+            "Kịch bản phim",
+            "Danh sách nhạc và âm thanh trong phim",
+            "Hậu kỳ màu sắc",
+            "Danh sách diễn viên"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Soundtrack là phần âm nhạc/âm thanh gắn với bộ phim."
+        "explanation": "Soundtrack là phần âm nhạc/âm thanh gắn với bộ phim.",
+        "category": "Physics"
     },
     {
         "questionText": "Một bức tranh màu nước (watercolor) thường dùng chất liệu nào làm dung môi?",
-        "options": [ "Dầu", "Acrylic", "Nước", "Sáp" ],
+        "options": [
+            "Dầu",
+            "Acrylic",
+            "Nước",
+            "Sáp"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Watercolor dùng nước làm dung môi hòa pigment."
+        "explanation": "Watercolor dùng nước làm dung môi hòa pigment.",
+        "category": "Math"
     },
     {
         "questionText": "Studio nào đứng sau nhiều bộ phim hoạt hình nổi tiếng như 'Spirited Away' và 'Princess Mononoke'?",
-        "options": [ "Toei Animation", "Madhouse", "Studio Ghibli", "Bones" ],
+        "options": [
+            "Toei Animation",
+            "Madhouse",
+            "Studio Ghibli",
+            "Bones"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Studio Ghibli là hãng sản xuất các phim như 'Spirited Away' và 'Princess Mononoke'."
+        "explanation": "Studio Ghibli là hãng sản xuất các phim như 'Spirited Away' và 'Princess Mononoke'.",
+        "category": "Math"
     },
     {
         "questionText": "Thuật ngữ 'OST' trong phim/anime thường viết tắt của gì?",
-        "options": [ "Original Screen Theme", "Official Song Track", "Original Soundtrack", "Open Scene Title" ],
+        "options": [
+            "Original Screen Theme",
+            "Official Song Track",
+            "Original Soundtrack",
+            "Open Scene Title"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "OST là viết tắt của Original Soundtrack (nhạc gốc của phim)."
+        "explanation": "OST là viết tắt của Original Soundtrack (nhạc gốc của phim).",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Ai là hoạ sĩ nổi tiếng với tranh 'Starry Night' (Đêm đầy sao)?",
-        "options": [ "Pablo Picasso", "Claude Monet", "Vincent van Gogh", "Edvard Munch" ],
+        "options": [
+            "Pablo Picasso",
+            "Claude Monet",
+            "Vincent van Gogh",
+            "Edvard Munch"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "'Starry Night' là tác phẩm của Vincent van Gogh."
+        "explanation": "'Starry Night' là tác phẩm của Vincent van Gogh.",
+        "category": "Art"
     },
     {
         "questionText": "Trong thế giới tokusatsu, 'Super Sentai' là tiền thân của loạt phim nào ở Mỹ?",
-        "options": [ "Power Rangers", "Transformers", "G.I. Joe", "Teenage Mutant Ninja Turtles" ],
+        "options": [
+            "Power Rangers",
+            "Transformers",
+            "G.I. Joe",
+            "Teenage Mutant Ninja Turtles"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Loạt Super Sentai của Nhật được chuyển thể thành Power Rangers ở Mỹ."
+        "explanation": "Loạt Super Sentai của Nhật được chuyển thể thành Power Rangers ở Mỹ.",
+        "category": "Film"
     },
     {
         "questionText": "Kỹ thuật âm thanh 'diegetic sound' là gì?",
-        "options": [ "Âm thanh chỉ người xem nghe ngoài phim", "Âm thanh phát sinh từ thế giới phim mà nhân vật cũng nghe được", "Âm thanh quảng cáo", "Âm thanh hậu trường" ],
+        "options": [
+            "Âm thanh chỉ người xem nghe ngoài phim",
+            "Âm thanh phát sinh từ thế giới phim mà nhân vật cũng nghe được",
+            "Âm thanh quảng cáo",
+            "Âm thanh hậu trường"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Diegetic sound là âm thanh thuộc thế giới câu chuyện, nhân vật có thể nghe được."
+        "explanation": "Diegetic sound là âm thanh thuộc thế giới câu chuyện, nhân vật có thể nghe được.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Phong cách nghệ thuật 'Pop Art' nổi bật bởi họa sĩ nào sau đây?",
-        "options": [ "Andy Warhol", "Jackson Pollock", "Salvador Dalí", "Gustav Klimt" ],
+        "options": [
+            "Andy Warhol",
+            "Jackson Pollock",
+            "Salvador Dalí",
+            "Gustav Klimt"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Andy Warhol là nhân vật tiêu biểu của phong trào Pop Art."
+        "explanation": "Andy Warhol là nhân vật tiêu biểu của phong trào Pop Art.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Thuật ngữ 'OVA' trong anime là viết tắt của?",
-        "options": [ "Original Video Animation", "Official Visual Artwork", "Original Visual Art", "Open Version Anime" ],
+        "options": [
+            "Original Video Animation",
+            "Official Visual Artwork",
+            "Original Visual Art",
+            "Open Version Anime"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "OVA = Original Video Animation, thường là tập đặc biệt phát hành trực tiếp trên video."
+        "explanation": "OVA = Original Video Animation, thường là tập đặc biệt phát hành trực tiếp trên video.",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Nhạc cụ gõ lớn truyền thống Nhật Bản gọi là gì?",
-        "options": [ "Shamisen", "Koto", "Taiko", "Biwa" ],
+        "options": [
+            "Shamisen",
+            "Koto",
+            "Taiko",
+            "Biwa"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Taiko là trống lớn truyền thống Nhật Bản."
+        "explanation": "Taiko là trống lớn truyền thống Nhật Bản.",
+        "category": "Music"
     },
     {
         "questionText": "Thực vật thực hiện quá trình quang hợp ở phần nào chính của lá?",
-        "options": [ "Gân lá", "Thịt lá (mesophyll)", "Gai lá", "Rễ lá" ],
+        "options": [
+            "Gân lá",
+            "Thịt lá (mesophyll)",
+            "Gai lá",
+            "Rễ lá"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Tế bào mesophyll chứa nhiều lục lạp thực hiện quang hợp."
+        "explanation": "Tế bào mesophyll chứa nhiều lục lạp thực hiện quang hợp.",
+        "category": "Biology"
     },
     {
         "questionText": "Loài động vật nào được gọi là 'loài chim biết bắt mồi ban đêm' có khả năng săn bắt bằng tiếng kêu siêu âm?",
-        "options": [ "Diều hâu", "Cú (owl)", "Sếu", "Chim sáo" ],
+        "options": [
+            "Diều hâu",
+            "Cú (owl)",
+            "Sếu",
+            "Chim sáo"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Cú săn mồi về đêm, có thính giác rất nhạy giúp định vị con mồi."
+        "explanation": "Cú săn mồi về đêm, có thính giác rất nhạy giúp định vị con mồi.",
+        "category": "Biology"
     },
     {
         "questionText": "Trong anime 'Naruto', tộc nào nổi tiếng với kỹ thuật Sharingan?",
-        "options": [ "Uzumaki", "Uchiha", "Hyuga", "Senju" ],
+        "options": [
+            "Uzumaki",
+            "Uchiha",
+            "Hyuga",
+            "Senju"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Uchiha sở hữu nhãn thuật Sharingan trong 'Naruto'."
+        "explanation": "Uchiha sở hữu nhãn thuật Sharingan trong 'Naruto'.",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Trong cơ thể người, tế bào nào chuyên trách vận chuyển oxy bằng hemoglobin?",
-        "options": [ "Tế bào bạch cầu", "Hồng cầu", "Tế bào thần kinh", "Tế bào cơ" ],
+        "options": [
+            "Tế bào bạch cầu",
+            "Hồng cầu",
+            "Tế bào thần kinh",
+            "Tế bào cơ"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Hồng cầu chứa hemoglobin để vận chuyển oxy."
+        "explanation": "Hồng cầu chứa hemoglobin để vận chuyển oxy.",
+        "category": "Biology"
     },
     {
         "questionText": "Loại rễ nào giúp cây bám chặt mặt đất và thường có ở cây lâu năm (ví dụ cây đại thụ)?",
-        "options": [ "Rễ chùm", "Rễ cọc", "Rễ khí sinh", "Rễ dây" ],
+        "options": [
+            "Rễ chùm",
+            "Rễ cọc",
+            "Rễ khí sinh",
+            "Rễ dây"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Rễ cọc (taproot) phát triển sâu và giúp cây bám vững."
+        "explanation": "Rễ cọc (taproot) phát triển sâu và giúp cây bám vững.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Chương trình hoạt hình nào nổi tiếng với chú chuột Mickey?",
-        "options": [ "Looney Tunes", "Tom and Jerry", "Disney's Mickey Mouse", "Adventure Time" ],
+        "options": [
+            "Looney Tunes",
+            "Tom and Jerry",
+            "Disney's Mickey Mouse",
+            "Adventure Time"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Mickey Mouse là biểu tượng của Disney."
+        "explanation": "Mickey Mouse là biểu tượng của Disney.",
+        "category": "Math"
     },
     {
         "questionText": "Trong khoa học, đơn vị đo nhiệt độ Kelvin dựa trên điểm nào?",
-        "options": [ "Điểm sôi nước", "Điểm đóng băng nước", "Không tuyệt đối (0 K)", "Nhiệt độ phòng" ],
+        "options": [
+            "Điểm sôi nước",
+            "Điểm đóng băng nước",
+            "Không tuyệt đối (0 K)",
+            "Nhiệt độ phòng"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Kelvin đặt 0 K là không tuyệt đối; thang Kelvin dùng trong khoa học."
+        "explanation": "Kelvin đặt 0 K là không tuyệt đối; thang Kelvin dùng trong khoa học.",
+        "category": "Physics"
     },
     {
         "questionText": "Trong manga/anime 'One Piece', người mang mũ rơm là ai?",
-        "options": [ "Roronoa Zoro", "Monkey D. Luffy", "Sanji", "Nami" ],
+        "options": [
+            "Roronoa Zoro",
+            "Monkey D. Luffy",
+            "Sanji",
+            "Nami"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Monkey D. Luffy thường đội chiếc mũ rơm biểu tượng."
+        "explanation": "Monkey D. Luffy thường đội chiếc mũ rơm biểu tượng.",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Loài thực vật nào thường là cây lá kim, chịu lạnh tốt và có hình nón (cone) để sinh sản?",
-        "options": [ "Angiosperm", "Gymnosperm (ví dụ thông)", "Phong lan", "Dương xỉ" ],
+        "options": [
+            "Angiosperm",
+            "Gymnosperm (ví dụ thông)",
+            "Phong lan",
+            "Dương xỉ"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Gymnosperm như cây thông có hạt nằm trong chín nón."
+        "explanation": "Gymnosperm như cây thông có hạt nằm trong chín nón.",
+        "category": "Math"
     },
     {
         "questionText": "Trong cơ thể người, cơ quan nào chính sản xuất insulin?",
-        "options": [ "Gan", "Tụy (pancreas)", "Thận", "Dạ dày" ],
+        "options": [
+            "Gan",
+            "Tụy (pancreas)",
+            "Thận",
+            "Dạ dày"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Tụy chứa các tế bào beta sản xuất insulin."
+        "explanation": "Tụy chứa các tế bào beta sản xuất insulin.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Trong Comic Mỹ, biệt đội 'Teen Titans' thường liên quan đến nhân vật nào dưới đây?",
-        "options": [ "Batman", "Robin (và đồng đội trẻ)", "Superman", "Wolverine" ],
+        "options": [
+            "Batman",
+            "Robin (và đồng đội trẻ)",
+            "Superman",
+            "Wolverine"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Teen Titans là nhóm siêu anh hùng trẻ, Robin thường là thành viên chủ chốt."
+        "explanation": "Teen Titans là nhóm siêu anh hùng trẻ, Robin thường là thành viên chủ chốt.",
+        "category": "Math"
     },
     {
         "questionText": "Chất di truyền chính trong hầu hết tế bào sinh vật đa bào là gì?",
-        "options": [ "RNA", "DNA", "Protein", "Lipid" ],
+        "options": [
+            "RNA",
+            "DNA",
+            "Protein",
+            "Lipid"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "DNA mang thông tin di truyền lâu dài ở hầu hết sinh vật."
+        "explanation": "DNA mang thông tin di truyền lâu dài ở hầu hết sinh vật.",
+        "category": "Biology"
     },
     {
         "questionText": "Trong anime 'My Hero Academia', thuật ngữ 'Quirk' chỉ gì?",
-        "options": [ "Tên thành phố", "Siêu năng lực bẩm sinh", "Loại vũ khí", "Món ăn đặc sản" ],
+        "options": [
+            "Tên thành phố",
+            "Siêu năng lực bẩm sinh",
+            "Loại vũ khí",
+            "Món ăn đặc sản"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Quirk là siêu năng lực bẩm sinh của nhân vật trong 'My Hero Academia'."
+        "explanation": "Quirk là siêu năng lực bẩm sinh của nhân vật trong 'My Hero Academia'.",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Loài nào dưới đây là động vật có vú sống ở nước và có khả năng nhai lại?",
-        "options": [ "Cá heo", "Hải mã", "Hươu", "Cá sấu" ],
+        "options": [
+            "Cá heo",
+            "Hải mã",
+            "Hươu",
+            "Cá sấu"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Hải mã là động vật có vú biển, ăn thực vật; không nhai lại như hươu, nhưng trong nhóm đây là chọn hợp lý hơn so với các lựa chọn khác. (Lưu ý: nếu cần chính xác tuyệt đối về 'nhai lại', nên dùng ví dụ như hươu trên cạn.)"
+        "explanation": "Hải mã là động vật có vú biển, ăn thực vật; không nhai lại như hươu, nhưng trong nhóm đây là chọn hợp lý hơn so với các lựa chọn khác. (Lưu ý: nếu cần chính xác tuyệt đối về 'nhai lại', nên dùng ví dụ như hươu trên cạn.)",
+        "category": "Math"
     },
     {
         "questionText": "Trong phim hoạt hình 'Avatar: The Last Airbender', nhân vật chính có tên là gì?",
-        "options": [ "Aang", "Zuko", "Sokka", "Katara" ],
+        "options": [
+            "Aang",
+            "Zuko",
+            "Sokka",
+            "Katara"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Aang là nhân vật chính, người giữ vai trò Avatar trong loạt phim."
+        "explanation": "Aang là nhân vật chính, người giữ vai trò Avatar trong loạt phim.",
+        "category": "Math"
     },
     {
         "questionText": "Trong sinh học, thuật ngữ 'scarification' thường ám chỉ thao tác gì trên hạt giống?",
-        "options": [ "Ngâm nước", "Gieo trực tiếp", "Gây trầy vỏ để kích thích nảy mầm", "Sấy khô hoàn toàn" ],
+        "options": [
+            "Ngâm nước",
+            "Gieo trực tiếp",
+            "Gây trầy vỏ để kích thích nảy mầm",
+            "Sấy khô hoàn toàn"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Scarification là làm tổn thương vỏ hạt để giúp nước thấm và kích thích nảy mầm."
+        "explanation": "Scarification là làm tổn thương vỏ hạt để giúp nước thấm và kích thích nảy mầm.",
+        "category": "Biology"
     },
     {
         "questionText": "Trong khoa học tự nhiên, ánh sáng trắng phân tích thành các màu khi đi qua gì?",
-        "options": [ "Gương phẳng", "Lăng kính (prism)", "Kính lúp", "Tấm kim loại" ],
+        "options": [
+            "Gương phẳng",
+            "Lăng kính (prism)",
+            "Kính lúp",
+            "Tấm kim loại"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Lăng kính tán sắc ánh sáng trắng thành quang phổ màu."
+        "explanation": "Lăng kính tán sắc ánh sáng trắng thành quang phổ màu.",
+        "category": "Physics"
     },
     {
         "questionText": "Trong manga 'Death Note', quy tắc chính của quyển sổ tử là gì (một quy tắc cơ bản)?",
-        "options": [ "Ghi tên người và hình dung khuôn mặt sẽ làm người đó chết", "Ghi tên ở bất cứ đâu sẽ khiến người đó bị bệnh", "Ghi tên sẽ khiến người đó mất trí nhớ", "Ghi tên người chỉ có hiệu lực ở Nhật Bản" ],
+        "options": [
+            "Ghi tên người và hình dung khuôn mặt sẽ làm người đó chết",
+            "Ghi tên ở bất cứ đâu sẽ khiến người đó bị bệnh",
+            "Ghi tên sẽ khiến người đó mất trí nhớ",
+            "Ghi tên người chỉ có hiệu lực ở Nhật Bản"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Trong 'Death Note', nếu viết tên người và tưởng tượng khuôn mặt, người đó sẽ chết theo cách thông thường trừ khi quy ước thêm chi tiết."
+        "explanation": "Trong 'Death Note', nếu viết tên người và tưởng tượng khuôn mặt, người đó sẽ chết theo cách thông thường trừ khi quy ước thêm chi tiết.",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Loài cây nào được biết đến là cây biểu tượng của Nhật Bản và thường nở hoa vào mùa xuân?",
-        "options": [ "Hoa anh đào (Sakura)", "Hoa hướng dương", "Hoa hồng", "Hoa lan" ],
+        "options": [
+            "Hoa anh đào (Sakura)",
+            "Hoa hướng dương",
+            "Hoa hồng",
+            "Hoa lan"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Hoa anh đào (sakura) là biểu tượng mùa xuân và văn hóa Nhật Bản."
+        "explanation": "Hoa anh đào (sakura) là biểu tượng mùa xuân và văn hóa Nhật Bản.",
+        "category": "GeneralKnowledge"
     },
     {
         "questionText": "Trong truyền hình, thuật ngữ 'pilot' chỉ tập nào?",
-        "options": [ "Tập cuối cùng", "Tập thử nghiệm/giới thiệu để quyết định sản xuất loạt phim", "Tập dài nhất", "Tập để phát hành ở rạp" ],
+        "options": [
+            "Tập cuối cùng",
+            "Tập thử nghiệm/giới thiệu để quyết định sản xuất loạt phim",
+            "Tập dài nhất",
+            "Tập để phát hành ở rạp"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Pilot là tập giới thiệu, dùng để đánh giá và quyết định sản xuất loạt phim."
+        "explanation": "Pilot là tập giới thiệu, dùng để đánh giá và quyết định sản xuất loạt phim.",
+        "category": "Math"
     },
     {
         "questionText": "Trong sinh học, loài vi khuẩn nào thường được sử dụng làm mô hình trong phòng thí nghiệm (vi khuẩn Gram âm)?",
-        "options": [ "Escherichia coli (E. coli)", "Staphylococcus aureus", "Bacillus subtilis", "Saccharomyces cerevisiae" ],
+        "options": [
+            "Escherichia coli (E. coli)",
+            "Staphylococcus aureus",
+            "Bacillus subtilis",
+            "Saccharomyces cerevisiae"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "E. coli là vi khuẩn mẫu thường dùng trong nghiên cứu phân tử."
+        "explanation": "E. coli là vi khuẩn mẫu thường dùng trong nghiên cứu phân tử.",
+        "category": "Math"
     },
     {
         "questionText": "Trong anime 'Dragon Ball', tên viên ngọc tìm thấy đều có bao nhiêu sao?",
-        "options": [ "3", "5", "1 đến 7", "10" ],
+        "options": [
+            "3",
+            "5",
+            "1 đến 7",
+            "10"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Viên ngọc rồng có từ 1 đến 7 sao (Dragon Balls gồm 7 viên)."
+        "explanation": "Viên ngọc rồng có từ 1 đến 7 sao (Dragon Balls gồm 7 viên).",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Loại tế bào nào tạo nên vỏ bọc myelin quanh sợi trục thần kinh ở hệ thần kinh trung ương (CNS)?",
-        "options": [ "Tế bào Schwann", "Tế bào sao (astrocyte)", "Tế bào Oligodendrocyte", "Tế bào biểu mô" ],
+        "options": [
+            "Tế bào Schwann",
+            "Tế bào sao (astrocyte)",
+            "Tế bào Oligodendrocyte",
+            "Tế bào biểu mô"
+        ],
         "correctAnswerIndex": 2,
-        "explanation": "Oligodendrocytes tạo myelin ở CNS; tế bào Schwann ở PNS."
+        "explanation": "Oligodendrocytes tạo myelin ở CNS; tế bào Schwann ở PNS.",
+        "category": "Biology"
     },
     {
         "questionText": "Trong lĩnh vực động vật học, quá trình biến thái hoàn chỉnh của côn trùng gồm các giai đoạn nào?",
-        "options": [ "Trứng → Ấu trùng → Pupa → Trưởng thành", "Trứng → Nai → Ấu trùng → Trưởng thành", "Trứng → Con non → Con già", "Trứng → Larva → Adult (bỏ pupa)" ],
+        "options": [
+            "Trứng → Ấu trùng → Pupa → Trưởng thành",
+            "Trứng → Nai → Ấu trùng → Trưởng thành",
+            "Trứng → Con non → Con già",
+            "Trứng → Larva → Adult (bỏ pupa)"
+        ],
         "correctAnswerIndex": 0,
-        "explanation": "Biến thái hoàn chỉnh: trứng → ấu trùng (larva) → pupa → trưởng thành."
+        "explanation": "Biến thái hoàn chỉnh: trứng → ấu trùng (larva) → pupa → trưởng thành.",
+        "category": "Biology"
     },
     {
         "questionText": "Trong thế giới truyện tranh Marvel, biệt đội 'The Avengers' thường có thành viên nào sau đây?",
-        "options": [ "Batman", "Iron Man", "Lex Luthor", "Sonic the Hedgehog" ],
+        "options": [
+            "Batman",
+            "Iron Man",
+            "Lex Luthor",
+            "Sonic the Hedgehog"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Iron Man là một thành viên nổi bật của The Avengers (Marvel)."
+        "explanation": "Iron Man là một thành viên nổi bật của The Avengers (Marvel).",
+        "category": "Art"
     },
     {
         "questionText": "Trong sinh học thực vật, stomata chủ yếu dùng để điều chỉnh điều gì?",
-        "options": [ "Quang hợp", "Trao đổi khí và thoát hơi nước", "Hấp thụ nước từ đất", "Dự trữ tinh bột" ],
+        "options": [
+            "Quang hợp",
+            "Trao đổi khí và thoát hơi nước",
+            "Hấp thụ nước từ đất",
+            "Dự trữ tinh bột"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Stomata là lỗ trên lá điều chỉnh trao đổi khí (CO2/O2) và thoát hơi nước."
+        "explanation": "Stomata là lỗ trên lá điều chỉnh trao đổi khí (CO2/O2) và thoát hơi nước.",
+        "category": "Biology"
     },
     {
         "questionText": "Trong anime 'Fullmetal Alchemist', nguyên tắc 'tỷ lệ trao đổi tương đương' (Equivalent Exchange) nói gì tóm tắt?",
-        "options": [ "Trao đổi tự do giữa các quốc gia", "Muốn đạt được thứ gì đó phải trả giá bằng thứ có giá trị tương đương", "Luật vật lý về năng lượng", "Nguyên tắc làm phim hoạt hình" ],
+        "options": [
+            "Trao đổi tự do giữa các quốc gia",
+            "Muốn đạt được thứ gì đó phải trả giá bằng thứ có giá trị tương đương",
+            "Luật vật lý về năng lượng",
+            "Nguyên tắc làm phim hoạt hình"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Trong 'Fullmetal Alchemist', alchemy theo nguyên tắc nếu muốn tạo ra thứ gì phải đổi bằng thứ có giá trị tương đương."
+        "explanation": "Trong 'Fullmetal Alchemist', alchemy theo nguyên tắc nếu muốn tạo ra thứ gì phải đổi bằng thứ có giá trị tương đương.",
+        "category": "AnimeManga"
     },
     {
         "questionText": "Cây nào thuộc họ Poaceae (họ lúa)?",
-        "options": [ "Cây dừa", "Lúa (Oryza sativa)", "Hoa hồng", "Cây oải hương" ],
+        "options": [
+            "Cây dừa",
+            "Lúa (Oryza sativa)",
+            "Hoa hồng",
+            "Cây oải hương"
+        ],
         "correctAnswerIndex": 1,
-        "explanation": "Lúa thuộc họ Poaceae (cỏ, grasses)."
+        "explanation": "Lúa thuộc họ Poaceae (cỏ, grasses).",
+        "category": "GeneralKnowledge"
     }
 ]
