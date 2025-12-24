@@ -8,6 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/answer/tra_loi_cau_6_den_15.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/answer/tra_loi_dung_1_den_4.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/answer/tra_loi_dung_cau_15.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/answer/tra_loi_dung_cau_5_va_10.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/answer/tra_loi_dung_cau_6_den_14.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/answer/tra_loi_sai_1_5.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/answer/tra_loi_sai_cau_15.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/answer/tra_loi_sai_cau_6_den_14.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/bat_dau_game.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/question/bat_dau_cau_hoi.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/image/5050.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/image/5050used.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/image/altp_logo.png")]

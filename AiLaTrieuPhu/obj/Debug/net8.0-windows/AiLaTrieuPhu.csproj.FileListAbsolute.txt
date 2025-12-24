@@ -116,3 +116,13 @@ C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-w
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_12.png
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_8.png
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\ALTP_Nostalgia_9.png
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Answer\Tra_Loi_Dung_1_den_4.mp3
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Answer\Tra_Loi_Dung_Cau_15.mp3
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Answer\Tra_Loi_Dung_Cau_5_Va_10.mp3
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Answer\Tra_Loi_Dung_Cau_6_Den_14.mp3
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Answer\Tra_Loi_Sai_1_5.mp3
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Answer\Tra_Loi_Sai_Cau_15.mp3
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Answer\Tra_Loi_Sai_Cau_6_Den_14.mp3
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Bat_Dau_Game.mp3
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Answer\Tra_Loi_Cau_6_Den_15.mp3
+C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Question\Bat_dau_cau_hoi.mp3

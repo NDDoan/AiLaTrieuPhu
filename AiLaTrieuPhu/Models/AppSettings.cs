@@ -19,13 +19,13 @@ namespace AiLaTrieuPhu.Models
     {
         // 1. Cài đặt Âm thanh
         [ObservableProperty]
-        private double _musicVolume = 0.5; // 0.0 đến 1.0 (50%)
+        private int _musicVolume = 50; // Nhạc nền
 
         [ObservableProperty]
-        private double _sfxVolume = 0.7; // Hiệu ứng âm thanh
+        private int _sfxVolume = 70; // Hiệu ứng âm thanh
 
         [ObservableProperty]
-        private double _voiceVolume = 0.8; // Lồng tiếng/Giả lập AI
+        private int _voiceVolume = 80; // Lồng tiếng/Giả lập AI
 
         // 2. Cài đặt Hiển thị
         [ObservableProperty]

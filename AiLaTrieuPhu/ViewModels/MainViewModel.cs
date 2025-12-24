@@ -14,6 +14,7 @@ namespace AiLaTrieuPhu.ViewModels
         private readonly SaveGameService _saveService = new SaveGameService();
         private readonly IQuestionDataService _questionService = new QuestionDataService();
         private readonly SettingsService _settingsService;
+        private readonly AudioService _audioService;
 
         // Cần lưu trữ AppSettings đã tải
         private AppSettings _currentAppSettings;
@@ -29,8 +30,9 @@ namespace AiLaTrieuPhu.ViewModels
         [ObservableProperty]
         private string _statusMessage = "Sẵn sàng chinh phục Triệu Phú!";
 
-        public MainViewModel()
+        public MainViewModel(AudioService audioService)
         {
+            _audioService = audioService;
             _saveService = new SaveGameService();
             _settingsService = new SettingsService();
 
@@ -69,7 +71,7 @@ namespace AiLaTrieuPhu.ViewModels
 
         private void NavigateToGame(GameStatus status)
         {
-            CurrentViewModel = new GameViewModel(this, status, _saveService);
+            CurrentViewModel = new GameViewModel(this, status, _saveService, _audioService);
         }
 
         // Thêm hàm công khai để MainWindow.xaml.cs gọi sau khi đã gán Action
@@ -80,14 +82,17 @@ namespace AiLaTrieuPhu.ViewModels
                 // Áp dụng cài đặt hiển thị đã tải
                 ApplyDisplaySettings(_currentAppSettings.SelectedResolution, _currentAppSettings.CurrentDisplayMode);
 
-                // TODO: Áp dụng âm lượng, v.v. lên Audio Service (Logic sẽ cần phát triển sau)
+                // Áp dụng âm lượng, v.v. lên Audio Service
+                _audioService.SetMusicVolume(_currentAppSettings.MusicVolume);
+                _audioService.SetSFXVolume(_currentAppSettings.SfxVolume);
+                // Nếu có VoiceVolume: audioService.SetVoiceVolume(_currentAppSettings.VoiceVolume);
             }
         }
 
         // Thêm hàm Navigation cho SettingsViewModel
         public void NavigateToSettings()
         {
-            CurrentViewModel = new SettingsViewModel(this, _settingsService, _currentAppSettings);
+            CurrentViewModel = new SettingsViewModel(this, _settingsService, _currentAppSettings, _audioService);
         }
 
         // Thêm hàm Apply Display Settings (để SettingsViewModel gọi)

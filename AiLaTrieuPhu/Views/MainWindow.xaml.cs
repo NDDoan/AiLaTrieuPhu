@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using AiLaTrieuPhu.Models;
+using AiLaTrieuPhu.Services;
 using AiLaTrieuPhu.ViewModels;
 
 namespace AiLaTrieuPhu.Views
@@ -24,7 +25,8 @@ namespace AiLaTrieuPhu.Views
         public MainWindow()
         {
             InitializeComponent();
-            var mainViewModel = new MainViewModel();
+            var audioService = new AudioService();
+            var mainViewModel = new MainViewModel(audioService);
             this.DataContext = mainViewModel;
 
             // GÁN ACTION ĐỂ MAINVIEWMODEL CÓ THỂ ĐIỀU KHIỂN WINDOW

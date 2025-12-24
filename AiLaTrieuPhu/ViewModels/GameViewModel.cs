@@ -18,6 +18,7 @@ namespace AiLaTrieuPhu.ViewModels
     {
         private readonly MainViewModel _mainNavigator;
         private readonly SaveGameService _saveService;
+        private readonly AudioService _audioService;
 
         // Bảng tiền thưởng tĩnh (Dùng cho logic tính toán)
         private static readonly Dictionary<int, long> StaticPrizeLadder = new Dictionary<int, long>
@@ -141,10 +142,11 @@ namespace AiLaTrieuPhu.ViewModels
         [ObservableProperty]
         private bool _isContinueGameAvailable = false;
 
-        public GameViewModel(MainViewModel mainNavigator, GameStatus status, SaveGameService saveService)
+        public GameViewModel(MainViewModel mainNavigator, GameStatus status, SaveGameService saveService, AudioService audioService)
         {
             _mainNavigator = mainNavigator;
             _saveService = saveService;
+            _audioService = audioService;
 
             CurrentGameStatus = status;
 
@@ -205,7 +207,28 @@ namespace AiLaTrieuPhu.ViewModels
         {
             IsAnswerPhase = false; // Vô hiệu hóa nút bấm ngay lập tức
 
-            if (selectedAnswerIndex == CurrentQuestion.CorrectAnswerIndex)
+            // XÁC ĐỊNH NHỊP ĐỘ DỰA TRÊN CÂU HỎI
+            int currentQuestionNumber = CurrentGameStatus.CurrentQuestionIndex + 1;
+            int suspenseDelay = 2500; // Mặc định 2,5 giây cho câu 1-5
+
+            if (currentQuestionNumber >= 6)
+            {
+                // Nhịp độ chậm lại đáng kể từ câu 6 trở đi
+                suspenseDelay = 8000; // Đợi 8 giây để tạo sự hồi hộp
+
+                // PHÁT NHẠC CHỜ KỊCH TÍNH
+                _audioService.PlaySFX("SFX/Answer/Tra_Loi_Cau_6_Den_15.mp3");
+            }
+
+            // Đợi một khoảng thời gian trước khi công bố kết quả
+            await Task.Delay(suspenseDelay);
+
+            // KIỂM TRA ĐÁP ÁN
+            bool isCorrect = selectedAnswerIndex == CurrentQuestion.CorrectAnswerIndex;
+            // PHÁT ÂM THANH KẾT QUẢ ĐÚNG/SAI
+            await PlayResultSound(isCorrect);
+
+            if (isCorrect)
             {
                 GameStatusMessage = $"Chúc mừng! Đáp án {IntToChar(selectedAnswerIndex)} là chính xác!";
 
@@ -239,6 +262,11 @@ namespace AiLaTrieuPhu.ViewModels
         private async Task MoveToNextQuestionAsync()
         {
             await Task.Delay(4000); // Đợi 4 giây
+
+            if(CurrentGameStatus.CurrentQuestionIndex > 4)
+            {
+                _audioService.PlaySFX("SFX/Question/Bat_dau_cau_hoi.mp3");
+            }
 
             if (CurrentGameStatus.CurrentQuestionIndex < CurrentGameStatus.GameQuestions.Count)
             {
@@ -657,6 +685,26 @@ namespace AiLaTrieuPhu.ViewModels
             var savedGame = await _saveService.LoadGameAsync();
             // Nếu LoadGameAsync trả về null (vì không có file hoặc đã kết thúc)
             IsContinueGameAvailable = savedGame != null;
+        }
+
+        private async Task PlayResultSound(bool isCorrect)
+        {
+            int level = CurrentGameStatus.CurrentQuestionIndex + 1;
+            string subFolder = "SFX/Answer/";
+
+            if (isCorrect)
+            {
+                if (level <= 4) _audioService.PlaySFX($"{subFolder}Tra_Loi_Dung_1_den_4.mp3");
+                else if (level == 5 || level == 10) _audioService.PlaySFX($"{subFolder}Tra_Loi_Dung_Cau_5_Va_10.mp3");
+                else if (level == 15) _audioService.PlaySFX($"{subFolder}Tra_Loi_Dung_Cau_15.mp3");
+                else _audioService.PlaySFX($"{subFolder}Tra_Loi_Dung_Cau_6_Den_14.mp3");
+            }
+            else
+            {
+                if (level <= 5) _audioService.PlaySFX($"{subFolder}Tra_Loi_Sai_1_5.mp3");
+                else if (level == 15) _audioService.PlaySFX($"{subFolder}Tra_Loi_Sai_Cau_15.mp3");
+                else _audioService.PlaySFX($"{subFolder}Tra_Loi_Sai_Cau_6_Den_14.mp3");
+            }
         }
     }
 }

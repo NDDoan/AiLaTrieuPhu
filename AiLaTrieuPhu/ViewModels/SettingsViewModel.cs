@@ -15,6 +15,7 @@ namespace AiLaTrieuPhu.ViewModels
     {
         private readonly MainViewModel _mainNavigator;
         private readonly SettingsService _settingsService;
+        private readonly AudioService _audioService;
 
         // Model chứa các giá trị setting hiện tại
         [ObservableProperty]
@@ -32,14 +33,27 @@ namespace AiLaTrieuPhu.ViewModels
         // Các tùy chọn DisplayMode (Enum)
         public Array DisplayModes => Enum.GetValues(typeof(DisplayMode));
 
-        public SettingsViewModel(MainViewModel mainNavigator, SettingsService settingsService, AppSettings initialSettings)
+        public SettingsViewModel(MainViewModel mainNavigator, SettingsService settingsService, AppSettings initialSettings, AudioService audioService)
         {
             _mainNavigator = mainNavigator;
             _settingsService = settingsService;
             _currentSettings = initialSettings;
+            _audioService = audioService;
 
             // Tải cài đặt hiện có hoặc tạo mới (sẽ được implement trong SettingsService)
             _currentSettings = settingsService.LoadSettings() ?? new AppSettings();
+
+            _currentSettings.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == nameof(AppSettings.MusicVolume))
+                {
+                    _audioService.SetMusicVolume(_currentSettings.MusicVolume);
+                }
+                else if (e.PropertyName == nameof(AppSettings.SfxVolume))
+                {
+                    _audioService.SetSFXVolume(_currentSettings.SfxVolume);
+                }
+            };
         }
 
         [RelayCommand]
@@ -59,6 +73,15 @@ namespace AiLaTrieuPhu.ViewModels
             // Logic áp dụng thay đổi độ phân giải/chế độ Fullscreen/Windowed
             // Logic này thường được đặt trong MainView/MainViewModel để thao tác với Window
             _mainNavigator.ApplyDisplaySettings(CurrentSettings.SelectedResolution, CurrentSettings.CurrentDisplayMode);
+        }
+
+        partial void OnCurrentSettingsChanged(AppSettings value)
+        {
+            if (value != null)
+            {
+                _audioService.SetSFXVolume(value.SfxVolume);
+                _audioService.SetMusicVolume(value.MusicVolume);
+            }
         }
     }
 }

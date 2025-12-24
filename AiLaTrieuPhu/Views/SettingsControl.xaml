@@ -26,20 +26,20 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <TextBlock Text="Nhạc Nền (Music)" Width="200" Foreground="White" FontSize="18"/>
-                <Slider Value="{Binding CurrentSettings.MusicVolume}" Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True" Width="300" VerticalAlignment="Center"/>
-                <TextBlock Text="{Binding CurrentSettings.MusicVolume, StringFormat={}{0:P0}}" Foreground="White" Width="50" TextAlignment="Right" Margin="10,0,0,0"/>
+                <Slider Value="{Binding CurrentSettings.MusicVolume, Mode=TwoWay}" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Width="300" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding CurrentSettings.MusicVolume, StringFormat={}{0}%}" Foreground="White" Width="50" TextAlignment="Right" Margin="10,0,0,0"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <TextBlock Text="Hiệu Ứng (SFX)" Width="200" Foreground="White" FontSize="18"/>
-                <Slider Value="{Binding CurrentSettings.SfxVolume}" Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True" Width="300" VerticalAlignment="Center"/>
-                <TextBlock Text="{Binding CurrentSettings.SfxVolume, StringFormat={}{0:P0}}" Foreground="White" Width="50" TextAlignment="Right" Margin="10,0,0,0"/>
+                <Slider Value="{Binding CurrentSettings.SfxVolume, Mode=TwoWay}" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Width="300" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding CurrentSettings.SfxVolume, StringFormat={}{0}%}" Foreground="White" Width="50" TextAlignment="Right" Margin="10,0,0,0"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <TextBlock Text="Lồng Tiếng (Voice)" Width="200" Foreground="White" FontSize="18"/>
-                <Slider Value="{Binding CurrentSettings.VoiceVolume}" Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True" Width="300" VerticalAlignment="Center"/>
-                <TextBlock Text="{Binding CurrentSettings.VoiceVolume, StringFormat={}{0:P0}}" Foreground="White" Width="50" TextAlignment="Right" Margin="10,0,0,0"/>
+                <Slider Value="{Binding CurrentSettings.VoiceVolume}" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Width="300" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding CurrentSettings.VoiceVolume, StringFormat={}{0}%}" Foreground="White" Width="50" TextAlignment="Right" Margin="10,0,0,0"/>
             </StackPanel>
 
             <TextBlock Text="HIỂN THỊ" Foreground="#FFD700" FontSize="24" FontWeight="SemiBold" Margin="0,30,0,10"/>
