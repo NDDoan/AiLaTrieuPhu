@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -30,7 +30,7 @@ namespace AiLaTrieuPhu.Models
         public int Level { get; set; }
 
         [ObservableProperty]
-        [property: JsonIgnore]
+        [property: JsonPropertyName("isOptionHidden")]
         private ObservableCollection<bool> isOptionHidden = new ObservableCollection<bool> { false, false, false, false };
 
         // Thuộc tính tiện ích để lấy đáp án đúng

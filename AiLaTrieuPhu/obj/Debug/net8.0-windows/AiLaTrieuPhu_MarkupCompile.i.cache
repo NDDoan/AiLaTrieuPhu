@@ -11,10 +11,10 @@ false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\LENOVO\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\App.xaml
 7-1315784661
-3328270389
-38-1865405383
-206-935532795
+631150813848
+391478199503
+206-247790688
 Resources\ButtonStyles.xaml;Resources\Colors.xaml;Resources\Fonts.xaml;Views\GameScreen.xaml;Views\MainWindow.xaml;Views\MenuScreen.xaml;Views\SettingsControl.xaml;
 
-False
+True
 

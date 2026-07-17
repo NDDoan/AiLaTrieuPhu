@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Audio\BGM\Q1_Q5.mp3" />
+    <None Remove="Assets\Audio\BGM\Q6_Q15.mp3" />
     <None Remove="Assets\Audio\SFX\Answer\Tra_Loi_Dung_1_den_4.mp3" />
     <None Remove="Assets\Audio\SFX\Answer\Tra_Loi_Dung_Cau_15.mp3" />
     <None Remove="Assets\Audio\SFX\Answer\Tra_Loi_Dung_Cau_5_Va_10.mp3" />
@@ -17,6 +19,35 @@
     <None Remove="Assets\Audio\SFX\Answer\Tra_Loi_Sai_Cau_15.mp3" />
     <None Remove="Assets\Audio\SFX\Answer\Tra_Loi_Sai_Cau_6_Den_14.mp3" />
     <None Remove="Assets\Audio\SFX\Bat_Dau_Game.mp3" />
+    <None Remove="Assets\Audio\VA\Answer\dapana.mp3" />
+    <None Remove="Assets\Audio\VA\Answer\dapanb.mp3" />
+    <None Remove="Assets\Audio\VA\Answer\dapanc.mp3" />
+    <None Remove="Assets\Audio\VA\Answer\dapand.mp3" />
+    <None Remove="Assets\Audio\VA\Answer\dolacautraloidung.mp3" />
+    <None Remove="Assets\Audio\VA\bandavuotqua5cauhoidautiencuachuongtrinh.mp3" />
+    <None Remove="Assets\Audio\VA\chaomungdenvoichuongtrinhailatrieuphu.mp3" />
+    <None Remove="Assets\Audio\VA\chaomungquividenvoichuongtrinhailatrieuphu.mp3" />
+    <None Remove="Assets\Audio\VA\Help\dung5050.mp3" />
+    <None Remove="Assets\Audio\VA\Help\dunggoidienthoaichonguoithan.mp3" />
+    <None Remove="Assets\Audio\VA\Help\dunghoiykienkhangiatrongtruongquay.mp3" />
+    <None Remove="Assets\Audio\VA\Help\dungtotuvantaicho.mp3" />
+    <None Remove="Assets\Audio\VA\phobienluatchoi.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoidautien.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso10.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso11.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso12.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso13.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso14.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso15.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso2.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso3.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso4.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso5.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso6.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso7.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso8.mp3" />
+    <None Remove="Assets\Audio\VA\Question\cauhoiso9.mp3" />
+    <None Remove="Assets\Audio\VA\vabatdautucauso6dolatotuvantaicho.mp3" />
     <None Remove="Assets\Image\5050.png" />
     <None Remove="Assets\Image\5050used.png" />
     <None Remove="Assets\Image\ALTP_LOGO.png" />
@@ -43,6 +74,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Assets\Audio\BGM\Q1_Q5.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\BGM\Q6_Q15.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Audio\SFX\Answer\Tra_Loi_Cau_6_Den_15.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -71,6 +108,90 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Audio\SFX\Question\Bat_dau_cau_hoi.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Answer\dapana.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Answer\dapanb.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Answer\dapanc.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Answer\dapand.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Answer\dolacautraloidung.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\bandavuotqua5cauhoidautiencuachuongtrinh.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\chaomungquividenvoichuongtrinhailatrieuphu.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Help\dung5050.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Help\dunggoidienthoaichonguoithan.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Help\dunghoiykienkhangiatrongtruongquay.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Help\dungtotuvantaicho.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\phobienluatchoi.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoidautien.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso10.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso11.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso12.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso13.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso14.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso15.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso2.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso3.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso4.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso5.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso6.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso7.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso8.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Question\cauhoiso9.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\vabatdautucauso6dolatotuvantaicho.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Image\5050.png">
@@ -153,8 +274,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\Audio\BGM\" />
-    <Folder Include="Assets\Audio\VA\" />
     <Folder Include="Assets\Config\" />
     <Folder Include="Assets\Saves\" />
   </ItemGroup>

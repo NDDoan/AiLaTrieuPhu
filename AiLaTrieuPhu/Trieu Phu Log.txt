@@ -69,3 +69,14 @@ lai sẽ có nhiều nhạc nền và hiệu ứng âm thanh hơn trong tương 
 Sắp tới đấy tôi sẽ cố gắng thêm các tính năng quan trọng, vậy nên hãy theo dõi tôi để có trải nghiệm tốt nhất nhé!
 
 ========================== WHO WANT TO BE A MILLIONARE ==========================
+Ngày 17-7-2026:
+	Bản cập nhật ALTP v1.7.0 SFXUpdate1 đã được phát hành với những tính năng mới như sau:
+- Cập nhật hệ thống âm thanh toàn diện hơn, giờ đây hệ thống âm thanh đã được thiết kế gần như là hoàn chỉnh.
+- Còn nhớ vấn đề liên quan đến 50:50 chứ, bây giờ lỗi liên quan sau khi tiếp tục chơi đã được khắc phục.
+- Hiện tại đang cố gắng hoàn thiện hơn cơ chế liên quan đến các hình ảnh, bản cập nhật kế tiếp có thể tập trung vào phần này.
+- Sửa một số lỗi vặt
+
+(Plus: Gần đây tôi lười vl mãi mới có 1 bản 🚑.)
+Sắp tới đấy tôi sẽ cố gắng thêm các tính năng quan trọng, vậy nên hãy theo dõi tôi để có trải nghiệm tốt nhất nhé!
+
+========================== WHO WANT TO BE A MILLIONARE ==========================

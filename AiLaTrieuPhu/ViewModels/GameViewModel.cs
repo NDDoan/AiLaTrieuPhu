@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -36,6 +36,15 @@ namespace AiLaTrieuPhu.ViewModels
         private Question _currentQuestion = new Question(); // Khởi tạo để tránh lỗi null
 
         [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(AnswerCommand))]
+        [NotifyCanExecuteChangedFor(nameof(Use5050Command))]
+        [NotifyCanExecuteChangedFor(nameof(UseCallCommand))]
+        [NotifyCanExecuteChangedFor(nameof(UseAudienceCommand))]
+        [NotifyCanExecuteChangedFor(nameof(UseConsultancyCommand))]
+        [NotifyPropertyChangedFor(nameof(Is5050Enabled))]
+        [NotifyPropertyChangedFor(nameof(IsCallingEnabled))]
+        [NotifyPropertyChangedFor(nameof(IsAudienceEnabled))]
+        [NotifyPropertyChangedFor(nameof(IsToTuVanEnabled))]
         private bool _isAnswerPhase = true;
 
         [ObservableProperty]
@@ -43,6 +52,13 @@ namespace AiLaTrieuPhu.ViewModels
 
         [ObservableProperty]
         private ObservableCollection<PrizeLevel> _prizeLadderDisplay = new ObservableCollection<PrizeLevel>();
+
+        // Thêm vào vùng khai báo biến của GameViewModel.cs
+        [ObservableProperty]
+        private int _selectedAnswerIndex = -1; // -1 nghĩa là chưa chọn gì
+
+        [ObservableProperty]
+        private bool _isResultRevealed = false;
 
         public bool Is5050Enabled => !CurrentGameStatus.Is5050Used && IsAnswerPhase;
 
@@ -99,9 +115,10 @@ namespace AiLaTrieuPhu.ViewModels
 
         // Kích hoạt cửa sổ chọn chuyên gia
         [RelayCommand(CanExecute = nameof(IsCallingEnabled))]
-        private void UseCall()
+        private async Task UseCall()
         {
             if (CurrentGameStatus.IsCallingUsed) return;
+            IsAnswerPhase = false;
 
             // Mở cửa sổ chọn chuyên gia (giả sử có 1 UserControl/Window tương ứng)
             IsExpertSelectionVisible = true;
@@ -133,7 +150,7 @@ namespace AiLaTrieuPhu.ViewModels
         [ObservableProperty]
         private bool _isConsultantResultVisible = false;
 
-        // Thuộc tính kiểm soát hiển thị nút Tổ Tư Vấn (Xuất hiện từ câu 6, index 5)
+        // Thuộc tính kiểm soát hiển thị nút Tổ Tư Vấn (Xuất hiện từ câu 6)
         public bool IsConsultancyVisible => CurrentGameStatus.CurrentQuestionIndex >= 5;
 
         // Thuộc tính để bật/tắt nút Tổ Tư Vấn
@@ -154,12 +171,22 @@ namespace AiLaTrieuPhu.ViewModels
 
             if (CurrentGameStatus.GameQuestions.Any())
             {
-                // Đảm bảo chỉ số nằm trong phạm vi
-                int index = Math.Clamp(CurrentGameStatus.CurrentQuestionIndex, 0, CurrentGameStatus.GameQuestions.Count - 1);
-                CurrentQuestion = CurrentGameStatus.GameQuestions[index];
+                if (CurrentGameStatus.CurrentQuestionIndex > 0)
+                {
+                    // Đảm bảo chỉ số nằm trong phạm vi
+                    int index = Math.Clamp(CurrentGameStatus.CurrentQuestionIndex, 0, CurrentGameStatus.GameQuestions.Count - 1);
+                    CurrentQuestion = CurrentGameStatus.GameQuestions[index];
 
-                UpdatePrizeLadderStatus();
-                GameStatusMessage = $"Câu hỏi số {index + 1}. Giá trị: {GetPrizeForQuestionNumber(index + 1):N0} VNĐ";
+                    UpdatePrizeLadderStatus();
+                    GameStatusMessage = $"Câu hỏi số {index + 1}. Giá trị: {GetPrizeForQuestionNumber(index + 1):N0} VNĐ";
+                }
+                else
+                {
+                    UpdatePrizeLadderStatus();
+                    GameStatusMessage = "Sẵn sàng! Chờ đợi câu hỏi đầu tiên.";
+                }
+
+                _ = StartGameSequenceAsync();
             }
         }
 
@@ -206,13 +233,16 @@ namespace AiLaTrieuPhu.ViewModels
         private async Task Answer(int selectedAnswerIndex)
         {
             IsAnswerPhase = false; // Vô hiệu hóa nút bấm ngay lập tức
+            SelectedAnswerIndex = selectedAnswerIndex;
+            IsResultRevealed = false;
 
             // XÁC ĐỊNH NHỊP ĐỘ DỰA TRÊN CÂU HỎI
             int currentQuestionNumber = CurrentGameStatus.CurrentQuestionIndex + 1;
             int suspenseDelay = 2500; // Mặc định 2,5 giây cho câu 1-5
 
-            if (currentQuestionNumber >= 6)
+            if (currentQuestionNumber >= 6 && currentQuestionNumber <= 14)
             {
+                _audioService.StopBGM();
                 // Nhịp độ chậm lại đáng kể từ câu 6 trở đi
                 suspenseDelay = 8000; // Đợi 8 giây để tạo sự hồi hộp
 
@@ -224,6 +254,7 @@ namespace AiLaTrieuPhu.ViewModels
             await Task.Delay(suspenseDelay);
 
             // KIỂM TRA ĐÁP ÁN
+            IsResultRevealed = true; // Kích hoạt trạng thái hiện màu Xanh
             bool isCorrect = selectedAnswerIndex == CurrentQuestion.CorrectAnswerIndex;
             // PHÁT ÂM THANH KẾT QUẢ ĐÚNG/SAI
             await PlayResultSound(isCorrect);
@@ -231,6 +262,8 @@ namespace AiLaTrieuPhu.ViewModels
             if (isCorrect)
             {
                 GameStatusMessage = $"Chúc mừng! Đáp án {IntToChar(selectedAnswerIndex)} là chính xác!";
+
+                await _audioService.PlayVAAsync($"VA/Answer/dolacautraloidung.mp3");
 
                 UpdateGameStatusOnCorrectAnswer();
 
@@ -261,30 +294,58 @@ namespace AiLaTrieuPhu.ViewModels
 
         private async Task MoveToNextQuestionAsync()
         {
-            await Task.Delay(4000); // Đợi 4 giây
+            int currentQuestionNumber = CurrentGameStatus.CurrentQuestionIndex + 1;
 
-            if(CurrentGameStatus.CurrentQuestionIndex > 4)
+            if (currentQuestionNumber == 6)
+            {
+                _audioService.StopBGM();
+                await _audioService.PlayVAAsync("VA/bandavuotqua5cauhoidautiencuachuongtrinh.mp3");
+                await _audioService.PlayVAAsync("VA/vabatdautucauso6dolatotuvantaicho.mp3");
+                await Task.Delay(7000);
+            }
+
+            if (currentQuestionNumber == 11)
+            {
+                _audioService.StopBGM();
+                await Task.Delay(7000);
+            }
+
+            if (currentQuestionNumber > 1)
+            {
+                await Task.Delay(4000); // Đợi nhịp nghỉ chung
+            }
+
+            if (CurrentGameStatus.CurrentQuestionIndex > 4 && CurrentGameStatus.CurrentQuestionIndex < 15)
             {
                 _audioService.PlaySFX("SFX/Question/Bat_dau_cau_hoi.mp3");
             }
 
+            if (currentQuestionNumber > 1)
+            {
+                await Task.Delay(3000);
+            }
+
+            SelectedAnswerIndex = -1;
+            IsResultRevealed = false;
+
             if (CurrentGameStatus.CurrentQuestionIndex < CurrentGameStatus.GameQuestions.Count)
             {
-                // Chuyển sang câu hỏi tiếp theo
                 CurrentQuestion = CurrentGameStatus.GameQuestions[CurrentGameStatus.CurrentQuestionIndex];
-
-                // Cập nhật trạng thái Prize Ladder
                 UpdatePrizeLadderStatus();
 
                 int nextQuestionNumber = CurrentGameStatus.CurrentQuestionIndex + 1;
                 GameStatusMessage = $"Câu hỏi số {nextQuestionNumber}. Giá trị: {GetPrizeForQuestionNumber(nextQuestionNumber):N0} VNĐ";
 
+                string questionVA = currentQuestionNumber == 1 ? "cauhoidautien.mp3" : $"cauhoiso{currentQuestionNumber}.mp3";
+                await _audioService.PlayVAAsync($"VA/Question/{questionVA}");
+
+                HandleBGM();
+
                 await _saveService.SaveGameAsync(CurrentGameStatus);
-                IsAnswerPhase = true; // Bật lại nút bấm
+                IsAnswerPhase = true;
             }
             else
             {
-                // Hoàn thành hết 15 câu
                 await GameOver(true);
             }
         }
@@ -292,6 +353,7 @@ namespace AiLaTrieuPhu.ViewModels
         private async Task GameOver(bool isWinner, bool isVoluntaryQuit = false)
         {
             IsAnswerPhase = false;
+            _audioService.StopBGM();
             await Task.Delay(5000);
 
             long finalPrize = 0;
@@ -337,6 +399,7 @@ namespace AiLaTrieuPhu.ViewModels
         [RelayCommand]
         private async Task SaveAndExit()
         {
+            _audioService.StopBGM();
             await _saveService.SaveGameAsync(CurrentGameStatus);
             _mainNavigator.NavigateToMenu();
         }
@@ -369,25 +432,28 @@ namespace AiLaTrieuPhu.ViewModels
 
             if (result == MessageBoxResult.Yes)
             {
+                _audioService.StopBGM();
                 // Tính toán số tiền cuối cùng (tiền ở mốc an toàn cuối cùng đã đạt)
                 await GameOver(false, true); // False: không phải thắng 15 câu, True: người chơi tự nguyện dừng
             }
         }
 
         [RelayCommand(CanExecute = nameof(Is5050Enabled))]
-        private void Use5050()
+        private async Task Use5050()
         {
             // 1. Kiểm tra trạng thái và cập nhật cờ đã dùng
             if (CurrentQuestion == null || CurrentGameStatus.Is5050Used) return;
+
+            IsAnswerPhase = false;
+
+            await _audioService.PlayVAAsync("VA/Help/dung5050.mp3");
 
             CurrentGameStatus.Is5050Used = true;
 
             // Is5050Enabled trở thành FALSE, vô hiệu hóa nút.
             OnPropertyChanged(nameof(CurrentGameStatus));
 
-            // Bỏ dòng báo lỗi: Is5050Enabled = false; 
-
-            // 2. Tìm 2 đáp án sai để loại bỏ (Logic giữ nguyên)
+            // 2. Tìm 2 đáp án sai để loại bỏ
             var incorrectIndices = new List<int>();
             for (int i = 0; i < CurrentQuestion.Options.Count; i++)
             {
@@ -408,22 +474,19 @@ namespace AiLaTrieuPhu.ViewModels
                 {
                     // Thiết lập trạng thái ẩn
                     CurrentQuestion.IsOptionHidden[index] = true;
-
-                    // Thay nội dung đáp án thành rỗng để UI ẩn đi hoặc hiển thị " "
-                    // Bản sửa lỗi tới sửa lại sau
-                    CurrentQuestion.Options[index] = " ";
                 }
             }
 
             // 5. Thông báo thay đổi
             OnPropertyChanged(nameof(CurrentQuestion));
 
+            IsAnswerPhase = true;
             // Bắn lại lệnh CanExecute để vô hiệu hóa nút 50:50 (Do OnPropertyChanged(CurrentGameStatus) đã làm điều này, dòng này là dư nhưng không gây hại)
             Use5050Command.NotifyCanExecuteChanged();
         }
 
         [RelayCommand]
-        private async void SelectExpertAndGetAnswer(CallExpert expert)
+        private async Task SelectExpertAndGetAnswer(CallExpert expert)
         {
             if (expert == null || CurrentGameStatus.IsCallingUsed) return;
 
@@ -436,7 +499,6 @@ namespace AiLaTrieuPhu.ViewModels
             UseCallCommand.NotifyCanExecuteChanged(); // Cập nhật trạng thái nút bấm trợ giúp
 
             // 2. TÍNH TOÁN TỈ LỆ THÀNH CÔNG ĐỘNG
-            // Giả sử CurrentQuestion có thuộc tính Level (1-15) và Category (string)
             int currentLevel = CurrentQuestion.Level;
             string currentCategory = CurrentQuestion.Category;
 
@@ -476,7 +538,7 @@ namespace AiLaTrieuPhu.ViewModels
                 }
             }
 
-            // 3. TẠO CÂU TRẢ LỜI CÁ TÍNH (Persona)
+            // 3. TẠO CÂU TRẢ LỜI CÁ TÍNH
             string answerLetter = ((char)('A' + expertIndex)).ToString();
 
             // Nếu đúng chuyên môn, nói tự tin hơn, hoặc là không?
@@ -490,10 +552,11 @@ namespace AiLaTrieuPhu.ViewModels
                 expert.ExpertAnswer = $"Câu này không phải chuyên môn của tôi lắm... nhưng theo phán đoán thì có lẽ là {answerLetter}.";
             }
 
-            // 4. HIỆU ỨNG CHỜ (Simulate "Calling...")
-            // có thể thêm hiệu ứng âm thanh "Tút tút" ở đây
+            await _audioService.PlayVAAsync("VA/Help/dunggoidienthoaichonguoithan.mp3");
+            // 4. HIỆU ỨNG CHỜ (Simulate "Calling...") có thể thêm hiệu ứng âm thanh "Tút tút" ở đây
             await Task.Delay(2500);
             IsExpertAnswerVisible = true; // Hiển thị khung chat lời thoại của chuyên gia
+            IsAnswerPhase = true;
         }
 
         [RelayCommand]
@@ -504,9 +567,12 @@ namespace AiLaTrieuPhu.ViewModels
         }
 
         [RelayCommand(CanExecute = nameof(IsAudienceEnabled))]
-        private void UseAudience()
+        private async Task UseAudience()
         {
             if (CurrentQuestion == null || CurrentGameStatus.IsKhanGiaUsed) return;
+
+            IsAnswerPhase = false;
+            await _audioService.PlayVAAsync("VA/Help/dunghoiykienkhangiatrongtruongquay.mp3");
 
             CurrentGameStatus.IsKhanGiaUsed = true;
             OnPropertyChanged(nameof(CurrentGameStatus));
@@ -517,6 +583,7 @@ namespace AiLaTrieuPhu.ViewModels
 
             // 2. Hiển thị Pop-up
             IsAudienceResultVisible = true;
+            IsAnswerPhase = true;
 
             GameStatusMessage = "Khán giả đã bỏ phiếu. Mời bạn xem kết quả.";
         }
@@ -530,12 +597,11 @@ namespace AiLaTrieuPhu.ViewModels
             int questionLevel = CurrentGameStatus.CurrentQuestionIndex;
             var result = new AudienceResult();
 
-            // 1. Xây dựng tham số độ khó
-            // Tỷ lệ ủng hộ đúng cơ bản (giảm khi câu hỏi khó hơn)
-            int baseCorrectRate = 90 - (questionLevel * 3); // Ví dụ: Câu 1: 87%; Câu 15: 45%
-            baseCorrectRate = Math.Max(baseCorrectRate, 40); // Đảm bảo không thấp hơn 40% (trừ khi có 50:50)
+            // 1. Xây dựng tham số độ khó: Tỷ lệ ủng hộ đúng cơ bản (giảm khi câu hỏi khó hơn)
+            int baseCorrectRate = 90 - (questionLevel * 3);
+            baseCorrectRate = Math.Max(baseCorrectRate, 40);
 
-            // 2. Xử lý 50:50 (Nếu đã dùng 50:50, phiếu chỉ phân tán trên 2 đáp án)
+            // 2. Xử lý 50:50
             var availableIndices = new List<int>();
             for (int i = 0; i < 4; i++)
             {
@@ -552,7 +618,7 @@ namespace AiLaTrieuPhu.ViewModels
             int correctVotes = 0;
             if (availableIndices.Contains(correctIndex))
             {
-                // Sử dụng một số ngẫu nhiên để tạo tính bất ngờ (± 5% base rate)
+                // Sử dụng một số ngẫu nhiên để tạo tính bất ngờ
                 int minVotes = Math.Max(baseCorrectRate - 5, 10); // Đảm bảo ít nhất 10%
                 int maxVotes = Math.Min(baseCorrectRate + 5, 100);
                 correctVotes = random.Next(minVotes, maxVotes + 1);
@@ -560,7 +626,7 @@ namespace AiLaTrieuPhu.ViewModels
                 totalVotes -= correctVotes;
             }
 
-            // 4. Phân bổ phiếu còn lại cho các đáp án sai (và các đáp án ẩn nếu 50:50 chưa dùng)
+            // 4. Phân bổ phiếu còn lại cho các đáp án sai
             var remainingIndices = availableIndices.Where(i => i != correctIndex).ToList();
             var votes = new int[4];
             votes[correctIndex] = correctVotes;
@@ -604,9 +670,12 @@ namespace AiLaTrieuPhu.ViewModels
         }
 
         [RelayCommand(CanExecute = nameof(IsToTuVanEnabled))]
-        private void UseConsultancy()
+        private async Task UseConsultancy()
         {
             if (CurrentQuestion == null || CurrentGameStatus.IsToTuVanUsed) return;
+
+            IsAnswerPhase = false;
+            await _audioService.PlayVAAsync("VA/Help/dungtotuvantaicho.mp3");
 
             // 1. Đánh dấu quyền trợ giúp đã dùng
             CurrentGameStatus.IsToTuVanUsed = true;
@@ -621,6 +690,7 @@ namespace AiLaTrieuPhu.ViewModels
 
             // 3. Hiển thị Pop-up
             IsConsultantResultVisible = true;
+            IsAnswerPhase = true;
 
             GameStatusMessage = "Tổ tư vấn đã đưa ra ý kiến của mình.";
         }
@@ -680,6 +750,24 @@ namespace AiLaTrieuPhu.ViewModels
             GameStatusMessage = "Bạn đã có ý kiến từ tổ tư vấn. Hãy đưa ra quyết định cuối cùng.";
         }
 
+        public async Task StartGameSequenceAsync()
+        {
+            // Nếu là Game mới
+            if (CurrentGameStatus.CurrentQuestionIndex == 0)
+            {
+                IsAnswerPhase = false; // Khóa UI không cho bấm bậy bạ
+                await _audioService.PlayVAAsync("VA/phobienluatchoi.mp3");
+
+                await MoveToNextQuestionAsync(); // Bắt đầu đọc câu hỏi 1
+            }
+            else
+            {
+                // Nếu load từ save game, chỉ cần đọc câu hỏi hiện tại
+                IsAnswerPhase = false;
+                await MoveToNextQuestionAsync();
+            }
+        }
+
         public async Task CheckSaveGameStatus()
         {
             var savedGame = await _saveService.LoadGameAsync();
@@ -691,6 +779,11 @@ namespace AiLaTrieuPhu.ViewModels
         {
             int level = CurrentGameStatus.CurrentQuestionIndex + 1;
             string subFolder = "SFX/Answer/";
+
+            if (level >= 6)
+            {
+                _audioService.StopBGM();
+            }
 
             if (isCorrect)
             {
@@ -704,6 +797,23 @@ namespace AiLaTrieuPhu.ViewModels
                 if (level <= 5) _audioService.PlaySFX($"{subFolder}Tra_Loi_Sai_1_5.mp3");
                 else if (level == 15) _audioService.PlaySFX($"{subFolder}Tra_Loi_Sai_Cau_15.mp3");
                 else _audioService.PlaySFX($"{subFolder}Tra_Loi_Sai_Cau_6_Den_14.mp3");
+            }
+        }
+
+        private void HandleBGM()
+        {
+            int currentQuestionNumber = CurrentGameStatus.CurrentQuestionIndex + 1;
+
+            if (currentQuestionNumber <= 5)
+            {
+                // Giai đoạn 1-5: Nhạc chạy liên tục
+                _audioService.PlayBGM("BGM/Q1_Q5.mp3");
+            }
+            else if (currentQuestionNumber <= 15)
+            {
+                // Giai đoạn 6-15: Phát lại từ đầu mỗi câu hỏi
+                _audioService.StopBGM();
+                _audioService.PlayBGM("BGM/Q6_Q15.mp3");
             }
         }
     }

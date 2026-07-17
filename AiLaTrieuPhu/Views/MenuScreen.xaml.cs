@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -18,8 +18,8 @@ namespace AiLaTrieuPhu.Views
         private const double MinEntranceDuration = 2.0;    // seconds (faster entrance)
         private const double MaxEntranceDuration = 4.0;    // seconds (slower entrance)
         private const double MaxEntranceStagger = 1.0;     // seconds
-        private const double ThrowVelocityThreshold = 900; // px/s to trigger throw
-        private const double ThrowMultiplier = 0.9;        // how far to send thrown item relative to velocity
+        private const double ThrowVelocityThreshold = 50;  // px/s to trigger throw (dễ ném hơn)
+        private const double ThrowMultiplier = 0.8;        // distance multiplier
 
         // Entrance distance factors (distance = diagonal * factor)
         private const double EntranceDistanceFactorMin = 0.6;
@@ -80,6 +80,7 @@ namespace AiLaTrieuPhu.Views
                 image.MouseMove += Image_MouseMove;
                 image.MouseRightButtonDown += Image_MouseRightButtonDown;
                 image.MouseRightButtonUp += Image_MouseRightButtonUp;
+                image.MouseWheel += Image_MouseWheel;
 
                 // ensure transforms
                 var tg = EnsureWritableTransformGroup(image);
@@ -281,19 +282,19 @@ namespace AiLaTrieuPhu.Views
             }
             direction.Normalize();
 
+            // Lực ma sát và khoảng cách ném
             double distance = speed * ThrowMultiplier;
             double targetX = Canvas.GetLeft(container) + direction.X * distance;
             double targetY = Canvas.GetTop(container) + direction.Y * distance;
 
-            var boundsW = FloatingCanvas.ActualWidth;
-            var boundsH = FloatingCanvas.ActualHeight;
-            if (targetX >= 0 && targetX <= boundsW) targetX += direction.X * (boundsW * 1.2);
-            if (targetY >= 0 && targetY <= boundsH) targetY += direction.Y * (boundsH * 1.2);
+            // Tính thời gian bay (tối đa 2.5s)
+            double durSeconds = Math.Min(2.5, distance / (speed * 0.5 + 1)); 
+            if (durSeconds < 0.2) durSeconds = 0.2;
+            var dur = TimeSpan.FromSeconds(durSeconds);
 
-            var dur = TimeSpan.FromSeconds(Math.Min(1.8, 0.6 + (speed / 2000.0)));
-
-            var animX = new DoubleAnimation(Canvas.GetLeft(container), targetX, dur) { EasingFunction = new ExponentialEase { EasingMode = EasingMode.EaseOut } };
-            var animY = new DoubleAnimation(Canvas.GetTop(container), targetY, dur) { EasingFunction = new ExponentialEase { EasingMode = EasingMode.EaseOut } };
+            // Dùng CubicEase để có ma sát mượt mà
+            var animX = new DoubleAnimation(Canvas.GetLeft(container), targetX, dur) { EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut } };
+            var animY = new DoubleAnimation(Canvas.GetTop(container), targetY, dur) { EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut } };
 
             animX.FillBehavior = FillBehavior.Stop;
             animY.FillBehavior = FillBehavior.Stop;
@@ -302,14 +303,31 @@ namespace AiLaTrieuPhu.Views
             {
                 Canvas.SetLeft(container, targetX);
                 Canvas.SetTop(container, targetY);
-                _ = ReenterAfterDelayAsync(container, image, _rand);
+
+                var boundsW = FloatingCanvas.ActualWidth;
+                var boundsH = FloatingCanvas.ActualHeight;
+                var itemW = container.ActualWidth > 0 ? container.ActualWidth : 140;
+                var itemH = container.ActualHeight > 0 ? container.ActualHeight : 140;
+
+                bool isOffScreen = targetX + itemW < -50 || targetX > boundsW + 50 || targetY + itemH < -50 || targetY > boundsH + 50;
+
+                if (isOffScreen)
+                {
+                    _ = ReenterAfterDelayAsync(container, image, _rand);
+                }
+                else
+                {
+                    ResumeOscillation(image);
+                }
             };
 
             var tgForSpin = EnsureWritableTransformGroup(image);
             if (tgForSpin.Children.Count >= 4 && tgForSpin.Children[3] is RotateTransform rt)
             {
-                var spin = new DoubleAnimation(rt.Angle, rt.Angle + (direction.X * 360 + direction.Y * 180) * (0.6 + speed / 1500.0), dur) { EasingFunction = new ExponentialEase { EasingMode = EasingMode.EaseOut } };
+                double spinAmount = (direction.X * direction.Y * 180 + (_rand.NextDouble() - 0.5) * 90) * (speed / 500.0);
+                var spin = new DoubleAnimation(rt.Angle, rt.Angle + spinAmount, dur) { EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut } };
                 spin.FillBehavior = FillBehavior.Stop;
+                spin.Completed += (_, _) => { rt.Angle += spinAmount; };
                 rt.BeginAnimation(RotateTransform.AngleProperty, spin);
             }
 
@@ -429,6 +447,26 @@ namespace AiLaTrieuPhu.Views
             {
                 rt.Angle = _rotateStartAngle + angleDelta;
             }
+        }
+
+        private void Image_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (sender is not Image img) return;
+            var tg = EnsureWritableTransformGroup(img);
+            if (tg.Children.Count >= 4 && tg.Children[3] is RotateTransform rt)
+            {
+                double delta = e.Delta > 0 ? 25 : -25;
+                
+                var anim = new DoubleAnimation(rt.Angle, rt.Angle + delta, TimeSpan.FromSeconds(0.25))
+                {
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+                anim.FillBehavior = FillBehavior.Stop;
+                anim.Completed += (_, _) => { rt.Angle += delta; };
+                
+                rt.BeginAnimation(RotateTransform.AngleProperty, anim);
+            }
+            e.Handled = true;
         }
 
         // small helper to get timestamp ms

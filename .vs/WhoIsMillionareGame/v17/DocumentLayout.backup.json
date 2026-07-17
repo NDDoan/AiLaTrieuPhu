@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\services\\audioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\services\\audioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\viewmodels\\settingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\viewmodels\\settingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|c:\\users\\lenovo\\source\\repos\\whoismillionaregame\\ailatrieuphu\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCA4CE8-E5E3-4E93-A8EA-7773ED888B63}|AiLaTrieuPhu\\AiLaTrieuPhu.csproj|solutionrelative:ailatrieuphu\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,43 +24,8 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SettingsViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\ViewModels\\SettingsViewModel.cs",
-              "RelativeDocumentMoniker": "AiLaTrieuPhu\\ViewModels\\SettingsViewModel.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\ViewModels\\SettingsViewModel.cs",
-              "RelativeToolTip": "AiLaTrieuPhu\\ViewModels\\SettingsViewModel.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAQwA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-24T09:06:47.059Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\ViewModels\\MainViewModel.cs",
-              "RelativeDocumentMoniker": "AiLaTrieuPhu\\ViewModels\\MainViewModel.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\ViewModels\\MainViewModel.cs",
-              "RelativeToolTip": "AiLaTrieuPhu\\ViewModels\\MainViewModel.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAADwv1AAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-24T08:30:15.563Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AudioService.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Services\\AudioService.cs",
-              "RelativeDocumentMoniker": "AiLaTrieuPhu\\Services\\AudioService.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\Services\\AudioService.cs",
-              "RelativeToolTip": "AiLaTrieuPhu\\Services\\AudioService.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAswCUAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-24T08:29:12.379Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             }
           ]
         }

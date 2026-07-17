@@ -53,6 +53,10 @@ namespace AiLaTrieuPhu.ViewModels
                 {
                     _audioService.SetSFXVolume(_currentSettings.SfxVolume);
                 }
+                else if (e.PropertyName == nameof(AppSettings.VoiceVolume))
+                {
+                    _audioService.SetVAVolume(_currentSettings.VoiceVolume);
+                }
             };
         }
 
@@ -81,6 +85,7 @@ namespace AiLaTrieuPhu.ViewModels
             {
                 _audioService.SetSFXVolume(value.SfxVolume);
                 _audioService.SetMusicVolume(value.MusicVolume);
+                _audioService.SetVAVolume(value.VoiceVolume);
             }
         }
     }

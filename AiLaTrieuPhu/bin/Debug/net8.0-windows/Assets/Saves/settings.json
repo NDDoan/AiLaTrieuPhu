@@ -1,7 +1,7 @@
 {
-  "MusicVolume": 100,
-  "SfxVolume": 0,
+  "MusicVolume": 40,
+  "SfxVolume": 100,
   "VoiceVolume": 100,
-  "CurrentDisplayMode": 1,
+  "CurrentDisplayMode": 2,
   "SelectedResolution": "1280x720"
 }

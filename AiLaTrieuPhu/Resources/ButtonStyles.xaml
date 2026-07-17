@@ -1,6 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AiLaTrieuPhu.Utilities">
     
+    <local:AnswerColorConverter x:Key="AnswerColorConverter"/>
+
     <Style x:Key="MenuButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Height" Value="50"/>
         <Setter Property="Width" Value="300"/>
@@ -39,6 +42,17 @@
         <Setter Property="FontSize" Value="28"/>
         <Setter Property="Margin" Value="10,5"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
+
+        <Setter Property="Background">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource AnswerColorConverter}">
+                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPresenter}}" Path="(ItemsControl.AlternationIndex)"/>
+                    <Binding Path="DataContext.SelectedAnswerIndex" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="DataContext.IsResultRevealed" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="DataContext.CurrentQuestion.CorrectAnswerIndex" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
     </Style>
-    
+
 </ResourceDictionary>

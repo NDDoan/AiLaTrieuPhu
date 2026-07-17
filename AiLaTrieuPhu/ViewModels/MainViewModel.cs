@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,7 +54,13 @@ namespace AiLaTrieuPhu.ViewModels
         }
 
         public async Task StartNewGameAsync()
-        {
+        {   
+            _audioService.PlayVA("VA/chaomungquividenvoichuongtrinhailatrieuphu.mp3");
+            _audioService.PlaySFX("SFX/Bat_dau_game.mp3");
+            
+            // File dài 28s, nhưng chỉ cần chờ 10s nhạc dạo lớn ban đầu
+            await Task.Delay(10000);
+
             var questions = await _questionService.GetRandomGameQuestionsAsync();
             var newStatus = new GameStatus { GameQuestions = questions };
             NavigateToGame(newStatus);
