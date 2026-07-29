@@ -40,6 +40,18 @@ namespace AiLaTrieuPhu.Views
         {
             InitializeComponent();
             Loaded += MenuScreen_Loaded;
+            Unloaded += MenuScreen_Unloaded;
+        }
+
+        private void MenuScreen_Unloaded(object sender, RoutedEventArgs e)
+        {
+            // Dừng tất cả oscillation storyboard để tránh memory/CPU leak khi navigate sang màn hình khác
+            foreach (var kvp in _oscillations)
+            {
+                try { kvp.Value.Stop(kvp.Key); } catch { }
+            }
+            _oscillations.Clear();
+            _moveHistory.Clear();
         }
 
         private void MenuScreen_Loaded(object? sender, RoutedEventArgs e)
@@ -50,7 +62,7 @@ namespace AiLaTrieuPhu.Views
 
         private void InitializeNostalgiaItems()
         {
-            if (!(this.Resources["FloatingOscillation"] is Storyboard baseOsc)) return;
+            if (!(this.TryFindResource("FloatingOscillation") is Storyboard baseOsc)) return;
 
             double canvasW = FloatingCanvas?.ActualWidth ?? 0;
             double canvasH = FloatingCanvas?.ActualHeight ?? 0;
@@ -187,6 +199,18 @@ namespace AiLaTrieuPhu.Views
 
             if (_oscillations.TryGetValue(image, out var sb))
             {
+                if (_draggingContainer != null && image.RenderTransform is TransformGroup tg && tg.Children.Count > 0 && tg.Children[0] is TranslateTransform tt)
+                {
+                    double currentLeft = Canvas.GetLeft(_draggingContainer);
+                    double currentTop = Canvas.GetTop(_draggingContainer);
+                    if (!double.IsNaN(currentLeft) && !double.IsNaN(currentTop))
+                    {
+                        Canvas.SetLeft(_draggingContainer, currentLeft + tt.X);
+                        Canvas.SetTop(_draggingContainer, currentTop + tt.Y);
+                    }
+                    tt.X = 0;
+                    tt.Y = 0;
+                }
                 try { sb.Stop(image); } catch { }
             }
 
@@ -395,7 +419,7 @@ namespace AiLaTrieuPhu.Views
 
         private void ResumeOscillation(Image image)
         {
-            if (!(this.Resources["FloatingOscillation"] is Storyboard baseOsc)) return;
+            if (!(this.TryFindResource("FloatingOscillation") is Storyboard baseOsc)) return;
             try
             {
                 var osc = baseOsc.Clone();

@@ -19,6 +19,8 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/answer/tra_loi_sai_cau_15.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/answer/tra_loi_sai_cau_6_den_14.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/bat_dau_game.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/help/hoiykienkhangiatrongtruongquay.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/help/loaibo2phuongansai.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/sfx/question/bat_dau_cau_hoi.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/va/answer/dapana.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/va/answer/dapanb.mp3")]

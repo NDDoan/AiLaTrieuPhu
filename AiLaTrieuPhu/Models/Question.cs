@@ -11,8 +11,9 @@ namespace AiLaTrieuPhu.Models
 {
     public partial class Question : ObservableObject
     {
-        [JsonPropertyName("questionText")]
-        public string QuestionText { get; set; }
+        [ObservableProperty]
+        [property: JsonPropertyName("questionText")]
+        private string _questionText;
 
         [JsonPropertyName("options")]
         public List<string> Options { get; set; }

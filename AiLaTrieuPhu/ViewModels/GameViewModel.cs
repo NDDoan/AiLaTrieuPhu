@@ -19,6 +19,9 @@ namespace AiLaTrieuPhu.ViewModels
         private readonly MainViewModel _mainNavigator;
         private readonly SaveGameService _saveService;
         private readonly AudioService _audioService;
+        // Random instance tập trung, tránh tạo nhiều instance trong thời gian ngắn
+        // (nhiều instance cùng seed → kết quả bị lặp lại)
+        private readonly Random _random = new Random();
 
         // Bảng tiền thưởng tĩnh (Dùng cho logic tính toán)
         private static readonly Dictionary<int, long> StaticPrizeLadder = new Dictionary<int, long>
@@ -135,16 +138,22 @@ namespace AiLaTrieuPhu.ViewModels
         [ObservableProperty]
         private bool _isAudienceResultVisible = false;
 
+        [ObservableProperty]
+        private bool _isAudienceVotingCompleted = false;
+
         // Thuộc tính để bật/tắt nút Hỏi khán giả
         public bool IsAudienceEnabled => !CurrentGameStatus.IsKhanGiaUsed && IsAnswerPhase;
 
         // 3 thành viên tổ tư vấn
         public ObservableCollection<Consultant> Consultants { get; } = new ObservableCollection<Consultant>
         {
-            new Consultant { Name = "Khán giả ngẫu nghiên 1", CorrectnessRate = 60 },
-            new Consultant { Name = "Khán giả ngẫu nghiên 2", CorrectnessRate = 70 },
-            new Consultant { Name = "Khán giả ngẫu nghiên 3", CorrectnessRate = 80 }
+            new Consultant { Name = "Khán giả ngẫu nhiên 1", CorrectnessRate = 60 },
+            new Consultant { Name = "Khán giả ngẫu nhiên 2", CorrectnessRate = 70 },
+            new Consultant { Name = "Khán giả ngẫu nhiên 3", CorrectnessRate = 80 }
         };
+
+        [ObservableProperty]
+        private ObservableCollection<DummyAudience> _dummyAudiences = new ObservableCollection<DummyAudience>();
 
         // Thuộc tính để hiển thị/ẩn cửa sổ pop-up kết quả Tổ Tư Vấn
         [ObservableProperty]
@@ -186,7 +195,9 @@ namespace AiLaTrieuPhu.ViewModels
                     GameStatusMessage = "Sẵn sàng! Chờ đợi câu hỏi đầu tiên.";
                 }
 
-                _ = StartGameSequenceAsync();
+                _ = StartGameSequenceAsync().ContinueWith(
+                    t => System.Diagnostics.Debug.WriteLine($"[GameViewModel] StartGameSequenceAsync lỗi: {t.Exception}"),
+                    System.Threading.Tasks.TaskContinuationOptions.OnlyOnFaulted);
             }
         }
 
@@ -264,6 +275,14 @@ namespace AiLaTrieuPhu.ViewModels
                 GameStatusMessage = $"Chúc mừng! Đáp án {IntToChar(selectedAnswerIndex)} là chính xác!";
 
                 await _audioService.PlayVAAsync($"VA/Answer/dolacautraloidung.mp3");
+
+                // Đợi nhấp nháy đáp án đúng rồi hiện tiền thưởng
+                await Task.Delay(2500); 
+                long prizeAmount = StaticPrizeLadder[CurrentGameStatus.CurrentQuestionIndex + 1];
+                CurrentQuestion.QuestionText = $"BẠN ĐÃ GIÀNH ĐƯỢC:\n{prizeAmount:N0} VNĐ";
+                
+                // Đợi để người chơi xem tiền thưởng
+                await Task.Delay(3500);
 
                 UpdateGameStatusOnCorrectAnswer();
 
@@ -464,8 +483,7 @@ namespace AiLaTrieuPhu.ViewModels
             }
 
             // 3. Chọn ngẫu nhiên 2 index sai để ẩn
-            var random = new Random();
-            var indicesToHide = incorrectIndices.OrderBy(x => random.Next()).Take(2).ToList();
+            var indicesToHide = incorrectIndices.OrderBy(x => _random.Next()).Take(2).ToList();
 
             // 4. Cập nhật thuộc tính IsOptionHidden trong Question
             foreach (var index in indicesToHide)
@@ -505,8 +523,7 @@ namespace AiLaTrieuPhu.ViewModels
             // Gọi hàm tính toán xác suất mà chúng ta đã xây dựng trong Model CallExpert
             double successRate = expert.CalculateSuccessRate(currentLevel, currentCategory);
 
-            var random = new Random();
-            int roll = random.Next(1, 101);
+            int roll = _random.Next(1, 101);
             int correctIndex = CurrentQuestion.CorrectAnswerIndex;
             int expertIndex;
 
@@ -519,7 +536,7 @@ namespace AiLaTrieuPhu.ViewModels
             {
                 // Chuyên gia trả lời SAI
                 var incorrectIndices = CurrentQuestion.Options
-                    .Select((option, index) => index)
+                    .Select((_, index) => index)
                     .Where(index => index != correctIndex)
                     .ToList();
 
@@ -534,7 +551,7 @@ namespace AiLaTrieuPhu.ViewModels
                 }
                 else
                 {
-                    expertIndex = availableIncorrectIndices[random.Next(availableIncorrectIndices.Count)];
+                    expertIndex = availableIncorrectIndices[_random.Next(availableIncorrectIndices.Count)];
                 }
             }
 
@@ -572,27 +589,118 @@ namespace AiLaTrieuPhu.ViewModels
             if (CurrentQuestion == null || CurrentGameStatus.IsKhanGiaUsed) return;
 
             IsAnswerPhase = false;
-            await _audioService.PlayVAAsync("VA/Help/dunghoiykienkhangiatrongtruongquay.mp3");
+            // Phát âm thanh khán giả (dùng PlaySFX vì đây là file SFX, không phải VA)
+            _audioService.PlaySFX("SFX/Help/hoiykienkhangiatrongtruongquay.mp3");
 
             CurrentGameStatus.IsKhanGiaUsed = true;
             OnPropertyChanged(nameof(CurrentGameStatus));
             UseAudienceCommand.NotifyCanExecuteChanged();
 
             // 1. Khởi tạo kết quả và tính toán
-            CurrentAudienceResult = CalculateAudienceVotes(CurrentQuestion.CorrectAnswerIndex, CurrentQuestion.IsOptionHidden);
+            var finalResult = CalculateAudienceVotes(CurrentQuestion.CorrectAnswerIndex, CurrentQuestion.IsOptionHidden);
 
-            // 2. Hiển thị Pop-up
+            // 2. Khởi tạo kết quả ban đầu là 0% cho hiệu ứng
+            CurrentAudienceResult = new AudienceResult();
+            foreach (var option in finalResult.Results)
+            {
+                CurrentAudienceResult.Results.Add(new AudienceOption
+                {
+                    OptionLetter = option.OptionLetter,
+                    Percentage = 0
+                });
+            }
+
+            // 3. Hiển thị Pop-up
             IsAudienceResultVisible = true;
-            IsAnswerPhase = true;
+            IsAudienceVotingCompleted = false;
+            GameStatusMessage = "Khán giả đang suy nghĩ và bình chọn...";
 
-            GameStatusMessage = "Khán giả đã bỏ phiếu. Mời bạn xem kết quả.";
+            // Prepare Dummy Audience
+            if (DummyAudiences.Count == 0)
+            {
+                for (int i = 0; i < 48; i++) // 6x8 grid for example
+                {
+                    DummyAudiences.Add(new DummyAudience { Id = i, IsVoting = false });
+                }
+            }
+            else
+            {
+                foreach (var da in DummyAudiences) da.IsVoting = false;
+            }
+
+            // Giả lập khán giả đang bỏ phiếu (8 giây, cải thiện so với 15s cũ)
+            // Dùng Task.Run để tránh block UI thread
+            const int totalVotingMs = 8000;
+            const int voteDelay = 120; // 120ms/frame ≈ 67 frames
+            int totalFrames = totalVotingMs / voteDelay;
+            var unvotedIndices = Enumerable.Range(0, 48).ToList();
+
+            for (int f = 0; f < totalFrames; f++)
+            {
+                // Spread dummy voting across frames
+                if (unvotedIndices.Count > 0 && f % 2 == 0)
+                {
+                    int numToVote = _random.Next(1, 3);
+                    for (int v = 0; v < numToVote && unvotedIndices.Count > 0; v++)
+                    {
+                        int rndIdx = _random.Next(unvotedIndices.Count);
+                        int daIdx = unvotedIndices[rndIdx];
+                        DummyAudiences[daIdx].IsVoting = true;
+                        unvotedIndices.RemoveAt(rndIdx);
+                    }
+                }
+
+                // Ép hết số còn lại trước frame cuối
+                if (f == totalFrames - 8 && unvotedIndices.Count > 0)
+                {
+                    foreach (var idx in unvotedIndices)
+                        DummyAudiences[idx].IsVoting = true;
+                    unvotedIndices.Clear();
+                }
+
+                await Task.Delay(voteDelay);
+            }
+
+            // Đặt tất cả về 0 trước khi chạy kết quả thực sự
+            for (int j = 0; j < 4; j++)
+            {
+                CurrentAudienceResult.Results[j].Percentage = 0;
+            }
+            
+            // Hiện chữ kết quả phần trăm
+            IsAudienceVotingCompleted = true;
+
+            // 4. Hiệu ứng chạy thanh phần trăm (Animation)
+            int steps = 25; // 25 bước
+            int delayPerStep = 60; // 60ms mỗi bước
+            
+            for (int i = 1; i <= steps; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    // Tăng dần phần trăm
+                    double target = finalResult.Results[j].Percentage;
+                    double current = (target / steps) * i;
+                    
+                    CurrentAudienceResult.Results[j].Percentage = Math.Round(current);
+                }
+                await Task.Delay(delayPerStep);
+            }
+
+            // Đảm bảo số cuối cùng chính xác
+            for (int j = 0; j < 4; j++)
+            {
+                CurrentAudienceResult.Results[j].Percentage = finalResult.Results[j].Percentage;
+            }
+
+            IsAnswerPhase = true;
+            GameStatusMessage = "Khán giả đã bỏ phiếu xong. Mời bạn xem kết quả.";
         }
 
 
         // HÀM TÍNH TOÁN PHIẾU BẦU (Core Logic)
         private AudienceResult CalculateAudienceVotes(int correctIndex, System.Collections.ObjectModel.ObservableCollection<bool> hiddenOptions)
         {
-            var random = new Random();
             int totalVotes = 100; // Tổng số phiếu là 100
             int questionLevel = CurrentGameStatus.CurrentQuestionIndex;
             var result = new AudienceResult();
@@ -621,7 +729,7 @@ namespace AiLaTrieuPhu.ViewModels
                 // Sử dụng một số ngẫu nhiên để tạo tính bất ngờ
                 int minVotes = Math.Max(baseCorrectRate - 5, 10); // Đảm bảo ít nhất 10%
                 int maxVotes = Math.Min(baseCorrectRate + 5, 100);
-                correctVotes = random.Next(minVotes, maxVotes + 1);
+                correctVotes = _random.Next(minVotes, maxVotes + 1);
                 correctVotes = Math.Min(correctVotes, totalVotes - (availableIndices.Count - 1)); // Giới hạn tổng số phiếu
                 totalVotes -= correctVotes;
             }
@@ -640,7 +748,7 @@ namespace AiLaTrieuPhu.ViewModels
                 for (int i = 0; i < remainingIndices.Count - 1; i++)
                 {
                     int maxDistribute = remainingVotes / (remainingIndices.Count - i);
-                    int currentVotes = random.Next(1, maxDistribute + 1);
+                    int currentVotes = _random.Next(1, Math.Max(2, maxDistribute + 1));
                     votes[remainingIndices[i]] = currentVotes;
                     remainingVotes -= currentVotes;
                 }
@@ -699,12 +807,11 @@ namespace AiLaTrieuPhu.ViewModels
         // HÀM TÍNH TOÁN Ý KIẾN RIÊNG LẺ
         private void CalculateConsultantAnswer(Consultant consultant)
         {
-            var random = new Random();
             int correctIndex = CurrentQuestion.CorrectAnswerIndex;
             int consultantIndex;
 
             // Tỷ lệ chuyên gia trả lời ĐÚNG
-            int chance = random.Next(1, 101);
+            int chance = _random.Next(1, 101);
 
             if (chance <= consultant.CorrectnessRate)
             {
@@ -715,7 +822,7 @@ namespace AiLaTrieuPhu.ViewModels
             {
                 // Chuyên gia trả lời SAI (chọn ngẫu nhiên 1 đáp án SAI)
                 var incorrectIndices = CurrentQuestion.Options
-                    .Select((option, index) => index)
+                    .Select((_, index) => index)
                     .Where(index => index != correctIndex)
                     .ToList();
 
@@ -731,7 +838,7 @@ namespace AiLaTrieuPhu.ViewModels
                 }
                 else
                 {
-                    consultantIndex = availableIncorrectIndices[random.Next(availableIncorrectIndices.Count)];
+                    consultantIndex = availableIncorrectIndices[_random.Next(availableIncorrectIndices.Count)];
                 }
             }
 

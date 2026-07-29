@@ -9,8 +9,9 @@ using System.Windows.Media;
 
 namespace AiLaTrieuPhu.Services
 {
-    public class AudioService
+    public class AudioService : IDisposable
     {
+        private bool _disposed = false;
         private MediaPlayer _sfxPlayer = new MediaPlayer();
         private MediaPlayer _bgmPlayer = new MediaPlayer();
         private MediaPlayer _vaPlayer = new MediaPlayer();
@@ -247,6 +248,23 @@ namespace AiLaTrieuPhu.Services
             {
                 _vaTcs.TrySetResult(false);
             }
+        }
+
+        public void Dispose()
+        {
+            if (_disposed) return;
+            _disposed = true;
+
+            try { _sfxPlayer.Stop(); _sfxPlayer.Close(); } catch { }
+            try { _bgmPlayer.Stop(); _bgmPlayer.Close(); } catch { }
+            try
+            {
+                _vaPlayer.Stop();
+                _vaPlayer.Close();
+                if (_vaTcs != null && !_vaTcs.Task.IsCompleted)
+                    _vaTcs.TrySetResult(false);
+            }
+            catch { }
         }
     }
 }

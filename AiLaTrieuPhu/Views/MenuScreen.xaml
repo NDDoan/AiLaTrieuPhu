@@ -6,10 +6,11 @@
              xmlns:converters="clr-namespace:AiLaTrieuPhu.Utilities"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             Background="{StaticResource PrimaryBackgroundBrush}">
+             Background="{StaticResource MainBackgroundGradient}">
     <UserControl.Resources>
         <converters:IndexToRandomPosConverter x:Key="IndexToRandomPosConverter"/>
         <converters:CenterConverter x:Key="CenterConverter"/>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
 
         <x:Array x:Key="NostalgiaImages" Type="System:String">
             <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_1.png</System:String>
@@ -25,28 +26,14 @@
             <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_11.png</System:String>
             <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_12.png</System:String>
         </x:Array>
-
-        <!-- small oscillation used after inward drift -->
-        <Storyboard x:Key="FloatingOscillation" RepeatBehavior="Forever">
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="-12" To="12" Duration="0:0:6" AutoReverse="True"/>
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" From="-8" To="8" Duration="0:0:5" AutoReverse="True"/>
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(ScaleTransform.ScaleX)" From="0.98" To="1.02" Duration="0:0:8" AutoReverse="True"/>
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(ScaleTransform.ScaleY)" From="0.98" To="1.02" Duration="0:0:8" AutoReverse="True"/>
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[4].(RotateTransform.Angle)" From="-4" To="4" Duration="0:0:10" AutoReverse="True"/>
-            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.5" To="0.85" Duration="0:0:7" AutoReverse="True"/>
-        </Storyboard>
-
-        <Storyboard x:Key="LogoPulseAnimation" RepeatBehavior="Forever">
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" From="0.99" To="1.01" Duration="0:0:5" AutoReverse="True"/>
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" From="0.99" To="1.01" Duration="0:0:5" AutoReverse="True"/>
-        </Storyboard>
     </UserControl.Resources>
 
     <Grid>
-        <!-- Background canvas for nostalgia images -->
-        <Canvas x:Name="FloatingCanvas" ClipToBounds="True" />
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Floating nostalgia images in background             -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <Canvas x:Name="FloatingCanvas" ClipToBounds="True"/>
 
-        <!-- ItemsControl placed programmatically into FloatingCanvas so templates can be controlled in code-behind -->
         <ItemsControl x:Name="NostalgiaItems" ItemsSource="{StaticResource NostalgiaImages}" AlternationCount="7">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -56,11 +43,8 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding}" Width="140" Height="Auto" Stretch="Uniform"
+                    <Image Source="{Binding}" Width="150" Height="Auto" Stretch="Uniform"
                            RenderTransformOrigin="0.5,0.5" Cursor="Hand">
-                        <!-- TransformGroup: [0]=floatingTranslate (used for entrance + small osc),
-                                      [1]=dragTranslate (not used here, container moved by Canvas),
-                                      [2]=scale, [3]=rotate -->
                         <Image.RenderTransform>
                             <TransformGroup>
                                 <TranslateTransform/>
@@ -71,8 +55,9 @@
                             </TransformGroup>
                         </Image.RenderTransform>
                         <Image.Effect>
-                            <DropShadowEffect Color="#80000000" BlurRadius="8" ShadowDepth="3"/>
+                            <DropShadowEffect Color="#000033" BlurRadius="18" ShadowDepth="6" Opacity="0.7"/>
                         </Image.Effect>
+
                     </Image>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
@@ -85,30 +70,151 @@
             </ItemsControl.ItemContainerStyle>
         </ItemsControl>
 
-        <!-- Overlay UI -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Subtle radial vignette overlay                      -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <Border IsHitTestVisible="False">
+            <Border.Background>
+                <RadialGradientBrush Center="0.5,0.5" RadiusX="0.75" RadiusY="0.75">
+                    <GradientStop Color="#00000000" Offset="0.4"/>
+                    <GradientStop Color="#CC020210" Offset="1"/>
+                </RadialGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Main overlay UI                                     -->
+        <!-- ═══════════════════════════════════════════════════ -->
         <Grid x:Name="OverlayGrid" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="True">
-            <Border CornerRadius="12" Padding="20">
+            <Border CornerRadius="20" Padding="50,40">
+                <!-- Glassmorphism card background -->
+                <Border.Background>
+                    <SolidColorBrush Color="#CC050514"/>
+                </Border.Background>
+                <Border.Effect>
+                    <DropShadowEffect Color="#FFD700" BlurRadius="40" ShadowDepth="0" Opacity="0.15"/>
+                </Border.Effect>
+
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image x:Name="MenuLogo" Source="/AiLaTrieuPhu;component/Assets/Image/ALTP_LOGO.png" Width="200" Height="200"
+
+                    <!-- Logo with glow -->
+                    <Image x:Name="MenuLogo" 
+                           Source="/AiLaTrieuPhu;component/Assets/Image/ALTP_LOGO.png" 
+                           Width="220" Height="220"
                            RenderTransformOrigin="0.5,0.5">
                         <Image.RenderTransform>
-                            <ScaleTransform/>
+                            <ScaleTransform x:Name="LogoScaleTransform" ScaleX="1" ScaleY="1"/>
                         </Image.RenderTransform>
+                        <Image.Effect>
+                            <DropShadowEffect x:Name="LogoDropShadow" Color="#FFD700" BlurRadius="35" ShadowDepth="0" Opacity="0.8"/>
+                        </Image.Effect>
                         <Image.Triggers>
                             <EventTrigger RoutedEvent="Loaded">
-                                <BeginStoryboard Storyboard="{StaticResource LogoPulseAnimation}"/>
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation Storyboard.TargetName="LogoScaleTransform" Storyboard.TargetProperty="ScaleX"
+                                                         From="0.98" To="1.02" Duration="0:0:2.5" AutoReverse="True">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="LogoScaleTransform" Storyboard.TargetProperty="ScaleY"
+                                                         From="0.98" To="1.02" Duration="0:0:2.5" AutoReverse="True">
+                                            <DoubleAnimation.EasingFunction>
+                                                <SineEase EasingMode="EaseInOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
                             </EventTrigger>
                         </Image.Triggers>
                     </Image>
 
-                    <TextBlock Text="{Binding StatusMessage}" FontSize="20" Foreground="White" Margin="0,12,0,16" HorizontalAlignment="Center" TextAlignment="Center"/>
+                    <!-- Gold divider line -->
+                    <Border Height="2" Margin="0,16,0,20" CornerRadius="1">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#00FFD700" Offset="0"/>
+                                <GradientStop Color="#FFFFD700" Offset="0.3"/>
+                                <GradientStop Color="#FFFFC200" Offset="0.5"/>
+                                <GradientStop Color="#FFFFD700" Offset="0.7"/>
+                                <GradientStop Color="#00FFD700" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
 
+                    <!-- Status message -->
+                    <TextBlock Text="{Binding StatusMessage}" 
+                               FontSize="18" 
+                               FontFamily="Segoe UI"
+                               Foreground="{StaticResource SecondaryTextBrush}" 
+                               Margin="0,0,0,20" 
+                               HorizontalAlignment="Center" 
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               MaxWidth="360"/>
+
+                    <!-- Menu buttons - vertical stack -->
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                        <Button Content="Bắt Đầu Trò Chơi Mới" Command="{Binding StartGameCommand}" Style="{StaticResource MenuButtonStyle}" Margin="0,6,0,0"/>
-                        <Button Content="Tiếp Tục Trò Chơi" Command="{Binding ContinueGameCommand}" Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,0"/>
-                        <Button Content="Cài Đặt" Command="{Binding OpenSettingsCommand}" Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,0"/>
-                        <Button Content="Thoát" Command="{Binding ExitApplicationCommand}" Style="{StaticResource MenuButtonStyle}" Margin="0,10,0,0"/>
+                        <Button Content="▶  Bắt Đầu Trò Chơi Mới" 
+                                Command="{Binding StartGameCommand}" 
+                                Width="340" Height="54"
+                                Margin="0,4,0,0">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MenuButtonStyle}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsStartingGame}" Value="True">
+                                            <DataTrigger.EnterActions>
+                                                <BeginStoryboard Name="StartBlinkStoryboard">
+                                                    <Storyboard RepeatBehavior="Forever">
+                                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0.4" Duration="0:0:0.15" AutoReverse="True"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </DataTrigger.EnterActions>
+                                            <DataTrigger.ExitActions>
+                                                <StopStoryboard BeginStoryboardName="StartBlinkStoryboard"/>
+                                            </DataTrigger.ExitActions>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button Content="⟳  Tiếp Tục Trò Chơi" 
+                                Command="{Binding ContinueGameCommand}" 
+                                Style="{StaticResource MenuButtonStyle}" 
+                                IsEnabled="{Binding IsStartingGame, Converter={StaticResource InverseBoolConverter}}"
+                                Width="340" Height="54"
+                                Margin="0,8,0,0"/>
+                        <Button Content="⚙  Cài Đặt" 
+                                Command="{Binding OpenSettingsCommand}" 
+                                Style="{StaticResource MenuButtonStyle}" 
+                                IsEnabled="{Binding IsStartingGame, Converter={StaticResource InverseBoolConverter}}"
+                                Width="340" Height="54"
+                                Margin="0,8,0,0"/>
+
+                        <!-- Gold separator before exit -->
+                        <Border Height="1" Margin="40,14,40,6" Opacity="0.4">
+                            <Border.Background>
+                                <SolidColorBrush Color="#FFD700"/>
+                            </Border.Background>
+                        </Border>
+
+                        <Button Content="✕  Thoát" 
+                                Command="{Binding ExitApplicationCommand}" 
+                                Style="{StaticResource MenuButtonStyle}" 
+                                IsEnabled="{Binding IsStartingGame, Converter={StaticResource InverseBoolConverter}}"
+                                Width="340" Height="48"
+                                Margin="0,0,0,0"
+                                Foreground="{StaticResource SecondaryTextBrush}"/>
                     </StackPanel>
+
+                    <!-- Footer -->
+                    <TextBlock Text="Ai Là Triệu Phú · .NET Edition" 
+                               FontSize="11"
+                               FontFamily="Segoe UI"
+                               Foreground="#44FFD700"
+                               HorizontalAlignment="Center"
+                               Margin="0,24,0,0"/>
                 </StackPanel>
             </Border>
         </Grid>

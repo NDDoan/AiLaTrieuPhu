@@ -1,12 +1,13 @@
-﻿<UserControl x:Class="AiLaTrieuPhu.Views.GameScreen"
+<UserControl x:Class="AiLaTrieuPhu.Views.GameScreen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:AiLaTrieuPhu.ViewModels"
-             xmlns:local="clr-namespace:AiLaTrieuPhu.Views" xmlns:util="clr-namespace:AiLaTrieuPhu.Utilities"
+             xmlns:local="clr-namespace:AiLaTrieuPhu.Views" 
+             xmlns:util="clr-namespace:AiLaTrieuPhu.Utilities"
              mc:Ignorable="d" 
-             Background="{StaticResource PrimaryBackgroundBrush}">
+             Background="{StaticResource MainBackgroundGradient}">
 
     <UserControl.Resources>
         <util:IndexToCommandParameterConverter x:Key="IndexConverter"/>
@@ -19,27 +20,138 @@
         <util:IndexToVisibilityConverter x:Key="IndexToVisibilityConverter"/>
         <util:AnswerColorConverter x:Key="AnswerColorConverter"/>
 
+        <!-- Lifeline image base style -->
         <Style x:Key="LifelineImageStyle" TargetType="Image">
-            <Setter Property="Width" Value="40"/>
-            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="34"/>
+            <Setter Property="Height" Value="34"/>
             <Setter Property="Stretch" Value="Uniform"/>
         </Style>
 
-        <Style x:Key="LifelineButtonStyle" TargetType="Button" BasedOn="{StaticResource MenuButtonStyle}">
-            <Setter Property="Width" Value="50"/>
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Margin" Value="5,0"/>
-            <Setter Property="Padding" Value="5"/>
+        <!-- Lifeline button: circular, glowing -->
+        <Style x:Key="LifelineButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="62"/>
+            <Setter Property="Height" Value="62"/>
+            <Setter Property="Margin" Value="6,0"/>
+            <Setter Property="Padding" Value="6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="LifelineBorder"
+                                CornerRadius="31"
+                                BorderThickness="2"
+                                Padding="{TemplateBinding Padding}">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="#FF1A1A4A" Offset="0"/>
+                                    <GradientStop Color="#FF0A0A28" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.BorderBrush>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#FFFF8C00" Offset="0"/>
+                                    <GradientStop Color="#FFFFD700" Offset="0.5"/>
+                                    <GradientStop Color="#FFFF8C00" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.BorderBrush>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#FFD700" BlurRadius="18" ShadowDepth="0" Opacity="0.85"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.92" ScaleY="0.92"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.3"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
+        <!-- Answer text style -->
         <Style x:Key="AnswerTextStyle" TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontSize" Value="21"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
-            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Padding" Value="4"/>
         </Style>
+
+        <!-- Popup card style -->
+        <Style x:Key="PopupCardStyle" TargetType="Border">
+            <Setter Property="CornerRadius" Value="16"/>
+            <Setter Property="Padding" Value="40,32"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#000000" BlurRadius="60" ShadowDepth="0" Opacity="0.7"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF151540" Offset="0"/>
+                        <GradientStop Color="#FF0A0A28" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FFFF8C00" Offset="0"/>
+                        <GradientStop Color="#FFFFD700" Offset="0.5"/>
+                        <GradientStop Color="#FFFF8C00" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Popup title style -->
+        <Style x:Key="PopupTitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Black"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,24"/>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#FFFF8C00" Offset="0"/>
+                        <GradientStop Color="#FFFFD700" Offset="0.5"/>
+                        <GradientStop Color="#FFFF8C00" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#FFD700" BlurRadius="16" ShadowDepth="0" Opacity="0.6"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </UserControl.Resources>
 
     <Grid Margin="10">
@@ -48,43 +160,94 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Margin="20,10">
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- LEFT PANEL: Game Area                               -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <Grid Grid.Column="0" Margin="16,10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Margin="0,0,0,20">
+            <!-- ─── Row 0: Top bar (portraits + controls + lifelines) ─── -->
+            <Grid Grid.Row="0" Margin="0,0,0,16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.5*"/>
                     <ColumnDefinition Width="4*"/>
                     <ColumnDefinition Width="1.5*"/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Player portrait -->
                 <StackPanel Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <Border BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" Width="180" Height="180" CornerRadius="10">
-                        <Image Source="/Assets/Image/Nguoi_choi.png" Stretch="UniformToFill"/>
+                    <Border Width="160" Height="160" CornerRadius="12">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFFF8C00" Offset="0"/>
+                                <GradientStop Color="#FFFFD700" Offset="0.5"/>
+                                <GradientStop Color="#FFFF8C00" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <Border.BorderThickness>2</Border.BorderThickness>
+                        <Border.Effect>
+                            <DropShadowEffect Color="#FFD700" BlurRadius="16" ShadowDepth="0" Opacity="0.4"/>
+                        </Border.Effect>
+                        <Border CornerRadius="10" ClipToBounds="True">
+                            <Image Source="/Assets/Image/Nguoi_choi.png" Stretch="UniformToFill"/>
+                        </Border>
                     </Border>
+                    <TextBlock Text="NGƯỜI CHƠI" 
+                               FontSize="11" FontWeight="Bold" FontFamily="Segoe UI"
+                               Foreground="{StaticResource AccentGoldBrush}"
+                               HorizontalAlignment="Center" Margin="0,6,0,0"
+                               Opacity="0.8"/>
                 </StackPanel>
 
+                <!-- Center controls -->
                 <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,15">
-                        <Button Content="Thoát game" Command="{Binding SaveAndExitCommand}" Style="{StaticResource MenuButtonStyle}" Width="150" Height="40"/>
-                        <Button Content="TỪ BỎ" Command="{Binding QuitGameCommand}" Style="{StaticResource MenuButtonStyle}" Background="{StaticResource ErrorRedBrush}" Width="100" Margin="10,0" Height="40"/>
+                    <!-- Action buttons row -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,4,0,12">
+                        <Button Content="💾 Lưu &amp; Thoát" 
+                                Command="{Binding SaveAndExitCommand}" 
+                                Style="{StaticResource MenuButtonStyle}" 
+                                Width="160" Height="40" FontSize="15"/>
+                        <Button Content="🚫 TỪ BỎ" 
+                                Command="{Binding QuitGameCommand}" 
+                                Style="{StaticResource DangerButtonStyle}" 
+                                Width="110" Margin="10,0,0,0" Height="40" FontSize="15"/>
                     </StackPanel>
 
-                    <Border BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" CornerRadius="15" Padding="10" Margin="0,80,0,10">
+                    <!-- Status message -->
+                    <Border CornerRadius="12" Padding="16,10" Margin="10,50,10,10">
+                        <Border.Background>
+                            <SolidColorBrush Color="#AA111136"/>
+                        </Border.Background>
+                        <Border.BorderBrush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#66FF8C00" Offset="0"/>
+                                <GradientStop Color="#66FFD700" Offset="0.5"/>
+                                <GradientStop Color="#66FF8C00" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <Border.BorderThickness>1</Border.BorderThickness>
                         <TextBlock Text="{Binding GameStatusMessage}" 
-                                   Foreground="White" TextWrapping="Wrap" 
-                                   HorizontalAlignment="Center" TextAlignment="Center"
-                                   FontWeight="SemiBold" FontSize="18"/>
+                                   Foreground="White" 
+                                   TextWrapping="Wrap" 
+                                   HorizontalAlignment="Center" 
+                                   TextAlignment="Center"
+                                   FontFamily="Segoe UI"
+                                   FontWeight="SemiBold" 
+                                   FontSize="17"/>
                     </Border>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <!-- Lifeline buttons -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
 
-                        <Button Command="{Binding Use5050Command}" IsEnabled="{Binding Is5050Enabled}" Style="{StaticResource LifelineButtonStyle}">
+                        <Button Command="{Binding Use5050Command}" 
+                                IsEnabled="{Binding Is5050Enabled}" 
+                                Style="{StaticResource LifelineButtonStyle}"
+                                ToolTipService.ToolTip="50:50 - Loại bỏ 2 đáp án sai">
                             <Image>
                                 <Image.Style>
                                     <Style TargetType="Image" BasedOn="{StaticResource LifelineImageStyle}">
@@ -99,7 +262,10 @@
                             </Image>
                         </Button>
 
-                        <Button Command="{Binding UseCallCommand}" IsEnabled="{Binding IsCallingEnabled}" Style="{StaticResource LifelineButtonStyle}">
+                        <Button Command="{Binding UseCallCommand}" 
+                                IsEnabled="{Binding IsCallingEnabled}" 
+                                Style="{StaticResource LifelineButtonStyle}"
+                                ToolTipService.ToolTip="Gọi điện cho người thân">
                             <Image>
                                 <Image.Style>
                                     <Style TargetType="Image" BasedOn="{StaticResource LifelineImageStyle}">
@@ -114,7 +280,10 @@
                             </Image>
                         </Button>
 
-                        <Button Command="{Binding UseAudienceCommand}" IsEnabled="{Binding IsAudienceEnabled}" Style="{StaticResource LifelineButtonStyle}">
+                        <Button Command="{Binding UseAudienceCommand}" 
+                                IsEnabled="{Binding IsAudienceEnabled}" 
+                                Style="{StaticResource LifelineButtonStyle}"
+                                ToolTipService.ToolTip="Hỏi ý kiến khán giả">
                             <Image>
                                 <Image.Style>
                                     <Style TargetType="Image" BasedOn="{StaticResource LifelineImageStyle}">
@@ -129,9 +298,11 @@
                             </Image>
                         </Button>
 
-                        <Button Command="{Binding UseConsultancyCommand}" IsEnabled="{Binding IsToTuVanEnabled}" 
-                            Style="{StaticResource LifelineButtonStyle}"
-                            Visibility="{Binding IsConsultancyVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <Button Command="{Binding UseConsultancyCommand}" 
+                                IsEnabled="{Binding IsToTuVanEnabled}" 
+                                Style="{StaticResource LifelineButtonStyle}"
+                                Visibility="{Binding IsConsultancyVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                                ToolTipService.ToolTip="Tư vấn tại chỗ">
                             <Image>
                                 <Image.Style>
                                     <Style TargetType="Image" BasedOn="{StaticResource LifelineImageStyle}">
@@ -145,23 +316,73 @@
                                 </Image.Style>
                             </Image>
                         </Button>
+
                     </StackPanel>
                 </StackPanel>
 
+                <!-- Host portrait -->
                 <StackPanel Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <Border BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" Width="180" Height="180" CornerRadius="10">
-                        <Image Source="/Assets/Image/Lai_Van_Sam.png" Stretch="UniformToFill"/>
+                    <Border Width="160" Height="160" CornerRadius="12">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFFF8C00" Offset="0"/>
+                                <GradientStop Color="#FFFFD700" Offset="0.5"/>
+                                <GradientStop Color="#FFFF8C00" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <Border.BorderThickness>2</Border.BorderThickness>
+                        <Border.Effect>
+                            <DropShadowEffect Color="#FFD700" BlurRadius="16" ShadowDepth="0" Opacity="0.4"/>
+                        </Border.Effect>
+                        <Border CornerRadius="10" ClipToBounds="True">
+                            <Image Source="/Assets/Image/Lai_Van_Sam.png" Stretch="UniformToFill"/>
+                        </Border>
                     </Border>
+                    <TextBlock Text="LẠI VĂN SÂM" 
+                               FontSize="11" FontWeight="Bold" FontFamily="Segoe UI"
+                               Foreground="{StaticResource AccentGoldBrush}"
+                               HorizontalAlignment="Center" Margin="0,6,0,0"
+                               Opacity="0.8"/>
                 </StackPanel>
             </Grid>
 
-            <Border Grid.Row="1" BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="2" CornerRadius="15" Margin="0,20" Padding="20">
+            <!-- ─── Row 1: Question Box ─── -->
+            <Border Grid.Row="1" CornerRadius="14" Margin="0,8" Padding="24,18">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF1A1650" Offset="0"/>
+                        <GradientStop Color="#FF0A0A30" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#FFFF8C00" Offset="0"/>
+                        <GradientStop Color="#FFFFD700" Offset="0.35"/>
+                        <GradientStop Color="#FFFFD700" Offset="0.65"/>
+                        <GradientStop Color="#FFFF8C00" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Border.BorderThickness>2</Border.BorderThickness>
+                <Border.Effect>
+                    <DropShadowEffect Color="#FFD700" BlurRadius="24" ShadowDepth="0" Opacity="0.25"/>
+                </Border.Effect>
                 <TextBlock Text="{Binding CurrentQuestion.QuestionText}" 
-                           Foreground="White" FontSize="32" TextWrapping="Wrap" 
-                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                           Foreground="White" 
+                           FontSize="28" 
+                           FontFamily="Segoe UI"
+                           FontWeight="SemiBold"
+                           TextWrapping="Wrap" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#000033" BlurRadius="4" ShadowDepth="1" Opacity="0.6"/>
+                    </TextBlock.Effect>
+                </TextBlock>
             </Border>
 
-            <Grid Grid.Row="2">
+            <!-- ─── Row 2: Answer Buttons ─── -->
+            <Grid Grid.Row="2" Margin="0,4">
                 <ItemsControl ItemsSource="{Binding CurrentQuestion.Options}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -182,7 +403,7 @@
                         <Style TargetType="ContentPresenter">
                             <Setter Property="Grid.Row" Value="{Binding RelativeSource={RelativeSource Self}, Path=(ItemsControl.AlternationIndex), Converter={StaticResource IndexToRowConverter}}"/>
                             <Setter Property="Grid.Column" Value="{Binding RelativeSource={RelativeSource Self}, Path=(ItemsControl.AlternationIndex), Converter={StaticResource IndexToColumnConverter}}"/>
-                            <Setter Property="Margin" Value="10"/>
+                            <Setter Property="Margin" Value="6,6"/>
                         </Style>
                     </ItemsControl.ItemContainerStyle>
 
@@ -193,25 +414,22 @@
                             <Button 
                                 Style="{StaticResource AnswerButtonStyle}"
                                 HorizontalAlignment="Stretch"
-                
                                 Command="{Binding DataContext.AnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                                 IsEnabled="{Binding DataContext.IsAnswerPhase, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
 
-                                <StackPanel Margin="5">
+                                <StackPanel Margin="6">
                                     <TextBlock Text="{Binding}" 
-                                        TextWrapping="Wrap" 
-                                        TextAlignment="Center" 
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        Style="{StaticResource AnswerTextStyle}"/>
+                                               TextWrapping="Wrap" 
+                                               TextAlignment="Center" 
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Style="{StaticResource AnswerTextStyle}"/>
                                 </StackPanel>
-                                
+
                                 <Button.Visibility>
                                     <MultiBinding Converter="{StaticResource IndexToVisibilityConverter}">
-
                                         <Binding Path="DataContext.CurrentQuestion.IsOptionHidden" 
-                                            RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
-
+                                                 RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
                                         <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPresenter}}"/>
                                     </MultiBinding>
                                 </Button.Visibility>
@@ -229,216 +447,440 @@
             </Grid>
         </Grid>
 
-        <Border Grid.Column="1" Margin="10" BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" CornerRadius="10">
-            <ListBox ItemsSource="{Binding PrizeLadderDisplay}" 
-                     Background="Transparent" BorderThickness="0" 
-                     HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Setter Property="Foreground" Value="White"/>
-                        <Setter Property="FontSize" Value="20"/>
-                        <Setter Property="Padding" Value="5"/>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- RIGHT PANEL: Prize Ladder                           -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <Border Grid.Column="1" Margin="6,10,10,10" CornerRadius="14">
+            <Border.Background>
+                <SolidColorBrush Color="#CC0D0D28"/>
+            </Border.Background>
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFFF8C00" Offset="0"/>
+                    <GradientStop Color="#66FFD700" Offset="0.5"/>
+                    <GradientStop Color="#FFFF8C00" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.BorderThickness>1.5</Border.BorderThickness>
 
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsCurrent}" Value="True">
-                                <Setter Property="Foreground" Value="{StaticResource AccentGoldBrush}"/>
-                                <Setter Property="FontWeight" Value="Bold"/>
-                                <Setter Property="Background" Value="{StaticResource HoverBrush}"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding IsSafePoint}" Value="True">
-                                <Setter Property="Background" Value="{StaticResource SuccessGreenBrush}"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </ListBox.ItemContainerStyle>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                <!-- Prize ladder title -->
+                <Border Grid.Row="0" Padding="0,12" CornerRadius="12,12,0,0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#44FFD700" Offset="0"/>
+                            <GradientStop Color="#00000000" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <TextBlock Text="🏆 BẢNG THƯỞNG" 
+                               FontSize="13" FontWeight="Bold" FontFamily="Segoe UI"
+                               Foreground="{StaticResource AccentGoldBrush}"
+                               HorizontalAlignment="Center"/>
+                </Border>
 
-                            <TextBlock Grid.Column="0" Text="{Binding IsAnswered, Converter={StaticResource BoolToDiamondConverter}}" 
-                                       Margin="0,0,10,0"/>
+                <ListBox Grid.Row="1"
+                         ItemsSource="{Binding PrizeLadderDisplay}" 
+                         Background="Transparent" 
+                         BorderThickness="0" 
+                         HorizontalContentAlignment="Stretch" 
+                         VerticalAlignment="Top">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="{StaticResource SecondaryTextBrush}"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="FontFamily" Value="Segoe UI"/>
+                            <Setter Property="Padding" Value="10,5"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,0.5"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                                    <Setter Property="Foreground" Value="{StaticResource AccentGoldBrush}"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                    <Setter Property="FontSize" Value="16"/>
+                                    <Setter Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                                <GradientStop Color="#55FFD700" Offset="0"/>
+                                                <GradientStop Color="#22FFD700" Offset="0.5"/>
+                                                <GradientStop Color="#55FFD700" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect Color="#FFD700" BlurRadius="8" ShadowDepth="0" Opacity="0.5"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsSafePoint}" Value="True">
+                                    <Setter Property="Background">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="#2200C853"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="{StaticResource SuccessGreenBrush}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
 
-                            <TextBlock Grid.Column="1" Text="{Binding QuestionNumber, StringFormat={}{0}. }" 
-                                       HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,1" RenderTransformOrigin="0.5,0.5">
+                                <Grid.RenderTransform>
+                                    <ScaleTransform x:Name="GridScale" ScaleX="1" ScaleY="1"/>
+                                </Grid.RenderTransform>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                            <TextBlock Grid.Column="2" Text="{Binding PrizeAmount, StringFormat={}{0:N0} VNĐ}" 
-                                        HorizontalAlignment="Right"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                                <TextBlock x:Name="DiamondIcon" Grid.Column="0" 
+                                           Text="🔶" 
+                                           Margin="0,0,6,0"
+                                           FontSize="11"
+                                           VerticalAlignment="Center"
+                                           RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <TranslateTransform x:Name="DiamondTranslate" X="-15"/>
+                                    </TextBlock.RenderTransform>
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Opacity" Value="0"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                                <TextBlock Grid.Column="1" 
+                                           Text="{Binding QuestionNumber, StringFormat={}{0}.}" 
+                                           HorizontalAlignment="Left" 
+                                           FontWeight="SemiBold"
+                                           MinWidth="22"/>
+
+                                <TextBlock Grid.Column="2" 
+                                           Text="{Binding PrizeAmount, StringFormat={}{0:N0} VNĐ}" 
+                                           HorizontalAlignment="Right"
+                                           FontSize="13"/>
+                            </Grid>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="GridScale" Storyboard.TargetProperty="ScaleX" From="0.95" To="1.03" Duration="0:0:0.15" AutoReverse="True"/>
+                                                <DoubleAnimation Storyboard.TargetName="GridScale" Storyboard.TargetProperty="ScaleY" From="0.95" To="1.03" Duration="0:0:0.15" AutoReverse="True"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsAnswered}" Value="True">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="DiamondIcon" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3"/>
+                                                <DoubleAnimation Storyboard.TargetName="DiamondTranslate" Storyboard.TargetProperty="X" From="-15" To="0" Duration="0:0:0.4">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <BackEase EasingMode="EaseOut" Amplitude="0.5"/>
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
         </Border>
 
-        <Border Grid.Column="1" Margin="10" BorderBrush="{StaticResource AccentGoldBrush}" BorderThickness="1" CornerRadius="10">
-            </Border>
-
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- POPUP: Expert Selection                                     -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
         <Border Grid.ColumnSpan="2" 
-                Background="#CC000000"  
+                Background="{StaticResource OverlayDarkBrush}"
                 Visibility="{Binding IsExpertSelectionVisible, Converter={StaticResource BoolToVisibilityConverter}}"
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
-            <StackPanel Width="400" 
-                        Background="{StaticResource PrimaryBackgroundBrush}" 
-                        VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Style="{StaticResource PopupCardStyle}" Width="460">
+                <StackPanel>
+                    <TextBlock Text="CHỌN CHUYÊN GIA / NGƯỜI THÂN" 
+                               Style="{StaticResource PopupTitleStyle}"/>
 
-                <TextBlock Text="Chọn Chuyên Gia/Người Thân" 
-                           FontSize="24" Foreground="{StaticResource AccentGoldBrush}" 
-                           HorizontalAlignment="Center" Margin="0,0,0,15"/>
-
-                <ItemsControl ItemsSource="{Binding Experts}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button Content="{Binding Name}" 
-                                    Command="{Binding DataContext.SelectExpertAndGetAnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                    CommandParameter="{Binding}"
-                                    Margin="0,5" Style="{StaticResource MenuButtonStyle}" Height="50"
-                                    ToolTipService.ToolTip="{Binding Specialty}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
+                    <ItemsControl ItemsSource="{Binding Experts}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding Name}" 
+                                        Command="{Binding DataContext.SelectExpertAndGetAnswerCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                        CommandParameter="{Binding}"
+                                        Margin="0,6" 
+                                        Style="{StaticResource MenuButtonStyle}" 
+                                        Height="52" Width="380"
+                                        ToolTipService.ToolTip="{Binding Specialty}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Border>
         </Border>
 
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- POPUP: Expert Answer                                        -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
         <Border Grid.ColumnSpan="2" 
-        Background="#D9000000"  Visibility="{Binding IsExpertAnswerVisible, Converter={StaticResource BoolToVisibilityConverter}}"
-        VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                Background="{StaticResource OverlayDarkBrush}"
+                Visibility="{Binding IsExpertAnswerVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
-            <StackPanel Width="600" 
-                Background="{StaticResource SecondaryBackgroundBrush}" 
-                VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Style="{StaticResource PopupCardStyle}" Width="640">
+                <StackPanel>
+                    <TextBlock Text="KẾT QUẢ TƯ VẤN TỪ CHUYÊN GIA" 
+                               Style="{StaticResource PopupTitleStyle}"/>
 
-                <TextBlock Text="KẾT QUẢ TƯ VẤN TỪ CHUYÊN GIA" 
-                   FontSize="30" 
-                   Foreground="{StaticResource AccentGoldBrush}" 
-                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                    <!-- Divider -->
+                    <Border Height="1" Margin="0,0,0,20" Opacity="0.5">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#00FFD700" Offset="0"/>
+                                <GradientStop Color="#FFFFD700" Offset="0.5"/>
+                                <GradientStop Color="#00FFD700" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
 
-                <TextBlock Text="{Binding SelectedExpert.ExpertAnswer}" 
-                   Foreground="White" 
-                   FontSize="22" 
-                   TextAlignment="Center" 
-                   TextWrapping="Wrap" 
-                   Margin="0,10,0,0"/>
-
-                <TextBlock Text="{Binding SelectedExpert.Name, StringFormat='- {0} -'}" 
-                   Foreground="{StaticResource PrimaryTextBrush}" 
-                   FontSize="18" 
-                   HorizontalAlignment="Right" 
-                   Margin="0,20,0,0"/>
-
-                <Button Content="Đã hiểu" 
-                Command="{Binding CloseExpertAnswerCommand}" 
-                Style="{StaticResource MenuButtonStyle}" 
-                Width="250" Height="50" Margin="0,30,0,0"/>
-
-            </StackPanel>
-        </Border>
-
-        <Border Grid.ColumnSpan="2" 
-        Background="#D9000000"  
-        Visibility="{Binding IsAudienceResultVisible, Converter={StaticResource BoolToVisibilityConverter}}"
-        VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-
-            <StackPanel Width="650" 
-                Background="{StaticResource SecondaryBackgroundBrush}" 
-                VerticalAlignment="Center" HorizontalAlignment="Center">
-
-                <TextBlock Text="KẾT QUẢ HỎI Ý KIẾN KHÁN GIẢ" 
-                   FontSize="30" 
-                   Foreground="{StaticResource AccentGoldBrush}" 
-                   HorizontalAlignment="Center" Margin="0,0,0,30"/>
-
-                <ItemsControl ItemsSource="{Binding CurrentAudienceResult.Results}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Width="120" Margin="10,0" VerticalAlignment="Bottom">
-                                <TextBlock Text="{Binding Percentage, StringFormat={}{0}%}" 
+                    <Border CornerRadius="10" Padding="20,16" Margin="0,0,0,16">
+                        <Border.Background>
+                            <SolidColorBrush Color="#221A1A50"/>
+                        </Border.Background>
+                        <TextBlock Text="{Binding SelectedExpert.ExpertAnswer}" 
                                    Foreground="White" 
-                                   HorizontalAlignment="Center"
-                                   FontWeight="SemiBold" Margin="0,0,0,5"/>
+                                   FontSize="21" 
+                                   FontFamily="Segoe UI"
+                                   TextAlignment="Center" 
+                                   TextWrapping="Wrap"/>
+                    </Border>
 
-                                <Border Background="{StaticResource SuccessGreenBrush}" 
-                                CornerRadius="5,5,0,0" 
-                                Height="{Binding Percentage}">
-                                </Border>
+                    <TextBlock Text="{Binding SelectedExpert.Name, StringFormat='— {0} —'}" 
+                               Foreground="{StaticResource SecondaryTextBrush}" 
+                               FontSize="16" 
+                               FontStyle="Italic"
+                               FontFamily="Segoe UI"
+                               HorizontalAlignment="Right" 
+                               Margin="0,0,0,24"/>
 
-                                <TextBlock Text="{Binding OptionLetter}" 
-                                   Foreground="{StaticResource AccentGoldBrush}" 
-                                   FontSize="20" 
-                                   HorizontalAlignment="Center" Margin="0,10,0,0"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-
-                <Button Content="Đã xem" 
-                Command="{Binding CloseAudienceResultCommand}" 
-                Style="{StaticResource MenuButtonStyle}" 
-                Width="250" Height="50" Margin="0,40,0,0"/>
-
-            </StackPanel>
+                    <Button Content="✓ Đã Hiểu" 
+                            Command="{Binding CloseExpertAnswerCommand}" 
+                            Style="{StaticResource MenuButtonStyle}" 
+                            Width="260" Height="52" Margin="0,0,0,0"
+                            HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
         </Border>
 
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- POPUP: Audience Poll Result                                 -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
         <Border Grid.ColumnSpan="2" 
-        Background="#D9000000"  
-        Visibility="{Binding IsConsultantResultVisible, Converter={StaticResource BoolToVisibilityConverter}}"
-        VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                Background="{StaticResource OverlayDarkBrush}"
+                Visibility="{Binding IsAudienceResultVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
-            <StackPanel Width="700" 
-                Background="{StaticResource SecondaryBackgroundBrush}" 
-                VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Style="{StaticResource PopupCardStyle}" Width="960">
+                <StackPanel>
+                    <TextBlock Text="KẾT QUẢ HỎI Ý KIẾN KHÁN GIẢ" 
+                               Style="{StaticResource PopupTitleStyle}"/>
 
-                <TextBlock Text="KẾT QUẢ TƯ VẤN TẠI CHỖ" 
-                   FontSize="30" 
-                   Foreground="{StaticResource AccentGoldBrush}" 
-                   HorizontalAlignment="Center" Margin="0,0,0,30"/>
+                    <Border Height="1" Margin="0,0,0,20" Opacity="0.4">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#00FFD700" Offset="0"/>
+                                <GradientStop Color="#FFFFD700" Offset="0.5"/>
+                                <GradientStop Color="#00FFD700" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
 
-                <ItemsControl ItemsSource="{Binding Consultants}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="{StaticResource AccentGoldBrush}" 
-                            BorderThickness="1" Padding="15" Margin="0,5" CornerRadius="8">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="2*"/>
-                                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
 
-                                    <TextBlock Grid.Column="0" 
-                                       Text="{Binding Name}" 
-                                       Foreground="{StaticResource SuccessGreenBrush}" 
-                                       FontSize="18" FontWeight="SemiBold"/>
+                        <!-- Audience icons grid -->
+                        <ItemsControl Grid.Column="0" ItemsSource="{Binding DummyAudiences}" Margin="0,0,20,0">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="8"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Margin="3" CornerRadius="6" Height="42" Width="42">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Background" Value="#33FFFFFF"/>
+                                                <Setter Property="Effect">
+                                                    <Setter.Value>
+                                                        <DropShadowEffect Color="#000000" BlurRadius="4" ShadowDepth="1" Opacity="0.3"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsVoting}" Value="True">
+                                                        <Setter Property="Background">
+                                                            <Setter.Value>
+                                                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                                    <GradientStop Color="#FF00C853" Offset="0"/>
+                                                                    <GradientStop Color="#FF007A2F" Offset="1"/>
+                                                                </LinearGradientBrush>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Setter Property="Effect">
+                                                            <Setter.Value>
+                                                                <DropShadowEffect Color="#00C853" BlurRadius="8" ShadowDepth="0" Opacity="0.6"/>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <Path Data="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" 
+                                              Fill="White" Stretch="Uniform" Margin="8"/>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
 
-                                    <TextBlock Grid.Column="2" 
-                                       Text="{Binding ConsultantAnswer}" 
-                                       Foreground="{StaticResource PrimaryTextBrush}" 
-                                       FontSize="18" TextAlignment="Right"/>
+                        <!-- Bar chart -->
+                        <ItemsControl Grid.Column="1" ItemsSource="{Binding CurrentAudienceResult.Results}" VerticalAlignment="Bottom">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Width="70" Margin="6,0" VerticalAlignment="Bottom">
+                                        <TextBlock Text="{Binding Percentage, StringFormat={}{0}%}" 
+                                                   Foreground="White" 
+                                                   HorizontalAlignment="Center"
+                                                   FontSize="15"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI"
+                                                   Margin="0,0,0,5"
+                                                   Visibility="{Binding DataContext.IsAudienceVotingCompleted, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                                        <Border CornerRadius="6,6,0,0" Height="{Binding DisplayHeight}">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                    <GradientStop Color="#FF00E676" Offset="0"/>
+                                                    <GradientStop Color="#FF00C853" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                            <Border.Effect>
+                                                <DropShadowEffect Color="#00C853" BlurRadius="10" ShadowDepth="0" Opacity="0.7"/>
+                                            </Border.Effect>
+                                        </Border>
 
-                <Button Content="Đã xem" 
-                Command="{Binding CloseConsultantResultCommand}" 
-                Style="{StaticResource MenuButtonStyle}" 
-                Width="250" Height="50" Margin="0,40,0,0"/>
+                                        <TextBlock Text="{Binding OptionLetter}" 
+                                                   Foreground="{StaticResource AccentGoldBrush}" 
+                                                   FontSize="18" 
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI"
+                                                   HorizontalAlignment="Center" 
+                                                   Margin="0,6,0,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
 
-            </StackPanel>
+                    <Button Content="✓ Đã Xem" 
+                            Command="{Binding CloseAudienceResultCommand}" 
+                            Style="{StaticResource MenuButtonStyle}" 
+                            Width="260" Height="52" Margin="0,28,0,0"
+                            HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
         </Border>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- POPUP: Consultancy Result                                   -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <Border Grid.ColumnSpan="2" 
+                Background="{StaticResource OverlayDarkBrush}"
+                Visibility="{Binding IsConsultantResultVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+            <Border Style="{StaticResource PopupCardStyle}" Width="740">
+                <StackPanel>
+                    <TextBlock Text="KẾT QUẢ TƯ VẤN TẠI CHỖ" 
+                               Style="{StaticResource PopupTitleStyle}"/>
+
+                    <Border Height="1" Margin="0,0,0,20" Opacity="0.4">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#00FFD700" Offset="0"/>
+                                <GradientStop Color="#FFFFD700" Offset="0.5"/>
+                                <GradientStop Color="#00FFD700" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
+
+                    <ItemsControl ItemsSource="{Binding Consultants}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="10" Padding="18,14" Margin="0,6">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="#1A1A1A50"/>
+                                    </Border.Background>
+                                    <Border.BorderBrush>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#44FFD700" Offset="0"/>
+                                            <GradientStop Color="#22FFD700" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.BorderBrush>
+                                    <Border.BorderThickness>1</Border.BorderThickness>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Grid.Column="0" 
+                                                   Text="{Binding Name}" 
+                                                   Foreground="{StaticResource SuccessGreenBrush}" 
+                                                   FontSize="18" FontWeight="SemiBold"
+                                                   FontFamily="Segoe UI"
+                                                   VerticalAlignment="Center"/>
+
+                                        <TextBlock Grid.Column="2" 
+                                                   Text="{Binding ConsultantAnswer}" 
+                                                   Foreground="{StaticResource PrimaryTextBrush}" 
+                                                   FontSize="18" 
+                                                   FontFamily="Segoe UI"
+                                                   TextAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <Button Content="✓ Đã Xem" 
+                            Command="{Binding CloseConsultantResultCommand}" 
+                            Style="{StaticResource MenuButtonStyle}" 
+                            Width="260" Height="52" Margin="0,28,0,0"
+                            HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Border>
+
     </Grid>
 </UserControl>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +20,9 @@ namespace AiLaTrieuPhu.ViewModels
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(ContinueGameCommand))] // Liên kết với Command
         private bool _isContinueGameAvailable;
+
+        [ObservableProperty]
+        private bool _isStartingGame;
 
         // BỔ SUNG: Thuộc tính này sẽ lấy giá trị từ MainViewModel để hiển thị
         public string StatusMessage => _mainNavigator.StatusMessage;
@@ -65,7 +68,14 @@ namespace AiLaTrieuPhu.ViewModels
         }
 
         [RelayCommand]
-        private async Task StartGame() => await _mainNavigator.StartNewGameAsync();
+        private async Task StartGame()
+        {
+            if (IsStartingGame) return;
+            IsStartingGame = true;
+            await Task.Delay(2000); // Wait for blink animation
+            await _mainNavigator.StartNewGameAsync();
+            IsStartingGame = false;
+        }
 
         [RelayCommand]
         private void OpenSettings() => _mainNavigator.NavigateToSettings();

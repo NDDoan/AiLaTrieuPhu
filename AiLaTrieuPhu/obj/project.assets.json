@@ -1,7 +1,7 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
-    "net8.0-windows7.0": {
+    "net8.0-windows": {
       "Argon/0.28.0": {
         "type": "package",
         "compile": {
@@ -473,29 +473,29 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": [
+    "net8.0-windows": [
       "CommunityToolkit.Mvvm >= 8.4.0",
       "Verify.CommunityToolkit.Mvvm >= 1.1.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
+    "C:\\Users\\kamek\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\AiLaTrieuPhu.csproj",
+      "projectUniqueName": "C:\\Users\\kamek\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\AiLaTrieuPhu.csproj",
       "projectName": "AiLaTrieuPhu",
-      "projectPath": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\AiLaTrieuPhu.csproj",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\obj\\",
+      "projectPath": "C:\\Users\\kamek\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\AiLaTrieuPhu.csproj",
+      "packagesPath": "C:\\Users\\kamek\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kamek\\source\\repos\\WhoIsMillionareGame\\AiLaTrieuPhu\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kamek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -507,7 +507,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0-windows7.0": {
+        "net8.0-windows": {
+          "framework": "net8.0-windows7.0",
           "targetAlias": "net8.0-windows",
           "projectReferences": {}
         }
@@ -522,10 +523,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
-      "net8.0-windows7.0": {
+      "net8.0-windows": {
+        "framework": "net8.0-windows7.0",
         "targetAlias": "net8.0-windows",
         "dependencies": {
           "CommunityToolkit.Mvvm": {
@@ -556,7 +558,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

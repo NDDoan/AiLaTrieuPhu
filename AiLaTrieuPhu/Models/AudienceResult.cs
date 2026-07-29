@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,7 +13,11 @@ namespace AiLaTrieuPhu.Models
     {
         public string OptionLetter { get; set; } // A, B, C, D
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(DisplayHeight))]
         private double _percentage; // Tỷ lệ phần trăm (0-100)
+        
+        // Nhân tỷ lệ để thanh có chiều cao hiển thị rõ hơn (tối đa 250px thay vì 100px)
+        public double DisplayHeight => Percentage * 2.5;
     }
 
     public partial class AudienceResult : ObservableObject
