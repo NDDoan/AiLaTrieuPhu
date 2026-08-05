@@ -92,3 +92,11 @@ cơ bản sẽ được hoàn thiện hơn.
 Sắp tới đây tôi sẽ cố gắng thêm các tính năng quan trọng, vậy nên hãy theo dõi tôi để có trải nghiệm tốt nhất nhé!
 
 ========================== WHO WANT TO BE A MILLIONARE ==========================
+Ngày 5-8-2026:
+	Bản cập nhật ALTP v1.9.0 FireWorks đã được phát hành với những tính năng mới như sau:
+- Cập nhật cơ chế pháo hoa khi chiến thắng trò chơi, giờ đây bạn sẽ được thưởng thức những màn pháo hoa đẹp mắt.
+- Sửa một số lỗi vặt
+
+Sắp tới đây tôi sẽ cố gắng thêm các tính năng quan trọng, vậy nên hãy theo dõi tôi để có trải nghiệm tốt nhất nhé!
+
+========================== WHO WANT TO BE A MILLIONARE ==========================

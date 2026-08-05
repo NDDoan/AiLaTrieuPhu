@@ -16,6 +16,7 @@ namespace AiLaTrieuPhu.ViewModels
     {
         private readonly MainViewModel _mainNavigator;
         private readonly SaveGameService _saveService;
+        private readonly AudioService _audioService;
 
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(ContinueGameCommand))] // Liên kết với Command
@@ -27,10 +28,14 @@ namespace AiLaTrieuPhu.ViewModels
         // BỔ SUNG: Thuộc tính này sẽ lấy giá trị từ MainViewModel để hiển thị
         public string StatusMessage => _mainNavigator.StatusMessage;
 
-        public MenuViewModel(MainViewModel mainNavigator, SaveGameService saveService)
+        public bool IsMillionaireCelebration => !string.IsNullOrEmpty(StatusMessage) && StatusMessage.StartsWith("Bạn là Triệu Phú!");
+
+
+        public MenuViewModel(MainViewModel mainNavigator, SaveGameService saveService, AudioService audioService)
         {
             _mainNavigator = mainNavigator;
             _saveService = saveService;
+            _audioService = audioService;
 
             // Đăng ký lắng nghe từ MainViewModel
             _mainNavigator.PropertyChanged += MainNavigator_PropertyChanged;
@@ -64,6 +69,12 @@ namespace AiLaTrieuPhu.ViewModels
             {
                 // Thông báo cho MenuScreen rằng StatusMessage của chính nó đã thay đổi
                 OnPropertyChanged(nameof(StatusMessage));
+                OnPropertyChanged(nameof(IsMillionaireCelebration));
+                
+                if (IsMillionaireCelebration)
+                {
+                    _audioService.PlaySFX("SFX/Ban_phao_hoa.mp3");
+                }
             }
         }
 

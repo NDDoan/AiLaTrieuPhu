@@ -608,7 +608,7 @@
                 Visibility="{Binding IsExpertSelectionVisible, Converter={StaticResource BoolToVisibilityConverter}}"
                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
-            <Border Style="{StaticResource PopupCardStyle}" Width="460">
+            <Border Style="{StaticResource PopupCardStyle}" Width="580">
                 <StackPanel>
                     <TextBlock Text="CHỌN CHUYÊN GIA / NGƯỜI THÂN" 
                                Style="{StaticResource PopupTitleStyle}"/>
@@ -621,7 +621,7 @@
                                         CommandParameter="{Binding}"
                                         Margin="0,6" 
                                         Style="{StaticResource MenuButtonStyle}" 
-                                        Height="52" Width="380"
+                                        Height="52" Width="480"
                                         ToolTipService.ToolTip="{Binding Specialty}"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

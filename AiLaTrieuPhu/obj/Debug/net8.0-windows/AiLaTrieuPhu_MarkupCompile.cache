@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\App.xaml
-81774130194
-651720085819
-39-844483800
+9476010089
+102-838965454
+401787529241
 206999471199
-Resources\AnimationStyles.xaml;Resources\ButtonStyles.xaml;Resources\Colors.xaml;Resources\Fonts.xaml;Views\GameScreen.xaml;Views\MainWindow.xaml;Views\MenuScreen.xaml;Views\SettingsControl.xaml;
+Resources\AnimationStyles.xaml;Resources\ButtonStyles.xaml;Resources\Colors.xaml;Resources\Fonts.xaml;Views\FireworkEffectControl.xaml;Views\GameScreen.xaml;Views\MainWindow.xaml;Views\MenuScreen.xaml;Views\SettingsControl.xaml;
 
 False
 

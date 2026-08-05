@@ -276,10 +276,16 @@ namespace AiLaTrieuPhu.ViewModels
 
                 await _audioService.PlayVAAsync($"VA/Answer/dolacautraloidung.mp3");
 
-                // Đợi nhấp nháy đáp án đúng rồi hiện tiền thưởng
                 await Task.Delay(2500); 
                 long prizeAmount = StaticPrizeLadder[CurrentGameStatus.CurrentQuestionIndex + 1];
-                CurrentQuestion.QuestionText = $"BẠN ĐÃ GIÀNH ĐƯỢC:\n{prizeAmount:N0} VNĐ";
+                if (CurrentGameStatus.CurrentQuestionIndex == 14)
+                {
+                    CurrentQuestion.QuestionText = $"CHÚC MỪNG BẠN ĐÃ TRỞ THÀNH TRIỆU PHÚ!\n{prizeAmount:N0} VNĐ";
+                }
+                else
+                {
+                    CurrentQuestion.QuestionText = $"BẠN ĐÃ GIÀNH ĐƯỢC:\n{prizeAmount:N0} VNĐ";
+                }
                 
                 // Đợi để người chơi xem tiền thưởng
                 await Task.Delay(3500);
@@ -517,7 +523,9 @@ namespace AiLaTrieuPhu.ViewModels
             UseCallCommand.NotifyCanExecuteChanged(); // Cập nhật trạng thái nút bấm trợ giúp
 
             // 2. TÍNH TOÁN TỈ LỆ THÀNH CÔNG ĐỘNG
-            int currentLevel = CurrentQuestion.Level;
+            // Lỗi logic: CurrentQuestion.Level luôn bằng 0 do thiếu trường level trong file JSON.
+            // Giải pháp: Sử dụng (CurrentGameStatus.CurrentQuestionIndex + 1) để luôn có level chính xác từ 1-15.
+            int currentLevel = CurrentGameStatus.CurrentQuestionIndex + 1;
             string currentCategory = CurrentQuestion.Category;
 
             // Gọi hàm tính toán xác suất mà chúng ta đã xây dựng trong Model CallExpert
@@ -589,7 +597,11 @@ namespace AiLaTrieuPhu.ViewModels
             if (CurrentQuestion == null || CurrentGameStatus.IsKhanGiaUsed) return;
 
             IsAnswerPhase = false;
-            // Phát âm thanh khán giả (dùng PlaySFX vì đây là file SFX, không phải VA)
+            
+            // 1. Chờ MC đọc thoại xong
+            await _audioService.PlayVAAsync("VA/Help/dunghoiykienkhangiatrongtruongquay.mp3");
+
+            // 2. Mới bắt đầu phát âm thanh nền khán giả (không await)
             _audioService.PlaySFX("SFX/Help/hoiykienkhangiatrongtruongquay.mp3");
 
             CurrentGameStatus.IsKhanGiaUsed = true;
@@ -628,10 +640,10 @@ namespace AiLaTrieuPhu.ViewModels
                 foreach (var da in DummyAudiences) da.IsVoting = false;
             }
 
-            // Giả lập khán giả đang bỏ phiếu (8 giây, cải thiện so với 15s cũ)
+            // Giả lập khán giả đang bỏ phiếu (kéo dài thời gian chạy chậm hơn một chút theo yêu cầu)
             // Dùng Task.Run để tránh block UI thread
-            const int totalVotingMs = 8000;
-            const int voteDelay = 120; // 120ms/frame ≈ 67 frames
+            const int totalVotingMs = 14000; // Tăng từ 8s lên 14s để chậm hơn và khớp với audio
+            const int voteDelay = 150; // Tăng delay giữa các frame để 100 người chọn chậm hơn
             int totalFrames = totalVotingMs / voteDelay;
             var unvotedIndices = Enumerable.Range(0, 48).ToList();
 

@@ -5,12 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converters="clr-namespace:AiLaTrieuPhu.Utilities"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:views="clr-namespace:AiLaTrieuPhu.Views"
              mc:Ignorable="d" 
              Background="{StaticResource MainBackgroundGradient}">
     <UserControl.Resources>
         <converters:IndexToRandomPosConverter x:Key="IndexToRandomPosConverter"/>
         <converters:CenterConverter x:Key="CenterConverter"/>
         <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
 
         <x:Array x:Key="NostalgiaImages" Type="System:String">
             <System:String>/AiLaTrieuPhu;component/Assets/Image/ALTP_Nostalgia_1.png</System:String>
@@ -217,6 +219,73 @@
                                Margin="0,24,0,0"/>
                 </StackPanel>
             </Border>
+        </Grid>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Millionaire Celebration Overlay                     -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <Grid Visibility="{Binding IsMillionaireCelebration, Converter={StaticResource BoolToVis}}"
+              IsHitTestVisible="False" Panel.ZIndex="100">
+            
+            <Border x:Name="CelebrationBg" Background="White" Opacity="0">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMillionaireCelebration}" Value="True">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.8" To="0" Duration="0:0:1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+            
+            <!-- Placeholder for fireworks, users can replace with a MediaElement or gif -->
+            <TextBlock x:Name="TrieuPhuText" Text="🎉 CHÚC MỪNG TRIỆU PHÚ! 🎉" 
+                       FontSize="48" FontWeight="Black" FontFamily="Segoe UI"
+                       Foreground="#FFFFD700" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,80,0,0"
+                       RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <ScaleTransform ScaleX="0" ScaleY="0"/>
+                </TextBlock.RenderTransform>
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#FF0000" BlurRadius="25" ShadowDepth="0" Opacity="1"/>
+                </TextBlock.Effect>
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMillionaireCelebration}" Value="True">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" From="0.1" To="1" Duration="0:0:1.5">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <ElasticEase EasingMode="EaseOut" Oscillations="4" Springiness="5"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" From="0.1" To="1" Duration="0:0:1.5">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <ElasticEase EasingMode="EaseOut" Oscillations="4" Springiness="5"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            
+            <!-- Firework Sprite Animation -->
+            <views:FireworkEffectControl IsActive="{Binding IsMillionaireCelebration}"
+                                         HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -18,6 +18,7 @@
     <None Remove="Assets\Audio\SFX\Answer\Tra_Loi_Sai_1_5.mp3" />
     <None Remove="Assets\Audio\SFX\Answer\Tra_Loi_Sai_Cau_15.mp3" />
     <None Remove="Assets\Audio\SFX\Answer\Tra_Loi_Sai_Cau_6_Den_14.mp3" />
+    <None Remove="Assets\Audio\SFX\Ban_phao_hoa.mp3" />
     <None Remove="Assets\Audio\SFX\Bat_Dau_Game.mp3" />
     <None Remove="Assets\Audio\SFX\Help\hoiykienkhangiatrongtruongquay.mp3" />
     <None Remove="Assets\Audio\SFX\Help\loaibo2phuongansai.mp3" />
@@ -71,6 +72,42 @@
     <None Remove="Assets\Image\KhanGiaused.png" />
     <None Remove="Assets\Image\Lai_Van_Sam.png" />
     <None Remove="Assets\Image\Nguoi_choi.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_00.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_01.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_02.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_03.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_04.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_05.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_06.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_07.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_08.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_09.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_10.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_11.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_12.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_13.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_14.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_15.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_16.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_17.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_18.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_19.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_20.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_21.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_22.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_23.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_24.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_25.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_26.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_27.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_28.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_29.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_30.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_31.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_32.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_33.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_34.png" />
+    <None Remove="Assets\Image\phao_hoa\fireworks_35.png" />
     <None Remove="Assets\Image\ToTuVan.png" />
     <None Remove="Assets\Image\ToTuVanused.png" />
   </ItemGroup>
@@ -104,6 +141,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Audio\SFX\Answer\Tra_Loi_Sai_Cau_6_Den_14.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\SFX\Ban_phao_hoa.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Audio\SFX\Bat_Dau_Game.mp3">
@@ -266,6 +306,114 @@
 
   <ItemGroup>
     <Content Include="Assets\Image\Callingused.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_00.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_04.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_05.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_06.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_07.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_08.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_09.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_17.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_18.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_19.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_21.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_22.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_23.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_24.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_25.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_26.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_27.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_28.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_29.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_30.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_31.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_32.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_33.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_34.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Image\phao_hoa\fireworks_35.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Image\ToTuVan.png">
