@@ -15,6 +15,8 @@ namespace AiLaTrieuPhu.ViewModels
         private readonly IQuestionDataService _questionService = new QuestionDataService();
         private readonly SettingsService _settingsService;
         private readonly AudioService _audioService;
+        private readonly AchievementService _achievementService = new AchievementService();
+        private readonly PlayerProfileService _playerProfileService = new PlayerProfileService();
 
         // Cần lưu trữ AppSettings đã tải
         private AppSettings _currentAppSettings;
@@ -37,6 +39,10 @@ namespace AiLaTrieuPhu.ViewModels
             _settingsService = new SettingsService();
 
             _currentAppSettings = _settingsService.LoadSettings() ?? new AppSettings();
+
+            // Tải dữ liệu thành tựu và profile người chơi bất đồng bộ
+            _ = _achievementService.LoadAsync();
+            _ = _playerProfileService.LoadAsync();
 
             NavigateToMenu();
         }
@@ -71,13 +77,18 @@ namespace AiLaTrieuPhu.ViewModels
             var status = await _saveService.LoadGameAsync();
             if (status != null)
             {
-                NavigateToGame(status);
+                NavigateToGame(status, true);
             }
         }
 
-        private void NavigateToGame(GameStatus status)
+        private void NavigateToGame(GameStatus status, bool isLoadedGame = false)
         {
-            CurrentViewModel = new GameViewModel(this, status, _saveService, _audioService);
+            CurrentViewModel = new GameViewModel(this, status, _saveService, _audioService, _achievementService, _playerProfileService, isLoadedGame);
+        }
+
+        public void NavigateToAchievements()
+        {
+            CurrentViewModel = new AchievementViewModel(this, _achievementService);
         }
 
         // Thêm hàm công khai để MainWindow.xaml.cs gọi sau khi đã gán Action

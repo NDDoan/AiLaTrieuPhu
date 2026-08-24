@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,5 +35,9 @@ namespace AiLaTrieuPhu.Models
         // Ta dùng string để dễ Binding với ComboBox của các lựa chọn (VD: 1920x1080)
         [ObservableProperty]
         private string _selectedResolution = "1280x720";
+
+        // 3. Các tính năng khác
+        [ObservableProperty]
+        private bool _isTimerVisible = true;
     }
 }

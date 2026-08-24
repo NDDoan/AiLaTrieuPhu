@@ -166,8 +166,9 @@
         <Grid Grid.Column="0" Margin="16,10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/> <!-- Timer -->
+                <RowDefinition Height="Auto"/> <!-- Question -->
+                <RowDefinition Height="*"/>    <!-- Answers -->
             </Grid.RowDefinitions>
 
             <!-- ─── Row 0: Top bar (portraits + controls + lifelines) ─── -->
@@ -346,8 +347,55 @@
                 </StackPanel>
             </Grid>
 
-            <!-- ─── Row 1: Question Box ─── -->
-            <Border Grid.Row="1" CornerRadius="14" Margin="0,8" Padding="24,18">
+            <!-- ─── Row 1: Timer and Cheat Bell ─── -->
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,10" Width="400"
+                        Visibility="{Binding IsTimerVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,4">
+                    <TextBlock Text="🔔" FontSize="28" Margin="0,0,10,0"
+                               Visibility="{Binding IsCheated, Converter={StaticResource BoolToVisibilityConverter}}"
+                               ToolTip="Phát hiện gian lận!" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="#FFFF3333"/>
+                        </TextBlock.Foreground>
+                        <TextBlock.Effect>
+                            <DropShadowEffect Color="Red" BlurRadius="20" ShadowDepth="0" Opacity="1"/>
+                        </TextBlock.Effect>
+                        <TextBlock.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        </TextBlock.RenderTransform>
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsCheated}" Value="True">
+                                        <DataTrigger.EnterActions>
+                                            <BeginStoryboard x:Name="BlinkStoryboard">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" From="1" To="1.3" Duration="0:0:0.3" AutoReverse="True" RepeatBehavior="Forever"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" From="1" To="1.3" Duration="0:0:0.3" AutoReverse="True" RepeatBehavior="Forever"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0.5" Duration="0:0:0.3" AutoReverse="True" RepeatBehavior="Forever"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </DataTrigger.EnterActions>
+                                        <DataTrigger.ExitActions>
+                                            <StopStoryboard BeginStoryboardName="BlinkStoryboard"/>
+                                        </DataTrigger.ExitActions>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    
+                    <TextBlock Foreground="#FFFFD700" FontSize="18" FontWeight="Bold" FontFamily="Consolas" VerticalAlignment="Center">
+                        <Run Text="⏱ "/>
+                        <Run Text="{Binding CurrentAnswerTimeSeconds, StringFormat={}{0:F3} giây}"/>
+                    </TextBlock>
+                </StackPanel>
+                
+                <ProgressBar IsIndeterminate="{Binding IsAnswerPhase}" Height="4" BorderThickness="0" Foreground="#FFFFD700" Background="#44000000"/>
+            </StackPanel>
+
+            <!-- ─── Row 2: Question Box ─── -->
+            <Border Grid.Row="2" CornerRadius="14" Margin="0,8" Padding="24,18">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Color="#FF1A1650" Offset="0"/>
@@ -381,8 +429,8 @@
                 </TextBlock>
             </Border>
 
-            <!-- ─── Row 2: Answer Buttons ─── -->
-            <Grid Grid.Row="2" Margin="0,4">
+            <!-- ─── Row 3: Answer Buttons ─── -->
+            <Grid Grid.Row="3" Margin="0,4">
                 <ItemsControl ItemsSource="{Binding CurrentQuestion.Options}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -631,54 +679,104 @@
         </Border>
 
         <!-- ═══════════════════════════════════════════════════════════ -->
-        <!-- POPUP: Expert Answer                                        -->
+        <!-- POPUP: Call a Friend (30s)                                  -->
         <!-- ═══════════════════════════════════════════════════════════ -->
         <Border Grid.ColumnSpan="2" 
                 Background="{StaticResource OverlayDarkBrush}"
-                Visibility="{Binding IsExpertAnswerVisible, Converter={StaticResource BoolToVisibilityConverter}}"
-                VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                Visibility="{Binding IsCallActiveVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                Panel.ZIndex="100">
 
-            <Border Style="{StaticResource PopupCardStyle}" Width="640">
+            <Border Style="{StaticResource PopupCardStyle}" Width="700" Padding="30">
                 <StackPanel>
-                    <TextBlock Text="KẾT QUẢ TƯ VẤN TỪ CHUYÊN GIA" 
-                               Style="{StaticResource PopupTitleStyle}"/>
+                    <TextBlock Text="GỌI ĐIỆN CHO NGƯỜI THÂN" 
+                               Style="{StaticResource PopupTitleStyle}" Margin="0,0,0,20"/>
 
-                    <!-- Divider -->
-                    <Border Height="1" Margin="0,0,0,20" Opacity="0.5">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                <GradientStop Color="#00FFD700" Offset="0"/>
-                                <GradientStop Color="#FFFFD700" Offset="0.5"/>
-                                <GradientStop Color="#00FFD700" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                    </Border>
+                    <Grid Margin="0,10,0,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="220"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Border CornerRadius="10" Padding="20,16" Margin="0,0,0,16">
-                        <Border.Background>
-                            <SolidColorBrush Color="#221A1A50"/>
-                        </Border.Background>
-                        <TextBlock Text="{Binding SelectedExpert.ExpertAnswer}" 
-                                   Foreground="White" 
-                                   FontSize="21" 
-                                   FontFamily="Segoe UI"
-                                   TextAlignment="Center" 
-                                   TextWrapping="Wrap"/>
-                    </Border>
+                        <!-- Left: 30s Timer + Avatar -->
+                        <Grid Grid.Column="0" Width="200" Height="200" HorizontalAlignment="Center">
+                            <!-- Background Circle for Timer -->
+                            <Ellipse Width="190" Height="190" Stroke="#44FFFFFF" StrokeThickness="3" />
+                            <Ellipse Width="160" Height="160" Stroke="#22FFFFFF" StrokeThickness="2" />
+                            
+                            <!-- Avatar Placeholder -->
+                            <Border Width="130" Height="130" CornerRadius="65" Background="#33000000" BorderBrush="#88FFFFFF" BorderThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="👤" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5"/>
+                            </Border>
 
-                    <TextBlock Text="{Binding SelectedExpert.Name, StringFormat='— {0} —'}" 
-                               Foreground="{StaticResource SecondaryTextBrush}" 
-                               FontSize="16" 
-                               FontStyle="Italic"
-                               FontFamily="Segoe UI"
-                               HorizontalAlignment="Right" 
-                               Margin="0,0,0,24"/>
+                            <!-- The 30 dots Timer -->
+                            <ItemsControl ItemsSource="{Binding CallTimerDots}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <Grid Width="200" Height="200" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Ellipse Width="14" Height="14" 
+                                                 RenderTransformOrigin="0.5,0.5"
+                                                 VerticalAlignment="Top" HorizontalAlignment="Center">
+                                            <Ellipse.Style>
+                                                <Style TargetType="Ellipse">
+                                                    <Setter Property="Fill" Value="#FFFFD700" />
+                                                    <Setter Property="Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect Color="#FFD700" BlurRadius="10" ShadowDepth="0" />
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsActive}" Value="False">
+                                                            <Setter Property="Fill" Value="#55FFFFFF" />
+                                                            <Setter Property="Effect" Value="{x:Null}" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Ellipse.Style>
+                                            <Ellipse.RenderTransform>
+                                                <TransformGroup>
+                                                    <TranslateTransform Y="-2" />
+                                                    <RotateTransform Angle="{Binding Angle}" CenterY="102" />
+                                                </TransformGroup>
+                                            </Ellipse.RenderTransform>
+                                        </Ellipse>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            
+                            <!-- Timer Text -->
+                            <TextBlock Text="{Binding CallTimeRemaining}" 
+                                       FontSize="40" FontWeight="Black" Foreground="White" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect Color="Black" BlurRadius="6" ShadowDepth="2" />
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        </Grid>
+
+                        <!-- Right: Subtitles / Conversation -->
+                        <Border Grid.Column="1" Margin="20,0,0,0" CornerRadius="12" Padding="20" Background="#331A1A50" BorderBrush="#55FFFFFF" BorderThickness="1">
+                            <TextBlock Text="{Binding CallSubtitles}" 
+                                       Foreground="White" 
+                                       FontSize="22" 
+                                       FontWeight="Medium"
+                                       FontFamily="Segoe UI"
+                                       TextAlignment="Left" 
+                                       TextWrapping="Wrap"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                    </Grid>
 
                     <Button Content="✓ Đã Hiểu" 
                             Command="{Binding CloseExpertAnswerCommand}" 
                             Style="{StaticResource MenuButtonStyle}" 
-                            Width="260" Height="52" Margin="0,0,0,0"
-                            HorizontalAlignment="Center"/>
+                            Width="260" Height="52" Margin="0,15,0,0"
+                            HorizontalAlignment="Center"
+                            Visibility="{Binding IsCallEnded, Converter={StaticResource BoolToVisibilityConverter}}"/>
                 </StackPanel>
             </Border>
         </Border>

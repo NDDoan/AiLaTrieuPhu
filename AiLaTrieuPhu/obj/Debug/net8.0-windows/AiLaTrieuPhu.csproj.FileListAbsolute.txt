@@ -356,3 +356,14 @@ C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-wi
 C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Image\phao_hoa\fireworks_35.png
 C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\obj\Debug\net8.0-windows\Views\FireworkEffectControl.baml
 C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\obj\Debug\net8.0-windows\Views\FireworkEffectControl.g.cs
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\obj\Debug\net8.0-windows\Views\AchievementToastControl.baml
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\obj\Debug\net8.0-windows\Views\AchievementToastControl.g.cs
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\obj\Debug\net8.0-windows\Views\AchievementScreen.baml
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\obj\Debug\net8.0-windows\Views\AchievementScreen.g.cs
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\SFX\Help\GoiDienThoai.mp3
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\VA\Help\AvaBbisai.mp3
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\VA\Help\AvaCbisai.mp3
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\VA\Help\AvaDbisai.mp3
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\VA\Help\BvaCbisai.mp3
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\VA\Help\BvaDbisai.mp3
+C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\bin\Debug\net8.0-windows\Assets\Audio\VA\Help\CvaDbisai.mp3

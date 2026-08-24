@@ -8,13 +8,13 @@ C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\obj\Debug\net8.0-wi
 AiLaTrieuPhu
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\kamek\source\repos\WhoIsMillionareGame\AiLaTrieuPhu\App.xaml
-9476010089
-102-838965454
-401787529241
-206999471199
-Resources\AnimationStyles.xaml;Resources\ButtonStyles.xaml;Resources\Colors.xaml;Resources\Fonts.xaml;Views\FireworkEffectControl.xaml;Views\GameScreen.xaml;Views\MainWindow.xaml;Views\MenuScreen.xaml;Views\SettingsControl.xaml;
+11140171198
+109-873157753
+52548860951
+206-476772124
+Resources\AnimationStyles.xaml;Resources\ButtonStyles.xaml;Resources\Colors.xaml;Resources\Fonts.xaml;Views\AchievementScreen.xaml;Views\AchievementToastControl.xaml;Views\FireworkEffectControl.xaml;Views\GameScreen.xaml;Views\MainWindow.xaml;Views\MenuScreen.xaml;Views\SettingsControl.xaml;
 
 False
 

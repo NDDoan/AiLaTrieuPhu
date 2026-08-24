@@ -100,3 +100,19 @@ Ngày 5-8-2026:
 Sắp tới đây tôi sẽ cố gắng thêm các tính năng quan trọng, vậy nên hãy theo dõi tôi để có trải nghiệm tốt nhất nhé!
 
 ========================== WHO WANT TO BE A MILLIONARE ==========================
+Ngày 20-8-2026:
+
+	Trước khi nói về việc cập nhật, tôi xin phép kết thúc dự án này vì hiện tại toàn
+	bộ nội dung tôi có thể nghĩ ra được để đã thực hiện đầy đủ và không nghĩ ra thêm được gì.
+
+	Bản cập nhật ALTP release 1 được phát hành với những tính năng cuối cùng được thêm vào như sau:
+- Thêm cơ chế thành tựu
+- Cập nhật thanh thời gian, nó nằm ở phần cài đặt ấy
+- Cập nhật và hoàn thiện các sự trợ giúp
+- Sửa các lỗi vặt, nếu lỗi thì bạn có mã nguồn có sẵn để sửa.
+- Thêm "nhiều" câu hỏi mới, nhưng sẽ không còn bản cập nhật sau này nữa.
+
+Sắp tới đây tôi định làm dự án mới, chắc bạn đừng ngạc nhiên nếu sản phẩm đó phát ra
+tiếng tạch tạch
+
+============================ Fin ================================================

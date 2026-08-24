@@ -92,6 +92,9 @@ namespace AiLaTrieuPhu.ViewModels
         private void OpenSettings() => _mainNavigator.NavigateToSettings();
 
         [RelayCommand]
+        private void OpenAchievements() => _mainNavigator.NavigateToAchievements();
+
+        [RelayCommand]
         private void ExitApplication() => Application.Current.Shutdown();
     }
 }

@@ -1,28 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using AiLaTrieuPhu.ViewModels;
 
 namespace AiLaTrieuPhu.Views
 {
     /// <summary>
-    /// Interaction logic for GameScreen.xaml
+    /// Interaction logic for GameScreen.xaml.
+    /// Chịu trách nhiệm bắt sự kiện cửa sổ (Alt-Tab) để phát hiện gian lận.
     /// </summary>
     public partial class GameScreen : UserControl
     {
+        private Window? _parentWindow;
+
         public GameScreen()
         {
             InitializeComponent();
+            Loaded += GameScreen_Loaded;
+            Unloaded += GameScreen_Unloaded;
+        }
+
+        private void GameScreen_Loaded(object sender, RoutedEventArgs e)
+        {
+            _parentWindow = Window.GetWindow(this);
+            if (_parentWindow != null)
+                _parentWindow.Deactivated += ParentWindow_Deactivated;
+        }
+
+        private void GameScreen_Unloaded(object sender, RoutedEventArgs e)
+        {
+            if (_parentWindow != null)
+                _parentWindow.Deactivated -= ParentWindow_Deactivated;
+        }
+
+        private void ParentWindow_Deactivated(object? sender, System.EventArgs e)
+        {
+            if (DataContext is GameViewModel vm)
+                vm.OnWindowDeactivated();
         }
     }
 }

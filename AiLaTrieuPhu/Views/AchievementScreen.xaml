@@ -1,0 +1,300 @@
+<UserControl x:Class="AiLaTrieuPhu.Views.AchievementScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             Background="#0A0A1A">
+
+    <UserControl.Resources>
+        <!-- Converter BoolToVisibility -->
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter"/>
+
+        <!-- Màu sắc chủ đạo -->
+        <SolidColorBrush x:Key="GoldBrush" Color="#D4AF37"/>
+        <SolidColorBrush x:Key="DimGoldBrush" Color="#7A6520"/>
+        <SolidColorBrush x:Key="CardBgBrush" Color="#12122A"/>
+        <SolidColorBrush x:Key="CardLockedBgBrush" Color="#0D0D1C"/>
+        <SolidColorBrush x:Key="WhiteBrush" Color="White"/>
+        <SolidColorBrush x:Key="DimTextBrush" Color="#888899"/>
+
+        <!-- Style cho nút Quay lại -->
+        <Style x:Key="BackButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="#D4AF37"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="Foreground" Value="#D4AF37"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="20,8"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#1A1A00"/>
+                                <Setter Property="BorderBrush" Value="#FFD700"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- DataTemplate cho mỗi ô thành tựu -->
+        <DataTemplate x:Key="AchievementItemTemplate">
+            <Border Margin="8"
+                    CornerRadius="12"
+                    Padding="14,12">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#12122A"/>
+                        <Setter Property="BorderThickness" Value="1.5"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsUnlocked}" Value="True">
+                                <Setter Property="BorderBrush" Value="#D4AF37"/>
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#D4AF37" BlurRadius="12" ShadowDepth="0" Opacity="0.35"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsUnlocked}" Value="False">
+                                <Setter Property="BorderBrush" Value="#2A2A3A"/>
+                                <Setter Property="Background" Value="#0D0D1C"/>
+                                <Setter Property="Opacity" Value="0.7"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Icon thành tựu -->
+                    <Border Grid.Column="0"
+                            Width="52" Height="52"
+                            CornerRadius="26"
+                            VerticalAlignment="Center">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsUnlocked}" Value="True">
+                                        <Setter Property="Background" Value="#D4AF37"/>
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect Color="#D4AF37" BlurRadius="10" ShadowDepth="0" Opacity="0.7"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsUnlocked}" Value="False">
+                                        <Setter Property="Background" Value="#2A2A3A"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="26"
+                                   Text="🏆">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="False">
+                                            <Setter Property="Text" Value="🔒"/>
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Border>
+
+                    <!-- Thông tin thành tựu -->
+                    <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+
+                        <!-- Tên thành tựu -->
+                        <TextBlock Text="{Binding DisplayName}"
+                                   FontFamily="Segoe UI"
+                                   FontSize="14"
+                                   FontWeight="Bold"
+                                   TextTrimming="CharacterEllipsis">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Foreground" Value="#CCCCCC"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+
+                        <!-- Mô tả thành tựu -->
+                        <TextBlock Text="{Binding DisplayDescription}"
+                                   FontFamily="Segoe UI"
+                                   FontSize="11"
+                                   Foreground="#888899"
+                                   TextWrapping="Wrap"
+                                   Margin="0,3,0,0"
+                                   MaxWidth="320"/>
+
+                        <!-- Thanh tiến trình (cho thành tựu cày cuốc) -->
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,5,0,0"
+                                    Visibility="{Binding HasProgressBar, Converter={StaticResource BoolToVisConverter}}">
+                            <ProgressBar Width="120" Height="6"
+                                         Value="{Binding Progress, Mode=OneWay}"
+                                         Maximum="{Binding MaxProgress, Mode=OneWay}"
+                                         Foreground="#D4AF37"
+                                         Background="#2A2A3A"
+                                         BorderThickness="0"
+                                         VerticalAlignment="Center"/>
+                            <TextBlock Margin="6,0,0,0"
+                                       FontSize="10"
+                                       Foreground="#888899"
+                                       VerticalAlignment="Center">
+                                <Run Text="{Binding Progress, Mode=OneWay}"/>
+                                <Run Text="/"/>
+                                <Run Text="{Binding MaxProgress, Mode=OneWay}"/>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <!-- Ngày giờ mở khóa -->
+                        <TextBlock FontFamily="Segoe UI"
+                                   FontSize="10"
+                                   Foreground="#D4AF37"
+                                   Margin="0,4,0,0">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsUnlocked}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                            <Run Text="✓ Hoàn thành: "/>
+                            <Run Text="{Binding UnlockedDateDisplay, Mode=OneWay}"/>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <!-- Nền gradient -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#0A0A1A" Offset="0"/>
+                <GradientStop Color="#0F0F2A" Offset="0.5"/>
+                <GradientStop Color="#0A0A1A" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0"
+                Padding="30,20,30,16"
+                BorderBrush="#D4AF3730"
+                BorderThickness="0,0,0,1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Nút Quay lại -->
+                <Button Grid.Column="0"
+                        Style="{StaticResource BackButtonStyle}"
+                        Content="← Quay lại"
+                        x:Name="BackButton"
+                        Click="BackButton_Click"/>
+
+                <!-- Tiêu đề -->
+                <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="🏆 THÀNH TỰU"
+                               FontFamily="Segoe UI"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Foreground="#D4AF37"
+                               HorizontalAlignment="Center">
+                        <TextBlock.Effect>
+                            <DropShadowEffect Color="#D4AF37" BlurRadius="15" ShadowDepth="0" Opacity="0.6"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+
+                <!-- Bộ đếm -->
+                <Border Grid.Column="2"
+                        Background="#1A1A00"
+                        BorderBrush="#D4AF37"
+                        BorderThickness="1"
+                        CornerRadius="20"
+                        Padding="14,6">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" Foreground="#D4AF37"
+                                   Text="{Binding UnlockedCount}"/>
+                        <TextBlock FontFamily="Segoe UI" FontSize="14" Foreground="#888899" Text=" / "/>
+                        <TextBlock FontFamily="Segoe UI" FontSize="14" Foreground="#888899"
+                                   Text="{Binding TotalCount}"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Thanh tiến trình tổng -->
+        <Border Grid.Row="1" Padding="30,10">
+            <Grid>
+                <ProgressBar Height="8"
+                             Value="{Binding UnlockedCount, Mode=OneWay}"
+                             Maximum="{Binding TotalCount, Mode=OneWay}"
+                             Background="#1A1A2E"
+                             BorderThickness="0">
+                    <ProgressBar.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#D4AF37" Offset="0"/>
+                            <GradientStop Color="#FFD700" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ProgressBar.Foreground>
+                </ProgressBar>
+            </Grid>
+        </Border>
+
+        <!-- Danh sách thành tựu -->
+        <ScrollViewer Grid.Row="2"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled"
+                      Padding="22,0,22,20">
+            <ItemsControl ItemsSource="{Binding AchievementItems}"
+                          ItemTemplate="{StaticResource AchievementItemTemplate}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <!-- 2 cột -->
+                        <UniformGrid Columns="2"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

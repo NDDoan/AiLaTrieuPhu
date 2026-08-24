@@ -193,6 +193,12 @@
                                 IsEnabled="{Binding IsStartingGame, Converter={StaticResource InverseBoolConverter}}"
                                 Width="340" Height="54"
                                 Margin="0,8,0,0"/>
+                        <Button Content="🏆  Thành Tựu" 
+                                Command="{Binding OpenAchievementsCommand}" 
+                                Style="{StaticResource MenuButtonStyle}" 
+                                IsEnabled="{Binding IsStartingGame, Converter={StaticResource InverseBoolConverter}}"
+                                Width="340" Height="54"
+                                Margin="0,8,0,0"/>
 
                         <!-- Gold separator before exit -->
                         <Border Height="1" Margin="40,14,40,6" Opacity="0.4">

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,8 +46,9 @@ namespace AiLaTrieuPhu.Services
 
                     if (allQuestions != null)
                     {
-                        // Chọn ngẫu nhiên 'countToPick' câu từ tập hợp này
+                        // Chọn ngẫu nhiên 'countToPick' câu từ tập hợp này, đảm bảo không bị trùng lặp câu hỏi
                         var randomQuestions = allQuestions
+                            .DistinctBy(q => q.QuestionText) // Loại bỏ các câu hỏi trùng lặp nội dung
                             .OrderBy(_ => random.Next()) // Sắp xếp ngẫu nhiên
                             .Take(countToPick)
                             .ToList();

@@ -20,6 +20,7 @@
     <None Remove="Assets\Audio\SFX\Answer\Tra_Loi_Sai_Cau_6_Den_14.mp3" />
     <None Remove="Assets\Audio\SFX\Ban_phao_hoa.mp3" />
     <None Remove="Assets\Audio\SFX\Bat_Dau_Game.mp3" />
+    <None Remove="Assets\Audio\SFX\Help\GoiDienThoai.mp3" />
     <None Remove="Assets\Audio\SFX\Help\hoiykienkhangiatrongtruongquay.mp3" />
     <None Remove="Assets\Audio\SFX\Help\loaibo2phuongansai.mp3" />
     <None Remove="Assets\Audio\VA\Answer\dapana.mp3" />
@@ -30,6 +31,12 @@
     <None Remove="Assets\Audio\VA\bandavuotqua5cauhoidautiencuachuongtrinh.mp3" />
     <None Remove="Assets\Audio\VA\chaomungdenvoichuongtrinhailatrieuphu.mp3" />
     <None Remove="Assets\Audio\VA\chaomungquividenvoichuongtrinhailatrieuphu.mp3" />
+    <None Remove="Assets\Audio\VA\Help\AvaBbisai.mp3" />
+    <None Remove="Assets\Audio\VA\Help\AvaCbisai.mp3" />
+    <None Remove="Assets\Audio\VA\Help\AvaDbisai.mp3" />
+    <None Remove="Assets\Audio\VA\Help\BvaCbisai.mp3" />
+    <None Remove="Assets\Audio\VA\Help\BvaDbisai.mp3" />
+    <None Remove="Assets\Audio\VA\Help\CvaDbisai.mp3" />
     <None Remove="Assets\Audio\VA\Help\dung5050.mp3" />
     <None Remove="Assets\Audio\VA\Help\dunggoidienthoaichonguoithan.mp3" />
     <None Remove="Assets\Audio\VA\Help\dunghoiykienkhangiatrongtruongquay.mp3" />
@@ -149,6 +156,9 @@
     <Content Include="Assets\Audio\SFX\Bat_Dau_Game.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Audio\SFX\Help\GoiDienThoai.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Audio\SFX\Help\hoiykienkhangiatrongtruongquay.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -177,6 +187,24 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Audio\VA\chaomungquividenvoichuongtrinhailatrieuphu.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Help\AvaBbisai.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Help\AvaCbisai.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Help\AvaDbisai.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Help\BvaCbisai.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Help\BvaDbisai.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\VA\Help\CvaDbisai.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Audio\VA\Help\dung5050.mp3">

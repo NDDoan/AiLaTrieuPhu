@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +22,9 @@ namespace AiLaTrieuPhu.Models
 
         // Toàn bộ 15 câu hỏi của phiên chơi này (rất quan trọng cho việc Save/Load)
         public List<Question> GameQuestions { get; set; } = new List<Question>();
+
+        // Tổng thời gian đã dùng để trả lời (cho việc lưu/tải)
+        public double TotalAnswerTimeSeconds { get; set; } = 0;
 
         // Trạng thái kết thúc của ván chơi
         public GameCompletionStatus CompletionStatus { get; set; } = GameCompletionStatus.InProgress;

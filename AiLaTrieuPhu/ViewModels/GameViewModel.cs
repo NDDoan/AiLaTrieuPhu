@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 using AiLaTrieuPhu.Models;
 using AiLaTrieuPhu.Services;
 using AiLaTrieuPhu.Utilities;
@@ -19,6 +21,34 @@ namespace AiLaTrieuPhu.ViewModels
         private readonly MainViewModel _mainNavigator;
         private readonly SaveGameService _saveService;
         private readonly AudioService _audioService;
+        private readonly IAchievementService _achievementService;
+        private readonly PlayerProfileService _playerProfileService;
+
+        // Bộ đếm thời gian trả lời (chỉ chạy khi người chơi đang chọn đáp án)
+        private readonly Stopwatch _answerStopwatch = new Stopwatch();
+        private double _totalAnswerTimeSeconds = 0;
+
+        // Cờ chống gian lận
+        [ObservableProperty]
+        private bool _isCheated = false;
+
+        [ObservableProperty]
+        private double _currentAnswerTimeSeconds = 0;
+
+        public bool IsTimerVisible => new SettingsService().LoadSettings()?.IsTimerVisible ?? true;
+
+        private DispatcherTimer _uiTimer;
+
+        // Theo dõi câu hỏi nào được dùng quyền trợ giúp
+        private int _audienceUsedAtQuestion = 0;
+        private int _callUsedAtQuestion = 0;
+        private int _consultancyUsedAtQuestion = 0;
+        private int _fiftyFiftyUsedAtQuestion = 0;
+
+        // Toast thành tựu
+        [ObservableProperty]
+        private ObservableCollection<AchievementToastItem> _achievementToasts = new();
+
         // Random instance tập trung, tránh tạo nhiều instance trong thời gian ngắn
         // (nhiều instance cùng seed → kết quả bị lặp lại)
         private readonly Random _random = new Random();
@@ -26,9 +56,9 @@ namespace AiLaTrieuPhu.ViewModels
         // Bảng tiền thưởng tĩnh (Dùng cho logic tính toán)
         private static readonly Dictionary<int, long> StaticPrizeLadder = new Dictionary<int, long>
         {
-            { 1, 1000 }, { 2, 2000 }, { 3, 3000 }, { 4, 5000 }, { 5, 10000 }, // Mốc an toàn 1
-            { 6, 20000 }, { 7, 30000 }, { 8, 50000 }, { 9, 75000 }, { 10, 150000 }, // Mốc an toàn 2
-            { 11, 250000 }, { 12, 500000 }, { 13, 750000 }, { 14, 1000000 }, { 15, 2000000 } // Đỉnh
+            { 1, 1000000 }, { 2, 2000000 }, { 3, 3000000 }, { 4, 5000000 }, { 5, 10000000 }, // Mốc an toàn 1
+            { 6, 15000000 }, { 7, 20000000 }, { 8, 30000000 }, { 9, 40000000 }, { 10, 60000000 }, // Mốc an toàn 2
+            { 11, 80000000 }, { 12, 120000000 }, { 13, 200000000 }, { 14, 300000000 }, { 15, 500000000 } // Đỉnh
         };
 
         [ObservableProperty]
@@ -44,6 +74,8 @@ namespace AiLaTrieuPhu.ViewModels
         [NotifyCanExecuteChangedFor(nameof(UseCallCommand))]
         [NotifyCanExecuteChangedFor(nameof(UseAudienceCommand))]
         [NotifyCanExecuteChangedFor(nameof(UseConsultancyCommand))]
+        [NotifyCanExecuteChangedFor(nameof(SaveAndExitCommand))]
+        [NotifyCanExecuteChangedFor(nameof(QuitGameCommand))]
         [NotifyPropertyChangedFor(nameof(Is5050Enabled))]
         [NotifyPropertyChangedFor(nameof(IsCallingEnabled))]
         [NotifyPropertyChangedFor(nameof(IsAudienceEnabled))]
@@ -127,7 +159,24 @@ namespace AiLaTrieuPhu.ViewModels
             IsExpertSelectionVisible = true;
         }
 
-        // Thuộc tính để hiển thị/ẩn cửa sổ pop-up kết quả tư vấn
+        // --- Thuộc tính cho Giao diện Gọi Điện 30s Mới ---
+        [ObservableProperty]
+        private bool _isCallActiveVisible = false;
+
+        [ObservableProperty]
+        private string _callSubtitles = "";
+
+        [ObservableProperty]
+        private ObservableCollection<CallDot> _callTimerDots = new ObservableCollection<CallDot>();
+
+        [ObservableProperty]
+        private int _callTimeRemaining = 30;
+
+        [ObservableProperty]
+        private bool _isCallEnded = false;
+        // ------------------------------------------------
+
+        // Thuộc tính để hiển thị/ẩn cửa sổ pop-up kết quả tư vấn (Giao diện cũ)
         [ObservableProperty]
         private bool _isExpertAnswerVisible = false;
 
@@ -168,13 +217,40 @@ namespace AiLaTrieuPhu.ViewModels
         [ObservableProperty]
         private bool _isContinueGameAvailable = false;
 
-        public GameViewModel(MainViewModel mainNavigator, GameStatus status, SaveGameService saveService, AudioService audioService)
+        public GameViewModel(MainViewModel mainNavigator, GameStatus status, SaveGameService saveService, AudioService audioService, IAchievementService achievementService, PlayerProfileService playerProfileService, bool isLoadedGame = false)
         {
             _mainNavigator = mainNavigator;
             _saveService = saveService;
             _audioService = audioService;
+            _achievementService = achievementService;
+            _playerProfileService = playerProfileService;
 
             CurrentGameStatus = status;
+            _totalAnswerTimeSeconds = CurrentGameStatus.TotalAnswerTimeSeconds;
+            CurrentAnswerTimeSeconds = _totalAnswerTimeSeconds; // Cập nhật khởi tạo cho UI
+
+            if (isLoadedGame)
+            {
+                IsCheated = true; // Chơi tiếp được tính là gian lận (thoát ra search Google rồi vô lại)
+            }
+
+            // Đăng ký sự kiện mất focus (alt-tab) để phát hiện gian lận độc lập
+            if (Application.Current != null)
+            {
+                Application.Current.Deactivated += OnApplicationDeactivated;
+            }
+
+            // Khởi tạo timer cập nhật UI thanh thời gian
+            _uiTimer = new DispatcherTimer();
+            _uiTimer.Interval = TimeSpan.FromMilliseconds(15);
+            _uiTimer.Tick += (s, e) =>
+            {
+                if (IsAnswerPhase && _answerStopwatch.IsRunning)
+                {
+                    CurrentAnswerTimeSeconds = _totalAnswerTimeSeconds + _answerStopwatch.Elapsed.TotalSeconds;
+                }
+            };
+            _uiTimer.Start();
 
             InitializePrizeLadderDisplay();
 
@@ -244,6 +320,10 @@ namespace AiLaTrieuPhu.ViewModels
         private async Task Answer(int selectedAnswerIndex)
         {
             IsAnswerPhase = false; // Vô hiệu hóa nút bấm ngay lập tức
+            _answerStopwatch.Stop(); // Dừng đếm giờ khi người chơi đã chọn
+            _totalAnswerTimeSeconds += _answerStopwatch.Elapsed.TotalSeconds;
+            CurrentGameStatus.TotalAnswerTimeSeconds = _totalAnswerTimeSeconds; // Cập nhật ngay vào Model
+            CurrentAnswerTimeSeconds = _totalAnswerTimeSeconds; // Cập nhật lần cuối hiển thị
             SelectedAnswerIndex = selectedAnswerIndex;
             IsResultRevealed = false;
 
@@ -275,6 +355,11 @@ namespace AiLaTrieuPhu.ViewModels
                 GameStatusMessage = $"Chúc mừng! Đáp án {IntToChar(selectedAnswerIndex)} là chính xác!";
 
                 await _audioService.PlayVAAsync($"VA/Answer/dolacautraloidung.mp3");
+
+                // Kiểm tra thành tựu trả lời đúng từng câu
+                var answerCtx = BuildContext(isAnswerCorrect: true);
+                var unlocked = await _achievementService.EvaluateAsync(answerCtx);
+                _ = ShowToastsAsync(unlocked);
 
                 await Task.Delay(2500); 
                 long prizeAmount = StaticPrizeLadder[CurrentGameStatus.CurrentQuestionIndex + 1];
@@ -367,6 +452,7 @@ namespace AiLaTrieuPhu.ViewModels
                 HandleBGM();
 
                 await _saveService.SaveGameAsync(CurrentGameStatus);
+                _answerStopwatch.Restart(); // Bắt đầu đếm thời gian từ khi câu hỏi xuất hiện
                 IsAnswerPhase = true;
             }
             else
@@ -377,7 +463,9 @@ namespace AiLaTrieuPhu.ViewModels
 
         private async Task GameOver(bool isWinner, bool isVoluntaryQuit = false)
         {
+            CleanupCheatDetection();
             IsAnswerPhase = false;
+            _answerStopwatch.Stop();
             _audioService.StopBGM();
             await Task.Delay(5000);
 
@@ -385,24 +473,36 @@ namespace AiLaTrieuPhu.ViewModels
             if (isWinner)
             {
                 finalPrize = StaticPrizeLadder[15];
-                CurrentGameStatus.CompletionStatus = GameCompletionStatus.QuitAndKeptMoney; // Hoặc một trạng thái Win riêng
+                CurrentGameStatus.CompletionStatus = GameCompletionStatus.QuitAndKeptMoney;
                 GameStatusMessage = $"Bạn là Triệu Phú! Chúc mừng với {finalPrize:N0} VNĐ!";
             }
             else if (isVoluntaryQuit)
             {
-                // Nếu tự bỏ, ra về với tiền thưởng đã đạt được (CurrentPrizeMoney)
-                // Lưu ý: CurrentPrizeMoney đã được cập nhật sau mỗi câu trả lời đúng
                 finalPrize = CurrentGameStatus.CurrentPrizeMoney;
                 CurrentGameStatus.CompletionStatus = GameCompletionStatus.QuitAndKeptMoney;
                 GameStatusMessage = $"Chúc mừng! Bạn ra về với {finalPrize:N0} VNĐ!";
             }
             else
             {
-                // Nếu thua (trả lời sai), ra về với tiền ở mốc an toàn cuối cùng
                 finalPrize = CalculateFinalPrize();
                 CurrentGameStatus.CompletionStatus = GameCompletionStatus.Lost;
                 GameStatusMessage = $"Thật tiếc! Bạn phải dừng cuộc chơi. Tiền thưởng của bạn là {finalPrize:N0} VNĐ.";
             }
+
+            // Cập nhật PlayerProfile và kiểm tra thành tựu
+            var updatedProfile = await _playerProfileService.UpdateAfterGameAsync(
+                isWin: isWinner,
+                isCheated: IsCheated,
+                totalAnswerTimeSeconds: _totalAnswerTimeSeconds);
+
+            var ctx = BuildContext(
+                isAnswerCorrect: false,
+                isWin: isWinner,
+                isVoluntaryQuit: isVoluntaryQuit,
+                profile: updatedProfile);
+
+            var unlocked = await _achievementService.EvaluateAsync(ctx);
+            _ = ShowToastsAsync(unlocked);
 
             // Lưu trạng thái cuối cùng vào file save (bao gồm CompletionStatus)
             await _saveService.SaveGameAsync(CurrentGameStatus);
@@ -421,10 +521,16 @@ namespace AiLaTrieuPhu.ViewModels
         // CÁC HÀM HỖ TRỢ VÀ COMMANDS KHÁC
         // =========================================================================
 
-        [RelayCommand]
+        [RelayCommand(CanExecute = nameof(IsAnswerPhase))]
         private async Task SaveAndExit()
         {
+            CleanupCheatDetection();
             _audioService.StopBGM();
+            
+            // Cập nhật lại thời gian trước khi lưu
+            _totalAnswerTimeSeconds += _answerStopwatch.Elapsed.TotalSeconds;
+            CurrentGameStatus.TotalAnswerTimeSeconds = _totalAnswerTimeSeconds;
+            
             await _saveService.SaveGameAsync(CurrentGameStatus);
             _mainNavigator.NavigateToMenu();
         }
@@ -445,7 +551,7 @@ namespace AiLaTrieuPhu.ViewModels
             return StaticPrizeLadder.GetValueOrDefault(questionNumber, 0);
         }
 
-        [RelayCommand]
+        [RelayCommand(CanExecute = nameof(IsAnswerPhase))]
         public async Task QuitGame()
         {
             // Xác nhận trước khi TỪ BỎ (nên có MessageBox)
@@ -473,6 +579,7 @@ namespace AiLaTrieuPhu.ViewModels
 
             await _audioService.PlayVAAsync("VA/Help/dung5050.mp3");
 
+            _fiftyFiftyUsedAtQuestion = CurrentGameStatus.CurrentQuestionIndex + 1;
             CurrentGameStatus.Is5050Used = true;
 
             // Is5050Enabled trở thành FALSE, vô hiệu hóa nút.
@@ -490,6 +597,7 @@ namespace AiLaTrieuPhu.ViewModels
 
             // 3. Chọn ngẫu nhiên 2 index sai để ẩn
             var indicesToHide = incorrectIndices.OrderBy(x => _random.Next()).Take(2).ToList();
+            indicesToHide.Sort(); // Sắp xếp để dễ dàng ánh xạ audio
 
             // 4. Cập nhật thuộc tính IsOptionHidden trong Question
             foreach (var index in indicesToHide)
@@ -501,11 +609,28 @@ namespace AiLaTrieuPhu.ViewModels
                 }
             }
 
-            // 5. Thông báo thay đổi
+            // 5. Thông báo thay đổi để cập nhật UI ngay lập tức
             OnPropertyChanged(nameof(CurrentQuestion));
 
+            // Phát âm thanh loại bỏ 2 phương án sai và chờ kết thúc
+            await _audioService.PlaySFXAsync("SFX/Help/loaibo2phuongansai.mp3");
+
+            // 6. Phát giọng MC thông báo 2 phương án sai đã bị loại bỏ
+            string vaAudioPath = string.Empty;
+            if (indicesToHide[0] == 0 && indicesToHide[1] == 1) vaAudioPath = "VA/Help/AvaBbisai.mp3";
+            else if (indicesToHide[0] == 0 && indicesToHide[1] == 2) vaAudioPath = "VA/Help/AvaCbisai.mp3";
+            else if (indicesToHide[0] == 0 && indicesToHide[1] == 3) vaAudioPath = "VA/Help/AvaDbisai.mp3";
+            else if (indicesToHide[0] == 1 && indicesToHide[1] == 2) vaAudioPath = "VA/Help/BvaCbisai.mp3";
+            else if (indicesToHide[0] == 1 && indicesToHide[1] == 3) vaAudioPath = "VA/Help/BvaDbisai.mp3";
+            else if (indicesToHide[0] == 2 && indicesToHide[1] == 3) vaAudioPath = "VA/Help/CvaDbisai.mp3";
+
+            if (!string.IsNullOrEmpty(vaAudioPath))
+            {
+                await _audioService.PlayVAAsync(vaAudioPath);
+            }
+
             IsAnswerPhase = true;
-            // Bắn lại lệnh CanExecute để vô hiệu hóa nút 50:50 (Do OnPropertyChanged(CurrentGameStatus) đã làm điều này, dòng này là dư nhưng không gây hại)
+            // Bắn lại lệnh CanExecute để vô hiệu hóa nút 50:50
             Use5050Command.NotifyCanExecuteChanged();
         }
 
@@ -518,6 +643,7 @@ namespace AiLaTrieuPhu.ViewModels
             IsExpertSelectionVisible = false; // Đóng danh bạ
 
             // 1. Đánh dấu quyền trợ giúp đã dùng
+            _callUsedAtQuestion = CurrentGameStatus.CurrentQuestionIndex + 1;
             CurrentGameStatus.IsCallingUsed = true;
             OnPropertyChanged(nameof(CurrentGameStatus));
             UseCallCommand.NotifyCanExecuteChanged(); // Cập nhật trạng thái nút bấm trợ giúp
@@ -577,10 +703,47 @@ namespace AiLaTrieuPhu.ViewModels
                 expert.ExpertAnswer = $"Câu này không phải chuyên môn của tôi lắm... nhưng theo phán đoán thì có lẽ là {answerLetter}.";
             }
 
+            // 4. HIỂN THỊ GIAO DIỆN GỌI ĐIỆN 30 GIÂY
+            IsCallActiveVisible = true;
+            IsCallEnded = false;
+            CallSubtitles = "Đang kết nối...";
+
+            // Khởi tạo 30 hạt cho vòng tròn đếm ngược (Mỗi hạt cách nhau 12 độ)
+            CallTimerDots.Clear();
+            for (int i = 0; i < 30; i++)
+            {
+                CallTimerDots.Add(new CallDot { Angle = i * 12, IsActive = true });
+            }
+            CallTimeRemaining = 30;
+
             await _audioService.PlayVAAsync("VA/Help/dunggoidienthoaichonguoithan.mp3");
-            // 4. HIỆU ỨNG CHỜ (Simulate "Calling...") có thể thêm hiệu ứng âm thanh "Tút tút" ở đây
             await Task.Delay(2500);
-            IsExpertAnswerVisible = true; // Hiển thị khung chat lời thoại của chuyên gia
+
+            // Bắt đầu phát âm thanh đếm ngược gọi điện
+            _audioService.PlaySFX("SFX/Help/GoiDienThoai.mp3");
+            
+            // Logic thời gian và phụ đề cuộc gọi
+            CallSubtitles = "MC: Xin chào, người chơi đang cần bạn trợ giúp trả lời câu hỏi...";
+
+            for (int t = 30; t > 0; t--)
+            {
+                CallTimeRemaining = t;
+                // Tắt dần hạt theo chiều kim đồng hồ
+                CallTimerDots[30 - t].IsActive = false;
+
+                // Thay đổi phụ đề theo mốc thời gian
+                if (t == 22) CallSubtitles = $"MC: {CurrentQuestion.QuestionText}";
+                if (t == 14) CallSubtitles = $"{expert.Name}: Alo, tôi đang nghe đây...";
+                if (t == 10) CallSubtitles = $"{expert.Name}: {expert.ExpertAnswer}";
+                if (t == 3) CallSubtitles = $"{expert.Name}: Quyết định vậy nhé. Chúc may mắn!";
+
+                await Task.Delay(1000); // Đợi 1 giây
+            }
+
+            CallTimeRemaining = 0;
+            CallSubtitles = "Hết thời gian cuộc gọi!";
+            IsCallEnded = true; // Hiển thị nút 'Đã Hiểu'
+            
             IsAnswerPhase = true;
         }
 
@@ -588,6 +751,7 @@ namespace AiLaTrieuPhu.ViewModels
         private void CloseExpertAnswer()
         {
             IsExpertAnswerVisible = false;
+            IsCallActiveVisible = false;
             GameStatusMessage = "Bạn đã có lời khuyên. Hãy đưa ra quyết định cuối cùng.";
         }
 
@@ -604,6 +768,7 @@ namespace AiLaTrieuPhu.ViewModels
             // 2. Mới bắt đầu phát âm thanh nền khán giả (không await)
             _audioService.PlaySFX("SFX/Help/hoiykienkhangiatrongtruongquay.mp3");
 
+            _audienceUsedAtQuestion = CurrentGameStatus.CurrentQuestionIndex + 1;
             CurrentGameStatus.IsKhanGiaUsed = true;
             OnPropertyChanged(nameof(CurrentGameStatus));
             UseAudienceCommand.NotifyCanExecuteChanged();
@@ -798,6 +963,7 @@ namespace AiLaTrieuPhu.ViewModels
             await _audioService.PlayVAAsync("VA/Help/dungtotuvantaicho.mp3");
 
             // 1. Đánh dấu quyền trợ giúp đã dùng
+            _consultancyUsedAtQuestion = CurrentGameStatus.CurrentQuestionIndex + 1;
             CurrentGameStatus.IsToTuVanUsed = true;
             OnPropertyChanged(nameof(CurrentGameStatus));
             UseConsultancyCommand.NotifyCanExecuteChanged();
@@ -887,6 +1053,60 @@ namespace AiLaTrieuPhu.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gọi khi cửa sổ game bị mất focus (Alt-Tab) — được gọi từ code-behind của GameScreen.
+        /// </summary>
+        public void OnWindowDeactivated()
+        {
+            if (IsAnswerPhase) // Chỉ đánh dấu khi đang trong phase trả lời
+            {
+                IsCheated = true;
+                _answerStopwatch.Stop(); // Dừng đếm giờ
+            }
+        }
+
+        // Xây dựng AchievementContext từ trạng thái hiện tại của game
+        private AchievementContext BuildContext(
+            bool isAnswerCorrect = false,
+            bool isWin = false,
+            bool isVoluntaryQuit = false,
+            PlayerProfile? profile = null)
+        {
+            profile ??= _playerProfileService.Profile;
+            return new AchievementContext
+            {
+                QuestionNumber = CurrentGameStatus.CurrentQuestionIndex + 1,
+                IsAnswerCorrect = isAnswerCorrect,
+                IsWin = isWin,
+                IsVoluntaryQuit = isVoluntaryQuit,
+                Is5050Used = CurrentGameStatus.Is5050Used,
+                IsAudienceUsed = CurrentGameStatus.IsKhanGiaUsed,
+                IsCallUsed = CurrentGameStatus.IsCallingUsed,
+                IsConsultancyUsed = CurrentGameStatus.IsToTuVanUsed,
+                AudienceUsedAtQuestion = _audienceUsedAtQuestion,
+                CallUsedAtQuestion = _callUsedAtQuestion,
+                ConsultancyUsedAtQuestion = _consultancyUsedAtQuestion,
+                FiftyFiftyUsedAtQuestion = _fiftyFiftyUsedAtQuestion,
+                IsCheated = IsCheated,
+                TotalAnswerTimeSeconds = _totalAnswerTimeSeconds,
+                TotalWins = profile.TotalWins,
+                CurrentWinStreak = profile.CurrentWinStreak
+            };
+        }
+
+        // Hiển thị toast thành tựu lần lượt
+        private async Task ShowToastsAsync(List<Achievement> achievements)
+        {
+            foreach (var ach in achievements)
+            {
+                var toast = new AchievementToastItem { Name = ach.Name, IconPath = ach.IconPath };
+                AchievementToasts.Add(toast);
+                await Task.Delay(4000);
+                AchievementToasts.Remove(toast);
+                await Task.Delay(300);
+            }
+        }
+
         public async Task CheckSaveGameStatus()
         {
             var savedGame = await _saveService.LoadGameAsync();
@@ -933,6 +1153,22 @@ namespace AiLaTrieuPhu.ViewModels
                 // Giai đoạn 6-15: Phát lại từ đầu mỗi câu hỏi
                 _audioService.StopBGM();
                 _audioService.PlayBGM("BGM/Q6_Q15.mp3");
+            }
+        }
+
+        private void OnApplicationDeactivated(object? sender, EventArgs e)
+        {
+            if (CurrentGameStatus.CompletionStatus == GameCompletionStatus.InProgress)
+            {
+                IsCheated = true; // Chuyển tab hoặc mất focus bị coi là gian lận
+            }
+        }
+
+        private void CleanupCheatDetection()
+        {
+            if (Application.Current != null)
+            {
+                Application.Current.Deactivated -= OnApplicationDeactivated;
             }
         }
     }

@@ -344,6 +344,41 @@
                     </StackPanel>
                 </Border>
 
+                <!-- SECTION: Khác -->
+                <Border CornerRadius="12" Padding="28,20" Margin="0,0,0,20">
+                    <Border.Background>
+                        <SolidColorBrush Color="#CC0D0D28"/>
+                    </Border.Background>
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#44FFD700" Offset="0"/>
+                            <GradientStop Color="#22FFD700" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <Border.BorderThickness>1</Border.BorderThickness>
+
+                    <StackPanel>
+                        <!-- Section title -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
+                            <TextBlock Text="⚙" FontSize="22" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                            <TextBlock Text="TÍNH NĂNG KHÁC" 
+                                       Foreground="{StaticResource AccentGoldBrush}" 
+                                       FontSize="20" FontWeight="Bold" FontFamily="Segoe UI"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <!-- Timer Toggle -->
+                        <StackPanel Orientation="Horizontal" Margin="0,8">
+                            <TextBlock Text="Hiện thanh thời gian" Style="{StaticResource SectionLabelStyle}"/>
+                            <CheckBox IsChecked="{Binding CurrentSettings.IsTimerVisible, Mode=TwoWay}"
+                                      Content="Bật/Tắt thanh thời gian (ms)"
+                                      Foreground="White"
+                                      FontSize="16" FontFamily="Segoe UI"
+                                      VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
             </StackPanel>
         </ScrollViewer>
 
